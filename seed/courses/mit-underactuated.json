@@ -1,0 +1,19 @@
+{
+  "slug": "mit-underactuated",
+  "title": "Underactuated Robotics",
+  "shortTitle": "Underactuated",
+  "university": "MIT",
+  "instructors": ["Russ Tedrake"],
+  "subject": "robotics",
+  "level": 4,
+  "description": "Продвинутое управление ходьбой, полётом и балансом. Курс на потом.",
+  "sourceUrl": "https://underactuated.mit.edu/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": [],
+  "estimatedHours": 35,
+  "units": [],
+  "materials": [],
+  "skills": ["control", "optimization"]
+}

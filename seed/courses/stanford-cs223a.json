@@ -1,0 +1,19 @@
+{
+  "slug": "stanford-cs223a",
+  "title": "CS223A: Introduction to Robotics",
+  "shortTitle": "CS223A",
+  "university": "Stanford",
+  "instructors": ["Oussama Khatib"],
+  "subject": "robotics",
+  "level": 3,
+  "description": "Введение в робототехнику: кинематика, якобиан, динамика и управление манипуляторами.",
+  "sourceUrl": "https://see.stanford.edu/Course/CS223A",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PL65CC0384A1798ADF"],
+  "estimatedHours": 19,
+  "units": [],
+  "materials": [],
+  "skills": ["kinematics", "dynamics", "control"]
+}

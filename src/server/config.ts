@@ -23,6 +23,8 @@ export const config = {
   port: isDev ? env.PORT + 1 : env.PORT,
   dataDir: path.resolve(process.cwd(), "data"),
   migrationsDir: path.resolve(process.cwd(), "drizzle"),
+  /** Course catalog in git: tracks.json and courses/*.json (SPEC §4). */
+  seedDir: path.resolve(process.cwd(), "seed"),
   clientDir: path.resolve(process.cwd(), "dist/client"),
   vaultPath: env.VAULT_PATH || undefined,
   youtubeApiKey: env.YOUTUBE_API_KEY || undefined,

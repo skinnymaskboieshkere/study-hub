@@ -1,0 +1,336 @@
+{
+  "slug": "yale-phys-200",
+  "title": "PHYS 200: Fundamentals of Physics I",
+  "shortTitle": "PHYS 200",
+  "university": "Yale",
+  "instructors": ["Ramamurti Shankar"],
+  "subject": "physics",
+  "level": 1,
+  "description": "Основы физики I: механика Ньютона, энергия и импульс, вращение, относительность, колебания и волны, жидкости — и в конце термодинамика. С этого курса начинается физика.",
+  "sourceUrl": "https://oyc.yale.edu/physics/phys-200",
+  "license": "CC BY-NC-SA 3.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLFE3074A4CB751B2B"],
+  "units": [
+    {
+      "title": "Course Introduction and Newtonian Mechanics",
+      "videos": [
+        {
+          "youtubeId": "KOKnWaLiL8w",
+          "title": "Лекция 1 — Course Introduction and Newtonian Mechanics",
+          "durationSec": 4401,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Vectors in Multiple Dimensions",
+      "videos": [
+        {
+          "youtubeId": "Hy7ou5R_vjE",
+          "title": "Лекция 2 — Vectors in Multiple Dimensions",
+          "durationSec": 4009,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Newton's Laws of Motion",
+      "videos": [
+        {
+          "youtubeId": "Ns6GB4Dph9U",
+          "title": "Лекция 3 — Newton's Laws of Motion",
+          "durationSec": 4102,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Newton's Laws (cont.) and Inclined Planes",
+      "videos": [
+        {
+          "youtubeId": "9vLSx1Iv06U",
+          "title": "Лекция 4 — Newton's Laws (cont.) and Inclined Planes",
+          "durationSec": 4045,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Work-Energy Theorem and Law of Conservation of Energy",
+      "videos": [
+        {
+          "youtubeId": "NlDReZhKEro",
+          "title": "Лекция 5 — Work-Energy Theorem and Law of Conservation of Energy",
+          "durationSec": 4216,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Law of Conservation of Energy in Higher Dimensions",
+      "videos": [
+        {
+          "youtubeId": "R74EhX8O0Nw",
+          "title": "Лекция 6 — Law of Conservation of Energy in Higher Dimensions",
+          "durationSec": 4261,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Kepler's Laws",
+      "videos": [
+        {
+          "youtubeId": "KTaIPz6oC9U",
+          "title": "Лекция 7 — Kepler's Laws",
+          "durationSec": 4330,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Dynamics of Multiple-Body System and Law of",
+      "videos": [
+        {
+          "youtubeId": "abF2zesdlVk",
+          "title": "Лекция 8 — Dynamics of Multiple-Body System and Law of",
+          "durationSec": 4330,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Rotations, Part I: Dynamics of Rigid Bodies",
+      "videos": [
+        {
+          "youtubeId": "mx2P1_M-7UA",
+          "title": "Лекция 9 — Rotations, Part I: Dynamics of Rigid Bodies",
+          "durationSec": 4431,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Rotations, Part II: Parallel Axis Theorem",
+      "videos": [
+        {
+          "youtubeId": "UzrZxpup3rc",
+          "title": "Лекция 10 — Rotations, Part II: Parallel Axis Theorem",
+          "durationSec": 4527,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Torque",
+      "videos": [
+        {
+          "youtubeId": "NDdBTyVBTgY",
+          "title": "Лекция 11 — Torque",
+          "durationSec": 4394,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Introduction to Relativity",
+      "videos": [
+        {
+          "youtubeId": "pHfFSQ6pLGU",
+          "title": "Лекция 12 — Introduction to Relativity",
+          "durationSec": 4282,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Lorentz Transformation",
+      "videos": [
+        {
+          "youtubeId": "202fU9qIVK4",
+          "title": "Лекция 13 — Lorentz Transformation",
+          "durationSec": 4107,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Introduction to the Four-Vector",
+      "videos": [
+        {
+          "youtubeId": "URC7QU1XCRw",
+          "title": "Лекция 14 — Introduction to the Four-Vector",
+          "durationSec": 4355,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Four-Vector in Relativity",
+      "videos": [
+        {
+          "youtubeId": "fYSiTa3xyZc",
+          "title": "Лекция 15 — Four-Vector in Relativity",
+          "durationSec": 4304,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "The Taylor Series and Other Mathematical Concepts",
+      "videos": [
+        {
+          "youtubeId": "KzrdZD4EPXY",
+          "title": "Лекция 16 — The Taylor Series and Other Mathematical Concepts",
+          "durationSec": 4419,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Simple Harmonic Motion",
+      "videos": [
+        {
+          "youtubeId": "Zz-9UVpYcJI",
+          "title": "Лекция 17 — Simple Harmonic Motion",
+          "durationSec": 4440,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Simple Harmonic Motion (cont.) and Introduction to Waves",
+      "videos": [
+        {
+          "youtubeId": "v_iNt0FPpwU",
+          "title": "Лекция 18 — Simple Harmonic Motion (cont.) and Introduction to Waves",
+          "durationSec": 4504,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Waves",
+      "videos": [
+        {
+          "youtubeId": "BulqGSY_FlE",
+          "title": "Лекция 19 — Waves",
+          "durationSec": 4314,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Fluid Dynamics and Statics and Bernoulli's Equation",
+      "videos": [
+        {
+          "youtubeId": "lfXDJKKPGfY",
+          "title": "Лекция 20 — Fluid Dynamics and Statics and Bernoulli's Equation",
+          "durationSec": 4352,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Thermodynamics",
+      "videos": [
+        {
+          "youtubeId": "mb8LqNlHeLY",
+          "title": "Лекция 21 — Thermodynamics",
+          "durationSec": 4288,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "The Boltzmann Constant and First Law of Thermodynamics",
+      "videos": [
+        {
+          "youtubeId": "YxGHbnwqd14",
+          "title": "Лекция 22 — The Boltzmann Constant and First Law of Thermodynamics",
+          "durationSec": 4481,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "The Second Law of Thermodynamics and Carnot's Engine",
+      "videos": [
+        {
+          "youtubeId": "DeNBWsZHXTE",
+          "title": "Лекция 23 — The Second Law of Thermodynamics and Carnot's Engine",
+          "durationSec": 4270,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "The Second Law of Thermodynamics (cont.) and Entropy",
+      "videos": [
+        {
+          "youtubeId": "ouSLRgkPzbI",
+          "title": "Лекция 24 — The Second Law of Thermodynamics (cont.) and Entropy",
+          "durationSec": 4308,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "title": "Задачи и конспекты (Open Yale Courses)",
+      "url": "https://oyc.yale.edu/physics/phys-200"
+    }
+  ],
+  "skills": ["mechanics", "relativity", "oscillations", "thermodynamics"]
+}

@@ -1,0 +1,1179 @@
+{
+  "slug": "mit-18-01",
+  "title": "18.01 Single Variable Calculus",
+  "shortTitle": "18.01",
+  "university": "MIT",
+  "instructors": ["David Jerison"],
+  "subject": "math",
+  "level": 1,
+  "description": "Матанализ одной переменной: производные и их приложения, интегралы, методы интегрирования, ряды. Между лекциями — короткие разборы задач из 18.01SC (расставлены по порядку тем примерно).",
+  "sourceUrl": "https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PL590CCC2BC5AF3BC1", "PL21BCE50ABFF029F1"],
+  "units": [
+    {
+      "title": "Rate of Change",
+      "videos": [
+        {
+          "youtubeId": "7K1sB05pE0A",
+          "title": "Лекция 1 — Rate of Change",
+          "durationSec": 3093,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2y4tCiWbVRI",
+          "title": "Как устроены разборы задач",
+          "durationSec": 96,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_nbtaQtX6JA",
+          "title": "Разбор задач: Definition of the Derivative",
+          "durationSec": 748,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Gbtma_UQpro",
+          "title": "Разбор задач: Graphing a Derivative Function",
+          "durationSec": 720,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Limits",
+      "videos": [
+        {
+          "youtubeId": "ryLdyDrBfvI",
+          "title": "Лекция 2 — Limits",
+          "durationSec": 3167,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Fj7pbLwbSmU",
+          "title": "Разбор задач: Smoothing a Piece-wise Function",
+          "durationSec": 555,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Eaei-Y5AO_E",
+          "title": "Разбор задач: Constant Multiple Rule",
+          "durationSec": 426,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Derivatives",
+      "videos": [
+        {
+          "youtubeId": "kCPVBl953eY",
+          "title": "Лекция 3 — Derivatives",
+          "durationSec": 2995,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rfx1x-2dwSI",
+          "title": "Разбор задач: Tangent Line to a Polynomial",
+          "durationSec": 295,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Bb-bgJdOqig",
+          "title": "Разбор задач: Derivatives of Sine and Cosine",
+          "durationSec": 491,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "55ncRlBZstA",
+          "title": "Разбор задач: Product Rule",
+          "durationSec": 428,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Chain Rule",
+      "videos": [
+        {
+          "youtubeId": "4sTKcvYMNxk",
+          "title": "Лекция 4 — Chain Rule",
+          "durationSec": 2763,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "D7nf7pKddwM",
+          "title": "Разбор задач: Quotient Rule",
+          "durationSec": 262,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aeQA5d3gZTI",
+          "title": "Разбор задач: Chain Rule",
+          "durationSec": 461,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Implicit Differentiation",
+      "videos": [
+        {
+          "youtubeId": "5q_3FDOkVRQ",
+          "title": "Лекция 5 — Implicit Differentiation",
+          "durationSec": 2941,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fK6cu99OSEU",
+          "title": "Разбор задач: Implicit Differentiation",
+          "durationSec": 496,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aYMt2ZVGd7g",
+          "title": "Разбор задач: Graphing the Arctan Function",
+          "durationSec": 264,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cdRMY39EYbs",
+          "title": "Разбор задач: Arccos",
+          "durationSec": 573,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Exponential and Log",
+      "videos": [
+        {
+          "youtubeId": "9v25gg2qJYE",
+          "title": "Лекция 6 — Exponential and Log",
+          "durationSec": 2877,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wezQdmwolMU",
+          "title": "Разбор задач: Log and Exponent Derivatives",
+          "durationSec": 420,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9YgOmJdom6o",
+          "title": "Разбор задач: Rules of Logs",
+          "durationSec": 549,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Exam 1 Review",
+      "videos": [
+        {
+          "youtubeId": "eHJuAByQf5A",
+          "title": "Лекция 7 — Exam 1 Review",
+          "durationSec": 3053,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "er_tQOBgo-I",
+          "title": "Разбор задач: Hyperbolic trig functions",
+          "durationSec": 805,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "8gGbViZjoRw",
+          "title": "Разбор задач: Implicit Differentiation and Linear Approximation",
+          "durationSec": 617,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aar099Xh5W4",
+          "title": "Разбор задач: Quadratic Approximation",
+          "durationSec": 432,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Linear and Quadratic Approximations",
+      "videos": [
+        {
+          "youtubeId": "BSAA0akmPEU",
+          "title": "Лекция 9 — Linear and Quadratic Approximations",
+          "durationSec": 2808,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0YGiDaUOse4",
+          "title": "Разбор задач: Quadratic Approximation of a Product",
+          "durationSec": 842,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aWV4khIBvCM",
+          "title": "Разбор задач: Sketching a curve",
+          "durationSec": 740,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Curve Sketching",
+      "videos": [
+        {
+          "youtubeId": "eRCN3daFCmU",
+          "title": "Лекция 10 — Curve Sketching",
+          "durationSec": 3104,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-CsEPYeSBsg",
+          "title": "Разбор задач: Closest Point to the Origin",
+          "durationSec": 400,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2keGgDBJKGU",
+          "title": "Разбор задач: Minimum Triangle Area",
+          "durationSec": 592,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Q9iJWDFUspU",
+          "title": "Разбор задач: Maximum Surface Area",
+          "durationSec": 523,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Max-min",
+      "videos": [
+        {
+          "youtubeId": "twzGBqPeW0M",
+          "title": "Лекция 11 — Max-min",
+          "durationSec": 2982,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "RiRQDZjYkzo",
+          "title": "Разбор задач: Related rates 1",
+          "durationSec": 472,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "d484GRz9zjY",
+          "title": "Разбор задач: Related rates 2",
+          "durationSec": 1053,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Related Rates",
+      "videos": [
+        {
+          "youtubeId": "YN7k_bXXggY",
+          "title": "Лекция 12 — Related Rates",
+          "durationSec": 2996,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ER5B_YBFMJo",
+          "title": "Разбор задач: Using Newton's Method",
+          "durationSec": 466,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G_HS1Dan_x4",
+          "title": "Разбор задач: Mean Value Theorem",
+          "durationSec": 366,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "z1FRDkxlmg8",
+          "title": "Разбор задач: Mean value theorem",
+          "durationSec": 203,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Newton's Method",
+      "videos": [
+        {
+          "youtubeId": "sRIDVAcoG5A",
+          "title": "Лекция 13 — Newton's Method",
+          "durationSec": 3203,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7EKztFcTiUU",
+          "title": "Разбор задач: Antidiff. With Discontinuity",
+          "durationSec": 532,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aefQ2FYugAY",
+          "title": "Разбор задач: Computing Differentials",
+          "durationSec": 244,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Mean Value Theorem",
+      "videos": [
+        {
+          "youtubeId": "4Q37iOyBq44",
+          "title": "Лекция 14 — Mean Value Theorem",
+          "durationSec": 2982,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ed-rB3k_56U",
+          "title": "Разбор задач: Linear approx. with differentials",
+          "durationSec": 335,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v90JNWCTupk",
+          "title": "Разбор задач: Computing Antiderivatives",
+          "durationSec": 531,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Antiderivatives",
+      "videos": [
+        {
+          "youtubeId": "-MI0b4h3rS0",
+          "title": "Лекция 15 — Antiderivatives",
+          "durationSec": 2933,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "W7sNkRpcydk",
+          "title": "Разбор задач: Antidifferentiation by substitution",
+          "durationSec": 609,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HaOHUfymsuk",
+          "title": "Разбор задач: Differential Equation",
+          "durationSec": 204,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WHWyW5DIVSU",
+          "title": "Разбор задач: Differential Equation With Graph",
+          "durationSec": 494,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Differential Equations",
+      "videos": [
+        {
+          "youtubeId": "60VGKnYBpbg",
+          "title": "Лекция 16 — Differential Equations",
+          "durationSec": 2725,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "iHErQuZ8M-I",
+          "title": "Разбор задач: Summation Notation Practice",
+          "durationSec": 860,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ELWqePHYjCk",
+          "title": "Разбор задач: Riemann sum",
+          "durationSec": 446,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Definite Integrals",
+      "videos": [
+        {
+          "youtubeId": "hjZhPczMkL4",
+          "title": "Лекция 18 — Definite Integrals",
+          "durationSec": 2834,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QLo5dRFEyl8",
+          "title": "Разбор задач: Computing the Volume of a Paraboloid",
+          "durationSec": 430,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rqkvDrYmKcc",
+          "title": "Разбор задач: 4J3, Diffusion of a Chemical",
+          "durationSec": 742,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G5BP8mTzkyk",
+          "title": "Разбор задач: Definite Integrals of tan(x)",
+          "durationSec": 368,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "First Fundamental Theorem",
+      "videos": [
+        {
+          "youtubeId": "1RLctDS2hUQ",
+          "title": "Лекция 19 — First Fundamental Theorem",
+          "durationSec": 2895,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "C9luv3o6emw",
+          "title": "Разбор задач: Definite Integral by Substitution",
+          "durationSec": 579,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TQTDkpZP02A",
+          "title": "Разбор задач: Applying the Second Fundamental Theorem",
+          "durationSec": 256,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Second Fundamental Theorem",
+      "videos": [
+        {
+          "youtubeId": "Pd2xP5zDsRw",
+          "title": "Лекция 20 — Second Fundamental Theorem",
+          "durationSec": 2970,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lEOjMAmkI-U",
+          "title": "Разбор задач: Second fundamental theorem and chain rule",
+          "durationSec": 304,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_7vVBtiVXIw",
+          "title": "Разбор задач: Second fundamental theorem and quadratic approximation",
+          "durationSec": 476,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9J_VCHpvMbY",
+          "title": "Разбор задач: Area Between the Graphs of Sine and Cosine",
+          "durationSec": 240,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Applications to Logarithms",
+      "videos": [
+        {
+          "youtubeId": "_JXPe2J069c",
+          "title": "Лекция 21 — Applications to Logarithms",
+          "durationSec": 3017,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "U3ebQ5Z4Jt8",
+          "title": "Разбор задач: Area Between y=x^3 and y=3x-2",
+          "durationSec": 533,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ksAdC6Z99dE",
+          "title": "Разбор задач: Volume of a Paraboloid via Disks",
+          "durationSec": 355,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Volumes",
+      "videos": [
+        {
+          "youtubeId": "ShGBRUx2ub8",
+          "title": "Лекция 22 — Volumes",
+          "durationSec": 2998,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MYXMC7koJyY",
+          "title": "Разбор задач: Volume of Revolution via Shells",
+          "durationSec": 513,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Psks_KK0YZ8",
+          "title": "Разбор задач: Average Velocity",
+          "durationSec": 440,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_UBh66KVAJI",
+          "title": "Разбор задач: Average x-Coordinate in a Region",
+          "durationSec": 640,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Work, Probability",
+      "videos": [
+        {
+          "youtubeId": "R9a_NHXrBcg",
+          "title": "Лекция 23 — Work, Probability",
+          "durationSec": 2916,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uc4xJsi99bk",
+          "title": "Разбор задач: Explanation of Simpson's rule",
+          "durationSec": 891,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "l2SjUREZk0c",
+          "title": "Разбор задач: Using the Trapezoid and Simpson's rules",
+          "durationSec": 468,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Numerical Integration",
+      "videos": [
+        {
+          "youtubeId": "jBkXbAgMj6s",
+          "title": "Лекция 24 — Numerical Integration",
+          "durationSec": 3030,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "y_CA5btuoQk",
+          "title": "Разбор задач: Trig Integral Practice",
+          "durationSec": 682,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Wj0oH3ehk18",
+          "title": "Разбор задач: Trig Integrals and a Volume of Revolution",
+          "durationSec": 563,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "98X2TyxXQdU",
+          "title": "Разбор задач: Integral of tan^4 (theta)",
+          "durationSec": 478,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Exam 3 Review",
+      "videos": [
+        {
+          "youtubeId": "zUEuKrxgHws",
+          "title": "Лекция 25 — Exam 3 Review",
+          "durationSec": 2959,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Nv3C7q88MqA",
+          "title": "Разбор задач: Hyperbolic Trig Sub",
+          "durationSec": 988,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CMbvq16z0gA",
+          "title": "Разбор задач: Integration by completing the square",
+          "durationSec": 845,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Trig Integrals",
+      "videos": [
+        {
+          "youtubeId": "Bv9kVDcj7yo",
+          "title": "Лекция 27 — Trig Integrals",
+          "durationSec": 2805,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UsGBIfjUK7U",
+          "title": "Разбор задач: Partial Fractions Decomposition",
+          "durationSec": 1143,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pWXh5t-37Qg",
+          "title": "Разбор задач: Finding u and v' When Integrating by Parts",
+          "durationSec": 698,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Inverse Substitution",
+      "videos": [
+        {
+          "youtubeId": "CXKoCMVqM9s",
+          "title": "Лекция 28 — Inverse Substitution",
+          "durationSec": 2909,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hV5af_07ToE",
+          "title": "Разбор задач: Integrating sin^n(x) Using Reduction",
+          "durationSec": 1022,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VOlbVNxyNfM",
+          "title": "Разбор задач: Arc Length of y=x^(3/2)",
+          "durationSec": 423,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tMVwXglUp60",
+          "title": "Разбор задач: Surface Area of a Torus",
+          "durationSec": 1256,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Partial Fractions",
+      "videos": [
+        {
+          "youtubeId": "HgEqXhsIq_g",
+          "title": "Лекция 29 — Partial Fractions",
+          "durationSec": 2918,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v1AQ8Yi3yB8",
+          "title": "Разбор задач: Parametric Arclength",
+          "durationSec": 531,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Bk5y6Elcy_Q",
+          "title": "Разбор задач: Polar to Cartesian",
+          "durationSec": 521,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Integration by Parts",
+      "videos": [
+        {
+          "youtubeId": "aeXp1zC6Hls",
+          "title": "Лекция 30 — Integration by Parts",
+          "durationSec": 3084,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "E7oR_JBgUzA",
+          "title": "Разбор задач: Graph of r = 1 + cos(theta/2)",
+          "durationSec": 1180,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "13UPhn32Mjs",
+          "title": "Разбор задач: Integration Practice I",
+          "durationSec": 845,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1cejTnuMo1Y",
+          "title": "Разбор задач: Integration Practice II",
+          "durationSec": 886,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Parametric Equations",
+      "videos": [
+        {
+          "youtubeId": "TpWQlKHPyJ4",
+          "title": "Лекция 31 — Parametric Equations",
+          "durationSec": 2725,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LUdI4-YCIh8",
+          "title": "Разбор задач: Integration Practice III",
+          "durationSec": 746,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zsKdRjP91Fs",
+          "title": "Разбор задач: Integration Practice IV",
+          "durationSec": 1088,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Polar Coordinates",
+      "videos": [
+        {
+          "youtubeId": "XRkgBWbWvg4",
+          "title": "Лекция 32 — Polar Coordinates",
+          "durationSec": 2963,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ycO0Vn_w9Q0",
+          "title": "Разбор задач: l'Hospital Practice",
+          "durationSec": 647,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QKXAd2PhZGY",
+          "title": "Разбор задач: Failure of L'Hospital's Rule",
+          "durationSec": 357,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bnhIRhnBa1A",
+          "title": "Разбор задач: Indeterminate forms",
+          "durationSec": 702,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Exam 4 Review",
+      "videos": [
+        {
+          "youtubeId": "BGE3wb7H2PA",
+          "title": "Лекция 33 — Exam 4 Review",
+          "durationSec": 2947,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bo8SFHppXZk",
+          "title": "Разбор задач: A Solid With Finite Volume and Infinite Cross Section",
+          "durationSec": 361,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "owkMzpN8WDc",
+          "title": "Разбор задач: Improper Integrals",
+          "durationSec": 1179,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Indeterminate Forms",
+      "videos": [
+        {
+          "youtubeId": "PNTnmH6jsRI",
+          "title": "Лекция 35 — Indeterminate Forms",
+          "durationSec": 2923,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "apzEJCsycVM",
+          "title": "Разбор задач: Integral of x^n e^(-x)",
+          "durationSec": 644,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LpW6zanbSf8",
+          "title": "Разбор задач: Limit of a Series",
+          "durationSec": 296,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dGKvUUmMGoU",
+          "title": "Разбор задач: Comparison Tests",
+          "durationSec": 856,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Improper Integrals",
+      "videos": [
+        {
+          "youtubeId": "KhwQKE_tld0",
+          "title": "Лекция 36 — Improper Integrals",
+          "durationSec": 2967,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rUis1mSzwyA",
+          "title": "Разбор задач: Ratio Test for Convergence",
+          "durationSec": 815,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e4cURLXGjrM",
+          "title": "Разбор задач: Integral Test",
+          "durationSec": 468,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Infinite Series",
+      "videos": [
+        {
+          "youtubeId": "MK_0QHbUnIA",
+          "title": "Лекция 37 — Infinite Series",
+          "durationSec": 3012,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QEBkT-Pgqos",
+          "title": "Разбор задач: Integral Test as Estimation",
+          "durationSec": 915,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oTTo3qP0Z-I",
+          "title": "Разбор задач: Ratio Test -- Radius of Convergence",
+          "durationSec": 1081,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "al2lzKq4o5E",
+          "title": "Разбор задач: Power Series Practice",
+          "durationSec": 603,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Taylor's Series",
+      "videos": [
+        {
+          "youtubeId": "wOHrNt9ScYs",
+          "title": "Лекция 38 — Taylor's Series",
+          "durationSec": 2851,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BSqNgPkeWIM",
+          "title": "Разбор задач: Finding Taylor's Series",
+          "durationSec": 615,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "19x213y_uk4",
+          "title": "Разбор задач: Taylor's Series of a Polynomial",
+          "durationSec": 429,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Final Review",
+      "videos": [
+        {
+          "youtubeId": "--lPz7VFnKI",
+          "title": "Лекция 39 — Final Review",
+          "durationSec": 2354,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FK1n3TVQIhc",
+          "title": "Разбор задач: Taylor's Series for sec(x)",
+          "durationSec": 700,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2_7htv5eviM",
+          "title": "Разбор задач: Integration of Taylor's Series",
+          "durationSec": 470,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zcuYFf5R0NU",
+          "title": "Разбор задач: Series Calculation Using a Riemann Sum",
+          "durationSec": 807,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "title": "Задания",
+      "url": "https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/pages/assignments/"
+    },
+    {
+      "title": "Экзамены с решениями",
+      "url": "https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/pages/exams/"
+    }
+  ],
+  "skills": ["derivatives", "integrals", "series"]
+}

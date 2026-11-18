@@ -1,0 +1,19 @@
+{
+  "slug": "columbia-fpcv",
+  "title": "First Principles of Computer Vision",
+  "shortTitle": "FPCV",
+  "university": "Columbia",
+  "instructors": ["Shree Nayar"],
+  "subject": "cv",
+  "level": 2,
+  "description": "Классическое зрение с нуля: формирование изображения, фильтрация, признаки, 3D-реконструкция. Плейлисты по модулям подключим на этапе 7.",
+  "sourceUrl": "https://fpcv.cs.columbia.edu/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": [],
+  "estimatedHours": 20,
+  "units": [],
+  "materials": [],
+  "skills": ["image-formation", "features", "3d-vision"]
+}

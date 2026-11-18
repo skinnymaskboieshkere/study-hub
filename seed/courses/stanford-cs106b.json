@@ -1,0 +1,240 @@
+{
+  "slug": "stanford-cs106b",
+  "title": "CS106B: Programming Abstractions",
+  "shortTitle": "CS106B",
+  "university": "Stanford",
+  "instructors": ["Julie Zelenski"],
+  "subject": "programming",
+  "level": 1,
+  "description": "Абстракции программирования на C++: рекурсия, классы, указатели, связные списки, деревья и графы. Запись 2008 года, своих субтитров у видео нет.",
+  "sourceUrl": "https://see.stanford.edu/Course/CS106B",
+  "license": "Условия Stanford Engineering Everywhere (лицензия на сайте не указана)",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLFE6E58F856038C69"],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "kMzH3tfP6f8",
+          "title": "Лекция 1",
+          "durationSec": 2583,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wmiD5J8Dw9E",
+          "title": "Лекция 2",
+          "durationSec": 2628,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fhe0IVJOy4g",
+          "title": "Лекция 3",
+          "durationSec": 2680,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "09jZuh-KjtI",
+          "title": "Лекция 4",
+          "durationSec": 3027,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XHXEn6kxtdQ",
+          "title": "Лекция 5",
+          "durationSec": 2730,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "eYTDzvlAZMM",
+          "title": "Лекция 6",
+          "durationSec": 2581,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xMoDmhvGr50",
+          "title": "Лекция 7",
+          "durationSec": 2852,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gl3emqCuueQ",
+          "title": "Лекция 8",
+          "durationSec": 2557,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uFJhEPrbycQ",
+          "title": "Лекция 9",
+          "durationSec": 2884,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NdF1QDTRkck",
+          "title": "Лекция 10",
+          "durationSec": 2822,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "p-gpaIGRCQI",
+          "title": "Лекция 11",
+          "durationSec": 2868,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "K8DjFXkMRbY",
+          "title": "Лекция 12",
+          "durationSec": 2506,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "C36NAaS6ITM",
+          "title": "Лекция 13",
+          "durationSec": 3095,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "iZyUsF1srHo",
+          "title": "Лекция 14",
+          "durationSec": 2973,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ENp00xylP7c",
+          "title": "Лекция 15",
+          "durationSec": 2840,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "y4M9IVgrVKo",
+          "title": "Лекция 16",
+          "durationSec": 2855,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Tp3HCeeqyDs",
+          "title": "Лекция 17",
+          "durationSec": 2671,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CYlbEVP349c",
+          "title": "Лекция 18",
+          "durationSec": 3054,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-gZJGesVLmU",
+          "title": "Лекция 19",
+          "durationSec": 2487,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ItCsK1vZcHU",
+          "title": "Лекция 20",
+          "durationSec": 3060,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-uITzwyfdcg",
+          "title": "Лекция 21",
+          "durationSec": 2762,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FKvL3Duawv8",
+          "title": "Лекция 22",
+          "durationSec": 2985,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DLRBkVADdU0",
+          "title": "Лекция 23",
+          "durationSec": 2751,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9hT5YQ4sKXk",
+          "title": "Лекция 24",
+          "durationSec": 3019,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TJ8SkcUSdbU",
+          "title": "Лекция 25",
+          "durationSec": 3036,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GVp1v6GKgbc",
+          "title": "Лекция 26",
+          "durationSec": 2945,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "x7pMi7-wro8",
+          "title": "Лекция 27",
+          "durationSec": 2494,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [],
+  "skills": ["c++", "recursion", "data-structures"]
+}

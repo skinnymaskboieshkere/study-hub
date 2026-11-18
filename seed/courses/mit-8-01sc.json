@@ -1,0 +1,1950 @@
+{
+  "slug": "mit-8-01sc",
+  "title": "8.01SC Classical Mechanics",
+  "shortTitle": "8.01SC",
+  "university": "MIT",
+  "instructors": [
+    "Deepto Chakrabarty",
+    "Peter Dourmashkin",
+    "Michelle Tomasik",
+    "Anna Frebel",
+    "Vladan Vuletic"
+  ],
+  "subject": "physics",
+  "level": 1,
+  "description": "Классическая механика MIT в коротких видео по 2–10 минут, с разборами задач. Для повторения и практики к механике.",
+  "sourceUrl": "https://ocw.mit.edu/courses/8-01sc-classical-mechanics-fall-2016/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLUl4u3cNGP61qDex7XslwNJ-xxxEFzMNV"],
+  "units": [
+    {
+      "title": "Введение",
+      "videos": [
+        {
+          "youtubeId": "F3N5EkMX_ks",
+          "title": "8.01SC Classical Mechanics Introduction",
+          "durationSec": 135,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Векторы",
+      "videos": [
+        {
+          "youtubeId": "5ucfHd8FWKw",
+          "title": "0.1 Vectors vs. Scalars",
+          "durationSec": 67,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Jf2PgGInUEk",
+          "title": "0.2 Vector Operators",
+          "durationSec": 134,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Bq0fDYtbfBA",
+          "title": "0.3 Coordinate Systems and Unit Vectors",
+          "durationSec": 64,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pW6tqp1zRrg",
+          "title": "0.4 Vectors - Magnitude and Direction",
+          "durationSec": 40,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VZm6mxu2xlk",
+          "title": "0.5 Vector Decomposition into components",
+          "durationSec": 98,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "esHLwySu4XU",
+          "title": "0.6 Going Between Representations",
+          "durationSec": 96,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 1",
+      "videos": [
+        {
+          "youtubeId": "i4u7SZjoAs4",
+          "title": "1.0 Week 1 Introduction (8.01 Classical Mechanics)",
+          "durationSec": 135,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ErlP_SBcA1s",
+          "title": "1.1 Coordinate Systems and Unit Vectors in 1D",
+          "durationSec": 186,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kJxsMnRZXqE",
+          "title": "1.2 Position Vector in 1D",
+          "durationSec": 145,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "W1lxlbJ0BZU",
+          "title": "1.3 Displacement Vector in 1D",
+          "durationSec": 208,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "otGGuHt36XA",
+          "title": "1.4 Average Velocity in 1D",
+          "durationSec": 138,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YdyhDdXaSP4",
+          "title": "1.5 Instantaneous Velocity in 1D",
+          "durationSec": 340,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jtOxRPQDuJs",
+          "title": "1.7 Worked Example: Derivatives in Kinematics",
+          "durationSec": 188,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sffRo1-_D8E",
+          "title": "DD.1.1 Friction at the Nanoscale",
+          "durationSec": 2352,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 2",
+      "videos": [
+        {
+          "youtubeId": "xZn4l1TSvPQ",
+          "title": "2.1 Introduction to Acceleration",
+          "durationSec": 206,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qxNJGKrx3EY",
+          "title": "2.2 Acceleration in 1D",
+          "durationSec": 269,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qmCbc9dbwXU",
+          "title": "2.3 Worked Example: Acceleration from Position",
+          "durationSec": 225,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "H7xmTMQ265s",
+          "title": "2.4 Integration",
+          "durationSec": 1354,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-M8swpL-Ij8",
+          "title": "DD.2.1 Position in the CM Frame",
+          "durationSec": 273,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "KmGPMec8-iU",
+          "title": "DD.2.2 Relative Velocity is Independent of Reference Frame",
+          "durationSec": 223,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7x62TdS0Nn0",
+          "title": "DD.2.3 1D Elastic Collision Velocities in CM Frame",
+          "durationSec": 226,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jAcdLZRhYNU",
+          "title": "DD.2.4 Worked Example: 1D Elastic Collision in CM Frame",
+          "durationSec": 362,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Uoukes39gb0",
+          "title": "DD.2.5 Kinetic Energy in Different Reference Frames",
+          "durationSec": 366,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mjrQHIJj1iI",
+          "title": "DD.2.6 Kinetic Energy in the CM Frame",
+          "durationSec": 267,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oRzzwpZ0ei4",
+          "title": "DD.2.7 Change in the Kinetic Energy",
+          "durationSec": 233,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 3",
+      "videos": [
+        {
+          "youtubeId": "Q3v_2znHCvg",
+          "title": "3.1 Coordinate System and Position Vector in 2D",
+          "durationSec": 137,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oOQmu6ICxg4",
+          "title": "3.2 Instantaneous Velocity in 2D",
+          "durationSec": 372,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sgymEX-4FxE",
+          "title": "3.3 Instantaneous Acceleration in 2D",
+          "durationSec": 320,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "83NmtaE7fEk",
+          "title": "3.4 Projectile Motion",
+          "durationSec": 372,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_zl4b5MnPF0",
+          "title": "3.5 Demo: Shooting an Apple",
+          "durationSec": 52,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rqTAICbKHYM",
+          "title": "3.5 Demo: Relative Motion Gun",
+          "durationSec": 35,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ThP6wQkf5ec",
+          "title": "DD.3.1 Deep Dive - Gyroscopes - Free Body Diagrams, Torque, and Rotating Vectors",
+          "durationSec": 1017,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jOPA3XY-V3U",
+          "title": "DD.3.2 Deep Dive - Gyroscopes - Precessional Angular Velocity and Titled Gyroscopes",
+          "durationSec": 838,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5oLLnCGStUc",
+          "title": "DD.3.3 Deep Dive - Gyroscopes - Nutation and Total Angular Momentum",
+          "durationSec": 805,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 4",
+      "videos": [
+        {
+          "youtubeId": "yLb_a1EE888",
+          "title": "4.0 Week 2 Introduction",
+          "durationSec": 143,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "89SjJv30kGU",
+          "title": "4.1 Newton's First and Second Laws",
+          "durationSec": 256,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4K539RaRDXU",
+          "title": "4.2 Newton's Third Law",
+          "durationSec": 435,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QCA3zOe2xdA",
+          "title": "4.3 Reference Frames",
+          "durationSec": 566,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "z0xyQKalezI",
+          "title": "4.4 Non-inertial Reference Frames",
+          "durationSec": 278,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 5",
+      "videos": [
+        {
+          "youtubeId": "NiCMMn12CIs",
+          "title": "5.1 Universal Law of Gravitation",
+          "durationSec": 415,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_mqFIqnCPak",
+          "title": "5.2 Worked Example: Gravity - Superposition",
+          "durationSec": 526,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gl9c9qJRqcM",
+          "title": "5.3 Gravity at the surface of the Earth: The value of g.",
+          "durationSec": 289,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 6",
+      "videos": [
+        {
+          "youtubeId": "IV9NhNIrrDw",
+          "title": "6.1 Contact Forces",
+          "durationSec": 198,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mLLUgcvQLgY",
+          "title": "6.2 Static Friction",
+          "durationSec": 200,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 7",
+      "videos": [
+        {
+          "youtubeId": "RBaBEjzMr4E",
+          "title": "7.1 Pushing Pulling and Tension",
+          "durationSec": 257,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CfBeCHrQj_U",
+          "title": "7.2 Ideal Rope",
+          "durationSec": 298,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dHMGV_WOG7w",
+          "title": "7.3 Solving Pulley Systems",
+          "durationSec": 596,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rCP_-Wuikwo",
+          "title": "7.4 Hooke's Law",
+          "durationSec": 360,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 8",
+      "videos": [
+        {
+          "youtubeId": "dlJtUvRaGdE",
+          "title": "8.0 Week 3 Introduction",
+          "durationSec": 87,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uo86ir31pn0",
+          "title": "8.1 Polar Coordinates",
+          "durationSec": 215,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "S9_Oe51XkVY",
+          "title": "8.2 Circular Motion: Position and Velocity Vectors",
+          "durationSec": 362,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "q785KV5ZIN0",
+          "title": "8.3 Angular Velocity",
+          "durationSec": 331,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 9",
+      "videos": [
+        {
+          "youtubeId": "emrHcqEvXpw",
+          "title": "9.1 Uniform Circular Motion",
+          "durationSec": 230,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "l_NW5pPXhg4",
+          "title": "9.2 Uniform Circular Motion: Direction of the Acceleration",
+          "durationSec": 216,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 10",
+      "videos": [
+        {
+          "youtubeId": "_0PrwAbgoMA",
+          "title": "10.1 Circular Motion - Acceleration",
+          "durationSec": 240,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "prCwfSiWuq0",
+          "title": "10.2 Angular Acceleration",
+          "durationSec": 381,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lufK0UlJ7aE",
+          "title": "10.3 Worked Example - Angular position from angular acceleration.",
+          "durationSec": 285,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 11",
+      "videos": [
+        {
+          "youtubeId": "tniGFmPQc0E",
+          "title": "11.1 Newton's 2nd Law and Circular Motion",
+          "durationSec": 197,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ofgusnhQ07Q",
+          "title": "11.2 Worked Example - Car on a Banked Turn",
+          "durationSec": 457,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WLHAaaGHfe8",
+          "title": "11.3 Demo: Rotating Bucket",
+          "durationSec": 40,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 12",
+      "videos": [
+        {
+          "youtubeId": "0mGd0JUmgm8",
+          "title": "12.0 Week 4 Introduction",
+          "durationSec": 136,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FNOfxJxceIM",
+          "title": "12.1 Pulley Problems",
+          "durationSec": 630,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gWLC3r6EHl0",
+          "title": "12.2 Constraint Condition",
+          "durationSec": 427,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GuiIyYbI0HM",
+          "title": "12.3 Virtual Displacement",
+          "durationSec": 223,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lw9W32ezQhM",
+          "title": "12.4 Solve the System of Equations",
+          "durationSec": 244,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3V5y9uq5au0",
+          "title": "12.5 Worked Example: 2 Blocks and 2 Pulleys",
+          "durationSec": 521,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 13",
+      "videos": [
+        {
+          "youtubeId": "9NS0JcjNdp4",
+          "title": "13.1 Rope Hanging Between Trees",
+          "durationSec": 216,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NBOL5X13UFY",
+          "title": "13.2 Differential Analysis of a Massive Rope",
+          "durationSec": 934,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cadbtBS5qf4",
+          "title": "13.3 Differential Elements",
+          "durationSec": 64,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5QKJG0FZTio",
+          "title": "13.4 Density",
+          "durationSec": 52,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Veyh-DhI8lE",
+          "title": "13.5 Demo: Wrapping Friction",
+          "durationSec": 61,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vUg50UI1aqs",
+          "title": "13.6 Summary for Differential Analysis",
+          "durationSec": 78,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 14",
+      "videos": [
+        {
+          "youtubeId": "30Ww1HsRblM",
+          "title": "14.1 Intro to resistive forces",
+          "durationSec": 292,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JTePtoM_MeM",
+          "title": "14.2 Resistive forces - low speed case",
+          "durationSec": 506,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "flwYlUfw4WU",
+          "title": "14.3 Resistive forces - high speed case",
+          "durationSec": 650,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 15",
+      "videos": [
+        {
+          "youtubeId": "n1cXiw3s72k",
+          "title": "15.0 Week 5 Introduction",
+          "durationSec": 148,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1GvCIlHihEA",
+          "title": "15.1 Momentum and Impulse",
+          "durationSec": 441,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xtpW7fw8s34",
+          "title": "15.2 Impulse is a Vector",
+          "durationSec": 196,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bEpq3yjismU",
+          "title": "15.3 Worked Example - Bouncing Ball",
+          "durationSec": 398,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sxv80X2jQYQ",
+          "title": "15.4 Momentum of a System of Point Particles",
+          "durationSec": 285,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Cslq_ZYdYwE",
+          "title": "15.5 Force on a System of Particles",
+          "durationSec": 546,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 16",
+      "videos": [
+        {
+          "youtubeId": "Vg8t8_IOHDg",
+          "title": "16.1 Cases of Constant Momentum",
+          "durationSec": 334,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "w7z_z-lucyU",
+          "title": "16.2 Momentum Diagrams",
+          "durationSec": 318,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 17",
+      "videos": [
+        {
+          "youtubeId": "ol1COj0LACs",
+          "title": "17.1 Definition of the Center of Mass",
+          "durationSec": 272,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-b0dFcebPcs",
+          "title": "17.2 Worked Example - Center of Mass of 3 Objects",
+          "durationSec": 434,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e548hRYcXlg",
+          "title": "17.3 Center of Mass of a Continuous System",
+          "durationSec": 175,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CFh3gu-z_rc",
+          "title": "17.5 Worked Example - Center of Mass of a Uniform Rod",
+          "durationSec": 351,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QPV-DmpGXeQ",
+          "title": "17.6 Velocity and Acceleration of the Center of Mass",
+          "durationSec": 256,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xxGA-7soXiw",
+          "title": "17.7 Reduction of a System to a Point Particle",
+          "durationSec": 243,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 18",
+      "videos": [
+        {
+          "youtubeId": "D2lW7o32fzk",
+          "title": "18.0 Week 6 Introduction",
+          "durationSec": 53,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sN-m5WkbMyI",
+          "title": "18.1 Relative Velocity",
+          "durationSec": 117,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "L5jhg4q1Xvo",
+          "title": "18.2 Set up a Recoil Problem",
+          "durationSec": 388,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7TljYDljC5w",
+          "title": "18.3 Solve for Velocity in the Ground Frame",
+          "durationSec": 180,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "V-fy33vi-64",
+          "title": "18.4 Solve for Velocity in the Moving Frame",
+          "durationSec": 129,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 19",
+      "videos": [
+        {
+          "youtubeId": "YGR5_Hf9dDg",
+          "title": "19.1 Rocket Problem 1 - Set up the Problem",
+          "durationSec": 228,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7Mv5hT1nugQ",
+          "title": "19.2 Rocket Problem 2 - Momentum Diagrams",
+          "durationSec": 300,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Xsg27_uGVZA",
+          "title": "19.3 Rocket Problem 3 - Mass Relations",
+          "durationSec": 170,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uua2hbbp7h4",
+          "title": "19.4 Rocket Problem 4 - Solution",
+          "durationSec": 330,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SLPRYIb7RdI",
+          "title": "19.5 Rocket Problem 5 - Thrust and External Forces",
+          "durationSec": 208,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UPnqIKBAMaQ",
+          "title": "19.6 Rocket Problem 6 - Solution for No External Forces",
+          "durationSec": 310,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9VJetX_EQqs",
+          "title": "19.7 Rocket Problem 7 - Solution with External Forces",
+          "durationSec": 307,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 20",
+      "videos": [
+        {
+          "youtubeId": "0qEIs6ie2q8",
+          "title": "20.0 Week 7 Introduction",
+          "durationSec": 124,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "efpiHD_2O8E",
+          "title": "20.1 Kinetic Energy",
+          "durationSec": 161,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "d9ugFckUBcg",
+          "title": "20.2 Work by a Constant Force",
+          "durationSec": 224,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QAdiRwOLl0A",
+          "title": "20.3 Work by a Non-Constant Force",
+          "durationSec": 380,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "m8_3VwHy7tE",
+          "title": "20.4 Integrate adt and adx",
+          "durationSec": 290,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TF93gm1_O8M",
+          "title": "20.5 Work-Kinetic Energy Theorem",
+          "durationSec": 116,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FSW9EQNZvxI",
+          "title": "20.6 Power",
+          "durationSec": 67,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 21",
+      "videos": [
+        {
+          "youtubeId": "2TZa151GC-0",
+          "title": "21.1 Scalar Product Properties",
+          "durationSec": 467,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CsHQ35j_1kY",
+          "title": "21.2 Scalar Product in Cartesian Coordinates",
+          "durationSec": 290,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zLGu1dlP0UY",
+          "title": "21.3 Kinetic Energy as a Scalar Product",
+          "durationSec": 121,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oQqskrRWGco",
+          "title": "21.4 Work in 2D and 3D",
+          "durationSec": 325,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "i2_731Gi9bg",
+          "title": "21.5 Work-Kinetic Energy Theorem in 2D and 3D",
+          "durationSec": 351,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ykwNGB9kuaA",
+          "title": "21.6 Worked Example: Block Going Down a Ramp",
+          "durationSec": 359,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 22",
+      "videos": [
+        {
+          "youtubeId": "fLuyZ7ayDog",
+          "title": "22.1 Path Independence - Gravity",
+          "durationSec": 339,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0jWwl0bt6aU",
+          "title": "22.2 Path Dependence - Friction",
+          "durationSec": 317,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nfawe03nvAY",
+          "title": "22.3 Conservative Forces",
+          "durationSec": 150,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OwNr82QgkP8",
+          "title": "22.4 Non-conservative Forces",
+          "durationSec": 104,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZBlHexE8m6A",
+          "title": "22.5 Summary of Work and Kinetic Energy",
+          "durationSec": 420,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 23",
+      "videos": [
+        {
+          "youtubeId": "EX0uHJbIw68",
+          "title": "23.0 Week 8 Introduction",
+          "durationSec": 55,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nCDOa63Jd6M",
+          "title": "23.1 Introduction to Potential Energy",
+          "durationSec": 591,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ThZH56PUwNc",
+          "title": "23.2 Potential Energy of Gravity near the Surface of the Earth",
+          "durationSec": 234,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0EMIK-6LUE4",
+          "title": "23.3 Potential Energy Reference State",
+          "durationSec": 301,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_7JPHNCT1Qo",
+          "title": "23.4 Potential Energy of a Spring",
+          "durationSec": 320,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "t2PkbsWjG80",
+          "title": "23.5 Potential Energy of Gravitation",
+          "durationSec": 460,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 24",
+      "videos": [
+        {
+          "youtubeId": "z5JfWSocZUQ",
+          "title": "24.1 Mechanical Energy and Energy Conservation",
+          "durationSec": 356,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "huPKjd3wLyc",
+          "title": "24.2 Energy State Diagrams",
+          "durationSec": 334,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NCCzjtqZ28M",
+          "title": "24.3 Worked Example - Block Sliding Down Circular Slope",
+          "durationSec": 448,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1UdGbyj8924",
+          "title": "24.4 Newton's 2nd Law and Energy Conservation",
+          "durationSec": 328,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 25",
+      "videos": [
+        {
+          "youtubeId": "EHCACV8rdig",
+          "title": "25.1 Force is the Derivative of Potential",
+          "durationSec": 239,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DYi8KTt8688",
+          "title": "25.2 Stable and Unstable Equilibrium Points",
+          "durationSec": 442,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cwO5KdgBQh0",
+          "title": "25.3 Reading Potential Energy Diagrams",
+          "durationSec": 322,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 26",
+      "videos": [
+        {
+          "youtubeId": "MoRip5VVdkI",
+          "title": "26.0 Week 9 Introduction",
+          "durationSec": 94,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YLDRzy8Dcgo",
+          "title": "26.1 Momentum in Collisions",
+          "durationSec": 252,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4ZnijNan49U",
+          "title": "26.2 Kinetic Energy in Collisions",
+          "durationSec": 314,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CcJoqITNvh0",
+          "title": "26.3 Totally Inelastic Collisions",
+          "durationSec": 287,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 27",
+      "videos": [
+        {
+          "youtubeId": "6-7BOpZ2k04",
+          "title": "27.1 Worked Example: Elastic 1D Collision",
+          "durationSec": 633,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "B6a9FaYI730",
+          "title": "27.2 Relative Velocity in 1D",
+          "durationSec": 223,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ayIgWaBE0aw",
+          "title": "27.3 Kinetic Energy and Momentum Equation",
+          "durationSec": 429,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "yA203Lrd39E",
+          "title": "27.4 Worked Example: Elastic 1D Collision Again",
+          "durationSec": 323,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1s6_4qX-u2o",
+          "title": "27.5 Worked Example: Gravitational Slingshot",
+          "durationSec": 285,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UE-O9TiKOw0",
+          "title": "27.6 2D Collisions",
+          "durationSec": 406,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 28",
+      "videos": [
+        {
+          "youtubeId": "efH7pq9YVQw",
+          "title": "28.0 Week 10 Introduction",
+          "durationSec": 156,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "u_LAfG5uIpY",
+          "title": "28.1 Rigid Bodies",
+          "durationSec": 181,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZApVXJZF7pE",
+          "title": "28.2 Introduction to Translation and Rotation",
+          "durationSec": 159,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2oK7Eb0YZ9U",
+          "title": "28.3 Review of Angular Velocity and Acceleration",
+          "durationSec": 194,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 29",
+      "videos": [
+        {
+          "youtubeId": "0QF_uCgZW4Y",
+          "title": "29.1 Kinetic Energy of Rotation",
+          "durationSec": 387,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1AJbVRQTZlA",
+          "title": "29.2 Moment of Inertia of a Rod",
+          "durationSec": 260,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BPnbq6BobdA",
+          "title": "29.3 Moment of Inertia of a Disc",
+          "durationSec": 341,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "r2Qb0vsxa8Y",
+          "title": "29.4 Parallel Axis Theorem",
+          "durationSec": 251,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QmCQUBSsKwQ",
+          "title": "29.5 Deep Dive - Moment of Inertia of a Sphere",
+          "durationSec": 332,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cMu0hsvgkGk",
+          "title": "29.6 Deep Dive - Derivation of the Parallel Axis Theorem",
+          "durationSec": 338,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 30",
+      "videos": [
+        {
+          "youtubeId": "X9K8LT7SCZ0",
+          "title": "30.1 Introduction to Torque and Rotational Dynamics",
+          "durationSec": 592,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9yFkrh7-igc",
+          "title": "30.2 Cross Product",
+          "durationSec": 309,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jM-JYT2j6Yw",
+          "title": "30.3 Cross Product in Cartesian Coordinates",
+          "durationSec": 475,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1BU28txGAFI",
+          "title": "30.4 Torque",
+          "durationSec": 124,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ByTlCmDoEnk",
+          "title": "30.5 Torque from Gravity",
+          "durationSec": 284,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 31",
+      "videos": [
+        {
+          "youtubeId": "O_M8asN10oQ",
+          "title": "31.1 Relationship between Torque and Angular Acceleration",
+          "durationSec": 546,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PKOhhK7kPi4",
+          "title": "31.2 Internal Torques Cancel in Pairs",
+          "durationSec": 206,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "reUjl788R9Q",
+          "title": "31.3 Worked Example - Find the Moment of Inertia of a Disc from a Falling Mass",
+          "durationSec": 440,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FlHKTvUjD6g",
+          "title": "31.4 Worked Example - Atwood Machine",
+          "durationSec": 662,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uRUAnKCyyig",
+          "title": "31.5 Massive Pulley Problems",
+          "durationSec": 225,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2guwjwIHmGg",
+          "title": "31.7 Worked Example - Two Blocks and a Pulley Using Energy",
+          "durationSec": 457,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 32",
+      "videos": [
+        {
+          "youtubeId": "6h3T3qIkxqw",
+          "title": "32.0 Week 11 Introduction",
+          "durationSec": 112,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Idx3VgOpUDk",
+          "title": "32.1 Angular Momentum for a Point Particle",
+          "durationSec": 159,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WwvDJqtHNBU",
+          "title": "32.2 Calculating Angular Momentum",
+          "durationSec": 188,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "d2POYCmmM8A",
+          "title": "32.3 Worked Example - Angular Momentum About Different Points",
+          "durationSec": 370,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2tSUT6HDeaw",
+          "title": "32.4 Angular Momentum of Circular Motion",
+          "durationSec": 207,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 33",
+      "videos": [
+        {
+          "youtubeId": "mHVnpuhfpvI",
+          "title": "33.1 Worked Example - Angular Momentum of 2 Rotating Point Particles",
+          "durationSec": 420,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rd9d0WBFzt8",
+          "title": "33.2 Angular Momentum of a Symmetric Object",
+          "durationSec": 251,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tO6Wh_HhifI",
+          "title": "33.4 If Momentum is Zero then Angular Momentum is Independent of Origin",
+          "durationSec": 342,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NbXDgm7UyVM",
+          "title": "33.5 Kinetic Energy of a Symmetric Object",
+          "durationSec": 154,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 34",
+      "videos": [
+        {
+          "youtubeId": "DSk8HTcB7x0",
+          "title": "34.1 Torque Causes Angular Momentum to Change - Point Particle",
+          "durationSec": 179,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "x5WavAj2M8A",
+          "title": "34.2 Torque Causes Angular Momentum to Change - System of Particles",
+          "durationSec": 236,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "W3TqFzVh_rE",
+          "title": "34.3 Angular Impulse",
+          "durationSec": 222,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3JzsqGZ6opI",
+          "title": "34.4 Demo: Bicycle Wheel Demo",
+          "durationSec": 38,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "c15RtHXBVuQ",
+          "title": "34.5 Worked Example - Particle Hits Pivoted Ring",
+          "durationSec": 493,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 35",
+      "videos": [
+        {
+          "youtubeId": "EhgF2OViDDs",
+          "title": "35.0 Week 12 Introduction",
+          "durationSec": 95,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oILq3xz_XtU",
+          "title": "35.1 Translation and Rotation of a Wheel",
+          "durationSec": 198,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WxkwkGEVu-E",
+          "title": "35.2 Rolling Wheel in the Center of Mass Frame",
+          "durationSec": 144,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lkeX42KQjac",
+          "title": "35.3 Rolling Wheel in the Ground Frame",
+          "durationSec": 148,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1UD560RQ684",
+          "title": "35.4 Rolling Without Slipping Slipping and Skidding",
+          "durationSec": 357,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4r1xgrWbALg",
+          "title": "35.5 Contact Point of a Wheel Rolling Without Slipping",
+          "durationSec": 218,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 36",
+      "videos": [
+        {
+          "youtubeId": "hxa6jAYA980",
+          "title": "36.1 Friction on a Rolling Wheel",
+          "durationSec": 248,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CfTLS6YYPms",
+          "title": "36.2 Worked Example - Wheel Rolling Without Slipping Down Inclined Plane - Torque Method",
+          "durationSec": 365,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cHKyuSAySyE",
+          "title": "36.3 Demo: Spool Demo",
+          "durationSec": 44,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TvdmaZR6m8Q",
+          "title": "36.4 Worked Example - Yoyo Pulled Along the Ground",
+          "durationSec": 373,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "RX88J2e4W0M",
+          "title": "36.5 Analyze Force and Torque in Translation and Rotation Problems",
+          "durationSec": 186,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 37",
+      "videos": [
+        {
+          "youtubeId": "ZMa-xKcM2L8",
+          "title": "37.1 Kinetic Energy of Translation and Rotation",
+          "durationSec": 466,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xh_LCHvzp-Q",
+          "title": "37.2 Worked Example - Wheel Rolling Without Slipping Down Inclined Plane",
+          "durationSec": 254,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "V1I-vrXGl3A",
+          "title": "37.3 Angular Momentum of Translation and Rotation",
+          "durationSec": 415,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Разборы задач",
+      "videos": [
+        {
+          "youtubeId": "5zXYEVWSIsg",
+          "title": "PS.1.1 Three Questions Before Starting",
+          "durationSec": 127,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PQfYJ2TjpEU",
+          "title": "PS.1.2 Shooting the apple solution",
+          "durationSec": 619,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pb5hUGBjS3A",
+          "title": "P.1.3 Worked Example: Braking Car",
+          "durationSec": 407,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZjGjNsmsNBU",
+          "title": "P.1.4 Sketch the Motion",
+          "durationSec": 130,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SjK2lmRFxc4",
+          "title": "P.1.5 Worked Example: Pedestrian and Bike at Intersection",
+          "durationSec": 839,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7WDiK3flILc",
+          "title": "PS.2.1 Worked Example - Sliding Block",
+          "durationSec": 380,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "63U4_OxohOw",
+          "title": "PS.2.2 Worked Example - Stacked Blocks - Free Body Diagrams and Applying Newtons 2nd Law",
+          "durationSec": 493,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uhaFP0xEmzM",
+          "title": "PS.2.2 Worked Example - Stacked Blocks - Solve for the Maximum Force",
+          "durationSec": 284,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "l062G7RC8-o",
+          "title": "PS.2.2 Worked Example - Stacked Blocks - Choosing the System of 2 Blocks Together",
+          "durationSec": 328,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XeTsZhYHY_E",
+          "title": "PS.2.3 Window Washer Free Body Diagrams",
+          "durationSec": 613,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ozIdCgo5uI4",
+          "title": "PS.2.3 Window Washer Solution",
+          "durationSec": 146,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gEX7MjWwocE",
+          "title": "PS.3.1 Worked Example - Orbital Circular Motion - Radius",
+          "durationSec": 224,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bX4liSWB4Gk",
+          "title": "PS.3.1 Worked Example - Orbital Circular Motion - Velocity",
+          "durationSec": 67,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vkWY73HnNYA",
+          "title": "PS.3.1 Worked Example - Orbital Circular Motion - Period",
+          "durationSec": 100,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dvWKCH0ocu8",
+          "title": "PS.6.1 Rocket Sled - Differential Equation",
+          "durationSec": 191,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7Kq8BINVDiw",
+          "title": "PS.6.1 Rocket Sled - Integrate the Rocket Equation",
+          "durationSec": 213,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bHocXJ4rv5g",
+          "title": "PS.6.1 Rocket Sled - Solve for Initial Velocity",
+          "durationSec": 63,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nWaoEjE8a8M",
+          "title": "PS.6.2 Snowplow Problem",
+          "durationSec": 491,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Lpd_TddOSZY",
+          "title": "PS.7.1 Worked Example - Collision and Sliding on a Rough Surface",
+          "durationSec": 407,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IWD-Aue6aIk",
+          "title": "PS.10.1 Worked Example - Blocks with Friction and Massive Pulley",
+          "durationSec": 968,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Дополнительно",
+      "videos": [
+        {
+          "youtubeId": "sfH3Jw6LZm8",
+          "title": "Newton's 3rd Law Pairs",
+          "durationSec": 258,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aAybYawUPC4",
+          "title": "Internal and External Forces",
+          "durationSec": 224,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_r7pI2_FjSg",
+          "title": "Applying Newton's 2nd Law",
+          "durationSec": 197,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [],
+  "skills": ["mechanics"]
+}

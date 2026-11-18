@@ -1,0 +1,19 @@
+{
+  "slug": "mit-6-4210",
+  "title": "6.4210 Robotic Manipulation",
+  "shortTitle": "6.4210",
+  "university": "MIT",
+  "instructors": ["Russ Tedrake"],
+  "subject": "robotics",
+  "level": 3,
+  "description": "Восприятие, планирование и управление роботами-манипуляторами; открытые интерактивные конспекты. Плейлист подберём на этапе 7.",
+  "sourceUrl": "https://manipulation.mit.edu/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": [],
+  "estimatedHours": 30,
+  "units": [],
+  "materials": [],
+  "skills": ["manipulation", "perception"]
+}

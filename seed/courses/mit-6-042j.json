@@ -1,0 +1,224 @@
+{
+  "slug": "mit-6-042j",
+  "title": "6.042J Mathematics for Computer Science",
+  "shortTitle": "6.042J",
+  "university": "MIT",
+  "instructors": ["Tom Leighton", "Marten van Dijk"],
+  "subject": "math",
+  "level": 1,
+  "description": "Математика для информатики: доказательства, теория чисел, графы, комбинаторика и вероятность.",
+  "sourceUrl": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLB7540DEDD482705B"],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "L3LMbpZIKhQ",
+          "title": "Лекция 1",
+          "durationSec": 2649,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "z8HKWUWS-lA",
+          "title": "Лекция 2",
+          "durationSec": 4765,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NuGDkmwEObM",
+          "title": "Лекция 3",
+          "durationSec": 4920,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NuY7szYSXSw",
+          "title": "Лекция 4",
+          "durationSec": 4825,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XX7ePR21Ook",
+          "title": "Лекция 5",
+          "durationSec": 4725,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "h9wxtqoa1jY",
+          "title": "Лекция 6",
+          "durationSec": 4971,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5RSMLgy06Ew",
+          "title": "Лекция 7",
+          "durationSec": 4961,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GJpt_3ie4WU",
+          "title": "Лекция 8",
+          "durationSec": 5006,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bTyxpoi2dmM",
+          "title": "Лекция 9",
+          "durationSec": 5005,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DOIp5D7VMS4",
+          "title": "Лекция 10",
+          "durationSec": 4970,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1nScXLQAQ9A",
+          "title": "Лекция 11",
+          "durationSec": 3840,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fAeShezAGLE",
+          "title": "Лекция 12",
+          "durationSec": 4702,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "X9eErxRjQEI",
+          "title": "Лекция 13",
+          "durationSec": 5020,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Kqf0uO0oV6s",
+          "title": "Лекция 14",
+          "durationSec": 4966,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TWBB-JlmYUc",
+          "title": "Лекция 15",
+          "durationSec": 4700,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pNt5Ll6hGqo",
+          "title": "Лекция 16",
+          "durationSec": 4802,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "09yIb3VHhMI",
+          "title": "Лекция 17",
+          "durationSec": 5124,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SmFwFdESMHI",
+          "title": "Лекция 18",
+          "durationSec": 5036,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "E6FbvM-FGZ8",
+          "title": "Лекция 19",
+          "durationSec": 4906,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "l1BCv3qqW4A",
+          "title": "Лекция 20",
+          "durationSec": 4922,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MOfhhFaQdjw",
+          "title": "Лекция 21",
+          "durationSec": 4979,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gGlMSe7uEkA",
+          "title": "Лекция 22",
+          "durationSec": 5034,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oI9fMUqgfxY",
+          "title": "Лекция 23",
+          "durationSec": 5024,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "q4mwO2qS2z4",
+          "title": "Лекция 24",
+          "durationSec": 5002,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "56iFMY8QW2k",
+          "title": "Лекция 25",
+          "durationSec": 4673,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [],
+  "skills": ["proofs", "graphs", "combinatorics", "probability"]
+}

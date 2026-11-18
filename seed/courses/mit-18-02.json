@@ -1,0 +1,19 @@
+{
+  "slug": "mit-18-02",
+  "title": "18.02 Multivariable Calculus",
+  "shortTitle": "18.02",
+  "university": "MIT",
+  "instructors": ["Denis Auroux"],
+  "subject": "math",
+  "level": 2,
+  "description": "Матанализ нескольких переменных: векторы, частные производные, кратные интегралы, векторный анализ.",
+  "sourceUrl": "https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PL4C4C8A7D06566F38"],
+  "estimatedHours": 28,
+  "units": [],
+  "materials": [],
+  "skills": ["multivariable-calculus"]
+}

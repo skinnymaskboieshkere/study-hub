@@ -1,0 +1,19 @@
+{
+  "slug": "mit-6-s191",
+  "title": "6.S191 Introduction to Deep Learning",
+  "shortTitle": "6.S191",
+  "university": "MIT",
+  "instructors": ["Alexander Amini", "Ava Amini"],
+  "subject": "cv",
+  "level": 3,
+  "description": "Короткий интенсив по deep learning: нейросети, CNN, генеративные модели. Актуальный год проверим на этапе 7.",
+  "sourceUrl": "https://introtodeeplearning.com/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": [],
+  "estimatedHours": 12,
+  "units": [],
+  "materials": [],
+  "skills": ["deep-learning"]
+}

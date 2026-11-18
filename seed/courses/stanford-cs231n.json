@@ -1,0 +1,19 @@
+{
+  "slug": "stanford-cs231n",
+  "title": "CS231n: Deep Learning for Computer Vision",
+  "shortTitle": "CS231n",
+  "university": "Stanford",
+  "instructors": ["Fei-Fei Li"],
+  "subject": "cv",
+  "level": 3,
+  "description": "Курс 2025 года: CNN, трансформеры, детекция, генеративные модели, 3D-зрение и Robot Learning.",
+  "sourceUrl": "https://cs231n.stanford.edu/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"],
+  "estimatedHours": 21,
+  "units": [],
+  "materials": [],
+  "skills": ["cnn", "transformers", "3d-vision"]
+}

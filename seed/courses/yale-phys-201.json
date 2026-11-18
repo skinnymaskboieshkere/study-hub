@@ -1,0 +1,19 @@
+{
+  "slug": "yale-phys-201",
+  "title": "PHYS 201: Fundamentals of Physics II",
+  "shortTitle": "PHYS 201",
+  "university": "Yale",
+  "instructors": ["Ramamurti Shankar"],
+  "subject": "physics",
+  "level": 2,
+  "description": "Основы физики II: электростатика, цепи, магнетизм, электромагнитные волны, оптика и введение в квантовую механику.",
+  "sourceUrl": "https://oyc.yale.edu/physics/phys-201",
+  "license": "CC BY-NC-SA 3.0",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PLD07B2225BB40E582"],
+  "estimatedHours": 30,
+  "units": [],
+  "materials": [],
+  "skills": ["electromagnetism", "optics"]
+}

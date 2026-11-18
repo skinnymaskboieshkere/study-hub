@@ -1,0 +1,19 @@
+{
+  "slug": "michigan-eecs-498",
+  "title": "EECS 498-007: Deep Learning for Computer Vision",
+  "shortTitle": "EECS 498",
+  "university": "Michigan",
+  "instructors": ["Justin Johnson"],
+  "subject": "cv",
+  "level": 3,
+  "description": "Deep learning для зрения (2019): от линейных классификаторов до детекции, сегментации и 3D-зрения.",
+  "sourceUrl": "https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r"],
+  "estimatedHours": 26,
+  "units": [],
+  "materials": [],
+  "skills": ["cnn", "detection", "segmentation"]
+}

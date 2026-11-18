@@ -2,16 +2,21 @@ import path from "node:path";
 import fastifyStatic from "@fastify/static";
 import Fastify from "fastify";
 import type { AppDatabase } from "./db/client";
+import { catalogRoutes } from "./routes/catalog";
 import { healthRoutes } from "./routes/health";
+import { progressRoutes } from "./routes/progress";
+import type { YouTubeClient } from "./youtube/client";
 
 export interface BuildAppOptions {
   db: AppDatabase;
+  /** YouTube Data API client; without it the in-app import is unavailable. */
+  youtube?: YouTubeClient;
   /** Folder with the built client. When set, the server also serves the UI. */
   clientDir?: string;
   logger?: boolean;
 }
 
-export async function buildApp({ db, clientDir, logger = false }: BuildAppOptions) {
+export async function buildApp({ db, youtube, clientDir, logger = false }: BuildAppOptions) {
   const app = Fastify({ logger: logger && { level: "warn" } });
 
   // YouTube embeds need a Referer header; this policy sends only the origin to other sites.
@@ -20,6 +25,8 @@ export async function buildApp({ db, clientDir, logger = false }: BuildAppOption
   });
 
   await app.register(healthRoutes, { prefix: "/api", db });
+  await app.register(catalogRoutes, { prefix: "/api", db, youtube });
+  await app.register(progressRoutes, { prefix: "/api", db });
 
   if (clientDir) {
     await app.register(fastifyStatic, { root: path.resolve(clientDir) });

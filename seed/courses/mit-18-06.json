@@ -1,0 +1,770 @@
+{
+  "slug": "mit-18-06",
+  "title": "18.06SC Linear Algebra",
+  "shortTitle": "18.06",
+  "university": "MIT",
+  "instructors": ["Gilbert Strang"],
+  "subject": "math",
+  "level": 1,
+  "description": "Линейная алгебра Гилберта Стрэнга — ключевой курс для CV и робототехники: системы уравнений, подпространства, ортогональность, определители, собственные значения, SVD. После лекций — короткие разборы задач.",
+  "sourceUrl": "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PL221E2BBF13BECF6C"],
+  "units": [
+    {
+      "title": "Введение",
+      "videos": [
+        {
+          "youtubeId": "YeyrH-Oc2p4",
+          "title": "Course Introduction",
+          "durationSec": 433,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "The Geometry of Linear Equations",
+      "videos": [
+        {
+          "youtubeId": "J7DzL2_Na80",
+          "title": "Лекция 1 — The Geometry of Linear Equations",
+          "durationSec": 2389,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "My5w4MXWBew",
+          "title": "Разбор задач: Geometry of Linear Algebra",
+          "durationSec": 996,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OZxzHcW663g",
+          "title": "An Overview of Key Ideas",
+          "durationSec": 463,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Elimination with Matrices",
+      "videos": [
+        {
+          "youtubeId": "QVKj3LADCnA",
+          "title": "Лекция 2 — Elimination with Matrices",
+          "durationSec": 2862,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GLFg2UBMAxc",
+          "title": "Разбор задач: Elimination with Matrices",
+          "durationSec": 618,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Multiplication and Inverse Matrices",
+      "videos": [
+        {
+          "youtubeId": "FX4C-JpTFgY",
+          "title": "Лекция 3 — Multiplication and Inverse Matrices",
+          "durationSec": 2809,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zWxhmBCdvFs",
+          "title": "Разбор задач: Inverse Matrices",
+          "durationSec": 505,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Factorization into A = LU",
+      "videos": [
+        {
+          "youtubeId": "MsIvs_6vC38",
+          "title": "Лекция 4 — Factorization into A = LU",
+          "durationSec": 2885,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-eA2D_rIcNA",
+          "title": "Разбор задач: LU Decomposition",
+          "durationSec": 575,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Transposes, Permutations, Spaces R^n",
+      "videos": [
+        {
+          "youtubeId": "JibVXBElKL0",
+          "title": "Лекция 5 — Transposes, Permutations, Spaces R^n",
+          "durationSec": 2862,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QQpvGlF_1Qo",
+          "title": "Разбор задач: Subspaces of Three Dimensional Space",
+          "durationSec": 885,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Column Space and Nullspace",
+      "videos": [
+        {
+          "youtubeId": "8o5Cmfpeo6g",
+          "title": "Лекция 6 — Column Space and Nullspace",
+          "durationSec": 2761,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "S8DQZjE4V8U",
+          "title": "Разбор задач: Vector Subspaces",
+          "durationSec": 526,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Solving Ax = 0: Pivot Variables, Special Solutions",
+      "videos": [
+        {
+          "youtubeId": "VqP2tREMvt0",
+          "title": "Лекция 7 — Solving Ax = 0: Pivot Variables, Special Solutions",
+          "durationSec": 2600,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3cMyj8EKFGo",
+          "title": "Разбор задач: Solving Ax=0",
+          "durationSec": 604,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Solving Ax = b: Row Reduced Form R",
+      "videos": [
+        {
+          "youtubeId": "9Q1q7s1jTzU",
+          "title": "Лекция 8 — Solving Ax = b: Row Reduced Form R",
+          "durationSec": 2840,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fjsPjh0B2tU",
+          "title": "Разбор задач: Solving Ax=b",
+          "durationSec": 544,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Independence, Basis, and Dimension",
+      "videos": [
+        {
+          "youtubeId": "yjBerM5jWsc",
+          "title": "Лекция 9 — Independence, Basis, and Dimension",
+          "durationSec": 3014,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MMWqGD4Urso",
+          "title": "Разбор задач: Basis and Dimension",
+          "durationSec": 490,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "The Four Fundamental Subspaces",
+      "videos": [
+        {
+          "youtubeId": "nHlE7EgJFds",
+          "title": "Лекция 10 — The Four Fundamental Subspaces",
+          "durationSec": 2960,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "D8u1LV9CnCk",
+          "title": "Разбор задач: Computing the Four Fundamental Subspaces",
+          "durationSec": 645,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Matrix Spaces; Rank 1; Small World Graphs",
+      "videos": [
+        {
+          "youtubeId": "2IdtqGM6KWU",
+          "title": "Лекция 11 — Matrix Spaces; Rank 1; Small World Graphs",
+          "durationSec": 2756,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BaBoztM9Q1w",
+          "title": "Разбор задач: Matrix Spaces",
+          "durationSec": 536,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Graphs, Networks, Incidence Matrices",
+      "videos": [
+        {
+          "youtubeId": "6-wh6yvk6uc",
+          "title": "Лекция 12 — Graphs, Networks, Incidence Matrices",
+          "durationSec": 2877,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "h0m2tsmSPTI",
+          "title": "Разбор задач: Graphs and Networks",
+          "durationSec": 751,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Quiz 1 Review",
+      "videos": [
+        {
+          "youtubeId": "l88D4r74gtM",
+          "title": "Лекция 13 — Quiz 1 Review",
+          "durationSec": 2860,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "AMLekTJR5_U",
+          "title": "Разбор задач: Exam #1 Problem Solving",
+          "durationSec": 893,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Orthogonal Vectors and Subspaces",
+      "videos": [
+        {
+          "youtubeId": "YzZUIYRCE38",
+          "title": "Лекция 14 — Orthogonal Vectors and Subspaces",
+          "durationSec": 2988,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "h9aDgvW59TU",
+          "title": "Разбор задач: Orthogonal Vectors and Subspaces",
+          "durationSec": 620,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Projections onto Subspaces",
+      "videos": [
+        {
+          "youtubeId": "Y_Ac6KiQ1t0",
+          "title": "Лекция 15 — Projections onto Subspaces",
+          "durationSec": 2931,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "t-n4a18AW08",
+          "title": "Разбор задач: Projection into Subspaces",
+          "durationSec": 591,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Projection Matrices and Least Squares",
+      "videos": [
+        {
+          "youtubeId": "osh80YCg_GM",
+          "title": "Лекция 16 — Projection Matrices and Least Squares",
+          "durationSec": 2885,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "AmQcoopBUTk",
+          "title": "Разбор задач: Least Squares Approximation",
+          "durationSec": 484,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Orthogonal Matrices and Gram-Schmidt",
+      "videos": [
+        {
+          "youtubeId": "0MtwqhIwdrI",
+          "title": "Лекция 17 — Orthogonal Matrices and Gram-Schmidt",
+          "durationSec": 2950,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HEQuN0QELSQ",
+          "title": "Разбор задач: Gram-Schmidt Orthogonalization",
+          "durationSec": 600,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Properties of Determinants",
+      "videos": [
+        {
+          "youtubeId": "srxexLishgY",
+          "title": "Лекция 18 — Properties of Determinants",
+          "durationSec": 2952,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "55AoWKZZtww",
+          "title": "Разбор задач: Properties of Determinants",
+          "durationSec": 596,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Determinant Formulas and Cofactors",
+      "videos": [
+        {
+          "youtubeId": "23LLB9mNJvc",
+          "title": "Лекция 19 — Determinant Formulas and Cofactors",
+          "durationSec": 3197,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "B17h10EF59g",
+          "title": "Разбор задач: Determinants",
+          "durationSec": 769,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Cramer's Rule, Inverse Matrix, and Volume",
+      "videos": [
+        {
+          "youtubeId": "QNpj-gOXW9M",
+          "title": "Лекция 20 — Cramer's Rule, Inverse Matrix, and Volume",
+          "durationSec": 3061,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qEBi0K5wfOs",
+          "title": "Разбор задач: Determinants and Volume",
+          "durationSec": 830,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Eigenvalues and Eigenvectors",
+      "videos": [
+        {
+          "youtubeId": "cdZnhQjJu4I",
+          "title": "Лекция 21 — Eigenvalues and Eigenvectors",
+          "durationSec": 3083,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mVeuZzJdd1w",
+          "title": "Разбор задач: Eigenvalues and Eigenvectors",
+          "durationSec": 562,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Diagonalization and Powers of A",
+      "videos": [
+        {
+          "youtubeId": "13r9QY6cmjc",
+          "title": "Лекция 22 — Diagonalization and Powers of A",
+          "durationSec": 3110,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5IGTFgPqlkw",
+          "title": "Разбор задач: Powers of a Matrix",
+          "durationSec": 547,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Differential Equations and exp(At)",
+      "videos": [
+        {
+          "youtubeId": "IZqwi0wJovM",
+          "title": "Лекция 23 — Differential Equations and exp(At)",
+          "durationSec": 3063,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FzncDO1eSNI",
+          "title": "Разбор задач: Differential Equations and exp (At)",
+          "durationSec": 1121,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Markov Matrices; Fourier Series",
+      "videos": [
+        {
+          "youtubeId": "lGGDIGizcQ0",
+          "title": "Лекция 24 — Markov Matrices; Fourier Series",
+          "durationSec": 3072,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wuyAeWE3iIM",
+          "title": "Разбор задач: Markov Matrices",
+          "durationSec": 709,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QuZL5IKpO_U",
+          "title": "Разбор задач: 24b. Quiz 2 Review",
+          "durationSec": 2900,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pz3zyUO2gpM",
+          "title": "Разбор задач: Exam #2 Problem Solving",
+          "durationSec": 1072,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Symmetric Matrices and Positive Definiteness",
+      "videos": [
+        {
+          "youtubeId": "UCc9q_cAhho",
+          "title": "Лекция 25 — Symmetric Matrices and Positive Definiteness",
+          "durationSec": 2632,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lpnY5QVjU5w",
+          "title": "Разбор задач: Symmetric Matrices and Positive Definiteness",
+          "durationSec": 760,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Complex Matrices; Fast Fourier Transform",
+      "videos": [
+        {
+          "youtubeId": "M0Sa8fLOajA",
+          "title": "Лекция 26 — Complex Matrices; Fast Fourier Transform",
+          "durationSec": 2872,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VYS9EYZ3gCo",
+          "title": "Разбор задач: Complex Matrices",
+          "durationSec": 782,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Positive Definite Matrices and Minima",
+      "videos": [
+        {
+          "youtubeId": "vF7eyJ2g3kU",
+          "title": "Лекция 27 — Positive Definite Matrices and Minima",
+          "durationSec": 3040,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cfn2ZUuWPd0",
+          "title": "Разбор задач: Positive Definite Matrices and Minima",
+          "durationSec": 770,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Similar Matrices and Jordan Form",
+      "videos": [
+        {
+          "youtubeId": "TSdXJw83kyA",
+          "title": "Лекция 28 — Similar Matrices and Jordan Form",
+          "durationSec": 2756,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "KUuxdk_V7To",
+          "title": "Разбор задач: Similar Matrices",
+          "durationSec": 493,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Singular Value Decomposition",
+      "videos": [
+        {
+          "youtubeId": "TX_vooSnhm8",
+          "title": "Лекция 29 — Singular Value Decomposition",
+          "durationSec": 2429,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pSbafxDHdgE",
+          "title": "Разбор задач: Computing the Singular Value Decomposition",
+          "durationSec": 696,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Linear Transformations and Their Matrices",
+      "videos": [
+        {
+          "youtubeId": "Ts3o2I8_Mxc",
+          "title": "Лекция 30 — Linear Transformations and Their Matrices",
+          "durationSec": 2967,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2uDvRUowBzg",
+          "title": "Разбор задач: Linear Transformations",
+          "durationSec": 647,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Change of Basis; Image Compression",
+      "videos": [
+        {
+          "youtubeId": "0h43aV4aH7I",
+          "title": "Лекция 31 — Change of Basis; Image Compression",
+          "durationSec": 3014,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rMv2rDiOTsI",
+          "title": "Разбор задач: Change of Basis",
+          "durationSec": 746,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Left and Right Inverses; Pseudoinverse",
+      "videos": [
+        {
+          "youtubeId": "Go2aLo7ZOlU",
+          "title": "Лекция 33 — Left and Right Inverses; Pseudoinverse",
+          "durationSec": 2513,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hSRcHTafkjE",
+          "title": "Разбор задач: Pseudoinverses",
+          "durationSec": 880,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Quiz 3 Review",
+      "videos": [
+        {
+          "youtubeId": "HgC1l_6ySkc",
+          "title": "Лекция 32 — Quiz 3 Review",
+          "durationSec": 2826,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OsHY7ycgbaE",
+          "title": "Разбор задач: Exam #3 Problem Solving",
+          "durationSec": 770,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Final Course Review",
+      "videos": [
+        {
+          "youtubeId": "RWvi4Vx4CDc",
+          "title": "Лекция 34 — Final Course Review",
+          "durationSec": 2606,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4PnArrxCZLE",
+          "title": "Разбор задач: Final Exam Problem Solving",
+          "durationSec": 738,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [],
+  "skills": ["linear-algebra", "matrices", "eigenvalues", "svd"]
+}

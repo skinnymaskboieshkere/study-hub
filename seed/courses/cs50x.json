@@ -1,0 +1,281 @@
+{
+  "slug": "cs50x",
+  "title": "CS50x: Introduction to Computer Science",
+  "shortTitle": "CS50x",
+  "university": "Harvard",
+  "instructors": ["David J. Malan"],
+  "subject": "programming",
+  "level": 1,
+  "description": "Основы программирования от Гарварда: C, массивы, алгоритмы, память и структуры данных, затем Python, SQL и веб. Лекции 0–6 — русская озвучка, остальное — оригинал с русскими субтитрами.",
+  "sourceUrl": "https://cs50.harvard.edu/x/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": [
+    "PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6",
+    "PLhQjrBD2T3839iqxqUdw7NWOCboh00vsV",
+    "PLudBa18bToPMESXZBX0Ul1M6t2MJ7y_pu"
+  ],
+  "translation": {
+    "channelTitle": "MAAS",
+    "playlistId": "PLudBa18bToPMESXZBX0Ul1M6t2MJ7y_pu",
+    "note": "Лекции 0–6: русская озвучка нейросетью (Soni Translate), автор оригинала — Harvard CS50."
+  },
+  "units": [
+    {
+      "title": "Введение",
+      "videos": [
+        {
+          "youtubeId": "HJP0a6vKvlo",
+          "title": "О курсе CS50x",
+          "durationSec": 104,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 0 · Scratch",
+      "videos": [
+        {
+          "youtubeId": "Q9w5fG3mrbg",
+          "title": "Лекция 0 — Scratch",
+          "durationSec": 7136,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "UuIEbpQms8o",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 1 · C",
+      "videos": [
+        {
+          "youtubeId": "h62Jot9rv0g",
+          "title": "Лекция 1 — C",
+          "durationSec": 9271,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "SlqjA04_dpk",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "8N5ZpIh9gzM",
+          "title": "Семинар 1 — C",
+          "durationSec": 3207,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 2 · Arrays",
+      "videos": [
+        {
+          "youtubeId": "cajuhSwho9E",
+          "title": "Лекция 2 — Arrays",
+          "durationSec": 7818,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "h5Gc1n8ZuU8",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZlJuiMNrzBQ",
+          "title": "Семинар 2 — Arrays",
+          "durationSec": 3083,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 3 · Algorithms",
+      "videos": [
+        {
+          "youtubeId": "c85Prj1h0lk",
+          "title": "Лекция 3 — Algorithms",
+          "durationSec": 7595,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "6Svu_ae5ebk",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "r383B4M1EgE",
+          "title": "Семинар 3 — Algorithms",
+          "durationSec": 4303,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 4 · Memory",
+      "videos": [
+        {
+          "youtubeId": "HuLtg0esWPE",
+          "title": "Лекция 4 — Memory",
+          "durationSec": 8791,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "db0H0U13YsA",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Gjf0L3mkVtY",
+          "title": "Семинар 4 — Memory",
+          "durationSec": 4055,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 5 · Data Structures",
+      "videos": [
+        {
+          "youtubeId": "aUVl02V34Nc",
+          "title": "Лекция 5 — Data Structures",
+          "durationSec": 7418,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "PmAI76OGE_E",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sLrnELP1nT0",
+          "title": "Семинар 5 — Data Structures",
+          "durationSec": 3427,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 6 · Python",
+      "videos": [
+        {
+          "youtubeId": "02p9BBhuqsw",
+          "title": "Лекция 6 — Python",
+          "durationSec": 7861,
+          "kind": "lecture",
+          "language": "ru",
+          "originalYoutubeId": "Rl0ludWTLxs",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SHbahshnkAs",
+          "title": "Семинар 6 — Python",
+          "durationSec": 3553,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 7 · SQL",
+      "videos": [
+        {
+          "youtubeId": "oqRU2So6Z2Y",
+          "title": "Лекция 7 — SQL",
+          "durationSec": 8133,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "g1gKEPqikOE",
+          "title": "Семинар 7 — SQL",
+          "durationSec": 3877,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Artificial Intelligence",
+      "videos": [
+        {
+          "youtubeId": "-9bo8HlSxwQ",
+          "title": "Лекция — Artificial Intelligence",
+          "durationSec": 2869,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 8 · HTML, CSS, JavaScript",
+      "videos": [
+        {
+          "youtubeId": "yYst7puZXjw",
+          "title": "Лекция 8 — HTML, CSS, JavaScript",
+          "durationSec": 8532,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "coRcSVIx5hc",
+          "title": "Семинар 8 — HTML, CSS, JavaScript",
+          "durationSec": 2146,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 9 · Flask",
+      "videos": [
+        {
+          "youtubeId": "am7POvSZ4GE",
+          "title": "Лекция 9 — Flask",
+          "durationSec": 8796,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xbguARtzOeI",
+          "title": "Семинар 9 — Flask",
+          "durationSec": 3389,
+          "kind": "section",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 10 · The End",
+      "videos": [
+        {
+          "youtubeId": "ApQTgFkf8TU",
+          "title": "Лекция 10 — The End",
+          "durationSec": 3125,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "title": "Задачи (Problem Sets)",
+      "url": "https://cs50.harvard.edu/x/psets/"
+    }
+  ],
+  "skills": ["c", "algorithms", "memory", "data-structures", "python", "sql"]
+}

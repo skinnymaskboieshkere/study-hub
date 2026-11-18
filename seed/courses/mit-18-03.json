@@ -1,0 +1,19 @@
+{
+  "slug": "mit-18-03",
+  "title": "18.03 Differential Equations",
+  "shortTitle": "18.03",
+  "university": "MIT",
+  "instructors": ["Arthur Mattuck"],
+  "subject": "math",
+  "level": 2,
+  "description": "Дифференциальные уравнения: первого и второго порядка, преобразование Лапласа, системы, ряды Фурье.",
+  "sourceUrl": "https://ocw.mit.edu/courses/18-03-differential-equations-spring-2006/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PLEC88901EBADDD980"],
+  "estimatedHours": 25,
+  "units": [],
+  "materials": [],
+  "skills": ["differential-equations"]
+}

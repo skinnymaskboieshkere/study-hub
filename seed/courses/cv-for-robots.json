@@ -1,0 +1,19 @@
+{
+  "slug": "cv-for-robots",
+  "title": "Зрение для роботов",
+  "shortTitle": "CV + роботы",
+  "university": "MIT · Stanford",
+  "instructors": ["Russ Tedrake"],
+  "subject": "cv",
+  "level": 4,
+  "description": "Лекции о восприятии из MIT 6.4210 и лекция Robot Learning из CS231n — финал пути. Подберём на этапе 7.",
+  "sourceUrl": "https://manipulation.mit.edu/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": [],
+  "estimatedHours": 6,
+  "units": [],
+  "materials": [],
+  "skills": ["perception", "robot-learning"]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "mit-6-002",
+  "title": "6.002 Circuits and Electronics",
+  "shortTitle": "6.002",
+  "university": "MIT",
+  "instructors": ["Anant Agarwal"],
+  "subject": "engineering",
+  "level": 2,
+  "description": "Цепи и электроника: законы Кирхгофа, транзисторы, усилители, переходные процессы — база для автоматики.",
+  "sourceUrl": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PL9F74AFA03AA06A11"],
+  "estimatedHours": 21,
+  "units": [],
+  "materials": [],
+  "skills": ["circuits", "electronics"]
+}

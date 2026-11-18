@@ -1,0 +1,19 @@
+{
+  "slug": "harvard-stat-110",
+  "title": "Stat 110: Probability",
+  "shortTitle": "Stat 110",
+  "university": "Harvard",
+  "instructors": ["Joe Blitzstein"],
+  "subject": "math",
+  "level": 2,
+  "description": "Вероятность: случайные величины, распределения, условная вероятность, предельные теоремы. Нужна для ML и CV.",
+  "sourceUrl": "https://stat110.net/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo"],
+  "estimatedHours": 27,
+  "units": [],
+  "materials": [],
+  "skills": ["probability"]
+}

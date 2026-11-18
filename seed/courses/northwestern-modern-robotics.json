@@ -1,0 +1,19 @@
+{
+  "slug": "northwestern-modern-robotics",
+  "title": "Modern Robotics",
+  "shortTitle": "Modern Robotics",
+  "university": "Northwestern",
+  "instructors": ["Kevin Lynch"],
+  "subject": "robotics",
+  "level": 3,
+  "description": "Короткие видео к бесплатной книге: конфигурационное пространство, кинематика, динамика, планирование движения и управление.",
+  "sourceUrl": "https://modernrobotics.northwestern.edu/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PLggLP4f-rq02vX0OQQ5vrCxbJrzamYDfx"],
+  "estimatedHours": 7,
+  "units": [],
+  "materials": [],
+  "skills": ["kinematics", "motion-planning"]
+}

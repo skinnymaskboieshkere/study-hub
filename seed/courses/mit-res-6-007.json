@@ -1,0 +1,19 @@
+{
+  "slug": "mit-res-6-007",
+  "title": "RES.6-007 Signals and Systems",
+  "shortTitle": "6.007",
+  "university": "MIT",
+  "instructors": ["Alan V. Oppenheim"],
+  "subject": "engineering",
+  "level": 2,
+  "description": "Сигналы и системы (запись 1987 года): свёртка, преобразования Фурье и Лапласа, фильтры, дискретизация. Нужно для обработки изображений и управления.",
+  "sourceUrl": "https://ocw.mit.edu/courses/res-6-007-signals-and-systems-spring-2011/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PL41692B571DD0AF9B"],
+  "estimatedHours": 20,
+  "units": [],
+  "materials": [],
+  "skills": ["signals", "fourier"]
+}

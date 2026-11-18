@@ -19,7 +19,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "yt": "tsx scripts/youtube.ts",
+    "catalog": "tsx scripts/build-catalog.ts"
   },
   "dependencies": {
     "@fastify/static": "^10.1.11",

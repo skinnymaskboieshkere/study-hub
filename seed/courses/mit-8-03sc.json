@@ -1,0 +1,19 @@
+{
+  "slug": "mit-8-03sc",
+  "title": "8.03SC Physics III: Vibrations and Waves",
+  "shortTitle": "8.03SC",
+  "university": "MIT",
+  "instructors": ["Yen-Jie Lee"],
+  "subject": "physics",
+  "level": 2,
+  "description": "Колебания и волны: осцилляторы, резонанс, волны, интерференция и дифракция.",
+  "sourceUrl": "https://ocw.mit.edu/courses/8-03sc-physics-iii-vibrations-and-waves-fall-2016/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PLUl4u3cNGP61R5sPDPKVfcFlu95wSs2Kx"],
+  "estimatedHours": 31,
+  "units": [],
+  "materials": [],
+  "skills": ["oscillations", "waves"]
+}

@@ -1,0 +1,167 @@
+{
+  "slug": "cs50p",
+  "title": "CS50P: Introduction to Programming with Python",
+  "shortTitle": "CS50P",
+  "university": "Harvard",
+  "instructors": ["David J. Malan"],
+  "subject": "programming",
+  "level": 1,
+  "description": "Python с нуля от Гарварда: функции, условия, циклы, исключения, библиотеки, тесты, файлы, регулярные выражения и ООП. Python — основной язык Computer Vision.",
+  "sourceUrl": "https://cs50.harvard.edu/python/",
+  "license": "CC BY-NC-SA 4.0",
+  "verifiedAt": "2026-11-18",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLhQjrBD2T3817j24-GogXmWqO5Q5vYy0V"],
+  "units": [
+    {
+      "title": "Введение",
+      "videos": [
+        {
+          "youtubeId": "OvKCESUCWII",
+          "title": "О курсе CS50P",
+          "durationSec": 257,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 0 · Functions, Variables",
+      "videos": [
+        {
+          "youtubeId": "JP7ITIXGpHk",
+          "title": "Лекция 0 — Functions, Variables",
+          "durationSec": 6338,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 1 · Conditionals",
+      "videos": [
+        {
+          "youtubeId": "_b6NgY_pMdw",
+          "title": "Лекция 1 — Conditionals",
+          "durationSec": 3368,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 2 · Loops",
+      "videos": [
+        {
+          "youtubeId": "-7xg8pGcP6w",
+          "title": "Лекция 2 — Loops",
+          "durationSec": 4847,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 3 · Exceptions",
+      "videos": [
+        {
+          "youtubeId": "LW7g1169v7w",
+          "title": "Лекция 3 — Exceptions",
+          "durationSec": 2676,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 4 · Libraries",
+      "videos": [
+        {
+          "youtubeId": "MztLZWibctI",
+          "title": "Лекция 4 — Libraries",
+          "durationSec": 4649,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 5 · Unit Tests",
+      "videos": [
+        {
+          "youtubeId": "tIrcxwLqzjQ",
+          "title": "Лекция 5 — Unit Tests",
+          "durationSec": 3054,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 6 · File I/O",
+      "videos": [
+        {
+          "youtubeId": "KD-Yoel6EVQ",
+          "title": "Лекция 6 — File I/O",
+          "durationSec": 5545,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 7 · Regular Expressions",
+      "videos": [
+        {
+          "youtubeId": "hy3sd9MOAcc",
+          "title": "Лекция 7 — Regular Expressions",
+          "durationSec": 7500,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 8 · Object-Oriented Programming",
+      "videos": [
+        {
+          "youtubeId": "e4fwY9ZsxPw",
+          "title": "Лекция 8 — Object-Oriented Programming",
+          "durationSec": 10062,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Неделя 9 · Et Cetera",
+      "videos": [
+        {
+          "youtubeId": "6pgodt1mezg",
+          "title": "Лекция 9 — Et Cetera",
+          "durationSec": 8944,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "title": "Задачи (Problem Sets)",
+      "url": "https://cs50.harvard.edu/python/psets/"
+    }
+  ],
+  "skills": ["python", "testing", "regex", "oop"]
+}

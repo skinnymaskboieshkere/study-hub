@@ -1,0 +1,19 @@
+{
+  "slug": "uw-control-bootcamp",
+  "title": "Control Bootcamp",
+  "shortTitle": "Control",
+  "university": "U. of Washington",
+  "instructors": ["Steve Brunton"],
+  "subject": "engineering",
+  "level": 2,
+  "description": "Теория управления: устойчивость, управляемость, LQR, фильтр Калмана. Сильный курс, хотя University of Washington — не Ivy-вуз.",
+  "sourceUrl": "https://www.youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m",
+  "license": "Стандартная лицензия YouTube (канал автора)",
+  "verifiedAt": "2026-11-18",
+  "status": "candidate",
+  "youtubePlaylistIds": ["PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m"],
+  "estimatedHours": 9,
+  "units": [],
+  "materials": [],
+  "skills": ["control", "lqr", "kalman-filter"]
+}

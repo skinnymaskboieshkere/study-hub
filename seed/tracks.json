@@ -1,0 +1,332 @@
+{
+  "tracks": [
+    {
+      "slug": "foundation",
+      "title": "Фундамент",
+      "color": "#a78bfa",
+      "order": 1,
+      "description": "Предметы 1 курса: программирование, матанализ, линейная алгебра и физика — с механики."
+    },
+    {
+      "slug": "engineering",
+      "title": "Инженерная база",
+      "color": "#60a5fa",
+      "order": 2,
+      "description": "Конец 1-го — 2-й курс: анализ нескольких переменных, дифференциальные уравнения, электричество, цепи, сигналы, вероятность и управление."
+    },
+    {
+      "slug": "robotics",
+      "title": "Робототехника",
+      "color": "#34d399",
+      "order": 3,
+      "description": "Кинематика, динамика, планирование и управление роботами."
+    },
+    {
+      "slug": "cv",
+      "title": "Computer Vision",
+      "color": "#22d3ee",
+      "order": 4,
+      "description": "Главная цель: классическое зрение, deep learning для зрения и зрение для роботов."
+    }
+  ],
+  "courses": [
+    {
+      "course": "cs50x",
+      "track": "foundation",
+      "order": 1,
+      "prerequisites": [],
+      "initialCollection": "wishlist"
+    },
+    {
+      "course": "mit-18-01",
+      "track": "foundation",
+      "order": 2,
+      "prerequisites": [],
+      "initialCollection": "wishlist"
+    },
+    {
+      "course": "mit-18-06",
+      "track": "foundation",
+      "order": 3,
+      "prerequisites": [],
+      "initialCollection": "wishlist"
+    },
+    {
+      "course": "yale-phys-200",
+      "track": "foundation",
+      "order": 4,
+      "prerequisites": [],
+      "initialCollection": "wishlist"
+    },
+    {
+      "course": "cs50p",
+      "track": "foundation",
+      "order": 5,
+      "prerequisites": [
+        {
+          "course": "cs50x",
+          "minProgress": 0.5
+        }
+      ],
+      "initialCollection": "wishlist"
+    },
+    {
+      "course": "mit-8-01sc",
+      "track": "foundation",
+      "order": 6,
+      "prerequisites": []
+    },
+    {
+      "course": "mit-6-042j",
+      "track": "foundation",
+      "order": 7,
+      "prerequisites": []
+    },
+    {
+      "course": "stanford-cs106b",
+      "track": "foundation",
+      "order": 8,
+      "prerequisites": [
+        {
+          "course": "cs50x",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "mit-18-02",
+      "track": "engineering",
+      "order": 1,
+      "prerequisites": [
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "mit-18-03",
+      "track": "engineering",
+      "order": 2,
+      "prerequisites": [
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "yale-phys-201",
+      "track": "engineering",
+      "order": 3,
+      "prerequisites": [
+        {
+          "course": "yale-phys-200",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "mit-8-03sc",
+      "track": "engineering",
+      "order": 4,
+      "prerequisites": [
+        {
+          "course": "yale-phys-200",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "mit-6-002",
+      "track": "engineering",
+      "order": 5,
+      "prerequisites": [
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.6
+        },
+        {
+          "course": "yale-phys-201",
+          "minProgress": 0.3
+        }
+      ]
+    },
+    {
+      "course": "mit-res-6-007",
+      "track": "engineering",
+      "order": 6,
+      "prerequisites": [
+        {
+          "course": "mit-18-03",
+          "minProgress": 0.4
+        }
+      ]
+    },
+    {
+      "course": "harvard-stat-110",
+      "track": "engineering",
+      "order": 7,
+      "prerequisites": [
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "uw-control-bootcamp",
+      "track": "engineering",
+      "order": 8,
+      "prerequisites": [
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.6
+        },
+        {
+          "course": "mit-18-03",
+          "minProgress": 0.4
+        }
+      ]
+    },
+    {
+      "course": "stanford-cs223a",
+      "track": "robotics",
+      "order": 1,
+      "prerequisites": [
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "northwestern-modern-robotics",
+      "track": "robotics",
+      "order": 2,
+      "prerequisites": [
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.6
+        },
+        {
+          "course": "yale-phys-200",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "mit-6-4210",
+      "track": "robotics",
+      "order": 3,
+      "prerequisites": [
+        {
+          "course": "stanford-cs223a",
+          "minProgress": 0.5
+        },
+        {
+          "course": "cs50p",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "mit-underactuated",
+      "track": "robotics",
+      "order": 4,
+      "prerequisites": [
+        {
+          "course": "mit-6-4210",
+          "minProgress": 0.5
+        }
+      ]
+    },
+    {
+      "course": "columbia-fpcv",
+      "track": "cv",
+      "order": 1,
+      "prerequisites": [
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.6
+        },
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.3
+        }
+      ]
+    },
+    {
+      "course": "mit-6-s191",
+      "track": "cv",
+      "order": 2,
+      "prerequisites": [
+        {
+          "course": "cs50p",
+          "minProgress": 0.6
+        }
+      ]
+    },
+    {
+      "course": "michigan-eecs-498",
+      "track": "cv",
+      "order": 3,
+      "prerequisites": [
+        {
+          "course": "cs50p",
+          "minProgress": 0.8
+        },
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.8
+        },
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.6
+        },
+        {
+          "course": "harvard-stat-110",
+          "minProgress": 0.3
+        }
+      ]
+    },
+    {
+      "course": "stanford-cs231n",
+      "track": "cv",
+      "order": 4,
+      "prerequisites": [
+        {
+          "course": "cs50p",
+          "minProgress": 0.8
+        },
+        {
+          "course": "mit-18-01",
+          "minProgress": 0.8
+        },
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.6
+        },
+        {
+          "course": "harvard-stat-110",
+          "minProgress": 0.3
+        }
+      ]
+    },
+    {
+      "course": "cv-for-robots",
+      "track": "cv",
+      "order": 5,
+      "prerequisites": [
+        {
+          "course": "stanford-cs231n",
+          "minProgress": 0.6
+        },
+        {
+          "course": "mit-6-4210",
+          "minProgress": 0.3
+        }
+      ]
+    }
+  ]
+}
