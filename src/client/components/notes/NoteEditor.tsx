@@ -20,6 +20,7 @@ import {
   placeholder,
 } from "@codemirror/view";
 import { useEffect, useImperativeHandle, useRef, type Ref } from "react";
+import { timecodeInsertion } from "@shared/note-templates";
 import { tagCompletion, wikilinkCompletion, type CompletionData } from "@/lib/editor/completion";
 import { editorHighlight, editorTheme } from "@/lib/editor/theme";
 import { obsidianSyntax } from "@/lib/editor/wikilinks";
@@ -28,8 +29,10 @@ export interface NoteEditorHandle {
   /** Puts the cursor at the start of a line and scrolls it into view (0-based). */
   goToLine: (line: number) => void;
   focus: () => void;
-  /** Inserts text at the cursor (the timecode hotkey pressed outside the editor). */
+  /** Inserts text at the cursor (a template). */
   insert: (text: string) => void;
+  /** The timecode hotkey pressed outside the editor: never lands in the YAML properties. */
+  insertTimecode: (link: string) => void;
 }
 
 interface NoteEditorProps {
@@ -59,6 +62,19 @@ function insertText(view: EditorView, text: string) {
   view.focus();
 }
 
+/** The timecode at the cursor, or in the "Таймкоды" section when the cursor was not placed. */
+function insertTimecode(view: EditorView, link: string, cursorPlaced: boolean) {
+  const { from } = view.state.selection.main;
+  const at = timecodeInsertion(view.state.doc.toString(), from, cursorPlaced, link);
+  if (cursorPlaced && at.from === from) return insertText(view, link);
+  view.dispatch({
+    changes: { from: at.from, insert: at.insert },
+    selection: { anchor: at.from + at.insert.length },
+    scrollIntoView: true,
+    userEvent: "input",
+  });
+}
+
 /** CodeMirror 6 editor for one note (SPEC §6.5): Markdown, code in fences, `[[`, `#`. */
 export function NoteEditor({
   initialText,
@@ -71,6 +87,8 @@ export function NoteEditor({
 }: NoteEditorProps) {
   const host = useRef<HTMLDivElement>(null);
   const view = useRef<EditorView | null>(null);
+  // Whether the student put the cursor somewhere; until then a timecode goes to "Таймкоды".
+  const placed = useRef(false);
   // Callbacks change on every render; the editor reads the latest ones through refs.
   const callbacks = useRef({ onChange, onOpenLink, onOpenUrl, onTimecode, completion });
   useEffect(() => {
@@ -105,7 +123,7 @@ export function NoteEditor({
               run: (target) => {
                 const text = callbacks.current.onTimecode?.();
                 if (!text) return false;
-                insertText(target, text);
+                insertTimecode(target, text, true);
                 return true;
               },
             },
@@ -135,6 +153,11 @@ export function NoteEditor({
             "aria-label": "Текст заметки",
             spellcheck: "true",
             lang: "ru",
+          }),
+          EditorView.domEventHandlers({
+            focus: () => {
+              placed.current = true;
+            },
           }),
           EditorView.updateListener.of((update) => {
             if (update.docChanged) callbacks.current.onChange(update.state.doc.toString());
@@ -167,6 +190,9 @@ export function NoteEditor({
     },
     insert(text) {
       if (view.current) insertText(view.current, text);
+    },
+    insertTimecode(link) {
+      if (view.current) insertTimecode(view.current, link, placed.current);
     },
   }));
 

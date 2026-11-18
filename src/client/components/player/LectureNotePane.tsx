@@ -1,11 +1,11 @@
 import { timecodeMarkdown, parseYoutubeLink } from "@shared/note-templates";
-import { parseNote, resolveLink } from "@shared/notes";
+import { resolveLink } from "@shared/notes";
+import type { NoteListItemDto } from "@shared/api";
 import { Eye, NotebookPen, PenLine, SquareArrowOutUpRight, X } from "lucide-react";
 import { useImperativeHandle, useMemo, useRef, useState, type Ref } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import {
-  fetchNote,
   useCreateLectureNote,
   useLectureNote,
   useNoteList,
@@ -14,10 +14,10 @@ import {
 } from "@/app/notes-queries";
 import { MarkdownPreview } from "@/components/notes/MarkdownPreview";
 import { NoteEditor, type NoteEditorHandle } from "@/components/notes/NoteEditor";
+import { useNoteCompletion } from "@/components/notes/useNoteCompletion";
 import { useNoteDocument } from "@/components/notes/useNoteDocument";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { CompletionData } from "@/lib/editor/completion";
 
 export interface LectureNoteHandle {
   /** The timecode hotkey pressed outside the editor. */
@@ -33,6 +33,8 @@ interface LectureNotePaneProps {
   onClose: () => void;
   ref?: Ref<LectureNoteHandle>;
 }
+
+const NO_NOTES: NoteListItemDto[] = [];
 
 const notesUrl = (path: string) => `/notes?path=${encodeURIComponent(path)}`;
 
@@ -122,25 +124,17 @@ function LectureNote({ path, ...props }: LectureNotePaneProps & { path: string }
         toast("Таймкод вставляется в режиме редактора — нажми Alt+T ещё раз");
         return;
       }
-      editor.current?.insert(timecode());
+      editor.current?.insertTimecode(timecode());
     },
   }));
 
-  const completion = useMemo<CompletionData>(
-    () => ({
-      notes: () => list.data ?? [],
-      tags: () => (tags.data ?? []).map((tag) => tag.tag),
-      headings: async (target) => {
-        const resolved = target ? resolveLink(target, paths, path) : path;
-        if (!resolved) return [];
-        const note = resolved === path ? null : await fetchNote(resolved).catch(() => null);
-        return parseNote(note ? note.content : document.text).headings.map(
-          (heading) => heading.text,
-        );
-      },
-    }),
-    [list.data, tags.data, paths, path, document.text],
-  );
+  const completion = useNoteCompletion({
+    notes: list.data ?? NO_NOTES,
+    tags: tags.data,
+    paths,
+    path,
+    text: document.text,
+  });
 
   // Links to other notes open the notes screen; the video keeps its place (saved on leave).
   const openNote = (target: string) => {

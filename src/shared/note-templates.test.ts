@@ -4,9 +4,11 @@ import {
   clock,
   defaultDailyNote,
   defaultLectureNote,
+  fillTemplate,
   lectureNotePath,
   parseYoutubeLink,
   safeFileName,
+  timecodeInsertion,
   timecodeMarkdown,
 } from "./note-templates";
 
@@ -109,5 +111,40 @@ describe("templates", () => {
     });
     expect(note).toContain("- [ ] CS50x · Лекция 0 (0:12–30:12)");
     expect(note).toContain("date: 2026-11-18");
+  });
+});
+
+describe("fillTemplate", () => {
+  it("puts the local date, time and the note title", () => {
+    expect(
+      fillTemplate("{{title}}: {{date}} {{time}}", "Пределы", new Date(2026, 10, 18, 9, 5)),
+    ).toBe("Пределы: 2026-11-18 09:05");
+  });
+});
+
+describe("timecodeInsertion", () => {
+  const link = "[▶ 1:00](https://www.youtube.com/watch?v=UuIEbpQms8o&t=60s)";
+  const note =
+    "---\nvideo: UuIEbpQms8o\n---\n# Лекция\n\n## Таймкоды\n\n- [▶ 0:30](x)\n\n## Формулы\n";
+  const apply = (doc: string, at: { from: number; insert: string }) =>
+    doc.slice(0, at.from) + at.insert + doc.slice(at.from);
+
+  it("uses a cursor the student placed in the text", () => {
+    const cursor = note.indexOf("# Лекция") + 2;
+    expect(timecodeInsertion(note, cursor, true, link)).toEqual({ from: cursor, insert: link });
+  });
+
+  it("never writes into the YAML properties: goes to the Таймкоды section instead", () => {
+    const result = apply(note, timecodeInsertion(note, 0, false, link));
+    expect(result).toContain(`- [▶ 0:30](x)\n- ${link}\n\n## Формулы`);
+    expect(result.startsWith("---\nvideo:")).toBe(true);
+    // Also when the cursor was put inside the properties.
+    expect(apply(note, timecodeInsertion(note, 5, true, link))).toBe(result);
+  });
+
+  it("appends to the note when it has no Таймкоды section", () => {
+    expect(apply("# Заметка", timecodeInsertion("# Заметка", 0, false, link))).toBe(
+      `# Заметка\n- ${link}\n`,
+    );
   });
 });

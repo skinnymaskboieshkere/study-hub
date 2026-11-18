@@ -3,16 +3,9 @@ import { useQueryClient } from "@tanstack/react-query";
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
-import {
-  PROGRESS_QUERY_KEYS,
-  useAddBookmark,
-  useSetCompletion,
-  useSetItemDone,
-} from "@/app/queries";
+import { PROGRESS_QUERY_KEYS, useSetCompletion, useSetItemDone } from "@/app/queries";
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
-import { formatTimecode } from "@/lib/format";
-import { clampRate } from "@/lib/player";
 import { segmentStart, type PlanSegment } from "@/lib/segment";
 import { PLAYER_STATE, tryRussianCaptions } from "@/lib/youtube-iframe";
 import type { LectureNoteHandle } from "./LectureNotePane";
@@ -24,9 +17,9 @@ import { StudyHeading, StudyHints } from "./StudyDetails";
 import { StudyLayout } from "./StudyLayout";
 import { usePlanSegment } from "./usePlanSegment";
 import { usePlaybackRate } from "./usePlaybackRate";
-import { usePlayerHotkeys } from "./usePlayerHotkeys";
 import { usePlayerProgress } from "./usePlayerProgress";
 import { useStoredFlag } from "./useStoredFlag";
+import { useStudyControls } from "./useStudyControls";
 import { YouTubePlayer } from "./YouTubePlayer";
 
 // The editor and Markdown are heavy: loaded only when the note is opened next to the video.
@@ -59,7 +52,6 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
   const [noteOpen, setNoteOpen] = useStoredFlag("studyhub.noteOpen", false);
   const [playlistOpen, setPlaylistOpen] = useState(false);
   const completion = useSetCompletion(video.youtubeId);
-  const addBookmark = useAddBookmark(video.youtubeId);
   const setItemDone = useSetItemDone();
   const completed = video.status === "done";
   const startSec =
@@ -114,52 +106,18 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
     onReached: finishSegment,
   });
 
-  const seekTo = (seconds: number) => player?.seekTo(Math.max(0, seconds), true);
-  // The player reports the new time with a delay, so quick ←/→ presses add up here.
-  const seekTarget = useRef<{ seconds: number; until: number } | null>(null);
-  const seekBy = (delta: number) => {
-    const now = Date.now();
-    const pending = seekTarget.current;
-    const base = pending && pending.until > now ? pending.seconds : time();
-    const seconds = Math.max(0, base + delta);
-    seekTarget.current = { seconds, until: now + 1000 };
-    seekTo(seconds);
-  };
-  const quickBookmark = () => {
-    const tSec = time();
-    addBookmark.mutate(
-      { tSec, label: `Закладка ${formatTimecode(tSec)}` },
-      { onSuccess: () => toast.success(`Закладка ${formatTimecode(tSec)} добавлена`) },
-    );
-  };
-
-  /** A timecode in a note: this lecture → jump; another one → open it at that second. */
-  const openVideo = (youtubeId: string, seconds: number) => {
-    if (youtubeId === video.youtubeId) {
-      seekTo(seconds);
-      player?.playVideo();
-    } else {
-      void navigate(`${lessonUrl(youtubeId)}&t=${Math.floor(seconds)}`);
-    }
-  };
-
-  usePlayerHotkeys({
-    togglePlay: () => (playing ? player?.pauseVideo() : player?.playVideo()),
-    seekBy,
-    changeRate: (step) => {
-      applyRate(rate + step);
-      toast(`Скорость ${clampRate(rate + step)}×`);
-    },
-    addBookmark: quickBookmark,
-    toggleFocus: onToggleFocus,
-    timecode: () => {
-      if (!noteOpen) {
-        setNoteOpen(true);
-        toast("Открыл конспект — нажми Alt+T ещё раз, чтобы вставить таймкод");
-      } else {
-        noteRef.current?.insertTimecode();
-      }
-    },
+  const { seekTo, bookmark, openVideo } = useStudyControls({
+    player,
+    playing,
+    youtubeId: video.youtubeId,
+    time,
+    rate,
+    applyRate,
+    onToggleFocus,
+    lessonUrl,
+    noteOpen,
+    setNoteOpen,
+    note: noteRef,
   });
 
   // After a click inside YouTube the keys go to its frame; leaving it returns them to the app.
@@ -237,7 +195,7 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
           }
           rate={rate}
           onRateChange={applyRate}
-          onBookmark={quickBookmark}
+          onBookmark={bookmark}
           focus={focus}
           onToggleFocus={onToggleFocus}
           noteOpen={noteOpen}

@@ -1,13 +1,11 @@
-import { todayIso } from "@shared/dates";
-import { applyTemplate, parseYoutubeLink } from "@shared/note-templates";
-import { frontmatterTags, noteName, parseNote, resolveLink, sameHeading } from "@shared/notes";
+import { fillTemplate } from "@shared/note-templates";
+import { frontmatterTags, noteName } from "@shared/notes";
 import { FolderX, NotebookPen } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { toast } from "sonner";
 import {
   fetchNote,
-  useCreateNote,
   useNoteList,
   useNotesStatus,
   useNotesSync,
@@ -20,11 +18,14 @@ import type { NoteEditorHandle } from "@/components/notes/NoteEditor";
 import { NotePanel } from "@/components/notes/NotePanel";
 import { NoteSidebar } from "@/components/notes/NoteSidebar";
 import { NoteWorkspace, type NoteMode } from "@/components/notes/NoteWorkspace";
+import { useNoteCompletion } from "@/components/notes/useNoteCompletion";
 import { useNoteDocument } from "@/components/notes/useNoteDocument";
+import { useNoteJump } from "@/components/notes/useNoteJump";
+import { useNoteNavigation } from "@/components/notes/useNoteNavigation";
+import { useNotesShortcuts } from "@/components/notes/useNotesShortcuts";
 import { QueryError } from "@/components/QueryState";
 import { StateMessage } from "@/components/StateMessage";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { CompletionData } from "@/lib/editor/completion";
 
 const MODE_KEY = "studyhub.noteMode";
 
@@ -67,14 +68,13 @@ export function NotesPage() {
 }
 
 function NotesScreen() {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const navigate = useNavigate();
   const path = params.get("path");
   const document = useNoteDocument(path);
   const list = useNoteList();
   const tags = useTags();
   const templates = useTemplates();
-  const createNote = useCreateNote();
   const trashNote = useTrashNote();
   const editor = useRef<NoteEditorHandle>(null);
   const [mode, setMode] = useState<NoteMode>(readMode);
@@ -84,43 +84,26 @@ function NotesScreen() {
 
   const notes = useMemo(() => list.data ?? [], [list.data]);
   const paths = useMemo(() => notes.map((note) => note.path), [notes]);
-
-  const open = useCallback(
-    (target: string, jump?: { heading?: string | null; line?: number | null }) => {
-      const next = new URLSearchParams({ path: target });
-      if (jump?.heading) next.set("heading", jump.heading);
-      if (jump?.line !== undefined && jump.line !== null) next.set("line", String(jump.line));
-      void navigate(`/notes?${next.toString()}`);
-    },
-    [navigate],
-  );
-
-  const create = useCallback(
-    (folder: string, name?: string) =>
-      createNote.mutate(
-        { folder, name },
-        {
-          onSuccess: (note) => open(note.path),
-          onError: (error) => toast.error(error.message),
-        },
-      ),
-    [createNote, open],
-  );
-
-  const openLink = useCallback(
-    (target: string, heading: string | null) => {
-      if (!target && heading && path) return open(path, { heading });
-      const resolved = resolveLink(target, paths, path ?? undefined);
-      if (resolved) open(resolved, { heading });
-      else create("", target.split("/").pop() ?? target);
-    },
-    [create, open, path, paths],
-  );
+  const { open, create, openLink, openVideo, openUrl } = useNoteNavigation(path, paths);
+  const completion = useNoteCompletion({
+    notes,
+    tags: tags.data,
+    paths,
+    path,
+    text: document.text,
+  });
+  useNoteJump({
+    ready: document.doc.phase === "ready",
+    text: document.text,
+    preview: mode === "preview",
+    editor,
+  });
 
   const showTag = useCallback((tag: string) => {
     setSearchTag(tag);
     setSearch(true);
   }, []);
+  useNotesShortcuts({ onSwitch: () => setSwitcher(true), onSearch: () => showTag("") });
 
   // /notes?tag=… (a tag clicked next to the video) opens the tag search right away.
   const tagParam = params.get("tag");
@@ -131,21 +114,6 @@ function NotesScreen() {
     setSearch(true);
   }
 
-  // A timecode opens the lecture at that second (SPEC §6.6).
-  const openVideo = useCallback(
-    (videoId: string, seconds: number) =>
-      void navigate(`/watch/${videoId}${seconds > 0 ? `?t=${Math.floor(seconds)}` : ""}`),
-    [navigate],
-  );
-  const openUrl = useCallback(
-    (url: string) => {
-      const video = parseYoutubeLink(url);
-      if (video) openVideo(video.videoId, video.tSec);
-      return Boolean(video);
-    },
-    [openVideo],
-  );
-
   async function insertTemplate(templatePath: string) {
     if (mode === "preview") {
       changeMode("edit");
@@ -154,83 +122,8 @@ function NotesScreen() {
     }
     const template = await fetchNote(templatePath).catch(() => null);
     if (!template) return void toast.error("Шаблон не открыть");
-    const now = new Date();
-    editor.current?.insert(
-      applyTemplate(template.content, {
-        date: todayIso(),
-        time: `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`,
-        title: path ? noteName(path) : "",
-      }),
-    );
+    editor.current?.insert(fillTemplate(template.content, path ? noteName(path) : "", new Date()));
   }
-
-  const completion = useMemo<CompletionData>(
-    () => ({
-      notes: () => notes,
-      tags: () => (tags.data ?? []).map((tag) => tag.tag),
-      headings: async (target) => {
-        const resolved = target ? resolveLink(target, paths, path ?? undefined) : path;
-        if (!resolved) return [];
-        const note = resolved === path ? null : await fetchNote(resolved).catch(() => null);
-        return parseNote(note ? note.content : document.text).headings.map(
-          (heading) => heading.text,
-        );
-      },
-    }),
-    [notes, tags.data, paths, path, document.text],
-  );
-
-  // Jump to a heading or a line after opening (links like [[Note#Heading]], backlinks).
-  const jumpHeading = params.get("heading");
-  const jumpLine = params.get("line");
-  const ready = document.doc.phase === "ready";
-  useEffect(() => {
-    if (!ready || (!jumpHeading && !jumpLine)) return;
-    const line = jumpLine
-      ? Number(jumpLine)
-      : parseNote(document.text).headings.find((heading) =>
-          sameHeading(heading.text, jumpHeading ?? ""),
-        )?.line;
-    if (line !== undefined && Number.isFinite(line)) {
-      if (mode === "preview" && jumpHeading) {
-        const target = [
-          ...globalThis.document.querySelectorAll<HTMLElement>("[data-heading]"),
-        ].find((element) => sameHeading(element.dataset.heading ?? "", jumpHeading));
-        target?.scrollIntoView({ block: "start" });
-      } else {
-        editor.current?.goToLine(line);
-      }
-    }
-    setParams(
-      (current) => {
-        const next = new URLSearchParams(current);
-        next.delete("heading");
-        next.delete("line");
-        return next;
-      },
-      { replace: true },
-    );
-    // Runs once per jump request, when the note is ready.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ready, jumpHeading, jumpLine]);
-
-  // Ctrl+O — quick switcher, Ctrl+Shift+F — search (SPEC §6.5).
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (!(event.ctrlKey || event.metaKey) || event.altKey) return;
-      const key = event.key.toLowerCase();
-      if (key === "o" && !event.shiftKey) {
-        event.preventDefault();
-        setSwitcher(true);
-      } else if ((key === "f" || event.code === "KeyF") && event.shiftKey) {
-        event.preventDefault();
-        setSearchTag("");
-        setSearch(true);
-      }
-    }
-    window.addEventListener("keydown", onKeyDown, true);
-    return () => window.removeEventListener("keydown", onKeyDown, true);
-  }, []);
 
   function changeMode(next: NoteMode) {
     setMode(next);

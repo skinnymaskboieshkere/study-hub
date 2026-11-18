@@ -172,3 +172,43 @@ export function defaultDailyNote(values: DailyValues): string {
     "",
   ].join("\n");
 }
+
+/** "Insert template": Obsidian's {{date}}, {{time}} and {{title}} for the moment of inserting. */
+export function fillTemplate(template: string, title: string, now: Date): string {
+  const pad = (value: number) => String(value).padStart(2, "0");
+  return applyTemplate(template, {
+    date: `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`,
+    time: `${pad(now.getHours())}:${pad(now.getMinutes())}`,
+    title,
+  });
+}
+
+/**
+ * Where the timecode hotkey puts its link when the cursor is not a deliberate place: never inside
+ * the YAML properties. It goes to the end of the "Таймкоды" section as a list item, otherwise to
+ * the end of the note. A cursor the student placed in the text is used as is.
+ */
+export function timecodeInsertion(
+  doc: string,
+  cursor: number,
+  cursorPlaced: boolean,
+  link: string,
+): { from: number; insert: string } {
+  const bom = doc.charCodeAt(0) === 0xfeff ? 1 : 0;
+  const frontmatter = /^---\r?\n[\s\S]*?\r?\n(?:---|\.\.\.)[ \t]*(?:\r?\n|$)/.exec(doc.slice(bom));
+  const bodyStart = frontmatter ? bom + frontmatter[0].length : 0;
+  if (cursorPlaced && cursor >= bodyStart) return { from: cursor, insert: link };
+
+  const section = /^#{1,6}[ \t]+Таймкоды[ \t]*$/m.exec(doc.slice(bodyStart));
+  if (section) {
+    const afterHeading = bodyStart + section.index + section[0].length;
+    const next = /^#{1,6}[ \t]+\S/m.exec(doc.slice(afterHeading));
+    let end = next ? afterHeading + next.index : doc.length;
+    // After the last line of the section; the blank lines before the next heading stay.
+    while (end > afterHeading && /\s/.test(doc[end - 1] ?? "")) end -= 1;
+    return { from: end, insert: `\n- ${link}` };
+  }
+  const end = doc.length;
+  const needsBreak = end > 0 && !doc.endsWith("\n");
+  return { from: end, insert: `${needsBreak ? "\n" : ""}- ${link}\n` };
+}
