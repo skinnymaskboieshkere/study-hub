@@ -79,7 +79,7 @@ Dark purple-black theme; tokens live in `src/client/styles/index.css`.
 - Main action on a hero: white pill (`Button variant="hero" size="pill"`); elsewhere the violet default button.
 - Covers are YouTube thumbnails (`CourseCover`): `hqdefault` for cards, `maxresdefault` with fallback for heroes,
   a drawn track-colored cover when a course has no video yet.
-- Fonts: Inter (UI), JetBrains Mono (timecodes, durations), display font for headings (Unbounded; Montserrat is
-  the alternative shown on `/dev/ui` until the user picks one).
+- Fonts: Inter (UI), JetBrains Mono (timecodes, durations), Unbounded for headings and the logo
+  (approved by the user on `/dev/ui`, 18.11.2026).
 - shadcn components are installed with `npx shadcn@latest add <name>`; it may add `next-themes` — remove it,
   the app is dark-only.

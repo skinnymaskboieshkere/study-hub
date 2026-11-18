@@ -20,12 +20,12 @@ const PALETTE = [
 
 const TYPE_SCALE = [
   {
-    spec: "Заголовок баннера · до 56 px · широкий жирный",
+    spec: "Заголовок баннера · до 56 px · Unbounded",
     className: "font-display text-[clamp(2rem,9vw,3.5rem)] leading-[1.05] font-extrabold uppercase",
     text: "Путь к Computer Vision",
   },
   {
-    spec: "Заголовок страницы · 36 px",
+    spec: "Заголовок страницы · 36 px · Unbounded",
     className: "font-display text-4xl font-bold",
     text: "Линейная алгебра",
   },
