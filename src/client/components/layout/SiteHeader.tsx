@@ -1,8 +1,8 @@
 import { cn } from "cn";
-import { UserRound } from "lucide-react";
 import { NavLink } from "react-router";
 import { NAV_ITEMS } from "@/app/nav";
 import { Logo } from "./Logo";
+import { ProfileMenu } from "./ProfileMenu";
 
 export function SiteHeader() {
   return (
@@ -33,20 +33,7 @@ export function SiteHeader() {
         </ul>
       </nav>
 
-      <NavLink
-        to="/settings"
-        aria-label="Настройки"
-        title="Настройки"
-        className={({ isActive }) =>
-          cn(
-            "ml-auto grid size-10 place-items-center rounded-full bg-gradient-to-br from-brand to-brand-deep text-white transition-shadow duration-150",
-            "hover:shadow-[0_0_0_3px_rgb(139_92_246/0.35)]",
-            isActive && "shadow-[0_0_0_3px_rgb(167_139_250/0.6)]",
-          )
-        }
-      >
-        <UserRound className="size-5" aria-hidden />
-      </NavLink>
+      <ProfileMenu />
     </header>
   );
 }

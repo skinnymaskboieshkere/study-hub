@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Enter/exit animations for menus, dialogs and tooltips (used by shadcn/ui). */
+@import "tw-animate-css";
 
 /* The app is dark-only (BRIEF): <html class="dark"> turns every dark: variant on. */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -77,6 +79,7 @@
 
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Unbounded Variable", "Inter Variable", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 }
 
 /* Soft neon used on the logo and on the goal of the path. */

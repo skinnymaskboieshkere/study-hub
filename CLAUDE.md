@@ -45,7 +45,9 @@ Migrations run automatically on server start. Run every command from the project
 ## Structure
 
 ```
-src/client/   React app (alias @/): app/ (router, nav, tracks), components/layout, components/ui (shadcn), pages/, styles/
+src/client/   React app (alias @/): app/ (router, nav, tracks), components/ (layout, ui = shadcn, course, roadmap,
+              shared pieces like CardRow, FilterChips, StateMessage, Timecode), lib/ (format, youtube), pages/, styles/
+              dev/ = design showcase /dev/ui and sample home /dev/home (lazy routes, sample data only)
               class names are merged with `cn` from the `cn` package (shadcn's replacement for clsx + tailwind-merge)
 src/server/   Fastify: app.ts builds the app (testable), index.ts starts it, config.ts, db/, routes/
 src/shared/   types and zod schemas shared by client and server (alias @shared/)
@@ -72,3 +74,12 @@ docs/         BRIEF, ASSESSMENT, design references
 
 Top navigation (not a sidebar), per BRIEF. Main reference: `docs/design/reference/01-home-mockup.jpg`.
 Dark purple-black theme; tokens live in `src/client/styles/index.css`.
+
+- Build new screens from the components shown on `/dev/ui`; add new reusable pieces there too.
+- Main action on a hero: white pill (`Button variant="hero" size="pill"`); elsewhere the violet default button.
+- Covers are YouTube thumbnails (`CourseCover`): `hqdefault` for cards, `maxresdefault` with fallback for heroes,
+  a drawn track-colored cover when a course has no video yet.
+- Fonts: Inter (UI), JetBrains Mono (timecodes, durations), display font for headings (Unbounded; Montserrat is
+  the alternative shown on `/dev/ui` until the user picks one).
+- shadcn components are installed with `npx shadcn@latest add <name>`; it may add `next-themes` — remove it,
+  the app is dark-only.

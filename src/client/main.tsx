@@ -1,4 +1,5 @@
 import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
 import "@fontsource-variable/unbounded";
 import "@/styles/index.css";
 import { StrictMode } from "react";

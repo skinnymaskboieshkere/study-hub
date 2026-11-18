@@ -8,12 +8,13 @@ export function TrackPath({ className }: { className?: string }) {
   return (
     <ol
       aria-label="Путь обучения"
-      className={cn("grid grid-cols-2 gap-x-6 gap-y-3 sm:flex sm:items-center sm:gap-0", className)}
+      // The single row needs about 650 px; narrower screens get a 2 × 2 grid.
+      className={cn("grid grid-cols-2 gap-x-6 gap-y-3 lg:flex lg:items-center lg:gap-0", className)}
     >
       {TRACKS.map((track, index) => {
         const isGoal = index === lastIndex;
         return (
-          <li key={track.slug} className="flex items-center gap-2.5 sm:flex-1 sm:last:flex-none">
+          <li key={track.slug} className="flex items-center gap-2.5 lg:flex-1 lg:last:flex-none">
             <span
               aria-hidden
               className={cn(
@@ -33,7 +34,7 @@ export function TrackPath({ className }: { className?: string }) {
             {!isGoal && (
               <span
                 aria-hidden
-                className="mx-3 hidden h-px min-w-6 flex-1 bg-gradient-to-r from-line to-line/40 sm:block"
+                className="mx-3 hidden h-px min-w-6 flex-1 bg-linear-to-r from-line to-line/40 lg:block"
               />
             )}
           </li>
