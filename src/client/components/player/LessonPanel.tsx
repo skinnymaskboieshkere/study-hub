@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { CourseProgram } from "@/components/course/CourseProgram";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BookmarksList } from "./BookmarksList";
+import { VideoNotesList } from "./VideoNotesList";
 
 interface LessonPanelProps {
   watch: WatchDto;
@@ -13,7 +14,7 @@ interface LessonPanelProps {
 const TRIGGER =
   "rounded-full px-4 py-1.5 data-[state=active]:bg-surface-2 data-[state=active]:text-ink";
 
-/** Side panel of the study screen: the course playlist and the bookmarks (SPEC §6.2). */
+/** Side panel of the study screen: the course playlist, bookmarks and notes about the lecture (SPEC §6.2, §6.6). */
 export function LessonPanel({ watch, currentTime, onSeek }: LessonPanelProps) {
   const programRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +35,9 @@ export function LessonPanel({ watch, currentTime, onSeek }: LessonPanelProps) {
           <TabsTrigger value="bookmarks" className={TRIGGER}>
             Закладки
           </TabsTrigger>
+          <TabsTrigger value="notes" className={TRIGGER}>
+            Заметки
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="program" className="mt-3">
           <div ref={programRef} className="relative max-h-[min(70vh,640px)] overflow-y-auto pr-1">
@@ -51,6 +55,9 @@ export function LessonPanel({ watch, currentTime, onSeek }: LessonPanelProps) {
             currentTime={currentTime}
             onSeek={onSeek}
           />
+        </TabsContent>
+        <TabsContent value="notes" className="mt-3 px-1">
+          <VideoNotesList youtubeId={watch.video.youtubeId} onSeek={onSeek} />
         </TabsContent>
       </Tabs>
     </aside>

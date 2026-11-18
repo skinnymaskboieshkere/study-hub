@@ -6,6 +6,8 @@ export interface PlayerHotkeyActions {
   changeRate: (step: number) => void;
   addBookmark: () => void;
   toggleFocus: () => void;
+  /** Alt+T: timecode into the lecture note (SPEC §6.6; BRIEF: not Ctrl+Shift+T). */
+  timecode: () => void;
 }
 
 function isTypingTarget(target: EventTarget | null): boolean {
@@ -19,7 +21,7 @@ function isTypingTarget(target: EventTarget | null): boolean {
 
 /**
  * Player hotkeys (SPEC §6.2): Space — play/pause, ←/→ — 10 s, Shift+←/→ — speed,
- * B — bookmark, F — focus mode. Never fire while typing (notes come in stage 4).
+ * B — bookmark, F — focus mode, Alt+T — timecode. Never fire while typing in a field or the note.
  */
 export function usePlayerHotkeys(actions: PlayerHotkeyActions) {
   const latest = useRef(actions);
@@ -30,7 +32,15 @@ export function usePlayerHotkeys(actions: PlayerHotkeyActions) {
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (event.defaultPrevented) return;
+      // The editor handles Alt+T itself; here it works with the focus on the page or player.
+      if (event.altKey && !event.ctrlKey && !event.metaKey && event.code === "KeyT") {
+        if (isTypingTarget(event.target)) return;
+        event.preventDefault();
+        latest.current.timecode();
+        return;
+      }
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
       if (isTypingTarget(event.target)) return;
       const onButton =
         event.target instanceof HTMLElement && event.target.closest("button, a") !== null;

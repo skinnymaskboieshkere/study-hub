@@ -1,9 +1,10 @@
 import type { TodayDto } from "@shared/api";
-import { CalendarDays, Flame, RefreshCw, SlidersHorizontal } from "lucide-react";
+import { CalendarDays, Flame, NotebookPen, RefreshCw, SlidersHorizontal } from "lucide-react";
 import { Link } from "react-router";
 import { toast } from "sonner";
 import { useReplan } from "@/app/queries";
 import { ProgressRing } from "@/components/course/ProgressRing";
+import { useOpenDailyNote } from "@/components/notes/useOpenDailyNote";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -21,6 +22,7 @@ import { formatDayTitle } from "@/lib/plan";
 /** Date, how much of today's plan is done, the streak and plan actions (SPEC §6.4). */
 export function TodayHeader({ today }: { today: TodayDto }) {
   const share = today.plannedSec > 0 ? today.doneSec / today.plannedSec : 0;
+  const daily = useOpenDailyNote();
   const finished = today.plannedSec > 0 && today.doneSec >= today.plannedSec;
 
   return (
@@ -61,6 +63,11 @@ export function TodayHeader({ today }: { today: TodayDto }) {
       </div>
 
       <div className="flex flex-wrap gap-2">
+        {/* SPEC §6.4: the Today screen links to the daily note. */}
+        <Button variant="ghost" disabled={daily.pending} onClick={() => daily.open(today.date)}>
+          <NotebookPen aria-hidden />
+          Дневная заметка
+        </Button>
         <Button asChild variant="ghost">
           <Link to="/calendar">
             <CalendarDays aria-hidden />

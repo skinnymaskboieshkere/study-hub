@@ -1,4 +1,6 @@
-import { frontmatterTags, parseNote, resolveLink, sameHeading } from "@shared/notes";
+import { todayIso } from "@shared/dates";
+import { applyTemplate, parseYoutubeLink } from "@shared/note-templates";
+import { frontmatterTags, noteName, parseNote, resolveLink, sameHeading } from "@shared/notes";
 import { FolderX, NotebookPen } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
@@ -10,6 +12,7 @@ import {
   useNotesStatus,
   useNotesSync,
   useTags,
+  useTemplates,
   useTrashNote,
 } from "@/app/notes-queries";
 import { NoteSearch, QuickSwitcher } from "@/components/notes/NoteDialogs";
@@ -70,6 +73,7 @@ function NotesScreen() {
   const document = useNoteDocument(path);
   const list = useNoteList();
   const tags = useTags();
+  const templates = useTemplates();
   const createNote = useCreateNote();
   const trashNote = useTrashNote();
   const editor = useRef<NoteEditorHandle>(null);
@@ -117,6 +121,48 @@ function NotesScreen() {
     setSearchTag(tag);
     setSearch(true);
   }, []);
+
+  // /notes?tag=… (a tag clicked next to the video) opens the tag search right away.
+  const tagParam = params.get("tag");
+  const [shownTagParam, setShownTagParam] = useState<string | null>(null);
+  if (tagParam && tagParam !== shownTagParam) {
+    setShownTagParam(tagParam);
+    setSearchTag(tagParam);
+    setSearch(true);
+  }
+
+  // A timecode opens the lecture at that second (SPEC §6.6).
+  const openVideo = useCallback(
+    (videoId: string, seconds: number) =>
+      void navigate(`/watch/${videoId}${seconds > 0 ? `?t=${Math.floor(seconds)}` : ""}`),
+    [navigate],
+  );
+  const openUrl = useCallback(
+    (url: string) => {
+      const video = parseYoutubeLink(url);
+      if (video) openVideo(video.videoId, video.tSec);
+      return Boolean(video);
+    },
+    [openVideo],
+  );
+
+  async function insertTemplate(templatePath: string) {
+    if (mode === "preview") {
+      changeMode("edit");
+      toast("Шаблон вставляется в режиме редактора — выбери его ещё раз");
+      return;
+    }
+    const template = await fetchNote(templatePath).catch(() => null);
+    if (!template) return void toast.error("Шаблон не открыть");
+    const now = new Date();
+    editor.current?.insert(
+      applyTemplate(template.content, {
+        date: todayIso(),
+        time: `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`,
+        title: path ? noteName(path) : "",
+      }),
+    );
+  }
 
   const completion = useMemo<CompletionData>(
     () => ({
@@ -266,6 +312,10 @@ function NotesScreen() {
             onCreateNote={(name) => create("", name)}
             onTag={showTag}
             onHeading={(heading) => path && open(path, { heading })}
+            onVideoLink={openVideo}
+            onOpenUrl={openUrl}
+            templates={templates.data ?? []}
+            onInsertTemplate={(template) => void insertTemplate(template)}
           />
         )}
       </section>

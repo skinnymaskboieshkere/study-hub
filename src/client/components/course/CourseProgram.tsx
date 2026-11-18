@@ -1,5 +1,6 @@
 import type { UnitDto } from "@shared/api";
 import { PRACTICE_KINDS } from "@shared/catalog";
+import { useNotedVideos } from "@/app/notes-queries";
 import { LessonRow } from "./LessonRow";
 
 interface CourseProgramProps {
@@ -18,6 +19,8 @@ export function CourseProgram({
   currentYoutubeId,
   compact = false,
 }: CourseProgramProps) {
+  // Lectures with a note get a mark (SPEC §6.1: «есть ли конспект»).
+  const noted = useNotedVideos();
   // Lessons are numbered through the whole course, not per unit.
   const firstNumber = units.map((_, index) =>
     units.slice(0, index).reduce((sum, unit) => sum + unit.lessons.length, 1),
@@ -49,6 +52,7 @@ export function CourseProgram({
                   isRussian={lesson.language === "ru"}
                   youtubeOnly={!lesson.embeddable}
                   isCurrent={lesson.youtubeId === currentYoutubeId}
+                  hasNote={noted.data?.has(lesson.youtubeId)}
                   to={`/watch/${lesson.youtubeId}?course=${courseSlug}`}
                 />
               );

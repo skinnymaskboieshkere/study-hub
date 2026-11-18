@@ -8,6 +8,8 @@ if (existsSync(envFile)) process.loadEnvFile(envFile);
 const EnvSchema = z.object({
   PORT: z.coerce.number().int().min(1).max(65534).default(5180),
   VAULT_PATH: z.string().optional(),
+  /** Another data folder, e.g. data/sandbox for checks that must not touch the real database. */
+  DATA_DIR: z.string().optional(),
   YOUTUBE_API_KEY: z.string().optional(),
 });
 
@@ -21,7 +23,7 @@ export const config = {
   /** The UI port. In dev Vite serves the UI here and the API runs on `uiPort + 1`. */
   uiPort: env.PORT,
   port: isDev ? env.PORT + 1 : env.PORT,
-  dataDir: path.resolve(process.cwd(), "data"),
+  dataDir: path.resolve(process.cwd(), env.DATA_DIR || "data"),
   migrationsDir: path.resolve(process.cwd(), "drizzle"),
   /** Course catalog in git: tracks.json and courses/*.json (SPEC §4). */
   seedDir: path.resolve(process.cwd(), "seed"),

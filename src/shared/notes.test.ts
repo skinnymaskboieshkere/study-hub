@@ -62,6 +62,16 @@ describe("parseNote", () => {
     expect(note.tags).toEqual(["тег"]);
   });
 
+  it("finds YouTube links and timecodes, not other links", () => {
+    const note = parseNote(
+      "Смотри [▶ 12:34](https://www.youtube.com/watch?v=UuIEbpQms8o&t=754s) и https://youtu.be/JP7ITIXGpHk\n[сайт](https://cs50.harvard.edu)",
+    );
+    expect(note.videoLinks.map(({ videoId, tSec, line }) => ({ videoId, tSec, line }))).toEqual([
+      { videoId: "UuIEbpQms8o", tSec: 754, line: 0 },
+      { videoId: "JP7ITIXGpHk", tSec: 0, line: 0 },
+    ]);
+  });
+
   it("collects headings with levels and real line numbers", () => {
     const note = parseNote("---\na: 1\n---\n# Один\n## Два ##\nтекст");
     expect(note.headings).toEqual([

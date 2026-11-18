@@ -1,4 +1,12 @@
-import { FilePlus, FolderPlus, Hash, Search, SquareArrowOutUpRight } from "lucide-react";
+import {
+  CalendarDays,
+  FilePlus,
+  FolderPlus,
+  Hash,
+  Search,
+  SquareArrowOutUpRight,
+} from "lucide-react";
+import { todayIso } from "@shared/dates";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { useCreateFolder, useNoteTree, useTags } from "@/app/notes-queries";
@@ -13,6 +21,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { NoteTree } from "./NoteTree";
+import { useOpenDailyNote } from "./useOpenDailyNote";
 
 interface NoteSidebarProps {
   activePath: string | null;
@@ -30,6 +39,7 @@ export function NoteSidebar(props: NoteSidebarProps) {
   const tree = useNoteTree();
   const tags = useTags();
   const createFolder = useCreateFolder();
+  const daily = useOpenDailyNote();
   const [folderDialog, setFolderDialog] = useState(false);
   const [folderName, setFolderName] = useState("");
 
@@ -54,6 +64,16 @@ export function NoteSidebar(props: NoteSidebarProps) {
         <Button size="sm" onClick={() => props.onCreateNote(props.folder)}>
           <FilePlus aria-hidden />
           Заметка
+        </Button>
+        <Button
+          size="icon-sm"
+          variant="ghost"
+          aria-label="Дневная заметка на сегодня"
+          title="Дневная заметка на сегодня"
+          disabled={daily.pending}
+          onClick={() => daily.open(todayIso())}
+        >
+          <CalendarDays />
         </Button>
         <Button
           size="icon-sm"

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { Collection, Subject, TrackSlug, VideoKind } from "./catalog";
-import { CollectionSchema } from "./catalog";
+import { CollectionSchema, YoutubeIdSchema } from "./catalog";
 import type { LessonStatus } from "./progress";
 
 /** Response of GET /api/health. */
@@ -334,4 +334,33 @@ export interface NoteSearchResultDto {
   title: string;
   /** Found words are wrapped in \u0002 … \u0003. */
   snippet: string;
+}
+
+// ── Video ↔ notes (stage 4) ────────────────────────────────────────────────────
+
+export interface VideoNoteDto {
+  path: string;
+  title: string;
+  /** The lecture note of this video (frontmatter `video:`), not just a link to it. */
+  lecture: boolean;
+  /** Lines with a link or a timecode to the video. */
+  mentions: { line: number; context: string; tSec: number }[];
+}
+
+export const LectureNoteCreateSchema = z.object({
+  youtubeId: YoutubeIdSchema,
+  course: z.string().max(100).optional(),
+});
+
+export interface LectureNoteDto {
+  /** null: the lecture has no note yet. */
+  path: string | null;
+  created: boolean;
+}
+
+export const DailyNoteSchema = z.object({ date: IsoDateSchema });
+
+export interface NoteTemplateDto {
+  path: string;
+  name: string;
 }

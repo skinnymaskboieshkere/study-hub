@@ -1,6 +1,6 @@
-import type { BacklinkDto, NoteSearchResultDto, TagCountDto } from "@shared/api";
+import type { BacklinkDto, NoteSearchResultDto, TagCountDto, VideoNoteDto } from "@shared/api";
 import { frontmatterTags, linkKey, noteName, parseNote, resolveLink } from "@shared/notes";
-import { eq, inArray, sql } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { parse as parseYaml } from "yaml";
 import type { AppDatabase } from "../db/client";
 import { noteLinks, notes, noteTags } from "../db/schema";
@@ -60,6 +60,21 @@ export function indexNote(
           kind: link.embed ? "embed" : "wikilink",
           line: link.line,
           context: link.context,
+        })
+        .run();
+    }
+    for (const link of parsed.videoLinks) {
+      tx.insert(noteLinks)
+        .values({
+          srcPath: path,
+          rawTarget: link.videoId,
+          targetKey: `video:${link.videoId}`,
+          heading: null,
+          kind: "video",
+          line: link.line,
+          context: link.context,
+          videoId: link.videoId,
+          tSec: link.tSec,
         })
         .run();
     }
@@ -189,4 +204,69 @@ export function searchNotes(db: AppDatabase, text: string, limit = 30): NoteSear
           ORDER BY bm25(notes_fts, 0, 6, 1) LIMIT ${limit}`,
     )
     .map((row) => ({ path: row.path, title: row.title, snippet: row.snippet }));
+}
+
+/** The lecture note of a video: its frontmatter says `video: <id>` (SPEC §6.6). */
+export function lectureNoteFor(db: AppDatabase, videoId: string): string | null {
+  const row = db
+    .select({ path: notes.path })
+    .from(notes)
+    .where(sql`json_extract(${notes.frontmatter}, '$.video') = ${videoId}`)
+    .orderBy(notes.path)
+    .get();
+  return row?.path ?? null;
+}
+
+/**
+ * Notes about a video: its lecture note and every note with a link or timecode to it, with
+ * the lines that mention it — "на странице лекции видны все заметки" (SPEC §6.6).
+ */
+export function videoNotes(db: AppDatabase, videoId: string): VideoNoteDto[] {
+  const lecture = lectureNoteFor(db, videoId);
+  const links = db
+    .select({
+      path: noteLinks.srcPath,
+      line: noteLinks.line,
+      context: noteLinks.context,
+      tSec: noteLinks.tSec,
+    })
+    .from(noteLinks)
+    .where(and(eq(noteLinks.kind, "video"), eq(noteLinks.videoId, videoId)))
+    .orderBy(noteLinks.srcPath, noteLinks.line)
+    .all();
+
+  const grouped = new Map<string, VideoNoteDto>();
+  if (lecture) {
+    grouped.set(lecture, { path: lecture, title: noteName(lecture), lecture: true, mentions: [] });
+  }
+  for (const link of links) {
+    const entry = grouped.get(link.path) ?? {
+      path: link.path,
+      title: noteName(link.path),
+      lecture: false,
+      mentions: [],
+    };
+    entry.mentions.push({ line: link.line, context: link.context, tSec: link.tSec ?? 0 });
+    grouped.set(link.path, entry);
+  }
+  return [...grouped.values()];
+}
+
+/** Videos that have a lecture note or a link in some note: the course page marks them. */
+export function notedVideoIds(db: AppDatabase): string[] {
+  const linked = db
+    .selectDistinct({ id: noteLinks.videoId })
+    .from(noteLinks)
+    .where(eq(noteLinks.kind, "video"))
+    .all()
+    .map((row) => row.id)
+    .filter((id): id is string => Boolean(id));
+  const lectures = db
+    .all<{ id: string | null }>(
+      sql`SELECT DISTINCT json_extract(frontmatter_json, '$.video') AS id FROM notes
+          WHERE json_extract(frontmatter_json, '$.video') IS NOT NULL`,
+    )
+    .map((row) => row.id)
+    .filter((id): id is string => typeof id === "string");
+  return [...new Set([...linked, ...lectures])];
 }

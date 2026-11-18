@@ -1,5 +1,8 @@
 import type {
   BacklinkDto,
+  LectureNoteDto,
+  NoteTemplateDto,
+  VideoNoteDto,
   NoteFileDto,
   NoteListItemDto,
   NoteSavedDto,
@@ -138,3 +141,60 @@ export function useTrashNote() {
     onSuccess: () => invalidate(),
   });
 }
+
+// ── Video ↔ notes (stage 4) ────────────────────────────────────────────────────
+
+export const videoNoteKeys = {
+  lecture: (video: string) => ["notes", "lecture", video] as const,
+  video: (video: string) => ["notes", "video", video] as const,
+  noted: ["notes", "noted-videos"] as const,
+  templates: ["notes", "templates"] as const,
+};
+
+/** The lecture note of a video, if there is one (frontmatter `video:`). */
+export const useLectureNote = (video: string, enabled = true) =>
+  useQuery({
+    queryKey: videoNoteKeys.lecture(video),
+    queryFn: async () =>
+      (await api.get<LectureNoteDto>(`/api/notes/lecture?video=${enc(video)}`)).path,
+    enabled,
+  });
+
+export function useCreateLectureNote() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: (input: { youtubeId: string; course?: string }) =>
+      api.post<LectureNoteDto>("/api/notes/lecture", input),
+    onSuccess: () => client.invalidateQueries({ queryKey: noteKeys.all }),
+  });
+}
+
+/** Notes that link to a video or carry its timecodes (SPEC §6.6). */
+export const useVideoNotes = (video: string, enabled = true) =>
+  useQuery({
+    queryKey: videoNoteKeys.video(video),
+    queryFn: () => api.get<VideoNoteDto[]>(`/api/notes/video?video=${enc(video)}`),
+    enabled,
+  });
+
+/** Videos with notes: the course program marks them. */
+export const useNotedVideos = () =>
+  useQuery({
+    queryKey: videoNoteKeys.noted,
+    queryFn: async () => new Set(await api.get<string[]>("/api/notes/noted-videos")),
+  });
+
+export function useCreateDailyNote() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: (date: string) => api.post<LectureNoteDto>("/api/notes/daily", { date }),
+    onSuccess: () => client.invalidateQueries({ queryKey: noteKeys.all }),
+  });
+}
+
+export const useTemplates = (enabled = true) =>
+  useQuery({
+    queryKey: videoNoteKeys.templates,
+    queryFn: () => api.get<NoteTemplateDto[]>("/api/notes/templates"),
+    enabled,
+  });

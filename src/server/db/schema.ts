@@ -224,13 +224,17 @@ export const noteLinks = sqliteTable(
     /** Lower-case name without folders: finds link candidates fast. */
     targetKey: text("target_key").notNull(),
     heading: text("heading"),
-    kind: text("kind", { enum: ["wikilink", "embed"] }).notNull(),
+    kind: text("kind", { enum: ["wikilink", "embed", "video"] }).notNull(),
     line: integer("line").notNull(),
     context: text("context").notNull(),
+    /** For `video` links (YouTube, timecodes): which video and from which second. */
+    videoId: text("video_id"),
+    tSec: integer("t_sec"),
   },
   (table) => [
     index("note_links_src_idx").on(table.srcPath),
     index("note_links_key_idx").on(table.targetKey),
+    index("note_links_video_idx").on(table.videoId),
   ],
 );
 

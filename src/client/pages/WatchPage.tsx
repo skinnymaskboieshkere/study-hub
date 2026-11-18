@@ -5,13 +5,16 @@ import { QueryError } from "@/components/QueryState";
 import { Skeleton } from "@/components/ui/skeleton";
 import { parseSegment } from "@/lib/segment";
 
-/** /watch/:youtubeId?course=slug[&focus=1][&from=&to=&item= — a part of the day's plan] */
+/** /watch/:youtubeId?course=slug[&focus=1][&t=seconds][&from=&to=&item= — a part of the day's plan] */
 export function WatchPage() {
   const { youtubeId = "" } = useParams();
   const [params, setParams] = useSearchParams();
   const courseSlug = params.get("course") ?? undefined;
   const focus = params.get("focus") === "1";
   const segment = parseSegment(params);
+  // ?t=754 — a timecode from a note opens the lecture at that second (SPEC §6.6).
+  const timeParam = params.get("t");
+  const startAt = timeParam && /^[0-9]+$/.test(timeParam) ? Number(timeParam) : undefined;
   const watch = useWatch(youtubeId, courseSlug);
 
   function toggleFocus() {
@@ -51,9 +54,10 @@ export function WatchPage() {
   // A new key per video (and plan part) resets the player and its state on moving on.
   return (
     <StudyScreen
-      key={`${watch.data.video.youtubeId}:${segment?.itemId ?? ""}`}
+      key={`${watch.data.video.youtubeId}:${segment?.itemId ?? ""}:${startAt ?? ""}`}
       watch={watch.data}
       segment={segment}
+      startAt={startAt}
       focus={focus}
       onToggleFocus={toggleFocus}
     />

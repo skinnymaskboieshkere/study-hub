@@ -1,3 +1,4 @@
+import { clock, parseYoutubeLink } from "@shared/note-templates";
 import { resolveLink } from "@shared/notes";
 import { cn } from "cn";
 import { toJsxRuntime, type Components } from "hast-util-to-jsx-runtime";
@@ -18,6 +19,8 @@ interface MarkdownPreviewProps {
   onTag: (tag: string) => void;
   /** Same-note `[[#Heading]]` links scroll here. */
   onHeading: (heading: string) => void;
+  /** YouTube links and timecodes open the lecture in the app (SPEC §6.6). */
+  onVideoLink?: (videoId: string, seconds: number) => void;
 }
 
 const SAFE_URL = /^(https?:|mailto:)/i;
@@ -33,7 +36,16 @@ const text = (children: ReactNode): string =>
 
 /** Rendered note (SPEC §6.5): Markdown, wikilinks, tags, KaTeX formulas, highlighted code. */
 export function MarkdownPreview(props: MarkdownPreviewProps) {
-  const { text: source, path, paths, onOpenNote, onCreateNote, onTag, onHeading } = props;
+  const {
+    text: source,
+    path,
+    paths,
+    onOpenNote,
+    onCreateNote,
+    onTag,
+    onHeading,
+    onVideoLink,
+  } = props;
   const rendered = useMemo(() => renderMarkdown(source), [source]);
 
   const components = useMemo<Partial<Components>>(() => {
@@ -85,6 +97,24 @@ export function MarkdownPreview(props: MarkdownPreviewProps) {
             </button>
           );
         }
+        const video = href ? parseYoutubeLink(href) : null;
+        if (href && video && onVideoLink) {
+          // A timecode is a normal YouTube link (works in Obsidian); here it drives our player.
+          return (
+            <a
+              href={href}
+              className={text(children).startsWith("▶") ? "md-timecode" : undefined}
+              title={video.tSec ? `Открыть лекцию на ${clock(video.tSec)}` : "Открыть лекцию"}
+              onClick={(event) => {
+                if (event.ctrlKey || event.metaKey || event.shiftKey) return;
+                event.preventDefault();
+                onVideoLink(video.videoId, video.tSec);
+              }}
+            >
+              {children}
+            </a>
+          );
+        }
         if (href && SAFE_URL.test(href)) {
           return (
             <a href={href} target="_blank" rel="noreferrer noopener">
@@ -95,7 +125,7 @@ export function MarkdownPreview(props: MarkdownPreviewProps) {
         return <span className="md-link-broken">{children}</span>;
       },
     };
-  }, [path, paths, onOpenNote, onCreateNote, onTag, onHeading]);
+  }, [path, paths, onOpenNote, onCreateNote, onTag, onHeading, onVideoLink]);
 
   const body = useMemo(
     () => toJsxRuntime(rendered.tree, { Fragment, jsx, jsxs, components }),

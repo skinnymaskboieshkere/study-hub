@@ -5,10 +5,12 @@ import {
   CloudOff,
   Columns2,
   Eye,
+  LayoutTemplate,
   LoaderCircle,
   PenLine,
   Trash2,
 } from "lucide-react";
+import type { NoteTemplateDto } from "@shared/api";
 import type { ReactNode, Ref } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -21,6 +23,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import type { CompletionData } from "@/lib/editor/completion";
 import { MarkdownPreview } from "./MarkdownPreview";
@@ -52,6 +61,12 @@ interface NoteWorkspaceProps {
   onCreateNote: (name: string) => void;
   onTag: (tag: string) => void;
   onHeading: (heading: string) => void;
+  /** YouTube links and timecodes open the lecture (SPEC §6.6). */
+  onVideoLink: (videoId: string, seconds: number) => void;
+  onOpenUrl: (url: string) => boolean;
+  /** Notes from Templates/: inserted at the cursor. */
+  templates: readonly NoteTemplateDto[];
+  onInsertTemplate: (path: string) => void;
 }
 
 const STATUS: Record<SaveStatus, { icon: ReactNode; label: string }> = {
@@ -76,6 +91,7 @@ export function NoteWorkspace({ editorRef, ...props }: NoteWorkspaceProps) {
       onChange={props.onChange}
       completion={props.completion}
       onOpenLink={props.onOpenLink}
+      onOpenUrl={props.onOpenUrl}
     />
   );
   const preview = (
@@ -87,6 +103,7 @@ export function NoteWorkspace({ editorRef, ...props }: NoteWorkspaceProps) {
       onCreateNote={props.onCreateNote}
       onTag={props.onTag}
       onHeading={props.onHeading}
+      onVideoLink={props.onVideoLink}
     />
   );
 
@@ -132,6 +149,31 @@ export function NoteWorkspace({ editorRef, ...props }: NoteWorkspaceProps) {
             <span className="hidden sm:inline">Рядом</span>
           </ToggleGroupItem>
         </ToggleGroup>
+        {props.templates.length > 0 && (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                aria-label="Вставить шаблон"
+                title="Вставить шаблон"
+              >
+                <LayoutTemplate />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Вставить шаблон</DropdownMenuLabel>
+              {props.templates.map((template) => (
+                <DropdownMenuItem
+                  key={template.path}
+                  onSelect={() => props.onInsertTemplate(template.path)}
+                >
+                  {template.name}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
         <Dialog>
           <DialogTrigger asChild>
             <Button

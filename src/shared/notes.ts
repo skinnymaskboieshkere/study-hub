@@ -3,6 +3,8 @@
  * wikilinks, tags, headings, frontmatter, and resolving a link to a note path.
  */
 
+import { parseYoutubeLink, type VideoLink } from "./note-templates";
+
 export interface WikiLink {
   /** Note name or path as written: "Note", "Folder/Note". Empty for "[[#Heading]]". */
   target: string;
@@ -25,11 +27,16 @@ export interface ParsedNote {
   /** Raw YAML between the `---` lines, or null. */
   frontmatter: string | null;
   links: WikiLink[];
+  /** Links to YouTube videos, timecodes included. */
+  videoLinks: (VideoLink & { line: number; context: string })[];
   tags: string[];
   headings: Heading[];
   /** Text without frontmatter, for full-text search. */
   body: string;
 }
+
+/** A web address in Markdown text or inside `[label](url)`; parsed further by parseYoutubeLink. */
+const URL_IN_TEXT = /https?:\/\/[^\s)<>\]]+/g;
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n(?:---|\.\.\.)[ \t]*(?:\r?\n|$)/;
 /** Byte order mark some Windows editors put at the start of a file. */
@@ -71,6 +78,7 @@ function stripInline(line: string): string {
 export function parseNote(text: string): ParsedNote {
   const { frontmatter, body, bodyLine } = splitFrontmatter(text);
   const links: WikiLink[] = [];
+  const videoLinks: ParsedNote["videoLinks"] = [];
   const tags = new Set<string>();
   const headings: Heading[] = [];
   let fence: string | null = null;
@@ -115,9 +123,14 @@ export function parseNote(text: string): ParsedNote {
     for (const match of visible.matchAll(TAG)) {
       if (match[2]) tags.add(normalizeTag(match[2]));
     }
+    // YouTube links and timecodes (SPEC §6.6): the lecture page lists notes that point to it.
+    for (const match of visible.matchAll(URL_IN_TEXT)) {
+      const video = parseYoutubeLink(match[0]);
+      if (video) videoLinks.push({ ...video, line, context: raw.trim().slice(0, 240) });
+    }
   });
 
-  return { frontmatter, links, tags: [...tags], headings, body };
+  return { frontmatter, links, videoLinks, tags: [...tags], headings, body };
 }
 
 /** Tags from frontmatter: `tags: [a, b]`, `tags: a, b` or a YAML list (already parsed). */

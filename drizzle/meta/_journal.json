@@ -36,6 +36,13 @@
       "when": 1795033174490,
       "tag": "0004_notes_fts",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1795036337783,
+      "tag": "0005_note_video_links",
+      "breakpoints": true
     }
   ]
 }

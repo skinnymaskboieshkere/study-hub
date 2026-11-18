@@ -1,15 +1,38 @@
+import { existsSync } from "node:fs";
 import path from "node:path";
 import type {
+  LectureNoteDto,
   NoteFileDto,
   NoteListItemDto,
   NoteSavedDto,
   NotesStatusDto,
+  NoteTemplateDto,
   NoteTreeNodeDto,
 } from "@shared/api";
+import { fromIsoDate, todayIso } from "@shared/dates";
+import {
+  applyTemplate,
+  clock,
+  defaultDailyNote,
+  defaultLectureNote,
+  lectureNoteFromTemplate,
+  lectureNotePath,
+  type LectureValues,
+} from "@shared/note-templates";
 import { noteName, parseNote } from "@shared/notes";
 import { watch, type FSWatcher } from "chokidar";
+import { getCourse } from "../catalog/catalog-repository";
+import { getWatch } from "../catalog/catalog-service";
 import type { AppDatabase } from "../db/client";
-import { indexedFiles, indexNote, listNotes, readFrontmatter, removeNote } from "./note-index";
+import { itemsBetween } from "../plan/plan-views";
+import {
+  indexedFiles,
+  indexNote,
+  lectureNoteFor,
+  listNotes,
+  readFrontmatter,
+  removeNote,
+} from "./note-index";
 import { checkName, hashText, Vault, VaultError } from "./vault";
 
 /** A save based on an old version: the file was changed outside (Obsidian, OneDrive). */
@@ -178,4 +201,113 @@ export class NotesService {
     this.changes += 1;
     return target;
   }
+
+  /** A note from `Templates/` (Obsidian's template folder), or null when there is none. */
+  private async template(name: string): Promise<string | null> {
+    const vault = this.requireVault();
+    const file = `${TEMPLATES}/${name}.md`;
+    return vault.read(file).then(
+      (note) => note.content,
+      () => null,
+    );
+  }
+
+  async templates(): Promise<NoteTemplateDto[]> {
+    const files = await this.requireVault().listNotes();
+    return files
+      .filter((file) => file.path.startsWith(`${TEMPLATES}/`))
+      .map((file) => ({ path: file.path, name: noteName(file.path) }))
+      .sort((a, b) => a.name.localeCompare(b.name, "ru"));
+  }
+
+  /**
+   * "Конспект" (SPEC §6.6): the lecture note `Courses/<Курс>/<NN> - <Лекция>.md` from
+   * `Templates/Лекция.md` or the built-in template. An existing note is opened, not doubled.
+   */
+  async lectureNote(youtubeId: string, courseSlug?: string): Promise<LectureNoteDto> {
+    const vault = this.requireVault();
+    const existing = lectureNoteFor(this.db, youtubeId);
+    if (existing) return { path: existing, created: false };
+
+    const watch = getWatch(this.db, youtubeId, courseSlug);
+    if (!watch) throw new VaultError("Этого видео нет в каталоге", 404);
+    const lessons = watch.course.units.flatMap((unit) => unit.lessons);
+    const number = lessons.findIndex((lesson) => lesson.youtubeId === youtubeId) + 1;
+    const values: LectureValues = {
+      title: watch.video.title,
+      course: watch.course.slug,
+      courseTitle: watch.course.title,
+      video: youtubeId,
+      url: `https://www.youtube.com/watch?v=${youtubeId}`,
+      date: todayIso(),
+      subject: getCourse(this.db, watch.course.slug)?.subject ?? "lecture",
+    };
+    const template = await this.template("Лекция");
+    const content = template
+      ? withVideo(lectureNoteFromTemplate(template, values), values)
+      : defaultLectureNote(values);
+
+    const wanted = lectureNotePath(watch.course.shortTitle, Math.max(1, number), watch.video.title);
+    const folder = wanted.slice(0, wanted.lastIndexOf("/"));
+    const notePath = existsInVault(vault, wanted)
+      ? vault.freeNotePath(folder, noteName(wanted))
+      : wanted;
+    await this.save(notePath, content, null);
+    return { path: notePath, created: true };
+  }
+
+  /** Daily note `Daily/YYYY-MM-DD.md` (SPEC §6.5) with the day's plan as a checklist. */
+  async dailyNote(date: string): Promise<LectureNoteDto> {
+    const vault = this.requireVault();
+    const notePath = `Daily/${date}.md`;
+    if (existsInVault(vault, notePath)) return { path: notePath, created: false };
+
+    const plan = itemsBetween(this.db, date, date).map(
+      (item) =>
+        `${item.courseShortTitle} · ${item.lessonTitle} (${clock(item.startSec)}–${clock(item.endSec)})`,
+    );
+    const title = dayTitle(date);
+    const template = await this.template("Дневная заметка");
+    const content = template
+      ? applyTemplate(template, {
+          date,
+          title,
+          time: "",
+          plan: plan.map((line) => `- [ ] ${line}`).join("\n"),
+        })
+      : defaultDailyNote({ date, title, plan });
+    await this.save(notePath, content, null);
+    return { path: notePath, created: true };
+  }
+}
+
+const TEMPLATES = "Templates";
+
+function existsInVault(vault: Vault, notePath: string): boolean {
+  return existsSync(vault.resolve(notePath));
+}
+
+/** "2026-11-18" → "Среда, 18 ноября 2026". */
+function dayTitle(date: string): string {
+  const text = new Intl.DateTimeFormat("ru-RU", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+    .format(fromIsoDate(date))
+    .replace(/\s*г\.$/, "");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+/**
+ * A user's lecture template may lack `video:`; without it the note would not be found again
+ * and every click on "Конспект" would make a new one. The field is added, nothing else changes.
+ */
+function withVideo(content: string, values: LectureValues): string {
+  const frontmatter = readFrontmatter(parseNote(content).frontmatter);
+  if (frontmatter?.video === values.video) return content;
+  const fields = `video: ${values.video}\ncourse: ${values.course}\nurl: ${values.url}`;
+  if (/^---\r?\n/.test(content)) return content.replace(/^---\r?\n/, `---\n${fields}\n`);
+  return `---\ntype: lecture\n${fields}\n---\n${content}`;
 }

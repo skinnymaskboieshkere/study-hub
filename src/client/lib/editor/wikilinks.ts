@@ -50,8 +50,25 @@ export function linkAt(
   return null;
 }
 
-/** Colors links and tags in the editor; Ctrl/Cmd+click on a link opens it (like Obsidian). */
-export function obsidianSyntax(onOpenLink: (target: string, heading: string | null) => void) {
+const MARKDOWN_OR_BARE_URL = /\[[^\]\n]*\]\((https?:\/\/[^\s)]+)\)|https?:\/\/[^\s)<>\]]+/g;
+
+/** The web address under a position: inside `[label](url)` or written bare. */
+export function urlAt(lineText: string, offset: number): string | null {
+  for (const match of lineText.matchAll(MARKDOWN_OR_BARE_URL)) {
+    const start = match.index ?? 0;
+    if (offset >= start && offset <= start + match[0].length) return match[1] ?? match[0];
+  }
+  return null;
+}
+
+/**
+ * Colors links and tags in the editor; Ctrl/Cmd+click on a link opens it (like Obsidian), on a
+ * YouTube link or timecode — the lecture at that second.
+ */
+export function obsidianSyntax(
+  onOpenLink: (target: string, heading: string | null) => void,
+  onOpenUrl: (url: string) => boolean,
+) {
   return [
     decorations(linkDecorator),
     decorations(tagDecorator),
@@ -62,10 +79,17 @@ export function obsidianSyntax(onOpenLink: (target: string, heading: string | nu
         if (position === null) return false;
         const line = view.state.doc.lineAt(position);
         const link = linkAt(line.text, position - line.from);
-        if (!link) return false;
-        event.preventDefault();
-        onOpenLink(link.target, link.heading);
-        return true;
+        if (link) {
+          event.preventDefault();
+          onOpenLink(link.target, link.heading);
+          return true;
+        }
+        const url = urlAt(line.text, position - line.from);
+        if (url && onOpenUrl(url)) {
+          event.preventDefault();
+          return true;
+        }
+        return false;
       },
     }),
   ];

@@ -1,8 +1,10 @@
 import {
   BookmarkPlus,
   CircleCheck,
+  ListVideo,
   Maximize2,
   Minimize2,
+  NotebookPen,
   SkipBack,
   SkipForward,
 } from "lucide-react";
@@ -26,6 +28,10 @@ interface PlayerToolbarProps {
   onBookmark: () => void;
   focus: boolean;
   onToggleFocus: () => void;
+  noteOpen: boolean;
+  onToggleNote: () => void;
+  /** Shown when the note takes the playlist's place. */
+  onShowPlaylist?: () => void;
   previousTo: string | null;
   nextTo: string | null;
 }
@@ -58,6 +64,20 @@ export function PlayerToolbar(props: PlayerToolbarProps) {
         </SelectContent>
       </Select>
 
+      <Button
+        variant={props.noteOpen ? "secondary" : "ghost"}
+        onClick={props.onToggleNote}
+        aria-pressed={props.noteOpen}
+      >
+        <NotebookPen aria-hidden />
+        Конспект
+      </Button>
+      {props.onShowPlaylist && (
+        <Button variant="ghost" onClick={props.onShowPlaylist}>
+          <ListVideo aria-hidden />
+          Программа
+        </Button>
+      )}
       <Button variant="ghost" onClick={props.onBookmark}>
         <BookmarkPlus aria-hidden />
         Закладка

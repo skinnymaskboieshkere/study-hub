@@ -1,8 +1,22 @@
-import { FolderCreateSchema, NoteCreateSchema, NoteSaveSchema } from "@shared/api";
+import {
+  DailyNoteSchema,
+  FolderCreateSchema,
+  LectureNoteCreateSchema,
+  NoteCreateSchema,
+  NoteSaveSchema,
+} from "@shared/api";
 import { normalizeTag } from "@shared/notes";
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
 import type { AppDatabase } from "../db/client";
-import { backlinks, notesWithTag, searchNotes, tagCounts } from "../notes/note-index";
+import {
+  backlinks,
+  lectureNoteFor,
+  notedVideoIds,
+  notesWithTag,
+  searchNotes,
+  tagCounts,
+  videoNotes,
+} from "../notes/note-index";
 import { NoteConflictError, type NotesService } from "../notes/notes-service";
 import { VaultError } from "../notes/vault";
 
@@ -76,6 +90,40 @@ export const notesRoutes: FastifyPluginAsync<{ db: AppDatabase; notes: NotesServ
       .trash(request.query.path ?? "")
       .then((trashedTo) => ({ trashedTo }))
       .catch((error) => fail(reply, error)),
+  );
+
+  // ── Video ↔ notes (SPEC §6.6) ──
+  app.get<{ Querystring: { video?: string } }>("/notes/lecture", async (request) => ({
+    path: lectureNoteFor(db, request.query.video ?? ""),
+    created: false,
+  }));
+
+  app.post("/notes/lecture", async (request, reply) => {
+    const body = LectureNoteCreateSchema.safeParse(request.body);
+    if (!body.success) return reply.code(400).send({ error: "Неверное видео" });
+    return notes
+      .lectureNote(body.data.youtubeId, body.data.course)
+      .then((note) => reply.code(note.created ? 201 : 200).send(note))
+      .catch((error) => fail(reply, error));
+  });
+
+  app.get<{ Querystring: { video?: string } }>("/notes/video", async (request) =>
+    videoNotes(db, request.query.video ?? ""),
+  );
+
+  app.get("/notes/noted-videos", async () => notedVideoIds(db));
+
+  app.post("/notes/daily", async (request, reply) => {
+    const body = DailyNoteSchema.safeParse(request.body);
+    if (!body.success) return reply.code(400).send({ error: "Нужна дата YYYY-MM-DD" });
+    return notes
+      .dailyNote(body.data.date)
+      .then((note) => reply.code(note.created ? 201 : 200).send(note))
+      .catch((error) => fail(reply, error));
+  });
+
+  app.get("/notes/templates", async (_request, reply) =>
+    notes.templates().catch((error) => fail(reply, error)),
   );
 
   app.get<PathQuery>("/notes/backlinks", async (request) =>

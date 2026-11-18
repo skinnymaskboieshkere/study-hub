@@ -28,6 +28,8 @@ export interface NoteEditorHandle {
   /** Puts the cursor at the start of a line and scrolls it into view (0-based). */
   goToLine: (line: number) => void;
   focus: () => void;
+  /** Inserts text at the cursor (the timecode hotkey pressed outside the editor). */
+  insert: (text: string) => void;
 }
 
 interface NoteEditorProps {
@@ -36,7 +38,25 @@ interface NoteEditorProps {
   onChange: (text: string) => void;
   completion: CompletionData;
   onOpenLink: (target: string, heading: string | null) => void;
+  /** Ctrl+click on a web link; true when the app handled it (a YouTube timecode). */
+  onOpenUrl?: (url: string) => boolean;
+  /** Timecode for the hotkey (SPEC §6.6); null when no video plays next to the note. */
+  onTimecode?: () => string | null;
   ref?: Ref<NoteEditorHandle>;
+}
+
+/** Puts text at the cursor with a space before it when it would stick to a word. */
+function insertText(view: EditorView, text: string) {
+  const { from, to } = view.state.selection.main;
+  const before = view.state.sliceDoc(Math.max(0, from - 1), from);
+  const insert = before && !/\s/.test(before) ? ` ${text}` : text;
+  view.dispatch({
+    changes: { from, to, insert },
+    selection: { anchor: from + insert.length },
+    scrollIntoView: true,
+    userEvent: "input",
+  });
+  view.focus();
 }
 
 /** CodeMirror 6 editor for one note (SPEC §6.5): Markdown, code in fences, `[[`, `#`. */
@@ -45,14 +65,16 @@ export function NoteEditor({
   onChange,
   completion,
   onOpenLink,
+  onOpenUrl,
+  onTimecode,
   ref,
 }: NoteEditorProps) {
   const host = useRef<HTMLDivElement>(null);
   const view = useRef<EditorView | null>(null);
   // Callbacks change on every render; the editor reads the latest ones through refs.
-  const callbacks = useRef({ onChange, onOpenLink, completion });
+  const callbacks = useRef({ onChange, onOpenLink, onOpenUrl, onTimecode, completion });
   useEffect(() => {
-    callbacks.current = { onChange, onOpenLink, completion };
+    callbacks.current = { onChange, onOpenLink, onOpenUrl, onTimecode, completion };
   });
 
   useEffect(() => {
@@ -77,6 +99,16 @@ export function NoteEditor({
           highlightSelectionMatches(),
           EditorView.lineWrapping,
           keymap.of([
+            {
+              // Alt+T — timecode of the playing video (BRIEF: Ctrl+Shift+T belongs to the browser).
+              key: "Alt-t",
+              run: (target) => {
+                const text = callbacks.current.onTimecode?.();
+                if (!text) return false;
+                insertText(target, text);
+                return true;
+              },
+            },
             ...closeBracketsKeymap,
             ...defaultKeymap,
             ...searchKeymap,
@@ -93,7 +125,10 @@ export function NoteEditor({
             override: [wikilinkCompletion(data), tagCompletion(data)],
             icons: false,
           }),
-          obsidianSyntax((target, heading) => callbacks.current.onOpenLink(target, heading)),
+          obsidianSyntax(
+            (target, heading) => callbacks.current.onOpenLink(target, heading),
+            (url) => callbacks.current.onOpenUrl?.(url) ?? false,
+          ),
           placeholder("Начни писать… [[ — ссылка на заметку, # — тег, $…$ — формула"),
           editorTheme,
           EditorView.contentAttributes.of({
@@ -129,6 +164,9 @@ export function NoteEditor({
     },
     focus() {
       view.current?.focus();
+    },
+    insert(text) {
+      if (view.current) insertText(view.current, text);
     },
   }));
 
