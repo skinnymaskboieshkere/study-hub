@@ -8,6 +8,7 @@ import {
   setCompletion,
 } from "../catalog/progress-service";
 import type { AppDatabase } from "../db/client";
+import { addStudyTime, markCoveredItems } from "../plan/plan-service";
 
 type VideoRequest = FastifyRequest<{ Params: { youtubeId: string } }>;
 
@@ -18,7 +19,11 @@ export const progressRoutes: FastifyPluginAsync<{ db: AppDatabase }> = async (ap
     const body = ProgressUpdateSchema.safeParse(request.body);
     if (!body.success) return reply.code(400).send({ error: "Неверная позиция видео" });
     const progress = recordProgress(db, request.params.youtubeId, body.data.positionSec);
-    return progress ?? reply.code(404).send(NOT_FOUND);
+    if (!progress) return reply.code(404).send(NOT_FOUND);
+    // Watching moves the day's plan forward and counts towards today's study time.
+    markCoveredItems(db, progress.youtubeId, progress.maxPositionSec, progress.completed);
+    addStudyTime(db, progress.youtubeId, body.data.playedSec ?? 0);
+    return progress;
   }
 
   app.put("/progress/:youtubeId", saveProgress);
@@ -29,7 +34,9 @@ export const progressRoutes: FastifyPluginAsync<{ db: AppDatabase }> = async (ap
     const body = CompletionUpdateSchema.safeParse(request.body);
     if (!body.success) return reply.code(400).send({ error: "Ожидалось completed: true/false" });
     const progress = setCompletion(db, request.params.youtubeId, body.data.completed);
-    return progress ?? reply.code(404).send(NOT_FOUND);
+    if (!progress) return reply.code(404).send(NOT_FOUND);
+    if (progress.completed) markCoveredItems(db, progress.youtubeId, progress.maxPositionSec, true);
+    return progress;
   });
 
   app.get("/videos/:youtubeId/bookmarks", async (request: VideoRequest) =>

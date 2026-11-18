@@ -119,3 +119,82 @@ export const bookmarks = sqliteTable(
   },
   (table) => [index("bookmarks_video_idx").on(table.youtubeId)],
 );
+
+/** The study plan (SPEC §5, BRIEF: one shared daily budget, subjects take turns). */
+export const studyPlans = sqliteTable("study_plans", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  startDate: text("start_date").notNull(),
+  studyWeekdays: text("study_weekdays_json", { mode: "json" }).$type<number[]>().notNull(),
+  minutesPerDay: integer("minutes_per_day").notNull(),
+  /** Lighter or heavier days: { "6": 30 }. */
+  minutesByWeekday: text("minutes_by_weekday_json", { mode: "json" })
+    .$type<Record<string, number>>()
+    .notNull(),
+  daysOff: text("days_off_json", { mode: "json" }).$type<string[]>().notNull(),
+  maxCoursesPerDay: integer("max_courses_per_day").notNull(),
+  includePractice: integer("include_practice", { mode: "boolean" }).notNull(),
+  active: integer("active", { mode: "boolean" }).notNull(),
+  createdAt: text("created_at").notNull(),
+  /** Last day the plan was rebuilt; a new day moves unfinished parts forward. */
+  replannedOn: text("replanned_on").notNull(),
+});
+
+export const planCourses = sqliteTable(
+  "plan_courses",
+  {
+    planId: integer("plan_id")
+      .notNull()
+      .references(() => studyPlans.id, { onDelete: "cascade" }),
+    courseSlug: text("course_slug")
+      .notNull()
+      .references(() => courses.slug, { onDelete: "cascade" }),
+    weight: real("weight").notNull(),
+    deadline: text("deadline"),
+    sortOrder: integer("sort_order").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.planId, table.courseSlug] })],
+);
+
+/** One planned piece of a video on a day (SPEC §5). */
+export const planItems = sqliteTable(
+  "plan_items",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    planId: integer("plan_id")
+      .notNull()
+      .references(() => studyPlans.id, { onDelete: "cascade" }),
+    date: text("date").notNull(),
+    courseSlug: text("course_slug").notNull(),
+    youtubeId: text("youtube_id").notNull(),
+    startSec: integer("start_sec").notNull(),
+    endSec: integer("end_sec").notNull(),
+    status: text("status", { enum: ["planned", "done", "skipped"] }).notNull(),
+    sortOrder: integer("sort_order").notNull(),
+    doneAt: text("done_at"),
+  },
+  (table) => [
+    index("plan_items_date_idx").on(table.date),
+    index("plan_items_video_idx").on(table.youtubeId),
+  ],
+);
+
+/** "Мои задачи" on the Today screen; date null = not tied to a day. */
+export const tasks = sqliteTable("tasks", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  date: text("date"),
+  title: text("title").notNull(),
+  done: integer("done", { mode: "boolean" }).notNull(),
+  createdAt: text("created_at").notNull(),
+  doneAt: text("done_at"),
+});
+
+/** Seconds actually played per day and course: streak and statistics (SPEC §5). */
+export const studySessions = sqliteTable(
+  "study_sessions",
+  {
+    date: text("date").notNull(),
+    courseSlug: text("course_slug").notNull(),
+    seconds: real("seconds").notNull(),
+  },
+  (table) => [primaryKey({ columns: [table.date, table.courseSlug] })],
+);

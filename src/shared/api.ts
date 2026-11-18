@@ -129,6 +129,8 @@ export interface ContinueDto {
 
 export const ProgressUpdateSchema = z.object({
   positionSec: z.number().min(0).max(86_400),
+  /** Seconds really played since the last save: study time for the streak and statistics. */
+  playedSec: z.number().min(0).max(120).optional(),
 });
 
 export const CompletionUpdateSchema = z.object({
@@ -142,4 +144,116 @@ export const CollectionUpdateSchema = z.object({
 export const BookmarkCreateSchema = z.object({
   tSec: z.number().min(0).max(86_400),
   label: z.string().trim().min(1).max(200),
+});
+
+const IsoDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "expected YYYY-MM-DD");
+
+/** What the plan wizard sends (SPEC §6.4, BRIEF: one daily budget for all subjects). */
+export const PlanInputSchema = z.object({
+  startDate: IsoDateSchema,
+  studyWeekdays: z.array(z.number().int().min(1).max(7)).min(1).max(7),
+  minutesPerDay: z.number().int().min(15).max(480),
+  /** Lighter or heavier days: { "6": 30 }. */
+  minutesByWeekday: z
+    .record(z.string().regex(/^[1-7]$/), z.number().int().min(0).max(480))
+    .default({}),
+  daysOff: z.array(IsoDateSchema).max(366).default([]),
+  maxCoursesPerDay: z.number().int().min(1).max(3),
+  includePractice: z.boolean(),
+  courses: z
+    .array(
+      z.object({
+        slug: z.string().min(1),
+        weight: z.number().min(0.25).max(4),
+        deadline: IsoDateSchema.nullable().default(null),
+      }),
+    )
+    .min(1)
+    .max(12),
+});
+export type PlanInput = z.infer<typeof PlanInputSchema>;
+
+export interface PlanDto extends Omit<PlanInput, "courses"> {
+  id: number;
+  courses: {
+    slug: string;
+    shortTitle: string;
+    title: string;
+    track: TrackSlug;
+    weight: number;
+    deadline: string | null;
+  }[];
+  /** Last day with a planned part: when the plan ends at this pace. */
+  endDate: string | null;
+  /** Seconds still planned from today on. */
+  remainingSec: number;
+}
+
+export interface PlanItemDto {
+  id: number;
+  date: string;
+  status: "planned" | "done" | "skipped";
+  courseSlug: string;
+  courseShortTitle: string;
+  track: TrackSlug;
+  subject: Subject;
+  youtubeId: string;
+  /** Official video for the thumbnail (translations may have their own). */
+  coverVideoId: string;
+  lessonTitle: string;
+  kind: VideoKind;
+  startSec: number;
+  endSec: number;
+  videoDurationSec: number;
+  embeddable: boolean;
+  language: "en" | "ru";
+}
+
+export interface TrackProgressDto {
+  slug: TrackSlug;
+  title: string;
+  color: string;
+  share: number;
+}
+
+export interface TodayDto {
+  date: string;
+  plan: { id: number; minutesPerDay: number; endDate: string | null } | null;
+  items: PlanItemDto[];
+  plannedSec: number;
+  doneSec: number;
+  /** Time really played today, planned or not. */
+  studiedSec: number;
+  streak: number;
+  /** Monday to Sunday of this week. */
+  week: { date: string; plannedSec: number; doneSec: number; tracks: TrackSlug[] }[];
+  cv: { hoursLeft: number; tracks: TrackProgressDto[] };
+}
+
+export interface CalendarDto {
+  from: string;
+  to: string;
+  days: { date: string; items: PlanItemDto[] }[];
+}
+
+export const ItemUpdateSchema = z.object({ done: z.boolean() });
+
+export interface TaskDto {
+  id: number;
+  title: string;
+  date: string | null;
+  done: boolean;
+  createdAt: string;
+  doneAt: string | null;
+}
+
+export const TaskCreateSchema = z.object({
+  title: z.string().trim().min(1).max(300),
+  date: IsoDateSchema.nullable(),
+});
+
+export const TaskUpdateSchema = z.object({
+  title: z.string().trim().min(1).max(300).optional(),
+  done: z.boolean().optional(),
+  date: IsoDateSchema.nullable().optional(),
 });

@@ -4,7 +4,9 @@ import Fastify from "fastify";
 import type { AppDatabase } from "./db/client";
 import { catalogRoutes } from "./routes/catalog";
 import { healthRoutes } from "./routes/health";
+import { planRoutes } from "./routes/plan";
 import { progressRoutes } from "./routes/progress";
+import { taskRoutes } from "./routes/tasks";
 import type { YouTubeClient } from "./youtube/client";
 
 export interface BuildAppOptions {
@@ -27,6 +29,8 @@ export async function buildApp({ db, youtube, clientDir, logger = false }: Build
   await app.register(healthRoutes, { prefix: "/api", db });
   await app.register(catalogRoutes, { prefix: "/api", db, youtube });
   await app.register(progressRoutes, { prefix: "/api", db });
+  await app.register(planRoutes, { prefix: "/api", db });
+  await app.register(taskRoutes, { prefix: "/api", db });
 
   if (clientDir) {
     await app.register(fastifyStatic, { root: path.resolve(clientDir) });
