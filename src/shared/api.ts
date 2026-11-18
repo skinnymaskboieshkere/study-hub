@@ -257,3 +257,81 @@ export const TaskUpdateSchema = z.object({
   done: z.boolean().optional(),
   date: IsoDateSchema.nullable().optional(),
 });
+
+// ── Notes (stage 3) ────────────────────────────────────────────────────────────
+
+export interface NotesStatusDto {
+  /** VAULT_PATH is set in .env. */
+  configured: boolean;
+  /** The folder exists and can be read. */
+  available: boolean;
+  /** Folder name only: the full path stays on the server. */
+  vaultName: string | null;
+  notes: number;
+}
+
+export interface NoteTreeNodeDto {
+  name: string;
+  path: string;
+  type: "folder" | "note";
+  children?: NoteTreeNodeDto[];
+}
+
+export interface NoteListItemDto {
+  path: string;
+  title: string;
+  mtimeMs: number;
+}
+
+export interface NoteFileDto {
+  path: string;
+  title: string;
+  content: string;
+  /** Hash of the content the client edits: a save with an old hash is a conflict. */
+  hash: string;
+  mtimeMs: number;
+  frontmatter: Record<string, unknown> | null;
+}
+
+const VaultPathSchema = z.string().trim().max(500);
+
+export const NoteSaveSchema = z.object({
+  path: VaultPathSchema.min(1),
+  content: z.string().max(5_000_000),
+  /** null = a new file that must not exist yet. */
+  baseHash: z.string().nullable(),
+});
+
+export interface NoteSavedDto {
+  path: string;
+  hash: string;
+  mtimeMs: number;
+}
+
+export const NoteCreateSchema = z.object({
+  folder: VaultPathSchema.default(""),
+  name: z.string().trim().max(200).optional(),
+});
+
+export const FolderCreateSchema = z.object({
+  parent: VaultPathSchema.default(""),
+  name: z.string().trim().min(1).max(200),
+});
+
+export interface BacklinkDto {
+  path: string;
+  title: string;
+  mentions: { line: number; context: string }[];
+}
+
+export interface TagCountDto {
+  tag: string;
+  count: number;
+}
+
+export interface NoteSearchResultDto {
+  path: string;
+  title: string;
+  /** Found words are wrapped in \u0002 … \u0003. */
+  snippet: string;
+}

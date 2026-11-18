@@ -11,16 +11,6 @@ export function RoadmapPage() {
   );
 }
 
-export function NotesPage() {
-  return (
-    <PagePlaceholder
-      title="Заметки"
-      description="Конспекты в твоём Obsidian vault: ссылки между заметками, обратные ссылки, формулы, граф и таймкоды к лекциям."
-      stage="3"
-    />
-  );
-}
-
 export function StatsPage() {
   return (
     <PagePlaceholder

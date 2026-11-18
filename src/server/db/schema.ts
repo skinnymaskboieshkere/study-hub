@@ -198,3 +198,52 @@ export const studySessions = sqliteTable(
   },
   (table) => [primaryKey({ columns: [table.date, table.courseSlug] })],
 );
+
+/**
+ * Index of the vault (SPEC §5): the .md files are the source of truth, this is only a cache
+ * rebuilt from them. Full-text search lives in the FTS5 table `notes_fts` (raw SQL migration).
+ */
+export const notes = sqliteTable("notes", {
+  path: text("path").primaryKey(),
+  title: text("title").notNull(),
+  mtimeMs: real("mtime_ms").notNull(),
+  size: integer("size").notNull(),
+  hash: text("hash").notNull(),
+  frontmatter: text("frontmatter_json", { mode: "json" }).$type<Record<string, unknown> | null>(),
+});
+
+/** Wikilinks as written; they are resolved when read, so new notes pick up old links. */
+export const noteLinks = sqliteTable(
+  "note_links",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    srcPath: text("src_path")
+      .notNull()
+      .references(() => notes.path, { onDelete: "cascade" }),
+    rawTarget: text("raw_target").notNull(),
+    /** Lower-case name without folders: finds link candidates fast. */
+    targetKey: text("target_key").notNull(),
+    heading: text("heading"),
+    kind: text("kind", { enum: ["wikilink", "embed"] }).notNull(),
+    line: integer("line").notNull(),
+    context: text("context").notNull(),
+  },
+  (table) => [
+    index("note_links_src_idx").on(table.srcPath),
+    index("note_links_key_idx").on(table.targetKey),
+  ],
+);
+
+export const noteTags = sqliteTable(
+  "note_tags",
+  {
+    path: text("path")
+      .notNull()
+      .references(() => notes.path, { onDelete: "cascade" }),
+    tag: text("tag").notNull(),
+  },
+  (table) => [
+    primaryKey({ columns: [table.path, table.tag] }),
+    index("note_tags_tag_idx").on(table.tag),
+  ],
+);

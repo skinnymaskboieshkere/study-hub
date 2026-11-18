@@ -1,11 +1,14 @@
 /** Error with the message the server sends as `{ error: "…" }` (already in Russian). */
 export class ApiError extends Error {
   readonly status: number;
+  /** The whole answer, for errors that carry data (a save conflict sends the disk version). */
+  readonly body: unknown;
 
-  constructor(message: string, status: number) {
+  constructor(message: string, status: number, body?: unknown) {
     super(message);
     this.name = "ApiError";
     this.status = status;
+    this.body = body;
   }
 }
 
@@ -27,7 +30,7 @@ async function request<T>(method: string, url: string, body?: unknown): Promise<
       data && typeof data === "object" && "error" in data && typeof data.error === "string"
         ? data.error
         : `Ошибка сервера (${response.status})`;
-    throw new ApiError(message, response.status);
+    throw new ApiError(message, response.status, data);
   }
   return data as T;
 }

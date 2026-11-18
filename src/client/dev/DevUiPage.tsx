@@ -3,6 +3,7 @@ import { ControlsSection } from "./sections/ControlsSection";
 import { CourseSection } from "./sections/CourseSection";
 import { FeedbackSection } from "./sections/FeedbackSection";
 import { FoundationsSection } from "./sections/FoundationsSection";
+import { NotesSection } from "./sections/NotesSection";
 import { PlanSection } from "./sections/PlanSection";
 
 const CONTENTS = [
@@ -10,6 +11,7 @@ const CONTENTS = [
   { href: "#controls", label: "Кнопки и формы" },
   { href: "#courses", label: "Курсы" },
   { href: "#plan", label: "План и календарь" },
+  { href: "#notes", label: "Заметки" },
   { href: "#feedback", label: "Сообщения и дорожная карта" },
 ];
 
@@ -49,6 +51,7 @@ export function DevUiPage() {
       <ControlsSection />
       <CourseSection />
       <PlanSection />
+      <NotesSection />
       <FeedbackSection />
     </>
   );

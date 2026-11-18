@@ -3,6 +3,7 @@ import { buildApp } from "./app";
 import { syncSeed } from "./catalog/seed";
 import { config } from "./config";
 import { openDatabase } from "./db/client";
+import { NotesService } from "./notes/notes-service";
 import { createYouTubeClient } from "./youtube/client";
 
 const { db, close } = openDatabase({
@@ -13,7 +14,20 @@ const { db, close } = openDatabase({
 const seed = syncSeed(db, config.seedDir);
 if (seed.applied) console.log(`Каталог обновлён: ${seed.courses} курсов`);
 
+// Notes: the index catches up with the vault, then follows its changes (SPEC §5).
+const notes = new NotesService(db, config.vaultPath);
+if (notes.status().available) {
+  const synced = await notes.sync();
+  if (synced.indexed || synced.removed) {
+    console.log(`Заметки: проиндексировано ${synced.indexed}, убрано из индекса ${synced.removed}`);
+  }
+  notes.watch();
+} else if (config.vaultPath) {
+  console.warn("Папка хранилища из VAULT_PATH не найдена — заметки недоступны");
+}
+
 const app = await buildApp({
+  notes,
   db,
   youtube: config.youtubeApiKey ? createYouTubeClient(config.youtubeApiKey) : undefined,
   clientDir: config.isDev ? undefined : config.clientDir,
@@ -32,6 +46,7 @@ for (const signal of ["SIGINT", "SIGTERM"] as const) {
   process.once(signal, () => {
     void app
       .close()
+      .then(() => notes.close())
       .then(close)
       .finally(() => process.exit(0));
   });

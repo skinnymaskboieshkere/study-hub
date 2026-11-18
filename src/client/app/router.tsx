@@ -5,13 +5,7 @@ import { CatalogPage } from "@/pages/CatalogPage";
 import { CoursePage } from "@/pages/CoursePage";
 import { HomePage } from "@/pages/HomePage";
 import { PlanPage } from "@/pages/PlanPage";
-import {
-  NotesPage,
-  NotFoundPage,
-  RoadmapPage,
-  SettingsPage,
-  StatsPage,
-} from "@/pages/SectionPages";
+import { NotFoundPage, RoadmapPage, SettingsPage, StatsPage } from "@/pages/SectionPages";
 import { WatchPage } from "@/pages/WatchPage";
 
 export const router = createBrowserRouter([
@@ -26,7 +20,11 @@ export const router = createBrowserRouter([
       { path: "courses/:slug", element: <CoursePage /> },
       { path: "watch/:youtubeId", element: <WatchPage /> },
       { path: "roadmap", element: <RoadmapPage /> },
-      { path: "notes", element: <NotesPage /> },
+      // Editor, Markdown and KaTeX are heavy: loaded only when notes are opened.
+      {
+        path: "notes",
+        lazy: async () => ({ Component: (await import("@/pages/NotesPage")).NotesPage }),
+      },
       { path: "stats", element: <StatsPage /> },
       { path: "settings", element: <SettingsPage /> },
       // Design showcase (SPEC §7): loaded on demand, so it never slows down the real screens.

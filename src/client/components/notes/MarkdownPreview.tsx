@@ -1,0 +1,117 @@
+import { resolveLink } from "@shared/notes";
+import { cn } from "cn";
+import { toJsxRuntime, type Components } from "hast-util-to-jsx-runtime";
+import { useMemo, type ComponentProps, type ReactNode } from "react";
+import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import { renderMarkdown } from "@/lib/markdown";
+import "katex/dist/katex.min.css";
+
+interface MarkdownPreviewProps {
+  text: string;
+  /** Path of the note shown: links resolve relative to its folder. */
+  path: string;
+  /** All note paths, to tell existing links from missing ones. */
+  paths: readonly string[];
+  onOpenNote: (path: string, heading: string | null) => void;
+  /** A link to a note that does not exist yet: Obsidian creates it on click. */
+  onCreateNote: (name: string) => void;
+  onTag: (tag: string) => void;
+  /** Same-note `[[#Heading]]` links scroll here. */
+  onHeading: (heading: string) => void;
+}
+
+const SAFE_URL = /^(https?:|mailto:)/i;
+
+const text = (children: ReactNode): string =>
+  Array.isArray(children)
+    ? children.map(text).join("")
+    : typeof children === "string" || typeof children === "number"
+      ? String(children)
+      : children && typeof children === "object" && "props" in children
+        ? text((children.props as { children?: ReactNode }).children)
+        : "";
+
+/** Rendered note (SPEC §6.5): Markdown, wikilinks, tags, KaTeX formulas, highlighted code. */
+export function MarkdownPreview(props: MarkdownPreviewProps) {
+  const { text: source, path, paths, onOpenNote, onCreateNote, onTag, onHeading } = props;
+  const rendered = useMemo(() => renderMarkdown(source), [source]);
+
+  const components = useMemo<Partial<Components>>(() => {
+    const heading =
+      (Tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") =>
+      ({ children, ...rest }: ComponentProps<"h1">) => (
+        <Tag {...rest} data-heading={text(children)}>
+          {children}
+        </Tag>
+      );
+
+    return {
+      h1: heading("h1"),
+      h2: heading("h2"),
+      h3: heading("h3"),
+      h4: heading("h4"),
+      h5: heading("h5"),
+      h6: heading("h6"),
+      a: ({ children, href, ...rest }: ComponentProps<"a">) => {
+        const data = rest as Record<string, string | undefined>;
+        const tag = data["data-tag"];
+        if (tag) {
+          return (
+            <button type="button" className="md-tag" onClick={() => onTag(tag)}>
+              {children}
+            </button>
+          );
+        }
+        const target = data["data-wikilink"];
+        if (target !== undefined) {
+          const headingText = data["data-heading"] || null;
+          if (!target && headingText) {
+            return (
+              <button type="button" className="md-wikilink" onClick={() => onHeading(headingText)}>
+                {children}
+              </button>
+            );
+          }
+          const resolved = resolveLink(target, paths, path);
+          return (
+            <button
+              type="button"
+              className={cn("md-wikilink", !resolved && "md-wikilink-missing")}
+              title={resolved ? resolved.replace(/\.md$/, "") : `Создать заметку «${target}»`}
+              onClick={() => (resolved ? onOpenNote(resolved, headingText) : onCreateNote(target))}
+            >
+              {data["data-embed"] && <span aria-hidden>↪ </span>}
+              {children}
+            </button>
+          );
+        }
+        if (href && SAFE_URL.test(href)) {
+          return (
+            <a href={href} target="_blank" rel="noreferrer noopener">
+              {children}
+            </a>
+          );
+        }
+        return <span className="md-link-broken">{children}</span>;
+      },
+    };
+  }, [path, paths, onOpenNote, onCreateNote, onTag, onHeading]);
+
+  const body = useMemo(
+    () => toJsxRuntime(rendered.tree, { Fragment, jsx, jsxs, components }),
+    [rendered.tree, components],
+  );
+
+  return (
+    <article className="markdown">
+      {rendered.frontmatter && (
+        <details className="md-properties">
+          <summary>Свойства</summary>
+          <pre>{rendered.frontmatter}</pre>
+        </details>
+      )}
+      {body}
+      {!source.trim() && <p className="text-ink-muted">Пустая заметка.</p>}
+    </article>
+  );
+}
