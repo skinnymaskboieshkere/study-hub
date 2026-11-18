@@ -1,0 +1,8 @@
+dist/
+coverage/
+data/
+drizzle/
+package-lock.json
+# Written by the user; keep their formatting.
+SPEC.md
+docs/
