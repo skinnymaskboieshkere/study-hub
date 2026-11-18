@@ -1,27 +1,64 @@
-import type { ContinueDto } from "@shared/api";
-import { BookOpen, ListChecks, Route } from "lucide-react";
-import { Link } from "react-router";
-import { SUBJECT_LABEL } from "@/app/labels";
-import { useCatalog, useContinue } from "@/app/queries";
+import { useSearchParams } from "react-router";
+import { useCatalog, useContinue, useToday } from "@/app/queries";
 import { CardRow } from "@/components/CardRow";
 import { CourseTile } from "@/components/course/CourseCard";
-import { CourseHero, HeroBadge } from "@/components/course/CourseHero";
-import { TrackPath } from "@/components/TrackPath";
+import { QueryError } from "@/components/QueryState";
+import { CvProgressCard } from "@/components/today/CvProgressCard";
+import { TasksPanel } from "@/components/today/TasksPanel";
+import { TodayHero } from "@/components/today/TodayHero";
+import { TodayPlan } from "@/components/today/TodayPlan";
+import { WeekStrip } from "@/components/today/WeekStrip";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { formatPercent } from "@/lib/format";
+import { Skeleton } from "@/components/ui/skeleton";
 
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+/** Home = the "Сегодня" screen (BRIEF, SPEC §6.4). */
 export function HomePage() {
+  // `?day=YYYY-MM-DD` shows another day as if it were today: a way to check how the plan
+  // catches up after a skipped day. Opening the page without it returns to the real today.
+  const [params] = useSearchParams();
+  const dayParam = params.get("day") ?? "";
+  const today = useToday(ISO_DATE.test(dayParam) ? dayParam : undefined);
   const continueQuery = useContinue();
   const catalog = useCatalog();
-  const myCourses = (catalog.data?.courses ?? []).filter(
+
+  const courses = catalog.data?.courses ?? [];
+  const myCourses = courses.filter(
     (course) => course.collection === "active" || course.collection === "wishlist",
   );
   const activeCount = myCourses.filter((course) => course.collection === "active").length;
 
   return (
     <>
-      {continueQuery.data ? <ContinueHero item={continueQuery.data} /> : <WelcomeHero />}
+      <h1 className="sr-only">Сегодня</h1>
+      <div className="mt-4">
+        <TodayHero
+          loading={today.isPending || continueQuery.isPending || catalog.isPending}
+          items={today.data?.items ?? []}
+          courses={courses}
+          continueItem={continueQuery.data ?? null}
+        />
+      </div>
+
+      {today.isError ? (
+        <div className="mt-12">
+          <QueryError error={today.error} onRetry={() => void today.refetch()} />
+        </div>
+      ) : today.data ? (
+        <>
+          <TodayPlan today={today.data} />
+          <div className="mt-12 grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+            <TasksPanel date={today.data.date} />
+            <div className="grid content-start gap-5">
+              <WeekStrip week={today.data.week} today={today.data.date} />
+              <CvProgressCard cv={today.data.cv} />
+            </div>
+          </div>
+        </>
+      ) : (
+        <Skeleton aria-hidden className="mt-12 h-72 rounded-2xl bg-surface" />
+      )}
 
       {myCourses.length > 0 && (
         <CardRow
@@ -35,80 +72,6 @@ export function HomePage() {
           ))}
         </CardRow>
       )}
-
-      <section aria-labelledby="today-title" className="mt-12">
-        <h2 id="today-title" className="text-2xl font-semibold text-ink">
-          План на сегодня
-        </h2>
-        <div className="mt-4 rounded-2xl border border-dashed border-line bg-surface/60 px-6 py-8">
-          <p className="max-w-[60ch] text-ink-muted">
-            План на каждый день появится на этапе 2: мастер разложит лекции и практику по учебным
-            дням. Пока выбирай курс в каталоге и смотри — прогресс уже сохраняется.
-          </p>
-        </div>
-      </section>
     </>
-  );
-}
-
-function ContinueHero({ item }: { item: ContinueDto }) {
-  const { course, lesson } = item;
-  return (
-    <div className="mt-4">
-      <CourseHero
-        title={course.title}
-        subject={SUBJECT_LABEL[course.subject]}
-        university={course.university}
-        position={item.unitTitle}
-        description={`Дальше: ${lesson.title}`}
-        track={course.track}
-        shortTitle={course.shortTitle}
-        coverVideoId={course.coverVideoId ?? undefined}
-        continueTo={`/watch/${lesson.youtubeId}?course=${course.slug}`}
-        programTo={`/courses/${course.slug}`}
-        badges={
-          <HeroBadge icon={<ListChecks aria-hidden />}>
-            Пройдено {formatPercent(course.progress)}
-          </HeroBadge>
-        }
-      />
-    </div>
-  );
-}
-
-function WelcomeHero() {
-  return (
-    <section
-      aria-labelledby="hero-title"
-      className="bg-hero relative mt-4 overflow-hidden rounded-3xl border border-white/5 px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16"
-    >
-      <h1
-        id="hero-title"
-        className="max-w-[16ch] font-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.05] font-extrabold tracking-tight text-ink uppercase"
-      >
-        Путь к Computer Vision
-      </h1>
-      <p className="mt-5 max-w-[56ch] text-lg leading-relaxed text-ink/85">
-        Лекции MIT, Harvard, Yale и Stanford, план на каждый день и конспекты в твоём Obsidian — в
-        одном месте. Выбери первый курс в каталоге.
-      </p>
-
-      <TrackPath className="mt-8 max-w-3xl" />
-
-      <div className="mt-10 flex flex-wrap gap-3">
-        <Button asChild variant="hero" size="pill">
-          <Link to="/courses">
-            <BookOpen aria-hidden />
-            Открыть каталог
-          </Link>
-        </Button>
-        <Button asChild variant="glass" size="pill">
-          <Link to="/roadmap">
-            <Route aria-hidden />
-            Траектории
-          </Link>
-        </Button>
-      </div>
-    </section>
   );
 }

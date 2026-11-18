@@ -1,40 +1,40 @@
 import type { WatchDto } from "@shared/api";
 import { useQueryClient } from "@tanstack/react-query";
 import { cn } from "cn";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { KIND_LABEL } from "@/app/labels";
-import { keys, useAddBookmark, useSetCompletion } from "@/app/queries";
+import {
+  PROGRESS_QUERY_KEYS,
+  useAddBookmark,
+  useSetCompletion,
+  useSetItemDone,
+} from "@/app/queries";
 import { formatDuration, formatTimecode } from "@/lib/format";
-import { clampRate, PLAYBACK_RATES } from "@/lib/player";
+import { clampRate } from "@/lib/player";
+import { segmentStart, type PlanSegment } from "@/lib/segment";
 import { PLAYER_STATE, tryRussianCaptions } from "@/lib/youtube-iframe";
 import { LessonPanel } from "./LessonPanel";
 import { PlayerError } from "./PlayerError";
 import { PlayerToolbar } from "./PlayerToolbar";
+import { SegmentPanel } from "./SegmentPanel";
+import { usePlanSegment } from "./usePlanSegment";
+import { usePlaybackRate } from "./usePlaybackRate";
 import { usePlayerHotkeys } from "./usePlayerHotkeys";
 import { usePlayerProgress } from "./usePlayerProgress";
 import { YouTubePlayer } from "./YouTubePlayer";
 
-const RATE_KEY = "studyhub.playbackRate";
-
-function readStoredRate(): number {
-  try {
-    const value = Number(localStorage.getItem(RATE_KEY));
-    return PLAYBACK_RATES.includes(value) ? value : 1;
-  } catch {
-    return 1;
-  }
-}
-
 interface StudyScreenProps {
   watch: WatchDto;
+  /** Opened from the day's plan: just this part of the video (SPEC §6.4). */
+  segment: PlanSegment | null;
   focus: boolean;
   onToggleFocus: () => void;
 }
 
 /** "Учёба": the player, its controls and the course playlist (SPEC §6.2). Keyed by video. */
-export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
+export function StudyScreen({ watch, segment, focus, onToggleFocus }: StudyScreenProps) {
   const { video, course } = watch;
   const navigate = useNavigate();
   const client = useQueryClient();
@@ -42,19 +42,20 @@ export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
   const [player, setPlayer] = useState<YT.Player | null>(null);
   const [playing, setPlaying] = useState(false);
   const [errorCode, setErrorCode] = useState<number | null>(video.embeddable ? null : 150);
-  const [rate, setRate] = useState(readStoredRate);
+  const [rate, applyRate] = usePlaybackRate(player);
+  const [segmentDone, setSegmentDone] = useState(false);
   const completion = useSetCompletion(video.youtubeId);
   const addBookmark = useAddBookmark(video.youtubeId);
+  const setItemDone = useSetItemDone();
   const completed = video.status === "done";
+  const startSec = segment ? segmentStart(segment, video.resumeSec) : video.resumeSec;
   const lessonUrl = (youtubeId: string) =>
     `/watch/${youtubeId}?course=${course.slug}${focus ? "&focus=1" : ""}`;
 
-  // Course numbers changed while watching: refresh them when leaving the screen.
+  // Watching changes course numbers, the day's plan and the calendar: refresh them on leaving.
   useEffect(
     () => () => {
-      void client.invalidateQueries({ queryKey: keys.catalog });
-      void client.invalidateQueries({ queryKey: ["course"] });
-      void client.invalidateQueries({ queryKey: keys.continue });
+      for (const queryKey of PROGRESS_QUERY_KEYS) void client.invalidateQueries({ queryKey });
     },
     [client],
   );
@@ -70,13 +71,30 @@ export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
     },
   });
 
-  const time = () => {
+  const time = useCallback(() => {
     try {
       return player?.getCurrentTime() ?? 0;
     } catch {
       return 0;
     }
-  };
+  }, [player]);
+
+  function finishSegment() {
+    if (!segment || segmentDone) return;
+    player?.pauseVideo();
+    setSegmentDone(true);
+    // A part replanned in the meantime has a new id; the server then marks it by the watched time.
+    setItemDone.mutate({ id: segment.itemId, done: true });
+  }
+
+  usePlanSegment({
+    player,
+    playing,
+    toSec: segment?.toSec,
+    active: !segmentDone,
+    onReached: finishSegment,
+  });
+
   const seekTo = (seconds: number) => player?.seekTo(Math.max(0, seconds), true);
   // The player reports the new time with a delay, so quick ←/→ presses add up here.
   const seekTarget = useRef<{ seconds: number; until: number } | null>(null);
@@ -87,16 +105,6 @@ export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
     const seconds = Math.max(0, base + delta);
     seekTarget.current = { seconds, until: now + 1000 };
     seekTo(seconds);
-  };
-  const applyRate = (next: number) => {
-    const clamped = clampRate(next);
-    setRate(clamped);
-    player?.setPlaybackRate(clamped);
-    try {
-      localStorage.setItem(RATE_KEY, String(clamped));
-    } catch {
-      // Private mode: the speed is just not remembered.
-    }
   };
   const quickBookmark = () => {
     const tSec = time();
@@ -141,11 +149,11 @@ export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
           className="aspect-video overflow-hidden rounded-2xl bg-black shadow-[0_0_60px_-20px_rgb(192_132_252/0.45)] ring-1 ring-white/5 outline-none"
         >
           {errorCode !== null ? (
-            <PlayerError code={errorCode} youtubeId={video.youtubeId} seconds={video.resumeSec} />
+            <PlayerError code={errorCode} youtubeId={video.youtubeId} seconds={startSec} />
           ) : (
             <YouTubePlayer
               videoId={video.youtubeId}
-              startSeconds={video.resumeSec}
+              startSeconds={startSec}
               captions={video.language !== "ru"}
               onReady={(ready) => {
                 setPlayer(ready);
@@ -153,7 +161,10 @@ export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
               }}
               onStateChange={(state) => {
                 setPlaying(state === PLAYER_STATE.playing);
-                if (state === PLAYER_STATE.ended && watch.nextYoutubeId) {
+                if (state !== PLAYER_STATE.ended) return;
+                if (segment && !segmentDone) {
+                  finishSegment();
+                } else if (watch.nextYoutubeId) {
                   const next = lessonUrl(watch.nextYoutubeId);
                   toast("Видео закончилось", {
                     action: { label: "Следующее", onClick: () => navigate(next) },
@@ -167,6 +178,21 @@ export function StudyScreen({ watch, focus, onToggleFocus }: StudyScreenProps) {
             />
           )}
         </div>
+
+        {segment && (
+          <div className="mt-4">
+            <SegmentPanel
+              segment={segment}
+              done={segmentDone}
+              currentTime={time}
+              onMarkDone={finishSegment}
+              onContinue={
+                segment.toSec < video.durationSec - 1 ? () => player?.playVideo() : undefined
+              }
+              focus={focus}
+            />
+          </div>
+        )}
 
         <div className="mt-5">
           <Link

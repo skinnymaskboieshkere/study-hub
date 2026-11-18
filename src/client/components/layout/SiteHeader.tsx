@@ -1,10 +1,11 @@
 import { cn } from "cn";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { NAV_ITEMS } from "@/app/nav";
 import { Logo } from "./Logo";
 import { ProfileMenu } from "./ProfileMenu";
 
 export function SiteHeader() {
+  const { pathname } = useLocation();
   return (
     <header className="mx-auto flex w-full max-w-[1360px] flex-wrap items-center gap-x-10 gap-y-2 px-4 pt-5 pb-3 sm:px-6 lg:px-8">
       <Logo />
@@ -22,7 +23,9 @@ export function SiteHeader() {
                 className={({ isActive }) =>
                   cn(
                     "block rounded-full px-3 py-2 text-[17px] transition-colors duration-150",
-                    isActive ? "text-ink" : "text-ink-muted hover:text-ink",
+                    isActive || item.also?.some((path) => pathname.startsWith(path))
+                      ? "text-ink"
+                      : "text-ink-muted hover:text-ink",
                   )
                 }
               >

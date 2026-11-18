@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import { AppShell } from "@/components/layout/AppShell";
+import { CalendarPage } from "@/pages/CalendarPage";
 import { CatalogPage } from "@/pages/CatalogPage";
 import { CoursePage } from "@/pages/CoursePage";
 import { HomePage } from "@/pages/HomePage";
+import { PlanPage } from "@/pages/PlanPage";
 import {
   NotesPage,
   NotFoundPage,
@@ -18,6 +20,8 @@ export const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: "plan", element: <PlanPage /> },
+      { path: "calendar", element: <CalendarPage /> },
       { path: "courses", element: <CatalogPage /> },
       { path: "courses/:slug", element: <CoursePage /> },
       { path: "watch/:youtubeId", element: <WatchPage /> },

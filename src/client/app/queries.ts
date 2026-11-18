@@ -1,9 +1,15 @@
 import type {
   BookmarkDto,
+  CalendarDto,
   CatalogDto,
   ContinueDto,
   CourseDetailDto,
+  PlanDto,
+  PlanInput,
+  PlanItemDto,
   ProgressDto,
+  TaskDto,
+  TodayDto,
   WatchDto,
 } from "@shared/api";
 import type { Collection } from "@shared/catalog";
@@ -57,15 +63,20 @@ export const useBookmarks = (youtubeId: string) =>
     queryFn: () => api.get<BookmarkDto[]>(`/api/videos/${encodeURIComponent(youtubeId)}/bookmarks`),
   });
 
+/** Everything watching can change: course numbers, the day's plan, the calendar. */
+export const PROGRESS_QUERY_KEYS = [
+  keys.catalog,
+  ["course"],
+  keys.continue,
+  ["today"],
+  ["calendar"],
+];
+
 /** Progress changes course numbers everywhere: refresh what shows them. */
 export function useRefreshProgress() {
   const client = useQueryClient();
   return () =>
-    Promise.all([
-      client.invalidateQueries({ queryKey: keys.catalog }),
-      client.invalidateQueries({ queryKey: ["course"] }),
-      client.invalidateQueries({ queryKey: keys.continue }),
-    ]);
+    Promise.all(PROGRESS_QUERY_KEYS.map((queryKey) => client.invalidateQueries({ queryKey })));
 }
 
 export function useSetCollection(slug: string) {
@@ -118,5 +129,104 @@ export function useDeleteBookmark(youtubeId: string) {
   return useMutation({
     mutationFn: (id: number) => api.delete(`/api/bookmarks/${id}`),
     onSuccess: () => client.invalidateQueries({ queryKey: keys.bookmarks(youtubeId) }),
+  });
+}
+
+// ── Plan, Today, calendar, tasks (stage 2) ─────────────────────────────────────
+
+export const usePlan = () =>
+  useQuery({
+    queryKey: ["plan"],
+    queryFn: async () => (await api.get<{ plan: PlanDto | null }>("/api/plan")).plan,
+  });
+
+/** `date` is only for checking other days; normally the server uses today. */
+export const useToday = (date?: string) =>
+  useQuery({
+    queryKey: ["today", date ?? ""],
+    queryFn: () => api.get<TodayDto>(`/api/today${date ? `?date=${date}` : ""}`),
+    staleTime: 0,
+  });
+
+export const useCalendar = (from: string, to: string) =>
+  useQuery({
+    queryKey: ["calendar", from, to],
+    queryFn: () => api.get<CalendarDto>(`/api/calendar?from=${from}&to=${to}`),
+  });
+
+export const useTasks = (date: string) =>
+  useQuery({
+    queryKey: ["tasks", date],
+    queryFn: () => api.get<TaskDto[]>(`/api/tasks?date=${date}`),
+  });
+
+function useInvalidatePlan() {
+  const client = useQueryClient();
+  return () =>
+    Promise.all(
+      [["plan"], ["today"], ["calendar"]].map((queryKey) => client.invalidateQueries({ queryKey })),
+    );
+}
+
+export function useSavePlan() {
+  const invalidate = useInvalidatePlan();
+  return useMutation({
+    mutationFn: (input: PlanInput) => api.put<PlanDto>("/api/plan", input),
+    onSuccess: () => invalidate(),
+  });
+}
+
+export function useReplan() {
+  const invalidate = useInvalidatePlan();
+  return useMutation({
+    mutationFn: () => api.post<{ parts: number }>("/api/plan/replan"),
+    onSuccess: () => invalidate(),
+  });
+}
+
+export function useSetItemDone() {
+  const invalidate = useInvalidatePlan();
+  return useMutation({
+    mutationFn: ({ id, done }: { id: number; done: boolean }) =>
+      api.post<PlanItemDto>(`/api/plan/items/${id}`, { done }),
+    onSuccess: () => invalidate(),
+  });
+}
+
+function useInvalidateTasks() {
+  const client = useQueryClient();
+  return () => client.invalidateQueries({ queryKey: ["tasks"] });
+}
+
+export function useCreateTask() {
+  const invalidate = useInvalidateTasks();
+  return useMutation({
+    mutationFn: (task: { title: string; date: string | null }) =>
+      api.post<TaskDto>("/api/tasks", task),
+    onSuccess: () => invalidate(),
+  });
+}
+
+export function useUpdateTask() {
+  const invalidate = useInvalidateTasks();
+  return useMutation({
+    mutationFn: ({
+      id,
+      ...changes
+    }: {
+      id: number;
+      title?: string;
+      done?: boolean;
+      date?: string | null;
+    }) => api.patch<TaskDto>(`/api/tasks/${id}`, changes),
+    onSuccess: () => invalidate(),
+  });
+}
+
+export function useDeleteTask() {
+  const invalidate = useInvalidateTasks();
+  return useMutation({
+    mutationFn: (id: number) => api.delete(`/api/tasks/${id}`),
+    onSuccess: () => invalidate(),
   });
 }

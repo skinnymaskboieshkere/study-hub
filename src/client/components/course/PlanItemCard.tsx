@@ -14,6 +14,7 @@ interface PlanItemCardProps {
   endSeconds: number;
   done?: boolean;
   to: string;
+  className?: string;
 }
 
 /** One planned piece of a lecture for today (SPEC §6.4): which video and which minutes. */
@@ -26,6 +27,7 @@ export function PlanItemCard(props: PlanItemCardProps) {
       className={cn(
         "group flex flex-col rounded-2xl border border-line bg-surface p-3 transition-colors duration-150 hover:border-lilac/40",
         props.done && "opacity-70",
+        props.className,
       )}
     >
       <CourseCover

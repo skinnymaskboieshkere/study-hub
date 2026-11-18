@@ -59,6 +59,35 @@ export function recordProgress(
   return toDto(values);
 }
 
+/**
+ * A plan part ticked by hand counts as watched up to its end, so the next plan goes on after
+ * it instead of offering the same minutes again (SPEC §6.4). Positions only move forward.
+ */
+export function coverUpTo(
+  db: AppDatabase,
+  youtubeId: string,
+  untilSec: number,
+  now = new Date(),
+): ProgressDto | undefined {
+  const video = repo.getVideo(db, youtubeId);
+  if (!video) return undefined;
+  const previous = repo.getProgressRow(db, youtubeId);
+  const until = Math.min(untilSec, video.durationSec);
+  const maxPositionSec = Math.max(previous?.maxPositionSec ?? 0, until);
+  const values = {
+    youtubeId,
+    positionSec: Math.max(previous?.positionSec ?? 0, until),
+    maxPositionSec,
+    completedAt:
+      previous?.completedAt ??
+      (reachesCompletion(maxPositionSec, video.durationSec) ? now.toISOString() : null),
+    updatedAt: now.toISOString(),
+  };
+  save(db, values);
+  if (maxPositionSec >= STARTED_AFTER_SEC) moveCoursesToActive(db, youtubeId);
+  return toDto(values);
+}
+
 /** Manual "просмотрено" mark and its undo. */
 export function setCompletion(
   db: AppDatabase,

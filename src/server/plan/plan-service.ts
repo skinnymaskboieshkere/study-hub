@@ -4,6 +4,7 @@ import { todayIso } from "@shared/dates";
 import { buildSchedule, type ScheduleCourse } from "@shared/scheduler";
 import { and, asc, eq, gte, inArray, lte, max, sql } from "drizzle-orm";
 import * as catalog from "../catalog/catalog-repository";
+import { coverUpTo } from "../catalog/progress-service";
 import type { AppDatabase } from "../db/client";
 import { courses, planCourses, planItems, studyPlans, studySessions } from "../db/schema";
 
@@ -258,7 +259,10 @@ export function markCoveredItems(
   return covered.length;
 }
 
-/** Manual "Часть выполнена" and its undo. */
+/**
+ * Manual "Часть выполнена" and its undo. Done means covered: the video counts as watched up
+ * to the end of the part. The undo leaves the watched time alone (it cannot know it).
+ */
 export function setItemDone(db: AppDatabase, id: number, done: boolean, today = todayIso()) {
   const item = db.select().from(planItems).where(eq(planItems.id, id)).get();
   if (!item) return undefined;
@@ -274,6 +278,12 @@ export function setItemDone(db: AppDatabase, id: number, done: boolean, today = 
     )
     .where(eq(planItems.id, id))
     .run();
+  if (done) {
+    const progress = coverUpTo(db, item.youtubeId, item.endSec);
+    if (progress) {
+      markCoveredItems(db, item.youtubeId, progress.maxPositionSec, progress.completed, today);
+    }
+  }
   return db.select().from(planItems).where(eq(planItems.id, id)).get();
 }
 

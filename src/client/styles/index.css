@@ -77,6 +77,14 @@
   --color-track-robotics: #34d399;
   --color-track-cv: #22d3ee;
 
+  /* Subject colors for the calendar (SPEC §6.4); the last three match their tracks. */
+  --color-subject-programming: #a78bfa;
+  --color-subject-math: #f472b6;
+  --color-subject-physics: #fb923c;
+  --color-subject-engineering: #60a5fa;
+  --color-subject-robotics: #34d399;
+  --color-subject-cv: #22d3ee;
+
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Unbounded Variable", "Inter Variable", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;

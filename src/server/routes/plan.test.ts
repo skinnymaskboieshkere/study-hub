@@ -160,6 +160,20 @@ describe("plan and today API", () => {
     expect(undone.json<{ status: string }>().status).toBe("planned");
   });
 
+  it("does not plan a part ticked by hand again", async () => {
+    await makePlan(["calc"]);
+    const [first] = (await today(MONDAY)).items;
+    await app.inject({
+      method: "POST",
+      url: `/api/plan/items/${first!.id}`,
+      payload: { done: true },
+    });
+    // The next day re-plans from what is covered: the ticked lecture is not offered again.
+    const tuesday = await today("2026-11-17");
+    expect(tuesday.items.map((item) => item.youtubeId)).not.toContain(first!.youtubeId);
+    expect(tuesday.plannedSec).toBe(3600);
+  });
+
   it("refuses a plan without courses", async () => {
     const response = await app.inject({
       method: "PUT",

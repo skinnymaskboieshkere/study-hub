@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 import { api, beacon } from "@/lib/api";
 
 const SAVE_EVERY_MS = 5000;
+/** The server takes at most this much played time per save (ProgressUpdateSchema). */
+const MAX_PLAYED_SEC = 120;
 
 function currentTime(player: YT.Player | null): number | undefined {
   try {
@@ -16,7 +18,8 @@ function currentTime(player: YT.Player | null): number | undefined {
 
 /**
  * Saves the position every ~5 s while playing, on pause, and when the tab is hidden or
- * closed (sendBeacon) — SPEC §6.2 and §9.1.
+ * closed (sendBeacon) — SPEC §6.2 and §9.1. Each save also carries the seconds really played
+ * since the previous one: the day's study time for the streak (SPEC §6.4).
  */
 export function usePlayerProgress(options: {
   player: YT.Player | null;
@@ -30,6 +33,9 @@ export function usePlayerProgress(options: {
   const lastSent = useRef<number | undefined>(undefined);
   const completed = useRef(options.alreadyCompleted);
   const onCompleted = useRef(options.onCompleted);
+  /** Played seconds not sent yet, and since when the current playing stretch runs. */
+  const playedSec = useRef(0);
+  const playingSince = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     onCompleted.current = options.onCompleted;
@@ -44,6 +50,25 @@ export function usePlayerProgress(options: {
     if (!player) return;
     const url = `/api/progress/${encodeURIComponent(youtubeId)}`;
 
+    // Count the playing stretch that just ended (pause, buffering, end of the video).
+    if (playing) {
+      playingSince.current ??= Date.now();
+    } else if (playingSince.current !== undefined) {
+      playedSec.current += (Date.now() - playingSince.current) / 1000;
+      playingSince.current = undefined;
+    }
+
+    function takePlayed(): number {
+      if (playingSince.current !== undefined) {
+        const now = Date.now();
+        playedSec.current += (now - playingSince.current) / 1000;
+        playingSince.current = now;
+      }
+      const whole = Math.floor(playedSec.current);
+      playedSec.current -= whole;
+      return Math.min(MAX_PLAYED_SEC, whole);
+    }
+
     function shouldSend(time: number | undefined): time is number {
       return (
         time !== undefined &&
@@ -55,7 +80,8 @@ export function usePlayerProgress(options: {
       const time = currentTime(player);
       if (!shouldSend(time)) return;
       lastSent.current = time;
-      const result = await api.put<ProgressDto>(url, { positionSec: time }).catch(() => undefined);
+      const body = { positionSec: time, playedSec: takePlayed() };
+      const result = await api.put<ProgressDto>(url, body).catch(() => undefined);
       if (result?.completed && !completed.current) {
         completed.current = true;
         onCompleted.current();
@@ -66,7 +92,7 @@ export function usePlayerProgress(options: {
       const time = currentTime(player);
       if (!shouldSend(time)) return;
       lastSent.current = time;
-      beacon(url, { positionSec: time });
+      beacon(url, { positionSec: time, playedSec: takePlayed() });
     }
 
     const onVisibility = () => document.visibilityState === "hidden" && saveOnLeave();
@@ -89,8 +115,17 @@ export function usePlayerProgress(options: {
     if (!player) return;
     return () => {
       const time = currentTime(player);
-      if (time !== undefined && time !== lastSent.current) {
-        beacon(`/api/progress/${encodeURIComponent(youtubeId)}`, { positionSec: time });
+      if (playingSince.current !== undefined) {
+        playedSec.current += (Date.now() - playingSince.current) / 1000;
+        playingSince.current = undefined;
+      }
+      const played = Math.min(MAX_PLAYED_SEC, Math.floor(playedSec.current));
+      playedSec.current = 0;
+      if (time !== undefined && (time !== lastSent.current || played > 0)) {
+        beacon(`/api/progress/${encodeURIComponent(youtubeId)}`, {
+          positionSec: time,
+          playedSec: played,
+        });
       }
     };
   }, [player, youtubeId]);
