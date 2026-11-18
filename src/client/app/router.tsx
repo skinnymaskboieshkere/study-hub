@@ -1,14 +1,16 @@
 import { createBrowserRouter } from "react-router";
 import { AppShell } from "@/components/layout/AppShell";
+import { CatalogPage } from "@/pages/CatalogPage";
+import { CoursePage } from "@/pages/CoursePage";
 import { HomePage } from "@/pages/HomePage";
 import {
-  CoursesPage,
   NotesPage,
   NotFoundPage,
   RoadmapPage,
   SettingsPage,
   StatsPage,
 } from "@/pages/SectionPages";
+import { WatchPage } from "@/pages/WatchPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +18,9 @@ export const router = createBrowserRouter([
     element: <AppShell />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "courses", element: <CoursesPage /> },
+      { path: "courses", element: <CatalogPage /> },
+      { path: "courses/:slug", element: <CoursePage /> },
+      { path: "watch/:youtubeId", element: <WatchPage /> },
       { path: "roadmap", element: <RoadmapPage /> },
       { path: "notes", element: <NotesPage /> },
       { path: "stats", element: <StatsPage /> },

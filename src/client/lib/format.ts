@@ -32,3 +32,11 @@ export function pluralRu(count: number, forms: [one: string, few: string, many: 
   if (last >= 2 && last <= 4) return forms[1];
   return forms[2];
 }
+
+/** Share 0..1 → "37%"; a started course never shows "0%" (0.004 → "<1%"). */
+export function formatPercent(share: number): string {
+  if (!Number.isFinite(share) || share <= 0) return "0%";
+  const percent = Math.floor(share * 100);
+  if (percent === 0) return "<1%";
+  return `${Math.min(100, percent)}%`;
+}

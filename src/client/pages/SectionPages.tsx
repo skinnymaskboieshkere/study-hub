@@ -1,16 +1,6 @@
 import { Link } from "react-router";
 import { PagePlaceholder } from "@/components/PagePlaceholder";
 
-export function CoursesPage() {
-  return (
-    <PagePlaceholder
-      title="Мои курсы"
-      description="Каталог курсов MIT, Harvard, Stanford и других университетов. Коллекции «Хочу пройти», «В процессе», «Завершено» и встроенный плеер."
-      stage="1"
-    />
-  );
-}
-
 export function RoadmapPage() {
   return (
     <PagePlaceholder

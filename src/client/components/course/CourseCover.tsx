@@ -5,7 +5,7 @@ import { youtubeThumbnailUrl, type ThumbnailQuality } from "@/lib/youtube";
 
 interface CourseCoverProps {
   /** Lecture video used as the cover. Without it a track-colored cover is drawn. */
-  videoId?: string;
+  videoId?: string | null;
   /** Short label printed on a drawn cover, e.g. "18.06". */
   label: string;
   track: TrackSlug;

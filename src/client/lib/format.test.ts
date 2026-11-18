@@ -1,5 +1,15 @@
 import { describe, expect, it } from "vitest";
-import { formatDuration, formatTimecode, pluralRu } from "./format";
+import { formatDuration, formatPercent, formatTimecode, pluralRu } from "./format";
+
+describe("formatPercent", () => {
+  it("rounds down and never shows a started course as 0%", () => {
+    expect(formatPercent(0)).toBe("0%");
+    expect(formatPercent(0.004)).toBe("<1%");
+    expect(formatPercent(0.379)).toBe("37%");
+    expect(formatPercent(1)).toBe("100%");
+    expect(formatPercent(Number.NaN)).toBe("0%");
+  });
+});
 
 describe("formatTimecode", () => {
   it("formats minutes and seconds", () => {

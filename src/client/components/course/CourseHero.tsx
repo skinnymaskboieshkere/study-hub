@@ -33,12 +33,13 @@ export function CourseHero(props: CourseHeroProps) {
         label={props.shortTitle}
         track={props.track}
         quality="maxresdefault"
-        className="absolute inset-0 -z-10 sm:left-auto sm:w-[72%]"
+        // Lecture thumbnails are often bright (whiteboards): dim them to keep the night look.
+        className="absolute inset-0 -z-10 sm:left-auto sm:w-[72%] [&_img]:brightness-[0.7] [&_img]:saturate-[0.85]"
       />
       {/* Fades the picture into the night on the text side and adds violet light, like the mockup. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#0a0810_42%,rgb(10_8_16/0.6)_75%,rgb(10_8_16/0.35))] sm:bg-[linear-gradient(90deg,#0a0810_30%,rgb(10_8_16/0.78)_50%,rgb(10_8_16/0.12)_85%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,#0a0810_42%,rgb(10_8_16/0.6)_75%,rgb(10_8_16/0.35))] sm:bg-[linear-gradient(90deg,#0a0810_30%,rgb(10_8_16/0.8)_50%,rgb(10_8_16/0.3)_100%)]"
       />
       <div
         aria-hidden

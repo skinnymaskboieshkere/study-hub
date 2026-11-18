@@ -18,6 +18,10 @@ interface LessonRowProps {
   hasNote?: boolean;
   /** The lesson that plays now or comes next: highlighted with the violet glow (SPEC §7). */
   isCurrent?: boolean;
+  /** Russian translation of the lecture. */
+  isRussian?: boolean;
+  /** The author forbids playing it inside the app. */
+  youtubeOnly?: boolean;
   to: string;
 }
 
@@ -49,6 +53,8 @@ export function LessonRow(props: LessonRowProps) {
             {props.title}
           </span>
           {props.isPractice && <Badge variant="outline">Практика</Badge>}
+          {props.isRussian && <Badge variant="secondary">RU</Badge>}
+          {props.youtubeOnly && <Badge variant="outline">только на YouTube</Badge>}
           <span className="sr-only">, {STATUS_LABEL[props.status]}</span>
         </span>
         {props.hasNote && (
