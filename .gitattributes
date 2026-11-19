@@ -3,3 +3,4 @@
 *.png binary
 *.ico binary
 *.woff2 binary
+*.ps1 text eol=crlf
