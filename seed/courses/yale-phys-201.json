@@ -9,11 +9,216 @@
   "description": "Основы физики II: электростатика, цепи, магнетизм, электромагнитные волны, оптика и введение в квантовую механику.",
   "sourceUrl": "https://oyc.yale.edu/physics/phys-201",
   "license": "CC BY-NC-SA 3.0",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PLD07B2225BB40E582"],
-  "estimatedHours": 30,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "NK-BxowMIfg",
+          "title": "Лекция 1 — Electrostatics",
+          "durationSec": 3962,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xnSc_OWpCuY",
+          "title": "Лекция 2 — Electric Fields",
+          "durationSec": 4383,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e9c5Wpu4WSI",
+          "title": "Лекция 3 — Gauss's Law I",
+          "durationSec": 4280,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Hlj5vGOSQlY",
+          "title": "Лекция 4 — Gauss's Law and Application to Conductors and Insulators",
+          "durationSec": 4536,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uA_hXjJ2Ts8",
+          "title": "Лекция 5 — The Electric Potential and Conservation of Energy",
+          "durationSec": 4451,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FLzJ2_DfNX0",
+          "title": "Лекция 6 — Capacitors",
+          "durationSec": 4363,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BvHqgbIVulc",
+          "title": "Лекция 7 — Resistance",
+          "durationSec": 4459,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HXRjSfre6kc",
+          "title": "Лекция 8 — Circuits and Magnetism I",
+          "durationSec": 4352,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kb97TivvK50",
+          "title": "Лекция 9 — Magnetism II",
+          "durationSec": 4302,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "d8AIoU8vtzo",
+          "title": "Лекция 10 — Ampere's Law",
+          "durationSec": 4241,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EYYNRubHIno",
+          "title": "Лекция 11 — Lenz's and Faraday's Laws",
+          "durationSec": 4164,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FYDLG_A2P1I",
+          "title": "Лекция 12 — LCR Circuits—DC Voltage",
+          "durationSec": 4197,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cS83YUpcEsY",
+          "title": "Лекция 13 — LCR Circuits—AC Voltage",
+          "durationSec": 4252,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "yINtzw63Knc",
+          "title": "Лекция 14 — Maxwell's Equations and Electromagnetic Waves I",
+          "durationSec": 4187,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JJZkjMRcTD4",
+          "title": "Лекция 15 — Maxwell's Equations and Electromagnetic Waves II",
+          "durationSec": 4170,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bxGgcgSbQBA",
+          "title": "Лекция 16 — Ray or Geometrical Optics I",
+          "durationSec": 4400,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qm4QR_ycRhY",
+          "title": "Лекция 17 — Ray or Geometrical Optics II",
+          "durationSec": 4267,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5tKPLfZ9JVQ",
+          "title": "Лекция 18 — Wave Theory of Light",
+          "durationSec": 4485,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uK2eFv7ne_Q",
+          "title": "Лекция 19 — Quantum Mechanics I: The key experiments and wave-particle duality",
+          "durationSec": 4429,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YPHoHv05_Wo",
+          "title": "Лекция 20 — Quantum Mechanics II",
+          "durationSec": 4549,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VE4MnuhMtb4",
+          "title": "Лекция 21 — Quantum Mechanics III",
+          "durationSec": 4547,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qiafeDIGoSI",
+          "title": "Лекция 22 — Quantum mechanics IV: Measurement theory, states of definite energy",
+          "durationSec": 4540,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lGKKdLmRNQw",
+          "title": "Лекция 23 — Quantum Mechanics V: Particle in a Box",
+          "durationSec": 4137,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Iy6RspNw80E",
+          "title": "Лекция 24 — Quantum Mechanics VI: Time-dependent Schrödinger Equation",
+          "durationSec": 4459,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nVgQBmu-fRQ",
+          "title": "Лекция 25 — Quantum Mechanics VII: Summary of postulates and special topics",
+          "durationSec": 3223,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["electromagnetism", "optics"]
 }

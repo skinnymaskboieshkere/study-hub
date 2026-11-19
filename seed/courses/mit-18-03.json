@@ -9,11 +9,560 @@
   "description": "Дифференциальные уравнения: первого и второго порядка, преобразование Лапласа, системы, ряды Фурье.",
   "sourceUrl": "https://ocw.mit.edu/courses/18-03-differential-equations-spring-2006/",
   "license": "CC BY-NC-SA 4.0",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": ["PLEC88901EBADDD980"],
-  "estimatedHours": 25,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLEC88901EBADDD980", "PL64BDFBDA2AF24F7E"],
+  "units": [
+    {
+      "title": "Лекции и разборы задач",
+      "videos": [
+        {
+          "youtubeId": "XDhJ8lVGbl8",
+          "title": "Лекция 1",
+          "durationSec": 2936,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "76WdBlGpxVw",
+          "title": "Разбор задач: Separable Equations",
+          "durationSec": 439,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jOBBwI4CYjM",
+          "title": "Разбор задач: Direction Fields",
+          "durationSec": 669,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LbKKzMag5Rc",
+          "title": "Лекция 2",
+          "durationSec": 3045,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "X5-ucBtneVM",
+          "title": "Разбор задач: Euler's Method",
+          "durationSec": 617,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tVzaX9u6YAE",
+          "title": "Лекция 3",
+          "durationSec": 3023,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IrRgAWI6bmw",
+          "title": "Разбор задач: Linear Equations",
+          "durationSec": 642,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4gJLEYc3p5w",
+          "title": "Разбор задач: Solutions of First-order Linear Equations",
+          "durationSec": 536,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WBJ_iXudb-s",
+          "title": "Лекция 4",
+          "durationSec": 3014,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "te6Mplq3DCU",
+          "title": "Лекция 5",
+          "durationSec": 2747,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EQJBp6Ym-6A",
+          "title": "Лекция 6",
+          "durationSec": 2729,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sn3orkHWqUQ",
+          "title": "Разбор задач: Complex Numbers and Euler's Formula",
+          "durationSec": 690,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SioXozu-Loo",
+          "title": "Лекция 7",
+          "durationSec": 2470,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BwIZ0VzKEDg",
+          "title": "Разбор задач: First-order Constant Coefficient Linear ODE's",
+          "durationSec": 799,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fkGAF5jHjdY",
+          "title": "Разбор задач: Sinusoidal Inputs",
+          "durationSec": 827,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MdzfsfBNJIw",
+          "title": "Лекция 8",
+          "durationSec": 3036,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2IBWxERRjvM",
+          "title": "Разбор задач: Sinusoidal Functions",
+          "durationSec": 904,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vP-oRQqmeg4",
+          "title": "Лекция 9",
+          "durationSec": 3001,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "elMskF8Uzmg",
+          "title": "Разбор задач: Autonomous Equations and Phase Lines",
+          "durationSec": 705,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XbiEUwVQqVM",
+          "title": "Разбор задач: Homogeneous Constant Coefficient Equations: Any Roots",
+          "durationSec": 689,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zNPK_t03zds",
+          "title": "Разбор задач: Homogeneous Constant Coefficient Equations: Real Roots",
+          "durationSec": 556,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YQ7HEE8-OfA",
+          "title": "Лекция 10",
+          "durationSec": 2784,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2-5oq-igwtU",
+          "title": "Разбор задач: Damped Harmonic Oscillators",
+          "durationSec": 570,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rZ3-nFV6l8w",
+          "title": "Лекция 11",
+          "durationSec": 3032,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "eyNm7XGJr4s",
+          "title": "Лекция 12",
+          "durationSec": 2784,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9KbpbBMThTE",
+          "title": "Лекция 13",
+          "durationSec": 2876,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xJz3NZap1lw",
+          "title": "Разбор задач: Forced Oscillations",
+          "durationSec": 787,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wwfjLBWfiSI",
+          "title": "Разбор задач: Gain and Phase Lag",
+          "durationSec": 640,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pGECDB15L9o",
+          "title": "Разбор задач: Undetermined Coefficients",
+          "durationSec": 642,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Y9_zrupnz0Q",
+          "title": "Лекция 14",
+          "durationSec": 2666,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "RzaB0t9dx0A",
+          "title": "Разбор задач: Pure Resonance",
+          "durationSec": 678,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rjAXFBWJt_o",
+          "title": "Разбор задач: Frequency Response",
+          "durationSec": 885,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EWWw0jryj1A",
+          "title": "Лекция 15",
+          "durationSec": 2972,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xWa5_OXI6VM",
+          "title": "Лекция 16",
+          "durationSec": 2969,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jzzpxqVohhI",
+          "title": "Разбор задач: Computing Fourier Series",
+          "durationSec": 882,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v4YcejwdQC0",
+          "title": "Разбор задач: Manipulating Fourier Series",
+          "durationSec": 870,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "yD0_EQLxHcw",
+          "title": "Лекция 17",
+          "durationSec": 2747,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-0_vZ4t-q0I",
+          "title": "Разбор задач: Linear ODE's with Periodic Input",
+          "durationSec": 674,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "q0PxCQWG3ic",
+          "title": "Разбор задач: Step and Delta Functions",
+          "durationSec": 564,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LjqUV6vqwkg",
+          "title": "Разбор задач: Unit Step and Impulse Response",
+          "durationSec": 782,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pRIEYR5JHQA",
+          "title": "Лекция 18 — 18.03 Profs. Miller and Vandiver 3/15/10 Lecture",
+          "durationSec": 2674,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sZ2qulI6GEk",
+          "title": "Лекция 19",
+          "durationSec": 2860,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qZHseRxAWZ8",
+          "title": "Лекция 20",
+          "durationSec": 3068,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BniJM-ireXQ",
+          "title": "Разбор задач: Laplace Transform: Basics",
+          "durationSec": 549,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "D6Rd1K93nSA",
+          "title": "Разбор задач: Partial Fractions and Laplace Inverse",
+          "durationSec": 750,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5av3kiejazQ",
+          "title": "Разбор задач: Laplace: Solving ODE's",
+          "durationSec": 685,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pUFSXhoazY8",
+          "title": "Разбор задач: Pole Diagrams",
+          "durationSec": 633,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3ejfkMHr_DE",
+          "title": "Лекция 21",
+          "durationSec": 2660,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IGk-7EKR35A",
+          "title": "Разбор задач: Convolution and Green's Formula",
+          "durationSec": 598,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_YVcjNmjHik",
+          "title": "Лекция 22",
+          "durationSec": 2648,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "peYvLk_HZdw",
+          "title": "Лекция 23",
+          "durationSec": 2695,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MCrDzhpu3-s",
+          "title": "Лекция 24",
+          "durationSec": 2825,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_Fo3Jq1blKk",
+          "title": "Разбор задач: Linear Systems of Equations",
+          "durationSec": 394,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "heBvViSi9xQ",
+          "title": "Лекция 25",
+          "durationSec": 2947,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hEtWqTPPXuc",
+          "title": "Лекция 26",
+          "durationSec": 2798,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TRVS5Wo9LoM",
+          "title": "Разбор задач: Linear Systems: Complex Roots",
+          "durationSec": 709,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YUjdyKhWt6E",
+          "title": "Разбор задач: Linear Systems: Matrix Methods",
+          "durationSec": 481,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e3FfmXtkppM",
+          "title": "Лекция 27",
+          "durationSec": 3027,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zmzyW1rP-hk",
+          "title": "Разбор задач: Phase Portraits",
+          "durationSec": 734,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oEskbXrhkkk",
+          "title": "Разбор задач: Trace-Determinant Diagram",
+          "durationSec": 1136,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2SuTN8rpe4I",
+          "title": "Лекция 28",
+          "durationSec": 2813,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zreI4HllD80",
+          "title": "Лекция 29",
+          "durationSec": 2934,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qbyeQum8qTE",
+          "title": "Разбор задач: Matrix Exponentials",
+          "durationSec": 715,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uNOyxQwIV8o",
+          "title": "Лекция 30",
+          "durationSec": 2827,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UJG0f0BSX14",
+          "title": "Лекция 31",
+          "durationSec": 2831,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UCpMao94iFg",
+          "title": "Разбор задач: Linearization",
+          "durationSec": 955,
+          "kind": "recitation",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "z-meBrqcy_I",
+          "title": "Лекция 32",
+          "durationSec": 2753,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kRR9EVzr4lc",
+          "title": "Лекция 33",
+          "durationSec": 3010,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["differential-equations"]
 }

@@ -9,11 +9,224 @@
   "description": "Сигналы и системы (запись 1987 года): свёртка, преобразования Фурье и Лапласа, фильтры, дискретизация. Нужно для обработки изображений и управления.",
   "sourceUrl": "https://ocw.mit.edu/courses/res-6-007-signals-and-systems-spring-2011/",
   "license": "CC BY-NC-SA 4.0",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PL41692B571DD0AF9B"],
-  "estimatedHours": 20,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "KJnAy6hzetw",
+          "title": "Лекция 1 — Introduction",
+          "durationSec": 1826,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6xaaeop7gJ8",
+          "title": "Лекция 2 — Signals and Systems: Part 1",
+          "durationSec": 2648,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jGk3w1b7UXQ",
+          "title": "Лекция 3 — Signals and Systems: Part II",
+          "durationSec": 3189,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_vyke3vF4Nk",
+          "title": "Лекция 4 — Convolution",
+          "durationSec": 3137,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mC3TiBJiCsY",
+          "title": "Лекция 5 — Properties of Linear, Time-invariant Systems",
+          "durationSec": 3303,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "c6jKux_RkqI",
+          "title": "Лекция 6 — Systems Represented by Differential Equations",
+          "durationSec": 2835,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nuzA75DpSuw",
+          "title": "Лекция 7 — Continuous-Time Fourier Series",
+          "durationSec": 3067,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3UkGd3LK2NY",
+          "title": "Лекция 8 — Continuous-Time Fourier Transform",
+          "durationSec": 2128,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "D1WF9YKqf3o",
+          "title": "Лекция 9 — Fourier Transform Properties",
+          "durationSec": 2964,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TkMsVwzd1C0",
+          "title": "Лекция 10 — Discrete-Time Fourier Series",
+          "durationSec": 3022,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HKMY-8BqWWw",
+          "title": "Лекция 11 — Discrete-Time Fourier Transform",
+          "durationSec": 3359,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "P5Ce9tbK86M",
+          "title": "Лекция 12 — Filtering",
+          "durationSec": 2515,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UIgA0czNj5g",
+          "title": "Лекция 13 — Continuous-Time Modulation",
+          "durationSec": 3227,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "KT3yNuY_FPM",
+          "title": "Лекция 14 — Demonstration of Amplitude Modulation",
+          "durationSec": 2144,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GrnYlDAsmuA",
+          "title": "Лекция 15 — Discrete-Time Modulation",
+          "durationSec": 2576,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "P3eLer1edx8",
+          "title": "Лекция 16 — Sampling",
+          "durationSec": 2769,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_WV4JlBOQro",
+          "title": "Лекция 17 — Interpolation",
+          "durationSec": 3157,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Q7aZNgY18b4",
+          "title": "Лекция 18 — Discrete-Time Processing of Continuous-Time Signals",
+          "durationSec": 2380,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mmkOAMOw73U",
+          "title": "Лекция 19 — Discrete-Time Sampling",
+          "durationSec": 2964,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pSN7t79RxC4",
+          "title": "Лекция 20 — The Laplace Transform",
+          "durationSec": 3290,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "8g4UudyOetE",
+          "title": "Лекция 21 — Continuous-Time Second-Order Systems",
+          "durationSec": 2573,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0Gat_aSzi5Y",
+          "title": "Лекция 22 — The z-Transform",
+          "durationSec": 3104,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "z8sXXQxcmN4",
+          "title": "Лекция 23 — Mapping Continuous-Time Filters to Discrete-Time Filters",
+          "durationSec": 3027,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4Q1fWMxVDZY",
+          "title": "Лекция 24 — Butterworth Filters",
+          "durationSec": 2713,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "S7MG1hgn0dY",
+          "title": "Лекция 25 — Feedback",
+          "durationSec": 2694,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "D3bblng-Kcc",
+          "title": "Лекция 26 — Feedback Example: The Inverted Pendulum",
+          "durationSec": 2082,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["signals", "fourier"]
 }

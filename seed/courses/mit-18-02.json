@@ -9,11 +9,856 @@
   "description": "Матанализ нескольких переменных: векторы, частные производные, кратные интегралы, векторный анализ.",
   "sourceUrl": "https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/",
   "license": "CC BY-NC-SA 4.0",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": ["PL4C4C8A7D06566F38"],
-  "estimatedHours": 28,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": ["PL4C4C8A7D06566F38", "PLF07555F3CC669D01"],
+  "units": [
+    {
+      "title": "Лекции и разбор задач",
+      "videos": [
+        {
+          "youtubeId": "PxCxlsl_YwY",
+          "title": "Лекция 1 — Dot product",
+          "durationSec": 2321,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "AYixF5nY3Vc",
+          "title": "Разбор задачи: Coordinate free proofs: centroid of a triangle",
+          "durationSec": 673,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hfyluFvlZ-o",
+          "title": "Разбор задачи: Dot products and angles",
+          "durationSec": 525,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9FLItlbBUPY",
+          "title": "Лекция 2 — Determinants; cross product",
+          "durationSec": 3171,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4kPz8aqm5yE",
+          "title": "Разбор задачи: Components of a vector",
+          "durationSec": 307,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oET16XXfcCI",
+          "title": "Разбор задачи: Area of a parallelogram",
+          "durationSec": 205,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bHdzkFrgRcA",
+          "title": "Лекция 3 — Matrices; inverse matrices",
+          "durationSec": 3065,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PxkEoEbCJT8",
+          "title": "Разбор задачи: Determinants",
+          "durationSec": 284,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QCGJVKaCDuI",
+          "title": "Разбор задачи: Volume of a parallelepiped",
+          "durationSec": 177,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YBajUR3EFSM",
+          "title": "Лекция 4 — Square systems; equations of planes",
+          "durationSec": 2942,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QHaAoQQy07I",
+          "title": "Разбор задачи: Finding area using cross products",
+          "durationSec": 305,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "P6fOgkC5kvc",
+          "title": "Разбор задачи: Matrix multiplication practice",
+          "durationSec": 645,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "57jzPlxf4fk",
+          "title": "Лекция 5 — Parametric equations for lines and curves",
+          "durationSec": 3050,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6T13yRjtd-o",
+          "title": "Разбор задачи: Solve a linear system using matrices",
+          "durationSec": 1088,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XmQM5pHxX-o",
+          "title": "Разбор задачи: Equations of planes",
+          "durationSec": 831,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0D4BbCa4gHo",
+          "title": "Лекция 6 — Velocity, acceleration; Kepler's second law",
+          "durationSec": 2884,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SgJo7_4mp6w",
+          "title": "Разбор задачи: Distance of a point to a plane",
+          "durationSec": 495,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BbNMKMicWy8",
+          "title": "Разбор задачи: Systems of linear equations",
+          "durationSec": 720,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "U1EcnfTKXJ0",
+          "title": "Лекция 7 — Review",
+          "durationSec": 2990,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dUk_I1E5QxY",
+          "title": "Разбор задачи: Parametrized lines and intersections",
+          "durationSec": 513,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rtEaK_Jp7zU",
+          "title": "Разбор задачи: Parametric line intersecting a plane",
+          "durationSec": 485,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dK3NEf13nPc",
+          "title": "Лекция 8 — Level curves; partial derivatives; tangent plane",
+          "durationSec": 2773,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "evxReCLA-fU",
+          "title": "Разбор задачи: Differentiating a vector valued function",
+          "durationSec": 846,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "u9YrIxLZJ6s",
+          "title": "Разбор задачи: Parametric curves: velocity, acceleration, length",
+          "durationSec": 500,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UYe98CcxPbs",
+          "title": "Лекция 9 — Max-min problems; least squares",
+          "durationSec": 2984,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "f2KsJBClJ1g",
+          "title": "Разбор задачи: Graphing surfaces",
+          "durationSec": 472,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uaHiAxFESc4",
+          "title": "Разбор задачи: Level curves",
+          "durationSec": 626,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3_goGnJm5sA",
+          "title": "Лекция 10 — Second derivative test; boundaries & infinity",
+          "durationSec": 3138,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gzbWF-IdscE",
+          "title": "Разбор задачи: Level curves and critical points",
+          "durationSec": 503,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "KnVNFj53Eq4",
+          "title": "Разбор задачи: Partial derivatives",
+          "durationSec": 319,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7eZVshlT33Q",
+          "title": "Лекция 11 — Differentials; chain rule",
+          "durationSec": 3009,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "idNIKTaBEaI",
+          "title": "Разбор задачи: Tangent plane approximation",
+          "durationSec": 415,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YwZYSTQs-Hk",
+          "title": "Разбор задачи: Least squares",
+          "durationSec": 544,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2XraaWefBd8",
+          "title": "Лекция 12 — Gradient; directional derivative; tangent plane",
+          "durationSec": 3010,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oQgHo7acids",
+          "title": "Разбор задачи: Second derivative test",
+          "durationSec": 519,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ImzS_gSbjK4",
+          "title": "Разбор задачи: Max/Min",
+          "durationSec": 839,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "15HVevXRsBA",
+          "title": "Лекция 13 — Lagrange multipliers",
+          "durationSec": 3010,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2bF6H_xu0ao",
+          "title": "Разбор задачи: Total differentials and the chain rule",
+          "durationSec": 694,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6paZkmBMZwQ",
+          "title": "Разбор задачи: Tangent planes",
+          "durationSec": 541,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "23xbkrpQuAo",
+          "title": "Лекция 14 — Non-independent variables",
+          "durationSec": 2951,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XZ1QwS1IKgw",
+          "title": "Разбор задачи: Gradient and directional derivative",
+          "durationSec": 814,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HyqBcD_e_Uw",
+          "title": "Разбор задачи: Lagrange multipliers",
+          "durationSec": 617,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ChiM2-MV-qM",
+          "title": "Лекция 15 — Partial differential equations; review",
+          "durationSec": 2723,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nDuS5uQ7-lo",
+          "title": "Разбор задачи: Lagrange multipliers (3 variables)",
+          "durationSec": 797,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "U91touR6_UY",
+          "title": "Разбор задачи: The chain rule with constraints",
+          "durationSec": 916,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YP_B0AapU0c",
+          "title": "Лекция 16 — Double integrals",
+          "durationSec": 2880,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "j9GZjr05Heg",
+          "title": "Разбор задачи: Gradients - composition",
+          "durationSec": 622,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BefxsWy1HqY",
+          "title": "Разбор задачи: Regions of integration",
+          "durationSec": 1067,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "60e4hdCi1D4",
+          "title": "Лекция 17 — Double integrals in polar coords; applications",
+          "durationSec": 3090,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "p06QDsAPY4g",
+          "title": "Разбор задачи: Changing the order of integration",
+          "durationSec": 364,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "I2Z6K_g5kpc",
+          "title": "Разбор задачи: Integration in polar coordinates",
+          "durationSec": 1054,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UZb9hZIAvL4",
+          "title": "Лекция 18 — Change of variables",
+          "durationSec": 2995,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-pr1TLyPyDw",
+          "title": "Разбор задачи: Integrals with density",
+          "durationSec": 936,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lCKxeRiBdjQ",
+          "title": "Разбор задачи: Change of variables",
+          "durationSec": 557,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xrypSZU8cBE",
+          "title": "Лекция 19 — Vector fields and line integrals in the plane",
+          "durationSec": 3069,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fWOGfzC3IeY",
+          "title": "Разбор задачи: Integral of exp(-x^2)",
+          "durationSec": 574,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G534bz09B4A",
+          "title": "Разбор задачи: Change of variables",
+          "durationSec": 1196,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "o7UCBjGsRTE",
+          "title": "Лекция 20 — Path independence and conservative fields",
+          "durationSec": 3023,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gBuIwfdoOn0",
+          "title": "Разбор задачи: Line integrals: path dependence",
+          "durationSec": 932,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tkAgpKg-tPs",
+          "title": "Разбор задачи: Line integrals: parametrization independence",
+          "durationSec": 752,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "z5TPjZrsp2k",
+          "title": "Лекция 21 — Gradient fields and potential functions",
+          "durationSec": 3011,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ocdM30Wm_8g",
+          "title": "Разбор задачи: Line integrals by geometric reasoning",
+          "durationSec": 634,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9rVojYcPeoU",
+          "title": "Разбор задачи: Fundamental theorem of line integrals",
+          "durationSec": 668,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tYdoS0tkAHA",
+          "title": "Лекция 22 — Green's theorem",
+          "durationSec": 2805,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "n9gSOBwauRw",
+          "title": "Разбор задачи: Non-conservative vector fields",
+          "durationSec": 601,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Tgk9wURblAw",
+          "title": "Разбор задачи: Potentials of gradient fields",
+          "durationSec": 681,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_CdoRiNSrqI",
+          "title": "Лекция 23 — Flux; normal form of Green's theorem",
+          "durationSec": 3013,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jUrPIbJWpOA",
+          "title": "Разбор задачи: Green's Theorem: an off center circle",
+          "durationSec": 452,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "KXof0q88xbg",
+          "title": "Разбор задачи: Green's Theorem: area under an arch",
+          "durationSec": 516,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PnPIqh7Frlw",
+          "title": "Лекция 24 — Simply connected regions; review",
+          "durationSec": 2940,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "grns_GNYWe4",
+          "title": "Разбор задачи: Application of Green's theorem",
+          "durationSec": 435,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mEI7ACWmx_8",
+          "title": "Разбор задачи: Flux across a curve",
+          "durationSec": 866,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "44R5HgbrUmc",
+          "title": "Лекция 25 — Triple integrals in rectangular & cylindrical",
+          "durationSec": 2922,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1ye7dm9aUj0",
+          "title": "Разбор задачи: Green's Theorem in normal form",
+          "durationSec": 663,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sy7dx_qzQak",
+          "title": "Разбор задачи: Extended Green's Theorem",
+          "durationSec": 1399,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "RMBGQtwkoyU",
+          "title": "Лекция 26 — Spherical coordinates; surface area",
+          "durationSec": 3065,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YWvBaLokEJY",
+          "title": "Разбор задачи: Domains of vector fields",
+          "durationSec": 821,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qA83eznsKp8",
+          "title": "Разбор задачи: Volume in cylindrical coordinates",
+          "durationSec": 1087,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "phk05iSMezA",
+          "title": "Лекция 27 — Vector fields in 3D; surface integrals & flux",
+          "durationSec": 3034,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cbSkFpO2jgQ",
+          "title": "Разбор задачи: Average height",
+          "durationSec": 879,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "iYFogDTPlRo",
+          "title": "Разбор задачи: Moment of inertia of a cylinder",
+          "durationSec": 600,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WfEQabCGAqI",
+          "title": "Лекция 28 — Divergence theorem",
+          "durationSec": 2956,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "RoTz_ylFHfY",
+          "title": "Разбор задачи: Average distance on a sphere",
+          "durationSec": 780,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jAwWnppdcBE",
+          "title": "Разбор задачи: Gravity and a half-sphere",
+          "durationSec": 673,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wu8kXZSAp20",
+          "title": "Лекция 29 — Divergence theorem (cont.): applications & proof",
+          "durationSec": 3013,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "AYisLr9e0y4",
+          "title": "Разбор задачи: Flux through easy surfaces",
+          "durationSec": 408,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MosaZngFjZY",
+          "title": "Разбор задачи: Flux through a square",
+          "durationSec": 601,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "seO7-TwXH_I",
+          "title": "Лекция 30 — Line integrals in space, curl, exactness...",
+          "durationSec": 2982,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-PGcTRLh1u4",
+          "title": "Разбор задачи: Flux through surfaces",
+          "durationSec": 682,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "E8aYX_mW2DA",
+          "title": "Разбор задачи: Flux",
+          "durationSec": 678,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tzoYhe3H5dM",
+          "title": "Лекция 31 — Stokes' theorem",
+          "durationSec": 2901,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "CCoTAyZ14XM",
+          "title": "Разбор задачи: Flux and the divergence theorem",
+          "durationSec": 719,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WwBaQCy4jfk",
+          "title": "Разбор задачи: Extended Gauss' Theorem",
+          "durationSec": 1133,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sr7kCpzAuYw",
+          "title": "Лекция 32 — Stokes' theorem (cont.); review",
+          "durationSec": 3009,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_5fpxkVFQUw",
+          "title": "Разбор задачи: Del and the product rule",
+          "durationSec": 509,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YmAMEi-Faz8",
+          "title": "Разбор задачи: Line integral on a helix",
+          "durationSec": 673,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BChhAS1sFvA",
+          "title": "Лекция 33 — Topological considerations; Maxwell's equations",
+          "durationSec": 1719,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IYlzo-bxrqs",
+          "title": "Разбор задачи: Conservative fields and exact differentials",
+          "durationSec": 891,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2ieG1ka5pBw",
+          "title": "Разбор задачи: Stokes' Theorem",
+          "durationSec": 1053,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZwpwmGP5ITM",
+          "title": "Лекция 34 — Final review",
+          "durationSec": 2634,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7w1qqEUwn2k",
+          "title": "Разбор задачи: Extended Stokes' Theorem",
+          "durationSec": 940,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6S3BJSsc72Q",
+          "title": "Разбор задачи: Simply connected regions",
+          "durationSec": 887,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "24v9onS9Kcg",
+          "title": "Лекция 35 — Final review (cont.)",
+          "durationSec": 2932,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vnWXYI4UQrs",
+          "title": "Разбор задачи: More Stokes' Theorem",
+          "durationSec": 500,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2B7e19xi4Sw",
+          "title": "Разбор задачи: Consequences of Stokes' Theorem",
+          "durationSec": 673,
+          "kind": "problem-solving",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["multivariable-calculus"]
 }

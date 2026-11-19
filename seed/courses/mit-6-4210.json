@@ -6,14 +6,203 @@
   "instructors": ["Russ Tedrake"],
   "subject": "robotics",
   "level": 3,
-  "description": "Восприятие, планирование и управление роботами-манипуляторами; открытые интерактивные конспекты. Плейлист подберём на этапе 7.",
+  "description": "Восприятие, планирование и управление роботами-манипуляторами; открытые интерактивные конспекты. Лекции осени 2023 года с канала курса.",
   "sourceUrl": "https://manipulation.mit.edu/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": [],
-  "estimatedHours": 30,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLkx8KyIQkMfWr191lqbN8WfV08j-ui8WX"],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "v04rn86Dehg",
+          "title": "Лекция 1 — Intro",
+          "durationSec": 4544,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "q896_lTh8eA",
+          "title": "Лекция 2 — Let's get you a robot!",
+          "durationSec": 4835,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0-34RZJxyww",
+          "title": "Лекция 3 — Basic Pick and Place (Pt. 1)",
+          "durationSec": 4832,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1mkzXp9_QYY",
+          "title": "Лекция 4 — Basic Pick and Place (Pt. 2)",
+          "durationSec": 4469,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YaQrC_Zm8qg",
+          "title": "Лекция 5 — Basic Pick and Place (Pt. 3)",
+          "durationSec": 4803,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1a3KhOq1938",
+          "title": "Лекция 6 — Geometric Perception (Pt. 1)",
+          "durationSec": 4714,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Cs49WVNqEdk",
+          "title": "Лекция 7 — Geometric Perception (Pt. 2)",
+          "durationSec": 4652,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G8Iwe1XRQQM",
+          "title": "Лекция 8 — Manipulation in Clutter- Contact Simulation",
+          "durationSec": 4707,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SenccXyBn-k",
+          "title": "Лекция 9 — Manipulation in Clutter- Grasp Selection",
+          "durationSec": 4775,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SX-0ZDXaL1A",
+          "title": "Лекция 10 — Manipulation in Clutter- Programming Tasks",
+          "durationSec": 4750,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZJNIzuP_8GA",
+          "title": "Лекция 11 — Motion Planning- Optimization Based",
+          "durationSec": 4730,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uLkWAvNTkXA",
+          "title": "Лекция 12 — Motion Planning- Sampling Based and Global Optimization",
+          "durationSec": 4810,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GKbbjOsS8x8",
+          "title": "Лекция 13 — Mobile Manipulation",
+          "durationSec": 4317,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JtJyesuYvb4",
+          "title": "Лекция 14 — Force Control",
+          "durationSec": 4284,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9GB6kpQyMtM",
+          "title": "Лекция 15 — Manipulator Control",
+          "durationSec": 4671,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kZh2laD7NQI",
+          "title": "Лекция 16 — Deep Perception",
+          "durationSec": 3999,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LbBP2Ba2J9Q",
+          "title": "Лекция 17 — Deep Perception Pt. 2",
+          "durationSec": 4759,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "i-303tTtEig",
+          "title": "Лекция 18 — Visuomotor Policies (via Behavior Cloning)",
+          "durationSec": 4720,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DpEE97tv3BM",
+          "title": "Лекция 19 — Reinforcement Learning Pt. 1",
+          "durationSec": 4562,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4a5-zWWz8Fs",
+          "title": "Лекция 20 — Reinforcement Learning Pt. 2",
+          "durationSec": 4794,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v_ZLjfbeZmw",
+          "title": "Лекция 21 — Multibody Parameter Estimation",
+          "durationSec": 4640,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XLPObNeeTGg",
+          "title": "Лекция 22 — Foundational Models for Decision Making",
+          "durationSec": 4853,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XjyUGtjjou4",
+          "title": "Лекция 23 — Soft Manipulation and Tactile Sensing",
+          "durationSec": 4268,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["manipulation", "perception"]
 }

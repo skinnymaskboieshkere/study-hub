@@ -316,9 +316,29 @@
       ]
     },
     {
-      "course": "cv-for-robots",
+      "course": "tuebingen-cv",
       "track": "cv",
       "order": 5,
+      "prerequisites": [
+        {
+          "course": "mit-18-06",
+          "minProgress": 0.6
+        },
+        {
+          "course": "columbia-fpcv",
+          "minProgress": 0.5
+        },
+        {
+          "course": "mit-18-02",
+          "minProgress": 0.3,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "course": "cv-for-robots",
+      "track": "cv",
+      "order": 6,
       "prerequisites": [
         {
           "course": "stanford-cs231n",

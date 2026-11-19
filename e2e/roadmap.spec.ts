@@ -19,7 +19,7 @@ const hoursLeft = async (request: APIRequestContext) =>
 
 /** The EECS 498 card in the list view. */
 const eecs498 = (page: Page) =>
-  page.getByRole("listitem").filter({ has: page.getByRole("link", { name: /EECS 498/ }) });
+  page.getByRole("listitem").filter({ has: page.getByRole("link", { name: /^EECS 498-007/ }) });
 
 /** SPEC §6.3 acceptance: 60% of 18.06 opens EECS 498, and the hours to CV go down. */
 test("passing 60% of 18.06 opens EECS 498 on the roadmap", async ({ page, request }) => {
@@ -38,7 +38,7 @@ test("passing 60% of 18.06 opens EECS 498 on the roadmap", async ({ page, reques
   await page.getByRole("radio", { name: "Списком" }).click();
   await expect(eecs498(page)).toContainText("Лучше подождать");
   await eecs498(page)
-    .getByRole("link", { name: /EECS 498/ })
+    .getByRole("link", { name: /^EECS 498-007/ })
     .hover();
   await expect(page.getByRole("tooltip")).toContainText(
     /Рекомендуется сначала пройти 18\.06 — сейчас 4\d% из 60%/,

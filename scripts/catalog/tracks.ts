@@ -144,9 +144,15 @@ export const PLACEMENTS: CoursePlacement[] = [
     ],
   },
   {
-    course: "cv-for-robots",
+    course: "tuebingen-cv",
     track: "cv",
     order: 5,
+    prerequisites: [p("mit-18-06", 0.6), p("columbia-fpcv", 0.5), want("mit-18-02", 0.3)],
+  },
+  {
+    course: "cv-for-robots",
+    track: "cv",
+    order: 6,
     prerequisites: [p("stanford-cs231n", 0.6), p("mit-6-4210", 0.3)],
   },
 ];

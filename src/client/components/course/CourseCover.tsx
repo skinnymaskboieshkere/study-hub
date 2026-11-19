@@ -42,6 +42,11 @@ export function CourseCover({
           loading="lazy"
           decoding="async"
           onError={handleError}
+          // A missing maxresdefault comes back as a 120×90 gray placeholder (with HTTP 404),
+          // which the browser shows without an error: treat it as missing too.
+          onLoad={(event) => {
+            if (event.currentTarget.naturalWidth <= 120) handleError();
+          }}
           className="absolute inset-0 -z-10 size-full object-cover"
         />
       ) : (

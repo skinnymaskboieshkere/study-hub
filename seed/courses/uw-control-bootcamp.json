@@ -9,11 +9,328 @@
   "description": "Теория управления: устойчивость, управляемость, LQR, фильтр Калмана. Сильный курс, хотя University of Washington — не Ivy-вуз.",
   "sourceUrl": "https://www.youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m",
   "license": "Стандартная лицензия YouTube (канал автора)",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m"],
-  "estimatedHours": 9,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "Pi7l8mMjYVE",
+          "title": "Лекция 1 — Overview",
+          "durationSec": 1172,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nyqJJdhReiA",
+          "title": "Лекция 2 — Linear Systems",
+          "durationSec": 1487,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "h7nJ6ZL4Lf0",
+          "title": "Лекция 3 — Stability and Eigenvalues",
+          "durationSec": 1170,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1YMTkELi3tE",
+          "title": "Лекция 4 — Linearizing Around a Fixed Point",
+          "durationSec": 1846,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "u5Sv7YKAkt4",
+          "title": "Лекция 5 — Controllability",
+          "durationSec": 1950,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FLByezr38Ps",
+          "title": "Лекция 6 — Controllability, Reachability, and Eigenvalue Placement",
+          "durationSec": 649,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tnsWsMwYbEU",
+          "title": "Лекция 7 — Controllability and the Discrete-Time Impulse Response",
+          "durationSec": 347,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZNHx62HbKNA",
+          "title": "Лекция 8 — Degrees of Controllability and Gramians",
+          "durationSec": 924,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0XJHgLrcPeA",
+          "title": "Лекция 9 — Controllability and the PBH Test",
+          "durationSec": 814,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PrfxmkBsYKE",
+          "title": "Лекция 10 — Cayley-Hamilton Theorem",
+          "durationSec": 417,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gpIhGAUoeNY",
+          "title": "Лекция 11 — Reachability and Controllability with Cayley-Hamilton",
+          "durationSec": 630,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qjhAAQexzLg",
+          "title": "Лекция 12 — Inverted Pendulum on a Cart",
+          "durationSec": 908,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "M_jchYsTZvM",
+          "title": "Лекция 13 — Pole Placement for the Inverted Pendulum on a Cart",
+          "durationSec": 775,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1_UobILf3cc",
+          "title": "Лекция 14 — Linear Quadratic Regulator (LQR) Control for the Inverted Pendulum on a Cart",
+          "durationSec": 784,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LTNMf8X21cY",
+          "title": "Лекция 15 — Motivation for Full-State Estimation",
+          "durationSec": 663,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "iRZmJBcg1ZA",
+          "title": "Лекция 16 — Observability",
+          "durationSec": 483,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MZJMi-6_4UU",
+          "title": "Лекция 17 — Full-State Estimation",
+          "durationSec": 698,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "s_9InuQAx-g",
+          "title": "Лекция 18 — The Kalman Filter",
+          "durationSec": 371,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XBI_hQRqMvM",
+          "title": "Лекция 19 — Observability Example in Matlab",
+          "durationSec": 500,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DLytfA10RR8",
+          "title": "Лекция 20 — Observability Example in Matlab (Part 2)",
+          "durationSec": 668,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Lgq4R-F8SX8",
+          "title": "Лекция 21 — Kalman Filter Example in Matlab",
+          "durationSec": 1332,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "H4_hFazBGxU",
+          "title": "Лекция 22 — Linear Quadratic Gaussian (LQG)",
+          "durationSec": 514,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "reRT8LbPhBs",
+          "title": "Лекция 23 — LQG Example in Matlab",
+          "durationSec": 806,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Y6MRgg_TGy0",
+          "title": "Лекция 24 — Introduction to Robust Control",
+          "durationSec": 493,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HasvumXl_vE",
+          "title": "Лекция 25 — Three Equivalent Representations of Linear Systems",
+          "durationSec": 736,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e-8y4MTT7NQ",
+          "title": "Лекция 26 — Example Frequency Response (Bode Plot) for Spring-Mass-Damper",
+          "durationSec": 1110,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0mnTByVKqLM",
+          "title": "Лекция 27 — Laplace Transforms and the Transfer Function",
+          "durationSec": 1155,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "y4H03UOjlas",
+          "title": "Лекция 28 — Benefits of Feedback on Cruise Control Example",
+          "durationSec": 887,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-fNoz5K5FHA",
+          "title": "Лекция 29 — Benefits of Feedback on Cruise Control Example (Part 2)",
+          "durationSec": 672,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vxTJMGqjGdg",
+          "title": "Лекция 30 — Cruise Control Example with Proportional-Integral (PI) control",
+          "durationSec": 1397,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hTu36q5yx20",
+          "title": "Лекция 31 — Sensitivity and Complementary Sensitivity",
+          "durationSec": 680,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hEQdr1G5H2w",
+          "title": "Лекция 32 — Sensitivity and Complementary Sensitivity (Part 2)",
+          "durationSec": 507,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sfNwLmgK5sE",
+          "title": "Лекция 33 — Loop shaping",
+          "durationSec": 442,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fkYcCCujOjc",
+          "title": "Лекция 34 — Loop Shaping Example for Cruise Control",
+          "durationSec": 741,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7lzH-HnUFZg",
+          "title": "Лекция 35 — Sensitivity and Robustness",
+          "durationSec": 597,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ReAmUJMb1d8",
+          "title": "Лекция 36 — Limitations on Robustness",
+          "durationSec": 542,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G9apWx4iaks",
+          "title": "Лекция 37 — Cautionary Tale About Inverting the Plant Dynamics",
+          "durationSec": 319,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7GjnvuKeWI8",
+          "title": "Лекция 38 — Control systems with non-minimum phase dynamics",
+          "durationSec": 513,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YwodGM2eoy4",
+          "title": "Лекция 39 — Model Predictive Control",
+          "durationSec": 733,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["control", "lqr", "kalman-filter"]
 }

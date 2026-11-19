@@ -6,14 +6,211 @@
   "instructors": ["Russ Tedrake"],
   "subject": "robotics",
   "level": 4,
-  "description": "Продвинутое управление ходьбой, полётом и балансом. Курс на потом.",
+  "description": "Продвинутое управление ходьбой, полётом и балансом: динамическое программирование, LQR, оптимизация траекторий. Весна 2024, курс на потом.",
   "sourceUrl": "https://underactuated.mit.edu/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": [],
-  "estimatedHours": 35,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLkx8KyIQkMfU5szP43GlE_S1QGSPQfL9s"],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "uyyBT-MHhLE",
+          "title": "Лекция 1 — Robot dynamics and model-based control",
+          "durationSec": 5107,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "l2CwE3Wf7ww",
+          "title": "Лекция 2 — Nonlinear Dynamics",
+          "durationSec": 4369,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GPvw92IKO44",
+          "title": "Лекция 3 — Dynamic Programming I",
+          "durationSec": 4832,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GElVy0WTOys",
+          "title": "Лекция 4 — Dynamic Programming II",
+          "durationSec": 4928,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UBPL0IbyJy4",
+          "title": "Лекция 5 — Acrobots, Cart-poles, and Quadrotors I",
+          "durationSec": 4884,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZBS9-4LkSIQ",
+          "title": "Лекция 6 — Dynamic Programming III",
+          "durationSec": 4787,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qbuyy7ZcP9M",
+          "title": "Лекция 7 — Lyapunov Analysis I",
+          "durationSec": 4844,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ywFpp1dy0zQ",
+          "title": "Лекция 8 — Computing Lyapunov Functions I",
+          "durationSec": 5037,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e1BXMe64xJ8",
+          "title": "Лекция 9 — Computing Lyapunov Functions II",
+          "durationSec": 4868,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wND0k16gCdk",
+          "title": "Лекция 10 — Trajectory Optimization I",
+          "durationSec": 4735,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IQlwn9wLnJs",
+          "title": "Лекция 11 — Trajectory Optimization II",
+          "durationSec": 4972,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "j0Phrs3ATK0",
+          "title": "Лекция 12 — Trajectory Stabilization",
+          "durationSec": 4687,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "P64JhXLsjwY",
+          "title": "Лекция 14 — Hybrid Trajectory Optimization",
+          "durationSec": 4796,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "N37FMfOioK0",
+          "title": "Лекция 15 — MIT 6.832 Underactuated Robotics (Spring 2022)",
+          "durationSec": 4194,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LF6IkHSRtaY",
+          "title": "Лекция 15 — Planning + Control Through Contact",
+          "durationSec": 4599,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cRu4EqBswbk",
+          "title": "Лекция 16 — Humanoid Robots",
+          "durationSec": 4727,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mqyAs9CKVGw",
+          "title": "Лекция 17 — Mixed-discrete (combinatorial) and continuous optimization",
+          "durationSec": 4864,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ChiQgvVvgKM",
+          "title": "Лекция 18 — Sampling-based (kinodynamic) motion planning",
+          "durationSec": 4847,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Nj8FvDZ4d9I",
+          "title": "Лекция 19 — Stochastic dynamics",
+          "durationSec": 4718,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QYDsB0qs_x8",
+          "title": "Лекция 20 — Stochastic Control",
+          "durationSec": 4717,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "eEOmmpA1GAw",
+          "title": "Лекция 21 — Robust Control & Policy Search",
+          "durationSec": 4626,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QIDisUxobFk",
+          "title": "Лекция 22 — Output feedback",
+          "durationSec": 4241,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5fYG1JLwBSc",
+          "title": "Лекция 23 — Feedback motion planning",
+          "durationSec": 4686,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ww1flzLixHo",
+          "title": "Лекция 24 — Imitation learning / Foundation models / Course wrap-up",
+          "durationSec": 4922,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["control", "optimization"]
 }

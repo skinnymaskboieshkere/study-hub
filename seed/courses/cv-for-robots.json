@@ -6,14 +6,75 @@
   "instructors": ["Russ Tedrake"],
   "subject": "cv",
   "level": 4,
-  "description": "Лекции о восприятии из MIT 6.4210 и лекция Robot Learning из CS231n — финал пути. Подберём на этапе 7.",
+  "description": "Финал пути: лекции о геометрическом и глубоком восприятии из MIT 6.4210 и лекция Robot Learning из CS231n (она открывается на YouTube).",
   "sourceUrl": "https://manipulation.mit.edu/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": [],
-  "estimatedHours": 6,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": [
+    "PLkx8KyIQkMfWr191lqbN8WfV08j-ui8WX",
+    "PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"
+  ],
+  "units": [
+    {
+      "title": "Восприятие в манипуляции (MIT 6.4210)",
+      "videos": [
+        {
+          "youtubeId": "1a3KhOq1938",
+          "title": "Лекция 6 — Geometric Perception (Pt. 1)",
+          "durationSec": 4714,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Cs49WVNqEdk",
+          "title": "Лекция 7 — Geometric Perception (Pt. 2)",
+          "durationSec": 4652,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kZh2laD7NQI",
+          "title": "Лекция 16 — Deep Perception",
+          "durationSec": 3999,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LbBP2Ba2J9Q",
+          "title": "Лекция 17 — Deep Perception Pt. 2",
+          "durationSec": 4759,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "i-303tTtEig",
+          "title": "Лекция 18 — Visuomotor Policies (via Behavior Cloning)",
+          "durationSec": 4720,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Robot Learning (Stanford CS231n)",
+      "videos": [
+        {
+          "youtubeId": "XSfmOH_xVSU",
+          "title": "Лекция 17 — Robot Learning",
+          "durationSec": 4713,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["perception", "robot-learning"]
 }

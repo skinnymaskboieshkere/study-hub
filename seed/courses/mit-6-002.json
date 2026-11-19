@@ -9,11 +9,224 @@
   "description": "Цепи и электроника: законы Кирхгофа, транзисторы, усилители, переходные процессы — база для автоматики.",
   "sourceUrl": "https://ocw.mit.edu/courses/6-002-circuits-and-electronics-spring-2007/",
   "license": "CC BY-NC-SA 4.0",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PL9F74AFA03AA06A11"],
-  "estimatedHours": 21,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "AfQxyVuLeCs",
+          "title": "Лекция 1",
+          "durationSec": 2470,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2vHGYdepKLw",
+          "title": "Лекция 2",
+          "durationSec": 2950,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "RsJ1eg7XNVs",
+          "title": "Лекция 3",
+          "durationSec": 3073,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4TCnYYpZxEc",
+          "title": "Лекция 4",
+          "durationSec": 2947,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v6vqWasIHaw",
+          "title": "Лекция 5",
+          "durationSec": 3068,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OGtElTMJidE",
+          "title": "Лекция 6",
+          "durationSec": 2691,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JqvKtMNz3RQ",
+          "title": "Лекция 7",
+          "durationSec": 3012,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bEJ0-8pANA4",
+          "title": "Лекция 8",
+          "durationSec": 3146,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Nijya-QJ45Y",
+          "title": "Лекция 9",
+          "durationSec": 3034,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jURSAKBlIZA",
+          "title": "Лекция 9 — B",
+          "durationSec": 3036,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9RqFFlZgf60",
+          "title": "Лекция 10",
+          "durationSec": 3030,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "R4KxlqsuZ0A",
+          "title": "Лекция 11",
+          "durationSec": 3005,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "COdQmA9g9S8",
+          "title": "Лекция 12",
+          "durationSec": 2952,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TXJIhDHtHSI",
+          "title": "Лекция 13",
+          "durationSec": 3172,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bX8i2yECWaU",
+          "title": "Лекция 14",
+          "durationSec": 2880,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ypX20WnHNQw",
+          "title": "Лекция 15",
+          "durationSec": 3012,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-gRXU-O1FY4",
+          "title": "Лекция 15 — b",
+          "durationSec": 3012,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3GdMaDzIUeQ",
+          "title": "Лекция 16",
+          "durationSec": 3128,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Km9YIdkc2Oo",
+          "title": "Лекция 17",
+          "durationSec": 2972,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WT-qzgaKeGI",
+          "title": "Лекция 18",
+          "durationSec": 2880,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "V0z_f7qxLcY",
+          "title": "Лекция 19",
+          "durationSec": 3152,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2SwT6JnfCq8",
+          "title": "Лекция 20",
+          "durationSec": 2992,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ke3SL_R92ys",
+          "title": "Лекция 21",
+          "durationSec": 3074,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wNuBD4PYWvs",
+          "title": "Лекция 22",
+          "durationSec": 3103,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JB2HgohNHYQ",
+          "title": "Лекция 23",
+          "durationSec": 2412,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dyxcCoUgETU",
+          "title": "Лекция 25",
+          "durationSec": 2798,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["circuits", "electronics"]
 }

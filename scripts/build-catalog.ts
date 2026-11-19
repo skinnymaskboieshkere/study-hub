@@ -15,6 +15,7 @@ import { config } from "../src/server/config";
 import { createYouTubeClient, YouTubeApiError } from "../src/server/youtube/client";
 import { CANDIDATE_COURSES } from "./catalog/candidates";
 import { IMPORTED_COURSES } from "./catalog/imported-courses";
+import { TRACK_2_4_COURSES } from "./catalog/tracks-2-4";
 import { PLACEMENTS, TRACKS } from "./catalog/tracks";
 
 const SEED_DIR = path.resolve(process.cwd(), "seed");
@@ -39,7 +40,8 @@ function writeTracks() {
 async function main() {
   const only = process.argv[2];
 
-  const known = new Set([...IMPORTED_COURSES, ...CANDIDATE_COURSES].map((c) => c.meta.slug));
+  const recipes = [...IMPORTED_COURSES, ...TRACK_2_4_COURSES];
+  const known = new Set([...recipes, ...CANDIDATE_COURSES].map((c) => c.meta.slug));
   for (const placement of PLACEMENTS) {
     if (!known.has(placement.course)) throw new Error(`tracks: unknown course ${placement.course}`);
     for (const pre of placement.prerequisites ?? []) {
@@ -63,7 +65,7 @@ async function main() {
     return pending;
   };
 
-  for (const recipe of IMPORTED_COURSES) {
+  for (const recipe of recipes) {
     if (only && recipe.meta.slug !== only) continue;
     const units = await recipe.build(load);
     const course: SeedCourse = SeedCourseSchema.parse({

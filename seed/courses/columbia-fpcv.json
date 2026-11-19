@@ -6,14 +6,1247 @@
   "instructors": ["Shree Nayar"],
   "subject": "cv",
   "level": 2,
-  "description": "Классическое зрение с нуля: формирование изображения, фильтрация, признаки, 3D-реконструкция. Плейлисты по модулям подключим на этапе 7.",
+  "description": "Классическое зрение с нуля короткими лекциями: формирование изображения, фильтрация, признаки, 3D-реконструкция, трекинг. Модули — как на сайте курса.",
   "sourceUrl": "https://fpcv.cs.columbia.edu/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": [],
-  "estimatedHours": 20,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": [
+    "PL2zRqk16wsdoz4eycyq7EmeV2KpE6JN76",
+    "PL2zRqk16wsdr9X5rgF-d0pkzPdkHZ4KiT",
+    "PL2zRqk16wsdorCSZ5GWZQr1EMWXs2TDeu",
+    "PL2zRqk16wsdqXEMpHrc4Qnb5rA1Cylrhx",
+    "PL2zRqk16wsdp8KbDfHKvPYNGF2L-zQASc",
+    "PL2zRqk16wsdpyQNZ6WFlGQtDICpzzQ925",
+    "PL2zRqk16wsdowTcMVNhV0-7RjSOBS4rHO",
+    "PL2zRqk16wsdoCCLpou-dGo7QQNks1Ppzo",
+    "PL2zRqk16wsdoYzrWStffqBAoUY8XdvatV",
+    "PL2zRqk16wsdop2EatuowXBX5C-r2FdyNt",
+    "PL2zRqk16wsdoKHr5sfK1qqsJTDMl_MBs2",
+    "PL2zRqk16wsdo3VJmrusPU6xXHk37RuKzi"
+  ],
+  "units": [
+    {
+      "title": "Введение",
+      "videos": [
+        {
+          "youtubeId": "iEGvWcHsf0E",
+          "title": "Overview | Introduction",
+          "durationSec": 192,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wVE8SFMSBJ0",
+          "title": "What is Computer Vision? | Introduction",
+          "durationSec": 454,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qt1UfF0fn4w",
+          "title": "What is Vision Used For? | Introduction",
+          "durationSec": 609,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EOUcIto5WMU",
+          "title": "How Do Humans Do It? | Introduction",
+          "durationSec": 582,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jJd0jpku8qs",
+          "title": "Topics Covered | Introduction",
+          "durationSec": 1041,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "yiO0n0bQdKM",
+          "title": "About the Lecture Series | Introduction",
+          "durationSec": 263,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QStg_A6kLUU",
+          "title": "References and Credits | Introduction",
+          "durationSec": 153,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Формирование изображения, сенсоры, бинарные изображения",
+      "videos": [
+        {
+          "youtubeId": "_QjxbQKY4ds",
+          "title": "Overview | Image Formation",
+          "durationSec": 147,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_EhY31MSbNM",
+          "title": "Pinhole and Perspective Projection | Image Formation",
+          "durationSec": 1243,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7LX-19v_9ns",
+          "title": "Image Formation using Lenses | Image Formation",
+          "durationSec": 669,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v5OE90eVIXo",
+          "title": "Depth of Field | Image Formation",
+          "durationSec": 874,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hzOeqCb2Fg4",
+          "title": "Lens Related Issues | Image Formation",
+          "durationSec": 421,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oYOpEkaeq_o",
+          "title": "Wide Angle Cameras | Image Formation",
+          "durationSec": 1425,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fTF0TRtVwEY",
+          "title": "Animal Eyes | Image Formation",
+          "durationSec": 905,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EQXxlIb9kb8",
+          "title": "Overview | Image Sensing",
+          "durationSec": 150,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SWs9LQzpcN8",
+          "title": "A Brief History of Imaging | Image Sensing",
+          "durationSec": 915,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nsPvcX-_4KU",
+          "title": "Types of Image Sensors | Image Sensing",
+          "durationSec": 636,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hb6SARVQEJQ",
+          "title": "Resolution, Noise, Dynamic Range | Image Sensing",
+          "durationSec": 819,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "V4y3K6zoUQs",
+          "title": "Sensing Color | Image Sensing",
+          "durationSec": 1116,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "95DNdbxaIXE",
+          "title": "Camera Response and HDR Imaging | Image Sensing",
+          "durationSec": 995,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2AbzI3q3fws",
+          "title": "Nature’s Image Sensors | Image Sensing",
+          "durationSec": 426,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "COxRYLrsscc",
+          "title": "Overview | Binary Images",
+          "durationSec": 463,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZPQiKXqHYrM",
+          "title": "Geometric Properties | Binary Images",
+          "durationSec": 1092,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2ckNxEwF5YU",
+          "title": "Segmenting Binary Images | Binary Images",
+          "durationSec": 611,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "AYzWnCHnfSc",
+          "title": "Iterative Modification | Binary Images",
+          "durationSec": 598,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Обработка изображений",
+      "videos": [
+        {
+          "youtubeId": "vqRzOGg9mi8",
+          "title": "Overview | Image Processing I",
+          "durationSec": 220,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "f-5l8Cdcb8k",
+          "title": "Pixel Processing | Image Processing I",
+          "durationSec": 167,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0OHRJMNKhX0",
+          "title": "LSIS and Convolution | Image Processing I",
+          "durationSec": 1271,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-LD9MxBUFQo",
+          "title": "Linear Image Filters | Image Processing I",
+          "durationSec": 944,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7FP7ndMEfsc",
+          "title": "Non-Linear Image Filters | Image Processing I",
+          "durationSec": 924,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1_hwFc8PXVE",
+          "title": "Template Matching by Correlation | Image Processing I",
+          "durationSec": 421,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "m_11ntjkn4k",
+          "title": "Overview | Image Processing II",
+          "durationSec": 209,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tEzgtbnbXgQ",
+          "title": "Fourier Transform | Image Processing II",
+          "durationSec": 992,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kQUfKf-vPdI",
+          "title": "Convolution Theorem | Image Processing II",
+          "durationSec": 454,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OOu5KP3Gvx0",
+          "title": "Image Filtering in Frequency Domain | Image Processing II",
+          "durationSec": 821,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "f-IINpceX6k",
+          "title": "Deconvolution | Image Processing II",
+          "durationSec": 677,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YFZsxY_2_l4",
+          "title": "Sampling Theory and Aliasing | Image Processing II",
+          "durationSec": 728,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Края, границы, SIFT",
+      "videos": [
+        {
+          "youtubeId": "7AlwDYmjrcs",
+          "title": "Overview | Edge Detection",
+          "durationSec": 118,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G8yp6f9V_6c",
+          "title": "What is an Edge? | Edge Detection",
+          "durationSec": 315,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lOEBsQodtEQ",
+          "title": "Edge Detection Using Gradients | Edge Detection",
+          "durationSec": 644,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "uNP6ZwQ3r6A",
+          "title": "Edge Detection Using Laplacian | Edge Detection",
+          "durationSec": 759,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hUC1uoigH6s",
+          "title": "Canny Edge Detector | Edge Detection",
+          "durationSec": 362,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Z_HwkG90Yvw",
+          "title": "Corner Detection | Edge Detection",
+          "durationSec": 898,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3VkkDd0rEoE",
+          "title": "Overview | Boundary Detection",
+          "durationSec": 163,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QQI4jUYRUc8",
+          "title": "Fitting Lines and Curves | Boundary Detection",
+          "durationSec": 813,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FROJUMk9P3Y",
+          "title": "Active Contours | Boundary Detection",
+          "durationSec": 1134,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XRBc_xkZREg",
+          "title": "Hough Transform | Boundary Detection",
+          "durationSec": 1300,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_mGxmZWs9Zw",
+          "title": "Generalized Hough Transform | Boundary Detection",
+          "durationSec": 583,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "KgsHoJYJ4S8",
+          "title": "Overview | SIFT Detector",
+          "durationSec": 406,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "wcqbiHonfbo",
+          "title": "What is an Interest Point? | SIFT Detector",
+          "durationSec": 417,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "zItstOggP7M",
+          "title": "Detecting Blobs | SIFT Detector",
+          "durationSec": 892,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ram-jbLJjFg",
+          "title": "SIFT Detector | SIFT Detector",
+          "durationSec": 572,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IBcsS8_gPzE",
+          "title": "SIFT Descriptor | SIFT Detector",
+          "durationSec": 623,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Склейка панорам, детекция лиц",
+      "videos": [
+        {
+          "youtubeId": "J1DwQzab6Jg",
+          "title": "Overview | Image Stitching",
+          "durationSec": 388,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "K2XLXlyPqCA",
+          "title": "2x2 Image Transformations | Image Stitching",
+          "durationSec": 523,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "B8kMB6Hv2eI",
+          "title": "3x3 Image Transformations | Image Stitching",
+          "durationSec": 596,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "l_qjO4cM74o",
+          "title": "Computing Homography | Image Stitching",
+          "durationSec": 702,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EkYXjmiolBg",
+          "title": "Dealing with Outliers: RANSAC | Image Stitching",
+          "durationSec": 479,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "D9rAOAL12SY",
+          "title": "Warping and Blending Images | Image Stitching",
+          "durationSec": 725,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "e9RRH9OLLus",
+          "title": "Overview | Face Detection",
+          "durationSec": 206,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pZYHV1GxO-E",
+          "title": "Uses of Face Detection | Face Detection",
+          "durationSec": 173,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ZSqg-fZJ9tQ",
+          "title": "Haar Features for Face Detection | Face Detection",
+          "durationSec": 548,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5ceT8O3k6os",
+          "title": "Integral Image | Face Detection",
+          "durationSec": 329,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-fkUPeqPfEM",
+          "title": "Nearest Neighbor Classifier | Face Detection",
+          "durationSec": 262,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "iNSxbjsrQAk",
+          "title": "Support Vector Machine | Face Detection",
+          "durationSec": 885,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Радиометрия, фотометрическое стерео, форма по затенению",
+      "videos": [
+        {
+          "youtubeId": "BEGMPLcnM2Q",
+          "title": "Overview | Radiometry and Reflectance",
+          "durationSec": 418,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tflz0loWhIY",
+          "title": "Radiometric Concepts | Radiometry and Reflectance",
+          "durationSec": 507,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kPIqO929pIc",
+          "title": "Scene Radiance and Image Irradiance | Radiometry and Reflectance",
+          "durationSec": 591,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "R9iZzaXUaK4",
+          "title": "BRDF: Bidirectional Reflectance Distribution Function",
+          "durationSec": 440,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "HPNW0we-ft0",
+          "title": "Reflectance Models | Radiometry and Reflectance",
+          "durationSec": 771,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oa3Yo7Ro02A",
+          "title": "Reflection from Rough Surfaces | Radiometry and Reflectance",
+          "durationSec": 609,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6U_yQrEwjLc",
+          "title": "Dichromatic Model | Radiometry and Reflectance",
+          "durationSec": 409,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BfdwTytaBYI",
+          "title": "Overview | Photometric Stereo",
+          "durationSec": 410,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6-bElBHXhOQ",
+          "title": "Gradient Space and Reflectance Map | Photometric Stereo",
+          "durationSec": 893,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mw43A8Y6Nlg",
+          "title": "Photometric Stereo | Photometric Stereo",
+          "durationSec": 504,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dNkMLqBUNKI",
+          "title": "Lambertian Case | Photometric Stereo",
+          "durationSec": 1101,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "os42t1Jb9IA",
+          "title": "Calibration Based Photometric Stereo | Photometric Stereo",
+          "durationSec": 328,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tZ1mQRr9jiY",
+          "title": "Shape from Normals | Photometric Stereo",
+          "durationSec": 813,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1g8U86CCEmk",
+          "title": "Interreflections | Photometric Stereo",
+          "durationSec": 304,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "kZWQ2sBGHuU",
+          "title": "Overview | Shape from Shading",
+          "durationSec": 185,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VjtDBSPSomo",
+          "title": "Human Perception of Shading | Shape from Shading",
+          "durationSec": 675,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VLc7BC7GJEI",
+          "title": "Stereographic Projection | Shape from Shading",
+          "durationSec": 376,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "SLX7gPNHxSc",
+          "title": "Shape from Shading Algorithm | Shape from Shading",
+          "durationSec": 1166,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oeMsdAVCbWk",
+          "title": "Shading Illusions | Shape from Shading",
+          "durationSec": 243,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Глубина по расфокусу, активная подсветка",
+      "videos": [
+        {
+          "youtubeId": "_PfKnkGAcuc",
+          "title": "Overview | Depth from Defocus",
+          "durationSec": 331,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BzucsB8t1mc",
+          "title": "Point Spread Function | Depth from Defocus",
+          "durationSec": 721,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "A-fgaR7vJ-w",
+          "title": "Depth from Focus | Depth from Defocus",
+          "durationSec": 1173,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ReSDyfrKJEQ",
+          "title": "Depth from Defocus | Depth from Defocus",
+          "durationSec": 1180,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BpiQvQ0HrQs",
+          "title": "Overview | Active Illumination Methods",
+          "durationSec": 298,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mVupiPxB_c8",
+          "title": "Photometric Stereo Systems | Active Illumination Methods",
+          "durationSec": 617,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3S3xLUXAgHw",
+          "title": "Structured Light Range Finding | Active Illumination Methods",
+          "durationSec": 1463,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_Vo9Vcecwo0",
+          "title": "Phase Shifting Method | Active Illumination Methods",
+          "durationSec": 719,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OZf8ki5Givo",
+          "title": "Structured Light Systems | Active Illumination Methods",
+          "durationSec": 624,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vytS7-wmYTQ",
+          "title": "Time of Flight Method | Active Illumination Methods",
+          "durationSec": 1107,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Калибровка камеры, некалиброванное стерео",
+      "videos": [
+        {
+          "youtubeId": "S-UHiFsn-GI",
+          "title": "Overview | Camera Calibration",
+          "durationSec": 191,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qByYk6JggQU",
+          "title": "Linear Camera Model | Camera Calibration",
+          "durationSec": 1185,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "GUbWsXU1mac",
+          "title": "Camera Calibration | Camera Calibration",
+          "durationSec": 467,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2XM2Rb2pfyQ",
+          "title": "Intrinsic and Extrinsic Matrices | Camera Calibration",
+          "durationSec": 266,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hUVyDabn1Mg",
+          "title": "Simple Stereo | Camera Calibration",
+          "durationSec": 994,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dUDMQ6dwWDA",
+          "title": "Overview | Uncalibrated Stereo",
+          "durationSec": 316,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "v30I-BqGfuI",
+          "title": "Problem of Uncalibrated Stereo | Uncalibrated Stereo",
+          "durationSec": 305,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6kpBqfgSPRc",
+          "title": "Epipolar Geometry | Uncalibrated Stereo",
+          "durationSec": 882,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_rfKoEBGK7E",
+          "title": "Stereo Vision in Nature | Uncalibrated Stereo",
+          "durationSec": 840,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "izpYAwJ0Hlw",
+          "title": "Estimating Fundamental Matrix | Uncalibrated Stereo",
+          "durationSec": 346,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "erpiFudDBlg",
+          "title": "Finding Correspondences | Uncalibrated Stereo",
+          "durationSec": 368,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OYwm4VM6uNg",
+          "title": "Computing Depth | Uncalibrated Stereo",
+          "durationSec": 548,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Оптический поток, структура из движения, трекинг",
+      "videos": [
+        {
+          "youtubeId": "lnXFcmLB7sM",
+          "title": "Overview | Optical Flow",
+          "durationSec": 190,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fLzhaY90ym4",
+          "title": "Motion Field and Optical Flow | Optical Flow",
+          "durationSec": 579,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IjPLZ3hjU1A",
+          "title": "Optical Flow Constraint Equation | Optical Flow",
+          "durationSec": 917,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6wMoHgpVUn8",
+          "title": "Lucas-Kanade Method | Optical Flow",
+          "durationSec": 551,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "VSSyPskheaE",
+          "title": "Coarse-to-Fine Flow Estimation | Optical Flow",
+          "durationSec": 444,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_6OJcLGuRQw",
+          "title": "Application of Optical Flow | Optical Flow",
+          "durationSec": 357,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oIvg7sbJRIA",
+          "title": "Overview | Structure from Motion",
+          "durationSec": 181,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JlOzyyhk1v0",
+          "title": "Structure from Motion Problem | Structure from Motion",
+          "durationSec": 236,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Uhkb8Zq-dnM",
+          "title": "Observation Matrix | Structure from Motion",
+          "durationSec": 883,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Lyd7cf0agvI",
+          "title": "Rank of Observation Matrix | Structure from Motion",
+          "durationSec": 589,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0BVZDyRrYtQ",
+          "title": "Tomasi-Kanade Factorization | Structure from Motion",
+          "durationSec": 1201,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "BLRSIwal7Go",
+          "title": "Overview | Object Tracking",
+          "durationSec": 256,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0ANl4bZAxjI",
+          "title": "Change Detection | Object Tracking",
+          "durationSec": 616,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0nz8JMyFF14",
+          "title": "Gaussian Mixture Model | Object Tracking",
+          "durationSec": 956,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2wwVogo88aY",
+          "title": "Object Tracking using Template Matching | Object Tracking",
+          "durationSec": 439,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vbGRUU_Xj1A",
+          "title": "Tracking by Feature Detection | Object Tracking",
+          "durationSec": 701,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Сегментация изображений",
+      "videos": [
+        {
+          "youtubeId": "onWJQY5oFhs",
+          "title": "Overview | Image Segmentation",
+          "durationSec": 325,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "4pYyD2uSeko",
+          "title": "Segmentation by humans | Image Segmentation",
+          "durationSec": 535,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TRr8TGIk50c",
+          "title": "Segmentation as Clustering | Image Segmentation",
+          "durationSec": 267,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "22mpExWh1LY",
+          "title": "k-Means Segmentation | Image Segmentation",
+          "durationSec": 498,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PCNz_zttmtA",
+          "title": "Mean-Shift Segmentation | Image Segmentation",
+          "durationSec": 597,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2IVAznQwdS4",
+          "title": "Graph Based Segmentation | Image Segmentation",
+          "durationSec": 544,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Сопоставление по внешнему виду",
+      "videos": [
+        {
+          "youtubeId": "SQsukhxl31w",
+          "title": "Overview | Appearance Matching",
+          "durationSec": 226,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fk2OvVbsy2w",
+          "title": "Shape vs. Appearance | Appearance Matching",
+          "durationSec": 359,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oPAKEWAhkg8",
+          "title": "Learning Appearance | Appearance Matching",
+          "durationSec": 335,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "M6fBAzcw1Ps",
+          "title": "Principal Component Analysis | Appearance Matching",
+          "durationSec": 1013,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DcngAJXMoRo",
+          "title": "Finding Principal Components | Appearance Matching",
+          "durationSec": 477,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ILu4-Lk-gZQ",
+          "title": "PCA and SVD | Appearance Matching",
+          "durationSec": 367,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "58MDlj5xS1s",
+          "title": "Parametric Appearance Representation | Appearance Matching",
+          "durationSec": 718,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0WNiYrRjJbM",
+          "title": "Appearance Matching | Appearance Matching",
+          "durationSec": 787,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Нейронные сети",
+      "videos": [
+        {
+          "youtubeId": "2-mzxsSWVCU",
+          "title": "Overview | Neural Networks",
+          "durationSec": 540,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OFbnpY_k7js",
+          "title": "Perceptron | Neural Networks",
+          "durationSec": 527,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "torNuKNLwBE",
+          "title": "Perceptron Network | Neural Networks",
+          "durationSec": 318,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "_ETavTWv3ok",
+          "title": "Activation Function | Neural Networks",
+          "durationSec": 313,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Go1F4uHlD3c",
+          "title": "Neural Network | Neural Networks",
+          "durationSec": 683,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YS_EztqZCD8",
+          "title": "Gradient Descent | Neural Networks",
+          "durationSec": 933,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "sIX_9n-1UbM",
+          "title": "Backpropagation Algorithm | Neural Networks",
+          "durationSec": 794,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "auDxwjcp5TQ",
+          "title": "Example Applications | Neural Networks",
+          "durationSec": 429,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-RAgrvw-P8M",
+          "title": "When to Use Machine Learning? | Neural Networks",
+          "durationSec": 245,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["image-formation", "features", "3d-vision"]
 }

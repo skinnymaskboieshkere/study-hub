@@ -1,0 +1,447 @@
+{
+  "slug": "tuebingen-cv",
+  "title": "Computer Vision (University of Tübingen)",
+  "shortTitle": "CV Tübingen",
+  "university": "University of Tübingen",
+  "instructors": ["Andreas Geiger"],
+  "subject": "cv",
+  "level": 3,
+  "description": "3D-зрение: геометрия камер, структура из движения, стерео, оптический поток, 3D-реконструкция, а также распознавание и самообучение. Курс 2025 года на официальном канале Tübingen Machine Learning.",
+  "sourceUrl": "https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/",
+  "license": "См. условия на сайте курса",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": ["PL05umP7R6ij35L2MHGzis8AEHz7mg381_"],
+  "units": [
+    {
+      "title": "Лекция 1 — Introduction",
+      "videos": [
+        {
+          "youtubeId": "YW1cIaOBkI8",
+          "title": "1.1 Organization",
+          "durationSec": 346,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "mQgjfvjjW3Q",
+          "title": "1.2 Introduction",
+          "durationSec": 1613,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "hCewSTTOt_4",
+          "title": "1.3 History of Computer Vision",
+          "durationSec": 3820,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 2 — Image Formation",
+      "videos": [
+        {
+          "youtubeId": "D4wpa-prk4I",
+          "title": "2.1 Primitives and Transformations",
+          "durationSec": 3139,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NIaICLR7D0Q",
+          "title": "2.2 Geometric Image Formation",
+          "durationSec": 2086,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NEPRihfI8-c",
+          "title": "2.3 Photometric Image Formation",
+          "durationSec": 1407,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bVSV3XZ1Jrs",
+          "title": "2.4 Image Sensing Pipeline",
+          "durationSec": 773,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 3 — Structure-from-Motion",
+      "videos": [
+        {
+          "youtubeId": "nrIHi1-a85s",
+          "title": "3.1 Preliminaries",
+          "durationSec": 1578,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "nwTVNpF8SMg",
+          "title": "3.2 Two-frame Structure-from-Motion",
+          "durationSec": 2035,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Ti9uotyHOKM",
+          "title": "3.3 Factorization",
+          "durationSec": 1378,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MyrVDUnaqUs",
+          "title": "3.4 Bundle Adjustment",
+          "durationSec": 1812,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 4 — Stereo Reconstruction",
+      "videos": [
+        {
+          "youtubeId": "6hr6xpOU-uw",
+          "title": "4.1 Preliminaries",
+          "durationSec": 2655,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "EVzEJQl8WFk",
+          "title": "4.2 Block Matching",
+          "durationSec": 1339,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "vLgsiIXNf0I",
+          "title": "4.3 Siamese Networks",
+          "durationSec": 1030,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gqz6R1qChVQ",
+          "title": "4.4 Spatial Regularization",
+          "durationSec": 859,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9vrmwZ9Pl4o",
+          "title": "4.5 End-to-End Learning",
+          "durationSec": 936,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 5 — Probabilistic Graphical Models",
+      "videos": [
+        {
+          "youtubeId": "hi_6hwIW7nE",
+          "title": "5.1 Structured Prediction",
+          "durationSec": 1200,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "O0EZ1W8nRTo",
+          "title": "5.2 Markov Random Fields",
+          "durationSec": 1965,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6ci8jDarG-s",
+          "title": "5.3 Factor Graphs",
+          "durationSec": 523,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "cJlAzzXZPFw",
+          "title": "5.4 Belief Propagation",
+          "durationSec": 2003,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6yIA4BwKN88",
+          "title": "5.5 Examples",
+          "durationSec": 818,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 6 — Applications of Graphical Models",
+      "videos": [
+        {
+          "youtubeId": "VV9Eg--iEk8",
+          "title": "6.1 Stereo Reconstruction",
+          "durationSec": 1024,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fW8WHFf9qoc",
+          "title": "6.2 Multi-View Reconstruction",
+          "durationSec": 2221,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1GkKEKBN9vo",
+          "title": "6.3 Optical Flow",
+          "durationSec": 2789,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 7 — Learning in Graphical Models",
+      "videos": [
+        {
+          "youtubeId": "9Ke0nmtpnfI",
+          "title": "7.1 Conditional Random Fields",
+          "durationSec": 1103,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1HXeJLNaPyA",
+          "title": "7.2 Parameter Estimation",
+          "durationSec": 2838,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NMGBTVSyZfs",
+          "title": "7.3 Deep Structured Models",
+          "durationSec": 1591,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 8 — Shape-from-X",
+      "videos": [
+        {
+          "youtubeId": "YQ5QOiyoF9U",
+          "title": "8.1 Shape-from-Shading",
+          "durationSec": 3366,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "J0k47CtLwTI",
+          "title": "8.2 Photometric Stereo",
+          "durationSec": 1235,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5o--byukZtw",
+          "title": "8.3 Shape-from-X",
+          "durationSec": 550,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "B2BTSKcYqtQ",
+          "title": "8.4 Volumetric Fusion",
+          "durationSec": 2271,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 9 — Coordinate-based Networks",
+      "videos": [
+        {
+          "youtubeId": "r6n3tZJoTdI",
+          "title": "9.1 Implicit Neural Representations",
+          "durationSec": 2734,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "3e64ILZBJUs",
+          "title": "9.2 Differentiable Volumetric Rendering",
+          "durationSec": 1698,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5RD3octCnwk",
+          "title": "9.3 Neural Radiance Fields",
+          "durationSec": 1069,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "X9I7IQ8Wp5A",
+          "title": "9.4 Generative Radiance Fields",
+          "durationSec": 1241,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 10 — Recognition",
+      "videos": [
+        {
+          "youtubeId": "n79Z6Zj1vqs",
+          "title": "10.1 Image Classification",
+          "durationSec": 3474,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "NhSujgDL918",
+          "title": "10.2 Semantic Segmentation",
+          "durationSec": 989,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bXSvNCS56Uk",
+          "title": "10.3 Object Detection and Segmentation",
+          "durationSec": 2529,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 11 — Self-Supervised Learning",
+      "videos": [
+        {
+          "youtubeId": "j97fdXLKlQ8",
+          "title": "11.1 Preliminaries",
+          "durationSec": 1347,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "utmRR6dKOOg",
+          "title": "11.2 Task-specific Models",
+          "durationSec": 1658,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fscXVkTJjFg",
+          "title": "11.3 Pretext Tasks",
+          "durationSec": 1521,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "jlIjeZMf_HU",
+          "title": "11.4 Contrastive Learning",
+          "durationSec": 1853,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Лекция 12 — Diverse Topics in Computer Vision",
+      "videos": [
+        {
+          "youtubeId": "RSUy80gWM74",
+          "title": "12.1 Input Optimization",
+          "durationSec": 2183,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "8eoY3nmFpRQ",
+          "title": "12.2 Compositional Models",
+          "durationSec": 1474,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xLQUusO567Y",
+          "title": "12.3 Human Body Models",
+          "durationSec": 2046,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fYS2ASWMJKk",
+          "title": "12.4 Deepfakes",
+          "durationSec": 1051,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
+  "materials": [],
+  "skills": ["3d-vision", "structure-from-motion", "stereo", "optical-flow"]
+}

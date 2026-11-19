@@ -6,14 +6,163 @@
   "instructors": ["Fei-Fei Li"],
   "subject": "cv",
   "level": 3,
-  "description": "Курс 2025 года: CNN, трансформеры, детекция, генеративные модели, 3D-зрение и Robot Learning.",
+  "description": "Курс 2025 года: CNN, трансформеры, детекция, генеративные модели, 3D-зрение и Robot Learning. Stanford запретил встраивать эти видео: они открываются на YouTube, а просмотренное отмечается кнопкой «Просмотрено».",
   "sourceUrl": "https://cs231n.stanford.edu/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16"],
-  "estimatedHours": 21,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "2fq9wYslV0A",
+          "title": "Лекция 1 — Introduction",
+          "durationSec": 3773,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "pdqofxJeBN8",
+          "title": "Лекция 2 — Image Classification with Linear Classifiers",
+          "durationSec": 4022,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "dyNGd06MWn4",
+          "title": "Лекция 3 — Regularization and Optimization",
+          "durationSec": 4119,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "25zD5qJHYsk",
+          "title": "Лекция 4 — Neural Networks and Backpropagation",
+          "durationSec": 4607,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "f3g1zGdxptI",
+          "title": "Лекция 5 — Image Classification with CNNs",
+          "durationSec": 4084,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "aVJy4O5TOk8",
+          "title": "Лекция 6 — CNN Architectures",
+          "durationSec": 4267,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "kG2lAPBF7zA",
+          "title": "Лекция 7 — Recurrent Neural Networks",
+          "durationSec": 4308,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "RQowiOF_FvQ",
+          "title": "Лекция 8 — Attention and Transformers",
+          "durationSec": 3991,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "PTypu6GqEd4",
+          "title": "Лекция 9 — Object Detection, Image Segmentation, Visualizing",
+          "durationSec": 4424,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "wElqklprhPE",
+          "title": "Лекция 10 — Video Understanding",
+          "durationSec": 4125,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "9MvD-XsowsE",
+          "title": "Лекция 11 — Large Scale Distributed Training",
+          "durationSec": 4373,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "4howBU7THbM",
+          "title": "Лекция 12 — Self-Supervised Learning",
+          "durationSec": 4482,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "zbHXQRUNlH0",
+          "title": "Лекция 13 — Generative Models 1",
+          "durationSec": 4351,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "Edr4uZFh4EE",
+          "title": "Лекция 14 — Generative Models 2",
+          "durationSec": 4329,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "7lxrKDKtykM",
+          "title": "Лекция 15 — 3D Vision",
+          "durationSec": 4310,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "mQOK0Mfyrkk",
+          "title": "Лекция 16 — Vision and Language",
+          "durationSec": 4194,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "XSfmOH_xVSU",
+          "title": "Лекция 17 — Robot Learning",
+          "durationSec": 4713,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        },
+        {
+          "youtubeId": "g8UaBfj6Sh8",
+          "title": "Лекция 18 — Human-Centered AI",
+          "durationSec": 3916,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": false
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["cnn", "transformers", "3d-vision"]
 }

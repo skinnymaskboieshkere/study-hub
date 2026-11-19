@@ -9,11 +9,301 @@
   "description": "Вероятность: случайные величины, распределения, условная вероятность, предельные теоремы. Нужна для ML и CV.",
   "sourceUrl": "https://stat110.net/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PL2SOU6wwxB0uwwH80KTQ6ht66KWxbzTIo"],
-  "estimatedHours": 27,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "KbB0FjPg0mw",
+          "title": "Лекция 1 — Probability and Counting",
+          "durationSec": 2789,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "FJd_1H3rZGg",
+          "title": "Лекция 2 — Story Proofs, Axioms of Probability",
+          "durationSec": 2740,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LZ5Wergp_PA",
+          "title": "Лекция 3 — Birthday Problem, Properties of Probability",
+          "durationSec": 2935,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "P7NE4WF8j-Q",
+          "title": "Лекция 4 — Conditional Probability",
+          "durationSec": 2985,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "JzDvVgNDxo8",
+          "title": "Лекция 5 — Conditioning Continued, Law of Total Probability",
+          "durationSec": 3002,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fDcjhAKuhqQ",
+          "title": "Лекция 6 — Monty Hall, Simpson's Paradox",
+          "durationSec": 2941,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PNrqCdslGi4",
+          "title": "Лекция 7 — Gambler's Ruin and Random Variables",
+          "durationSec": 3106,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "k2BB0p8byGA",
+          "title": "Лекция 8 — Random Variables and Their Distributions",
+          "durationSec": 3024,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "LX2q356N2rU",
+          "title": "Лекция 9 — Expectation, Indicator Random Variables, Linearity",
+          "durationSec": 3023,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "P1fSFvhPf7Q",
+          "title": "Лекция 10 — Expectation Continued",
+          "durationSec": 3010,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TD1N4hxqMzY",
+          "title": "Лекция 11 — The Poisson distribution",
+          "durationSec": 2566,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Tci---bVs60",
+          "title": "Лекция 12 — Discrete vs. Continuous, the Uniform",
+          "durationSec": 2996,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "72QjzHnYvL0",
+          "title": "Лекция 13 — Normal distribution",
+          "durationSec": 3070,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9vp1Ll2NpRw",
+          "title": "Лекция 14 — Location, Scale, and LOTUS",
+          "durationSec": 2935,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "yFRZf81sB5k",
+          "title": "Лекция 15 — Midterm Review",
+          "durationSec": 2292,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "bM6nFDjvEns",
+          "title": "Лекция 16 — Exponential Distribution",
+          "durationSec": 1099,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "N8O6zd6vTZ8",
+          "title": "Лекция 17 — Moment Generating Functions",
+          "durationSec": 3045,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "tVDdx6xUOcs",
+          "title": "Лекция 18 — MGFs Continued",
+          "durationSec": 2981,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "J70dP_AECzQ",
+          "title": "Лекция 19 — Joint, Conditional, and Marginal Distributions",
+          "durationSec": 3009,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "xiVWNkQUqKk",
+          "title": "Лекция 20 — Multinomial and Cauchy",
+          "durationSec": 2940,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IujCYxtpszU",
+          "title": "Лекция 21 — Covariance and Correlation",
+          "durationSec": 2966,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "yXwPUAIvFyg",
+          "title": "Лекция 22 — Transformations and Convolutions",
+          "durationSec": 2866,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UZjlBQbV1KU",
+          "title": "Лекция 23 — Beta distribution",
+          "durationSec": 2988,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Qjeswpm0cWY",
+          "title": "Лекция 24 — Gamma distribution and Poisson process",
+          "durationSec": 2929,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "2LR5JYbhyjg",
+          "title": "Лекция 25 — Order Statistics and Conditional Expectation",
+          "durationSec": 2895,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "PgawcWisb0I",
+          "title": "Лекция 26 — Conditional Expectation Continued",
+          "durationSec": 2993,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "gjBvCiRt8QA",
+          "title": "Лекция 27 — Conditional Expectation given an R.V.",
+          "durationSec": 3034,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UtXK_EQ3Pow",
+          "title": "Лекция 28 — Inequalities",
+          "durationSec": 2849,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "OprNqnHsVIA",
+          "title": "Лекция 29 — Law of Large Numbers and Central Limit Theorem",
+          "durationSec": 2988,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MF-XSJOsGqw",
+          "title": "Лекция 30 — Chi-Square, Student-t, Multivariate Normal",
+          "durationSec": 2848,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "8AJPs3gvNlY",
+          "title": "Лекция 31 — Markov Chains",
+          "durationSec": 2798,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "aBGOyZv2pZE",
+          "title": "Лекция 32 — Markov Chains Continued",
+          "durationSec": 2904,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Q-pCzTpwPBU",
+          "title": "Лекция 33 — Markov Chains Continued Further",
+          "durationSec": 2821,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ChS3K2O-h7o",
+          "title": "Лекция 34 — A Look Ahead",
+          "durationSec": 2219,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    },
+    {
+      "title": "Дополнительно",
+      "videos": [
+        {
+          "youtubeId": "dzFf3r1yph8",
+          "title": "Joseph Blitzstein: \"The Soul of Statistics\"",
+          "durationSec": 887,
+          "kind": "short",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["probability"]
 }

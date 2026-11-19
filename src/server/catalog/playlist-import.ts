@@ -30,6 +30,36 @@ export function numberFromTitle(title: string): number | undefined {
   return leading?.[1] ? Number(leading[1]) : undefined;
 }
 
+const LECTURE_NUMBER = /(?<![\p{L}\p{N}])(?:lecture|lec)\s*\d+|^\s*\d+\.(?=\s)/iu;
+
+/**
+ * The topic of a lecture without its number and the course name around it:
+ * "Lec 1: Dot product | MIT 18.02 …" → "Dot product", "Stanford CS231N | Spring 2025 | Lecture 2:
+ * Image Classification" → "Image Classification", "1. Electrostatics" → "Electrostatics",
+ * "Lec 1 | MIT 18.03 …" → "" (no topic in the title).
+ */
+export function lectureTopic(title: string): string {
+  const segments = title.split(/\s+\|\s+/);
+  const index = segments.findIndex((segment) => LECTURE_NUMBER.test(segment));
+  if (index < 0) return (segments[0] ?? "").trim();
+  const segment = segments[index] ?? "";
+  const match = LECTURE_NUMBER.exec(segment);
+  const rest = segment
+    .slice((match?.index ?? 0) + (match?.[0].length ?? 0))
+    .replace(/^[\s:.,\-–—]+/, "")
+    .trim();
+  // "Lecture 3 | MIT 6.832 (…), Spring 2020 | Dynamic Programming": the topic comes last.
+  if (!rest && segments.length - index > 2) return (segments[segments.length - 1] ?? "").trim();
+  return rest;
+}
+
+/** "Лекция 7 — Wave Equation" or just "Лекция 7" when the title names no topic. */
+export function lectureTitle(title: string, fallbackNumber: number): string {
+  const number = numberFromTitle(title) ?? fallbackNumber;
+  const topic = lectureTopic(title);
+  return topic ? `Лекция ${number} — ${topic}` : `Лекция ${number}`;
+}
+
 /**
  * Spreads `extras` over `main` in order, keeping proportions:
  * 3 lectures + 6 recitations → 2 recitations after each lecture.

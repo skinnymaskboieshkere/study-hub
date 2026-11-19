@@ -9,11 +9,144 @@
   "description": "Введение в робототехнику: кинематика, якобиан, динамика и управление манипуляторами.",
   "sourceUrl": "https://see.stanford.edu/Course/CS223A",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PL65CC0384A1798ADF"],
-  "estimatedHours": 19,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "0yD3uBshJB0",
+          "title": "Лекция 1",
+          "durationSec": 3492,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "QKyDrUonp98",
+          "title": "Лекция 2",
+          "durationSec": 4091,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Mm5Tfm04cKk",
+          "title": "Лекция 3",
+          "durationSec": 4631,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "IY38-bK6yXs",
+          "title": "Лекция 4",
+          "durationSec": 4314,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "u79KfNgP1Cc",
+          "title": "Лекция 5",
+          "durationSec": 3996,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "fwHc0a8DMQ0",
+          "title": "Лекция 6",
+          "durationSec": 4235,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "6SRTAoyzC6A",
+          "title": "Лекция 7",
+          "durationSec": 4154,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XrNdB4k5kUk",
+          "title": "Лекция 8",
+          "durationSec": 4511,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "-B3cyFXrhos",
+          "title": "Лекция 9",
+          "durationSec": 4563,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "7wIqGavQjTQ",
+          "title": "Лекция 10",
+          "durationSec": 3694,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "o3Xx3vi6qzo",
+          "title": "Лекция 11",
+          "durationSec": 4421,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "MCmkUJGYvOY",
+          "title": "Лекция 12",
+          "durationSec": 4417,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "5-k2RzfIgoU",
+          "title": "Лекция 13",
+          "durationSec": 4211,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "U3diaQ-iU0I",
+          "title": "Лекция 14",
+          "durationSec": 4395,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "A6QEQFTBKnA",
+          "title": "Лекция 15",
+          "durationSec": 4345,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "DdqNdpcFcF8",
+          "title": "Лекция 16",
+          "durationSec": 4214,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["kinematics", "dynamics", "control"]
 }

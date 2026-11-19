@@ -6,14 +6,91 @@
   "instructors": ["Alexander Amini", "Ava Amini"],
   "subject": "cv",
   "level": 3,
-  "description": "Короткий интенсив по deep learning: нейросети, CNN, генеративные модели. Актуальный год проверим на этапе 7.",
+  "description": "Короткий интенсив по deep learning: нейросети, CNN, трансформеры, генеративные модели, RL. Последний выпуск курса.",
   "sourceUrl": "https://introtodeeplearning.com/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
-  "youtubePlaylistIds": [],
-  "estimatedHours": 12,
-  "units": [],
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
+  "youtubePlaylistIds": ["PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI"],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "II4giR4vOOo",
+          "title": "Лекция 1 — Introduction to Deep Learning",
+          "durationSec": 3376,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "d02VkQ9MP44",
+          "title": "Лекция 2 — Recurrent Neural Networks, Transformers, and Attention",
+          "durationSec": 3454,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "pqIcoskUuWs",
+          "title": "Лекция 3 — Convolutional Neural Networks",
+          "durationSec": 3406,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "R8V8CbuxryI",
+          "title": "Лекция 4 — Deep Generative Modeling",
+          "durationSec": 2976,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "1ij3dweHu-0",
+          "title": "Лекция 5 — Reinforcement Learning",
+          "durationSec": 3559,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ev7cLSd-ySE",
+          "title": "Лекция 6 — Language Models and New Frontiers",
+          "durationSec": 3377,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XKOpA7iaJvg",
+          "title": "Лекция 7 — The Three Laws of AI",
+          "durationSec": 3109,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "rZACoZD8AG8",
+          "title": "Лекция 8 — AI for Science",
+          "durationSec": 3550,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "UZZD9d9YqnQ",
+          "title": "Лекция 9 — Secrets of Massively Parallel Training",
+          "durationSec": 3160,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["deep-learning"]
 }

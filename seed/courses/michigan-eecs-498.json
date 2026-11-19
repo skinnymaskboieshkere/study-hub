@@ -9,11 +9,192 @@
   "description": "Deep learning для зрения (2019): от линейных классификаторов до детекции, сегментации и 3D-зрения.",
   "sourceUrl": "https://web.eecs.umich.edu/~justincj/teaching/eecs498/FA2019/",
   "license": "См. условия на сайте курса",
-  "verifiedAt": "2026-11-18",
-  "status": "candidate",
+  "verifiedAt": "2026-11-19",
+  "status": "imported",
   "youtubePlaylistIds": ["PL5-TkQAfAZFbzxjBHtzdVCWE0Zbhomg7r"],
-  "estimatedHours": 26,
-  "units": [],
+  "units": [
+    {
+      "title": "Лекции",
+      "videos": [
+        {
+          "youtubeId": "dJYGatp4SvA",
+          "title": "Лекция 1 — Introduction to Deep Learning for Computer Vision",
+          "durationSec": 3476,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "0nqvO3AM2Vw",
+          "title": "Лекция 2 — Image Classification",
+          "durationSec": 3735,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "qcSEP17uKKY",
+          "title": "Лекция 3 — Linear Classifiers",
+          "durationSec": 3726,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YnQJTfbwBM8",
+          "title": "Лекция 4 — Optimization",
+          "durationSec": 3787,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "g6InpdhUblE",
+          "title": "Лекция 5 — Neural Networks",
+          "durationSec": 3727,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dB-u77Y5a6A",
+          "title": "Лекция 6 — Backpropagation",
+          "durationSec": 4276,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "ANyxBVxmdZ0",
+          "title": "Лекция 7 — Convolutional Networks",
+          "durationSec": 4133,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "XaZIlVrIO-Q",
+          "title": "Лекция 8 — CNN Architectures",
+          "durationSec": 4323,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "oXPX8GIOiU4",
+          "title": "Лекция 9 — Hardware and Software",
+          "durationSec": 4342,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "lGbQlr1Ts7w",
+          "title": "Лекция 10 — Training Neural Networks I",
+          "durationSec": 4334,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "WUazOtlti0g",
+          "title": "Лекция 11 — Training Neural Networks II",
+          "durationSec": 4754,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "dUzLD91Sj-o",
+          "title": "Лекция 12 — Recurrent Networks",
+          "durationSec": 4407,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "YAgjfMR9R_M",
+          "title": "Лекция 13 — Attention",
+          "durationSec": 4313,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "G1hGwHVykDU",
+          "title": "Лекция 14 — Visualizing and Understanding",
+          "durationSec": 4324,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "TB-fdISzpHQ",
+          "title": "Лекция 15 — Object Detection",
+          "durationSec": 4352,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "9AyMR4IhSWQ",
+          "title": "Лекция 16 — Detection and Segmentation",
+          "durationSec": 4207,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "S1_nCdLUQQ8",
+          "title": "Лекция 17 — 3D Vision",
+          "durationSec": 4354,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "A9D6NXBJdwU",
+          "title": "Лекция 18 — Videos",
+          "durationSec": 4521,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Q3HU2vEhD5Y",
+          "title": "Лекция 19 — Generative Models I",
+          "durationSec": 4273,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "igP03FXZqgo",
+          "title": "Лекция 20 — Generative Models II",
+          "durationSec": 4367,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "Qex3XzcFKP4",
+          "title": "Лекция 21 — Reinforcement Learning",
+          "durationSec": 4305,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        },
+        {
+          "youtubeId": "s3Ky_Ls4YSY",
+          "title": "Лекция 22 — Conclusion",
+          "durationSec": 4408,
+          "kind": "lecture",
+          "language": "en",
+          "embeddable": true
+        }
+      ]
+    }
+  ],
   "materials": [],
   "skills": ["cnn", "detection", "segmentation"]
 }

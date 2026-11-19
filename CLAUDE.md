@@ -54,11 +54,14 @@ root (paths use `process.cwd()`).
 
 - Prerequisites are soft (SPEC §4). `want(...)` in `scripts/catalog/tracks.ts` marks a "желательно" one: shown in
   hints, never makes a course wait, still counted in the hours to CV.
-- Course recipes live in `scripts/catalog/` (imported track-1 courses, candidates of tracks 2–4, track placement and
-  prerequisites). Never hand-edit `seed/courses/*.json`: change the recipe and run `npm run catalog`.
+- Course recipes live in `scripts/catalog/`: `imported-courses.ts` (track 1), `tracks-2-4.ts` + `tracks-2-4-meta.ts`
+  (tracks 2–4, imported in stage 7b), `candidates.ts` (courses without videos yet; empty now), `tracks.ts` (track
+  placement and prerequisites). Never hand-edit `seed/courses/*.json`: change the recipe and run `npm run catalog`.
 - Official university channels only; a Russian translation may replace official videos only when it is complete
   and credits the original (store it with `language: "ru"` and `originalYoutubeId`). Doubtful cases → ask the user.
 - Videos are classified as lecture / section / recitation / problem-solving / short; practice is part of the plan.
+- Stanford CS231n 2025 is not embeddable (user's choice, stage 7b): its lessons open on YouTube and are ticked by hand.
+  A missing `maxresdefault` thumbnail comes back as a 120×90 placeholder: `CourseCover` falls back on load too.
 
 ## Structure
 

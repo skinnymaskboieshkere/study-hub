@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import {
   interleaveProportionally,
   isTrailer,
+  lectureTitle,
+  lectureTopic,
   numberFromTitle,
   toSeedVideo,
   unitsFromLecturePlaylist,
@@ -93,5 +95,38 @@ describe("toSeedVideo", () => {
       originalYoutubeId: "UuIEbpQms8o",
       embeddable: true,
     });
+  });
+});
+
+describe("lectureTopic", () => {
+  it("drops the number and the course name, wherever they stand", () => {
+    const cases: [string, string][] = [
+      ["Lec 1: Dot product | MIT 18.02 Multivariable Calculus, Fall 2007", "Dot product"],
+      ["Lec 1 | MIT 18.03 Differential Equations, Spring 2006", ""],
+      ["Lecture 1, Introduction | MIT RES.6.007 Signals and Systems, Spring 2011", "Introduction"],
+      ["Lecture 4: Conditional Probability | Statistics 110", "Conditional Probability"],
+      [
+        "Stanford CS231N | Spring 2025 | Lecture 2: Image Classification with Linear Classifiers",
+        "Image Classification with Linear Classifiers",
+      ],
+      ["1. Electrostatics", "Electrostatics"],
+      [
+        "6.4210 Fall 2023 Lecture 9: Manipulation in Clutter- Grasp Selection",
+        "Manipulation in Clutter- Grasp Selection",
+      ],
+      [
+        "Lecture 3 | MIT 6.832 (Underactuated Robotics), Spring 2020 | Dynamic Programming",
+        "Dynamic Programming",
+      ],
+      ["Lecture 1 | Introduction to Robotics", ""],
+      ["Linear Systems [Control Bootcamp]", "Linear Systems [Control Bootcamp]"],
+    ];
+    for (const [title, topic] of cases) expect(lectureTopic(title)).toBe(topic);
+  });
+
+  it("builds the Russian lecture title", () => {
+    expect(lectureTitle("Lec 3: Matrices | MIT 18.02", 9)).toBe("Лекция 3 — Matrices");
+    expect(lectureTitle("Lec 2 | MIT 18.03", 9)).toBe("Лекция 2");
+    expect(lectureTitle("Overview", 4)).toBe("Лекция 4 — Overview");
   });
 });
