@@ -3,6 +3,7 @@ import type { Collection, Subject, TrackSlug, VideoKind } from "./catalog";
 import { CollectionSchema, YoutubeIdSchema } from "./catalog";
 import type { LessonStatus } from "./progress";
 import type { RoadmapState } from "./roadmap";
+import type { StatsPeriod } from "./stats";
 
 /** Response of GET /api/health. */
 export const HealthResponseSchema = z.object({
@@ -244,6 +245,35 @@ export interface RoadmapDto {
   nodes: RoadmapNodeDto[];
   /** "До трека Computer Vision осталось ~N часов". */
   hoursLeft: number;
+}
+
+export interface StatsDto {
+  period: StatsPeriod;
+  from: string;
+  to: string;
+  /** Anchors of the neighbour periods; next is null for the current one. */
+  previous: string;
+  next: string | null;
+  /** Seconds watched in the period. */
+  total: number;
+  /** Days with at least 5 minutes of study or a finished plan part. */
+  activeDays: number;
+  days: { date: string; seconds: number; byTrack: Partial<Record<TrackSlug, number>> }[];
+  byTrack: { slug: TrackSlug; title: string; color: string; seconds: number }[];
+  bySubject: { subject: Subject; seconds: number }[];
+  /** Started courses: progress overall and time in the period. */
+  courses: {
+    slug: string;
+    shortTitle: string;
+    title: string;
+    track: TrackSlug;
+    progress: number;
+    seconds: number;
+  }[];
+  streak: { current: number; best: number };
+  /** null when no vault is connected. */
+  notes: { count: number; links: number; timecodes: number } | null;
+  cv: TodayDto["cv"];
 }
 
 export interface TrackProgressDto {

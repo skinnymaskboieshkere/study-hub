@@ -1,25 +1,4 @@
 import { Link } from "react-router";
-import { PagePlaceholder } from "@/components/PagePlaceholder";
-
-export function StatsPage() {
-  return (
-    <PagePlaceholder
-      title="Статистика"
-      description="Часы по трекам и предметам за неделю и месяц, серия дней подряд и прогресс к Computer Vision."
-      stage="7"
-    />
-  );
-}
-
-export function SettingsPage() {
-  return (
-    <PagePlaceholder
-      title="Настройки"
-      description="Путь к vault, учебные дни, субтитры, хоткеи и резервная копия данных."
-      stage="7"
-    />
-  );
-}
 
 export function NotFoundPage() {
   return (

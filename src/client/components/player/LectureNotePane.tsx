@@ -1,4 +1,5 @@
 import { timecodeMarkdown, parseYoutubeLink } from "@shared/note-templates";
+import { hotkeyLabel } from "@shared/settings";
 import { resolveLink } from "@shared/notes";
 import type { NoteListItemDto } from "@shared/api";
 import { Eye, NotebookPen, PenLine, SquareArrowOutUpRight, X } from "lucide-react";
@@ -12,6 +13,7 @@ import {
   useNotesStatus,
   useTags,
 } from "@/app/notes-queries";
+import { useAppSettings } from "@/app/settings-queries";
 import { MarkdownPreview } from "@/components/notes/MarkdownPreview";
 import { NoteEditor, type NoteEditorHandle } from "@/components/notes/NoteEditor";
 import { useNoteCompletion } from "@/components/notes/useNoteCompletion";
@@ -32,6 +34,8 @@ interface LectureNotePaneProps {
   /** A YouTube link or timecode in the note was clicked. */
   onOpenVideo: (videoId: string, seconds: number) => void;
   onClose: () => void;
+  /** A timecode went into the note: the player pauses if the settings say so. */
+  onTimecodeTaken?: () => void;
   ref?: Ref<LectureNoteHandle>;
 }
 
@@ -45,6 +49,7 @@ export function LectureNotePane(props: LectureNotePaneProps) {
   const available = Boolean(status.data?.available);
   const lecture = useLectureNote(props.youtubeId, available);
   const create = useCreateLectureNote();
+  const { timecodeHotkey } = useAppSettings();
 
   let body;
   if (status.isPending || (available && lecture.isPending)) {
@@ -62,7 +67,8 @@ export function LectureNotePane(props: LectureNotePaneProps) {
         <p className="text-ink">Конспекта к этой лекции пока нет.</p>
         <p className="text-sm text-ink-muted">
           Заметка появится в твоём Obsidian: Courses → курс → лекция, с разделами «Главные идеи»,
-          «Таймкоды», «Формулы» и другими. Alt+T вставит таймкод текущего момента.
+          «Таймкоды», «Формулы» и другими. {hotkeyLabel(timecodeHotkey)} вставит таймкод текущего
+          момента.
         </p>
         <Button
           disabled={create.isPending}
@@ -116,13 +122,19 @@ function LectureNote({ path, ...props }: LectureNotePaneProps & { path: string }
   const editor = useRef<NoteEditorHandle>(null);
   const [mode, setMode] = useState<"edit" | "preview">("edit");
   const paths = useMemo(() => (list.data ?? []).map((note) => note.path), [list.data]);
-  const timecode = () => timecodeMarkdown(props.youtubeId, props.currentTime());
+  const { timecodeHotkey } = useAppSettings();
+  const timecode = () => {
+    props.onTimecodeTaken?.();
+    return timecodeMarkdown(props.youtubeId, props.currentTime());
+  };
 
   useImperativeHandle(props.ref, () => ({
     insertTimecode() {
       if (mode !== "edit") {
         setMode("edit");
-        toast("Таймкод вставляется в режиме редактора — нажми Alt+T ещё раз");
+        toast(
+          `Таймкод вставляется в режиме редактора — нажми ${hotkeyLabel(timecodeHotkey)} ещё раз`,
+        );
         return;
       }
       editor.current?.insertTimecode(timecode());
@@ -215,6 +227,7 @@ function LectureNote({ path, ...props }: LectureNotePaneProps & { path: string }
               onOpenUrl={openUrl}
               onPasteImage={uploadImage}
               onTimecode={timecode}
+              timecodeHotkey={timecodeHotkey}
             />
           ) : (
             <MarkdownPreview

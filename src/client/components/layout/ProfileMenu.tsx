@@ -1,4 +1,4 @@
-import { ChevronDown, LayoutTemplate, Palette, Settings, UserRound } from "lucide-react";
+import { Archive, ChevronDown, LayoutTemplate, Palette, Settings, UserRound } from "lucide-react";
 import { Link } from "react-router";
 import {
   DropdownMenu,
@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-/** Avatar menu in the header: settings now, backup later (stage 7). */
+/** Avatar menu in the header (BRIEF): settings and backups, plus the design showcase. */
 export function ProfileMenu() {
   return (
     <DropdownMenu>
@@ -29,6 +29,12 @@ export function ProfileMenu() {
           <Link to="/settings">
             <Settings aria-hidden />
             Настройки
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link to="/settings#backups">
+            <Archive aria-hidden />
+            Резервные копии
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />

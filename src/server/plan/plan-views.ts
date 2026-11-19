@@ -50,7 +50,7 @@ export function itemsBetween(db: AppDatabase, from: string, to: string): PlanIte
 const length = (item: PlanItemDto) => item.endSec - item.startSec;
 
 /** The "прогресс к CV" widget: hours to the CV track and each track's share (SPEC §6.4). */
-function cvProgress(db: AppDatabase): TodayDto["cv"] {
+export function cvProgress(db: AppDatabase): TodayDto["cv"] {
   const catalogDto = getCatalog(db);
   const roadmap = roadmapCourses(db, catalogDto);
   const shares = trackShares(roadmap);

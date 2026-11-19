@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatDuration, formatPercent, formatTimecode, pluralRu } from "./format";
+import { formatBytes, formatDuration, formatPercent, formatTimecode, pluralRu } from "./format";
 
 describe("formatPercent", () => {
   it("rounds down and never shows a started course as 0%", () => {
@@ -64,5 +64,14 @@ describe("pluralRu", () => {
     [0, "лекций"],
   ])("%i → %s", (count, expected) => {
     expect(pluralRu(count, forms)).toBe(expected);
+  });
+});
+
+describe("formatBytes", () => {
+  it("picks bytes, kilobytes or megabytes", () => {
+    expect(formatBytes(900)).toBe("900 Б");
+    expect(formatBytes(15_360)).toBe("15 КБ");
+    expect(formatBytes(12.3 * 1024 * 1024)).toBe("12,3 МБ");
+    expect(formatBytes(250 * 1024 * 1024)).toBe("250 МБ");
   });
 });

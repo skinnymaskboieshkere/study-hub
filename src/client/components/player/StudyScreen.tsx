@@ -4,6 +4,7 @@ import { lazy, Suspense, useCallback, useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 import { PROGRESS_QUERY_KEYS, useSetCompletion, useSetItemDone } from "@/app/queries";
+import { useAppSettings } from "@/app/settings-queries";
 import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { segmentStart, type PlanSegment } from "@/lib/segment";
@@ -51,6 +52,7 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
   const [segmentDone, setSegmentDone] = useState(false);
   const [noteOpen, setNoteOpen] = useStoredFlag("studyhub.noteOpen", false);
   const [playlistOpen, setPlaylistOpen] = useState(false);
+  const settings = useAppSettings();
   const completion = useSetCompletion(video.youtubeId);
   const setItemDone = useSetItemDone();
   const completed = video.status === "done";
@@ -143,7 +145,8 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
           <YouTubePlayer
             videoId={video.youtubeId}
             startSeconds={startSec}
-            captions={video.language !== "ru"}
+            captions={settings.captions && video.language !== "ru"}
+            noCookie={settings.youtubeNoCookie}
             onReady={(ready) => {
               setPlayer(ready);
               ready.setPlaybackRate(rate);
@@ -161,7 +164,7 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
               }
             }}
             onApiChange={(ready) => {
-              if (video.language !== "ru") tryRussianCaptions(ready);
+              if (settings.captions && video.language !== "ru") tryRussianCaptions(ready);
             }}
             onError={setErrorCode}
           />
@@ -206,7 +209,11 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
         />
       </div>
       <div className="mt-4">
-        <StudyHints russian={video.language === "ru"} />
+        <StudyHints
+          russian={video.language === "ru"}
+          captions={settings.captions}
+          hotkey={settings.timecodeHotkey}
+        />
       </div>
     </>
   );
@@ -229,6 +236,7 @@ export function StudyScreen({ watch, segment, startAt, focus, onToggleFocus }: S
                 currentTime={time}
                 onOpenVideo={openVideo}
                 onClose={() => setNoteOpen(false)}
+                onTimecodeTaken={() => settings.pauseOnTimecode && player?.pauseVideo()}
               />
             </Suspense>
           ) : null

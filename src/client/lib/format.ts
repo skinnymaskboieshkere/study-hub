@@ -40,3 +40,13 @@ export function formatPercent(share: number): string {
   if (percent === 0) return "<1%";
   return `${Math.min(100, percent)}%`;
 }
+
+/** File size: 900 → "900 Б", 15_360 → "15 КБ", 12_900_000 → "12,3 МБ". */
+export function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} Б`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} КБ`;
+  const megabytes = bytes / (1024 * 1024);
+  const text =
+    megabytes < 100 ? megabytes.toFixed(1).replace(".", ",") : String(Math.round(megabytes));
+  return `${text} МБ`;
+}

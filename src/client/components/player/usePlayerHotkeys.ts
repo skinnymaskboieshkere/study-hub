@@ -1,3 +1,4 @@
+import { isTimecodeHotkey, type TimecodeHotkey } from "@shared/settings";
 import { useEffect, useRef } from "react";
 
 export interface PlayerHotkeyActions {
@@ -6,8 +7,10 @@ export interface PlayerHotkeyActions {
   changeRate: (step: number) => void;
   addBookmark: () => void;
   toggleFocus: () => void;
-  /** Alt+T: timecode into the lecture note (SPEC §6.6; BRIEF: not Ctrl+Shift+T). */
+  /** Timecode into the lecture note (SPEC §6.6; BRIEF: not Ctrl+Shift+T). */
   timecode: () => void;
+  /** Its key, from the settings (Alt+T by default). */
+  timecodeHotkey: TimecodeHotkey;
 }
 
 function isTypingTarget(target: EventTarget | null): boolean {
@@ -21,7 +24,7 @@ function isTypingTarget(target: EventTarget | null): boolean {
 
 /**
  * Player hotkeys (SPEC §6.2): Space — play/pause, ←/→ — 10 s, Shift+←/→ — speed,
- * B — bookmark, F — focus mode, Alt+T — timecode. Never fire while typing in a field or the note.
+ * B — bookmark, F — focus mode, Alt+T (or the key from Settings) — timecode. Never fire while typing in a field or the note.
  */
 export function usePlayerHotkeys(actions: PlayerHotkeyActions) {
   const latest = useRef(actions);
@@ -33,8 +36,8 @@ export function usePlayerHotkeys(actions: PlayerHotkeyActions) {
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.defaultPrevented) return;
-      // The editor handles Alt+T itself; here it works with the focus on the page or player.
-      if (event.altKey && !event.ctrlKey && !event.metaKey && event.code === "KeyT") {
+      // The editor handles the timecode itself; here it works with the focus on the page or player.
+      if (isTimecodeHotkey(event, latest.current.timecodeHotkey)) {
         if (isTypingTarget(event.target)) return;
         event.preventDefault();
         latest.current.timecode();

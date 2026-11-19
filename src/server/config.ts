@@ -10,6 +10,8 @@ const EnvSchema = z.object({
   VAULT_PATH: z.string().optional(),
   /** Another data folder, e.g. data/sandbox for checks that must not touch the real database. */
   DATA_DIR: z.string().optional(),
+  /** Backups folder; by default backups/ next to the project, or inside DATA_DIR when it is set. */
+  BACKUPS_DIR: z.string().optional(),
   YOUTUBE_API_KEY: z.string().optional(),
 });
 
@@ -24,6 +26,10 @@ export const config = {
   uiPort: env.PORT,
   port: isDev ? env.PORT + 1 : env.PORT,
   dataDir: path.resolve(process.cwd(), env.DATA_DIR || "data"),
+  backupsDir: path.resolve(
+    process.cwd(),
+    env.BACKUPS_DIR || (env.DATA_DIR ? path.join(env.DATA_DIR, "backups") : "backups"),
+  ),
   migrationsDir: path.resolve(process.cwd(), "drizzle"),
   /** Course catalog in git: tracks.json and courses/*.json (SPEC §4). */
   seedDir: path.resolve(process.cwd(), "seed"),

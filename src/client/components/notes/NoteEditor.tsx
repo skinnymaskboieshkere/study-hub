@@ -21,6 +21,7 @@ import {
 } from "@codemirror/view";
 import { useEffect, useImperativeHandle, useRef, type Ref } from "react";
 import { timecodeInsertion } from "@shared/note-templates";
+import { isTimecodeHotkey, type TimecodeHotkey } from "@shared/settings";
 import { toast } from "sonner";
 import { tagCompletion, wikilinkCompletion, type CompletionData } from "@/lib/editor/completion";
 import { editorHighlight, editorTheme } from "@/lib/editor/theme";
@@ -46,6 +47,7 @@ interface NoteEditorProps {
   onOpenUrl?: (url: string) => boolean;
   /** Timecode for the hotkey (SPEC §6.6); null when no video plays next to the note. */
   onTimecode?: () => string | null;
+  timecodeHotkey?: TimecodeHotkey;
   /** A pasted or dropped picture: saved to the vault, returns the name for `![[...]]`. */
   onPasteImage?: (file: File) => Promise<string>;
   ref?: Ref<NoteEditorHandle>;
@@ -86,6 +88,7 @@ export function NoteEditor({
   onOpenLink,
   onOpenUrl,
   onTimecode,
+  timecodeHotkey = "alt-t",
   onPasteImage,
   ref,
 }: NoteEditorProps) {
@@ -99,11 +102,20 @@ export function NoteEditor({
     onOpenLink,
     onOpenUrl,
     onTimecode,
+    timecodeHotkey,
     onPasteImage,
     completion,
   });
   useEffect(() => {
-    callbacks.current = { onChange, onOpenLink, onOpenUrl, onTimecode, onPasteImage, completion };
+    callbacks.current = {
+      onChange,
+      onOpenLink,
+      onOpenUrl,
+      onTimecode,
+      timecodeHotkey,
+      onPasteImage,
+      completion,
+    };
   });
 
   useEffect(() => {
@@ -139,17 +151,18 @@ export function NoteEditor({
           highlightActiveLine(),
           highlightSelectionMatches(),
           EditorView.lineWrapping,
-          keymap.of([
-            {
-              // Alt+T — timecode of the playing video (BRIEF: Ctrl+Shift+T belongs to the browser).
-              key: "Alt-t",
-              run: (target) => {
-                const text = callbacks.current.onTimecode?.();
-                if (!text) return false;
-                insertTimecode(target, text, true);
-                return true;
-              },
+          // The timecode hotkey (Alt+T by default, set in Settings; BRIEF: not Ctrl+Shift+T).
+          EditorView.domEventHandlers({
+            keydown: (event, target) => {
+              if (!isTimecodeHotkey(event, callbacks.current.timecodeHotkey)) return false;
+              const text = callbacks.current.onTimecode?.();
+              if (!text) return false;
+              event.preventDefault();
+              insertTimecode(target, text, true);
+              return true;
             },
+          }),
+          keymap.of([
             ...closeBracketsKeymap,
             ...defaultKeymap,
             ...searchKeymap,

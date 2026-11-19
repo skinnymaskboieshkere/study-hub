@@ -37,6 +37,7 @@ import {
   saveAttachment,
 } from "./notes-maintenance";
 import {
+  clearIndex,
   indexedFiles,
   indexNote,
   lectureNoteFor,
@@ -64,11 +65,30 @@ export class NotesService {
   private changes = 0;
   private watcher: FSWatcher | undefined;
   private readonly db: AppDatabase;
-  readonly vault: Vault | null;
+  private current: Vault | null;
 
   constructor(db: AppDatabase, vaultPath: string | undefined) {
     this.db = db;
-    this.vault = vaultPath ? new Vault(vaultPath) : null;
+    this.current = vaultPath ? new Vault(vaultPath) : null;
+  }
+
+  get vault(): Vault | null {
+    return this.current;
+  }
+
+  /**
+   * Switches to another vault folder (Settings). The index is rebuilt from the new files;
+   * nothing is written into either folder.
+   */
+  async connect(vaultPath: string | undefined): Promise<void> {
+    await this.close();
+    this.current = vaultPath ? new Vault(vaultPath) : null;
+    clearIndex(this.db);
+    this.changes += 1;
+    if (this.current?.exists()) {
+      await this.sync();
+      this.watch();
+    }
   }
 
   /** Grows on every change of notes or folders: the client polls it to refresh. */
@@ -87,7 +107,8 @@ export class NotesService {
   }
 
   private requireVault(): Vault {
-    if (!this.vault) throw new VaultError("Хранилище не подключено: укажи VAULT_PATH в .env", 503);
+    if (!this.vault)
+      throw new VaultError("Хранилище не подключено: выбери папку в настройках", 503);
     if (!this.vault.exists()) throw new VaultError("Папка хранилища не найдена", 503);
     return this.vault;
   }
@@ -137,6 +158,7 @@ export class NotesService {
 
   async close() {
     await this.watcher?.close();
+    this.watcher = undefined;
   }
 
   /**

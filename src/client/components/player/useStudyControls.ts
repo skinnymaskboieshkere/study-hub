@@ -1,7 +1,9 @@
 import { useRef, type RefObject } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
+import { hotkeyLabel } from "@shared/settings";
 import { useAddBookmark } from "@/app/queries";
+import { useAppSettings } from "@/app/settings-queries";
 import { formatTimecode } from "@/lib/format";
 import { clampRate } from "@/lib/player";
 import type { LectureNoteHandle } from "./LectureNotePane";
@@ -27,6 +29,7 @@ export function useStudyControls(input: StudyControlsInput) {
   const { player, time } = input;
   const navigate = useNavigate();
   const addBookmark = useAddBookmark(input.youtubeId);
+  const { timecodeHotkey } = useAppSettings();
 
   const seekTo = (seconds: number) => player?.seekTo(Math.max(0, seconds), true);
   // The player reports the new time with a delay, so quick ←/→ presses add up here.
@@ -70,11 +73,14 @@ export function useStudyControls(input: StudyControlsInput) {
     timecode: () => {
       if (!input.noteOpen) {
         input.setNoteOpen(true);
-        toast("Открыл конспект — нажми Alt+T ещё раз, чтобы вставить таймкод");
+        toast(
+          `Открыл конспект — нажми ${hotkeyLabel(timecodeHotkey)} ещё раз, чтобы вставить таймкод`,
+        );
       } else {
         input.note.current?.insertTimecode();
       }
     },
+    timecodeHotkey,
   });
 
   return { seekTo, bookmark, openVideo };

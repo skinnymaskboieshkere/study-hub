@@ -5,7 +5,7 @@ import { CatalogPage } from "@/pages/CatalogPage";
 import { CoursePage } from "@/pages/CoursePage";
 import { HomePage } from "@/pages/HomePage";
 import { PlanPage } from "@/pages/PlanPage";
-import { NotFoundPage, SettingsPage, StatsPage } from "@/pages/SectionPages";
+import { NotFoundPage } from "@/pages/SectionPages";
 import { WatchPage } from "@/pages/WatchPage";
 
 export const router = createBrowserRouter([
@@ -32,8 +32,14 @@ export const router = createBrowserRouter([
         path: "notes",
         lazy: async () => ({ Component: (await import("@/pages/NotesPage")).NotesPage }),
       },
-      { path: "stats", element: <StatsPage /> },
-      { path: "settings", element: <SettingsPage /> },
+      {
+        path: "stats",
+        lazy: async () => ({ Component: (await import("@/pages/StatsPage")).StatsPage }),
+      },
+      {
+        path: "settings",
+        lazy: async () => ({ Component: (await import("@/pages/SettingsPage")).SettingsPage }),
+      },
       // Design showcase (SPEC §7): loaded on demand, so it never slows down the real screens.
       {
         path: "dev/ui",

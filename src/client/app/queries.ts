@@ -9,11 +9,13 @@ import type {
   PlanItemDto,
   ProgressDto,
   RoadmapDto,
+  StatsDto,
   TaskDto,
   TodayDto,
   WatchDto,
 } from "@shared/api";
 import type { Collection } from "@shared/catalog";
+import type { StatsPeriod } from "@shared/stats";
 import { QueryClient, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 
@@ -30,6 +32,9 @@ export const keys = {
   continue: ["continue"] as const,
   bookmarks: (youtubeId: string) => ["bookmarks", youtubeId] as const,
   roadmap: ["roadmap"] as const,
+  stats: (period: StatsPeriod, date: string) => ["stats", period, date] as const,
+  settings: ["settings"] as const,
+  backups: ["backups"] as const,
 };
 
 export const useCatalog = () =>
@@ -62,6 +67,14 @@ export const useContinue = () =>
 export const useRoadmap = () =>
   useQuery({ queryKey: keys.roadmap, queryFn: () => api.get<RoadmapDto>("/api/roadmap") });
 
+export const useStats = (period: StatsPeriod, date: string) =>
+  useQuery({
+    queryKey: keys.stats(period, date),
+    queryFn: () =>
+      api.get<StatsDto>(`/api/stats?period=${period}&date=${encodeURIComponent(date)}`),
+    placeholderData: (previous) => previous,
+  });
+
 export const useBookmarks = (youtubeId: string) =>
   useQuery({
     queryKey: keys.bookmarks(youtubeId),
@@ -74,6 +87,7 @@ export const PROGRESS_QUERY_KEYS = [
   ["course"],
   keys.continue,
   keys.roadmap,
+  ["stats"],
   ["today"],
   ["calendar"],
 ];

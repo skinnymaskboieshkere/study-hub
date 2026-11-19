@@ -93,6 +93,12 @@ export function removeNote(db: AppDatabase, path: string): boolean {
   return removed;
 }
 
+/** Forgets the whole index: another vault was connected (links and tags go by cascade). */
+export function clearIndex(db: AppDatabase) {
+  db.delete(notes).run();
+  db.run(sql`DELETE FROM notes_fts`);
+}
+
 /** What the index knows about each file: lets the start-up sync skip unchanged notes. */
 export function indexedFiles(db: AppDatabase): Map<string, { mtimeMs: number; size: number }> {
   const rows = db

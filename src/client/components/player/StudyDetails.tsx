@@ -1,3 +1,4 @@
+import { hotkeyLabel, type TimecodeHotkey } from "@shared/settings";
 import type { WatchDto } from "@shared/api";
 import { Link } from "react-router";
 import { KIND_LABEL } from "@/app/labels";
@@ -25,12 +26,21 @@ export function StudyHeading({ watch }: { watch: WatchDto }) {
 }
 
 /** Keyboard reminder (SPEC §6.2, §6.6). */
-export function StudyHints({ russian }: { russian: boolean }) {
+export function StudyHints({
+  russian,
+  captions,
+  hotkey,
+}: {
+  russian: boolean;
+  captions: boolean;
+  hotkey: TimecodeHotkey;
+}) {
   return (
     <p className="text-xs leading-relaxed text-ink-muted">
-      Пробел — пауза · ←/→ — 10 секунд · Shift+←/→ — скорость · B — закладка · F — фокус-режим ·
-      Alt+T — таймкод в конспект.
+      Пробел — пауза · ←/→ — 10 секунд · Shift+←/→ — скорость · B — закладка · F — фокус-режим ·{" "}
+      {hotkeyLabel(hotkey)} — таймкод в конспект.
       {!russian &&
+        captions &&
         " Русские субтитры включаются сами; если их нет — в плеере: ⚙ → Субтитры → Перевести → Русский."}
     </p>
   );

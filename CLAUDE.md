@@ -27,7 +27,8 @@ Local single-user study platform: course catalog with an embedded YouTube player
 TypeScript (strict) · React 19 + Vite 8 + React Router 8 · Tailwind CSS 4 + shadcn/ui · Fastify 5 ·
 SQLite (better-sqlite3) + Drizzle ORM · zod · TanStack Query · Vitest ·
 notes: CodeMirror 6, unified/remark/rehype (+ KaTeX, highlight.js via lowlight), chokidar, yaml, react-force-graph-2d ·
-roadmap: React Flow (`@xyflow/react` 12; 13.0 was too fresh at stage 6) · Playwright (e2e). Planned for later: Zustand.
+roadmap: React Flow (`@xyflow/react` 12; 13.0 was too fresh at stage 6) · backups: yazl / yauzl ·
+Playwright (e2e). Planned for later: Zustand.
 
 TypeScript is pinned to 6.0.x on purpose: typescript-eslint does not support TypeScript 7 yet.
 
@@ -70,17 +71,18 @@ src/client/   React app (alias @/): app/ (router, nav, tracks, labels incl. subj
               LectureNotePane = lazy lecture note, VideoNotesList), lib/ (api, format, youtube, player,
               catalog-filter, plan, segment, calendar, markdown, notes-filter, editor/ = CodeMirror completion,
               theme, wikilinks, note-assets, graph-style, roadmap = map layout + hints), pages/ (Home = "Сегодня", Plan, Calendar, Catalog, Course, Watch,
-              Notes, NoteGraph and Roadmap = lazy),
-              app/queries.ts + app/notes-queries.ts (TanStack Query hooks), styles/
+              Notes, NoteGraph, Roadmap, Stats and Settings = lazy), components/stats, components/settings,
+              app/queries.ts + notes-queries.ts + settings-queries.ts (TanStack Query hooks), styles/
               dev/ = design showcase /dev/ui and sample home /dev/home (lazy routes, sample data only)
               class names are merged with `cn` from the `cn` package (shadcn's replacement for clsx + tailwind-merge)
 src/server/   Fastify: app.ts builds the app (testable), index.ts starts it, config.ts, db/, routes/ (catalog, progress,
-              plan, tasks, notes, roadmap), catalog/ (seed loading, repository, services, playlist import), plan/ (plan service
+              plan, tasks, notes, roadmap, stats, settings, backups), catalog/ (seed loading, repository, services, playlist import), plan/ (plan service
               with daily re-planning, Today/calendar views, tasks), notes/ (vault = safe file access, note-index =
               SQLite index + FTS5, notes-service = sync, watcher, saves, notes-maintenance = rename, pictures,
-              graph), roadmap/ (roadmap view), youtube/ (Data API client)
+              graph), roadmap/ (roadmap view), stats/, settings/ (settings table, vault folder check),
+              backup/ (zip backups, restore), youtube/ (Data API client)
 src/shared/   code shared by client and server (alias @shared/): catalog (seed zod), api (DTOs), progress rules,
-              scheduler (plan layout), dates, roadmap (node states, hours to CV), streak, notes (wikilinks, tags, headings,
+              scheduler (plan layout), dates, roadmap (node states, hours to CV), stats (periods, totals), settings (schema, hotkeys), streak, notes (wikilinks, tags, headings,
               frontmatter, Obsidian link resolution), note-templates (YouTube links, timecodes, lecture/daily notes),
               note-links (rename rewriting, graph)
 drizzle/      SQL migrations (committed)
@@ -110,9 +112,14 @@ docs/         BRIEF, ASSESSMENT, design references
 - Never write into the user's real vault (OneDrive) or database during checks: use the `study-hub-sandbox` launch
   config — `VAULT_PATH=vault` (gitignored sample vault), `DATA_DIR=data/sandbox` (its own database), port 5190 — so
   it also runs next to the user's own `npm run dev` on 5180.
+- Settings (SPEC §6.8) live in `settings` under the key `app` (`AppSettingsSchema`). A vault folder chosen in
+  Settings wins over `VAULT_PATH`; `NotesService.connect` switches vaults live and rebuilds the index.
+- Backups (SPEC §6.8): `backups/` (or `DATA_DIR/backups`, `BACKUPS_DIR`). Restore = safety backup of the current
+  state → unpack into `backups/restored-…/` → copy tables into the live database in one transaction (the copy is
+  migrated first; the notes index is rebuilt). The live vault is never written by a restore.
 - Video ↔ notes (SPEC §6.6): a lecture note is found by its frontmatter `video:`; YouTube links and timecodes
   `[▶ 12:34](https://www.youtube.com/watch?v=<id>&t=754s)` are indexed as `video` links. Timecode hotkey is
-  **Alt+T** (BRIEF: Ctrl+Shift+T belongs to the browser). `/watch/:id?t=754` opens a lecture at a second.
+  **Alt+T** (BRIEF: Ctrl+Shift+T belongs to the browser). `/watch/:id?t=754` opens a lecture at a second. The hotkey can be Alt+T / Alt+K / Ctrl+Alt+T (Settings).
   Templates come from `Templates/Лекция.md` and `Templates/Дневная заметка.md` in the vault ({{title}}, {{date}}, …),
   otherwise built-in ones (`src/shared/note-templates.ts`). Daily notes: `Daily/YYYY-MM-DD.md`.
 - Rename (SPEC §9.3): move the file, then rewrite every `[[link]]`/`![[embed]]` that resolved to it

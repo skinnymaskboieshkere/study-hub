@@ -4,6 +4,7 @@ import { syncSeed } from "./catalog/seed";
 import { config } from "./config";
 import { openDatabase } from "./db/client";
 import { NotesService } from "./notes/notes-service";
+import { readSettings } from "./settings/settings-service";
 import { createYouTubeClient } from "./youtube/client";
 
 const { db, close } = openDatabase({
@@ -15,20 +16,23 @@ const seed = syncSeed(db, config.seedDir);
 if (seed.applied) console.log(`Каталог обновлён: ${seed.courses} курсов`);
 
 // Notes: the index catches up with the vault, then follows its changes (SPEC §5).
-const notes = new NotesService(db, config.vaultPath);
+// A folder chosen in the settings wins over VAULT_PATH from .env.
+const vaultPath = readSettings(db).vaultPath ?? config.vaultPath;
+const notes = new NotesService(db, vaultPath);
 if (notes.status().available) {
   const synced = await notes.sync();
   if (synced.indexed || synced.removed) {
     console.log(`Заметки: проиндексировано ${synced.indexed}, убрано из индекса ${synced.removed}`);
   }
   notes.watch();
-} else if (config.vaultPath) {
-  console.warn("Папка хранилища из VAULT_PATH не найдена — заметки недоступны");
+} else if (vaultPath) {
+  console.warn("Папка хранилища не найдена — заметки недоступны");
 }
 
 const app = await buildApp({
   notes,
   db,
+  envVaultPath: config.vaultPath,
   youtube: config.youtubeApiKey ? createYouTubeClient(config.youtubeApiKey) : undefined,
   clientDir: config.isDev ? undefined : config.clientDir,
   logger: true,
