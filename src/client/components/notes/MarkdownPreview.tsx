@@ -5,9 +5,11 @@ import { toJsxRuntime, type Components } from "hast-util-to-jsx-runtime";
 import { useMemo, type ComponentProps, type ReactNode } from "react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { renderMarkdown } from "@/lib/markdown";
+import { isImageLink, vaultImageUrl } from "@/lib/note-assets";
+import { EmbeddedImage, NoteEmbed } from "./NoteEmbed";
 import "katex/dist/katex.min.css";
 
-interface MarkdownPreviewProps {
+export interface MarkdownPreviewProps {
   text: string;
   /** Path of the note shown: links resolve relative to its folder. */
   path: string;
@@ -21,6 +23,8 @@ interface MarkdownPreviewProps {
   onHeading: (heading: string) => void;
   /** YouTube links and timecodes open the lecture in the app (SPEC §6.6). */
   onVideoLink?: (videoId: string, seconds: number) => void;
+  /** How deep inside `![[embeds]]` this preview is. */
+  depth?: number;
 }
 
 const SAFE_URL = /^(https?:|mailto:)/i;
@@ -84,6 +88,13 @@ export function MarkdownPreview(props: MarkdownPreviewProps) {
               </button>
             );
           }
+          if (data["data-embed"]) {
+            return isImageLink(target) ? (
+              <EmbeddedImage target={target} alias={data["data-alias"]} from={path} />
+            ) : (
+              <NoteEmbed {...props} target={target} heading={headingText} from={path} />
+            );
+          }
           const resolved = resolveLink(target, paths, path);
           return (
             <button
@@ -92,7 +103,6 @@ export function MarkdownPreview(props: MarkdownPreviewProps) {
               title={resolved ? resolved.replace(/\.md$/, "") : `Создать заметку «${target}»`}
               onClick={() => (resolved ? onOpenNote(resolved, headingText) : onCreateNote(target))}
             >
-              {data["data-embed"] && <span aria-hidden>↪ </span>}
               {children}
             </button>
           );
@@ -124,8 +134,24 @@ export function MarkdownPreview(props: MarkdownPreviewProps) {
         }
         return <span className="md-link-broken">{children}</span>;
       },
+      // ![alt](attachments/x.png): a vault picture; web pictures load as they are.
+      img: ({ src, alt, ...rest }: ComponentProps<"img">) => (
+        <img
+          {...rest}
+          className="md-image"
+          alt={alt ?? ""}
+          loading="lazy"
+          src={
+            typeof src === "string" && !/^(https?:|data:)/i.test(src)
+              ? vaultImageUrl(decodeURI(src), path)
+              : src
+          }
+        />
+      ),
     };
-  }, [path, paths, onOpenNote, onCreateNote, onTag, onHeading, onVideoLink]);
+    // props is read for embeds: they get the same handlers.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [path, paths, onOpenNote, onCreateNote, onTag, onHeading, onVideoLink, props.depth]);
 
   const body = useMemo(
     () => toJsxRuntime(rendered.tree, { Fragment, jsx, jsxs, components }),
@@ -133,7 +159,7 @@ export function MarkdownPreview(props: MarkdownPreviewProps) {
   );
 
   return (
-    <article className="markdown">
+    <article className={props.depth ? "markdown md-nested" : "markdown"}>
       {rendered.frontmatter && (
         <details className="md-properties">
           <summary>Свойства</summary>

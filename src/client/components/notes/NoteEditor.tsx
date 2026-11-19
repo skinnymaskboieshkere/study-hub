@@ -21,6 +21,7 @@ import {
 } from "@codemirror/view";
 import { useEffect, useImperativeHandle, useRef, type Ref } from "react";
 import { timecodeInsertion } from "@shared/note-templates";
+import { toast } from "sonner";
 import { tagCompletion, wikilinkCompletion, type CompletionData } from "@/lib/editor/completion";
 import { editorHighlight, editorTheme } from "@/lib/editor/theme";
 import { obsidianSyntax } from "@/lib/editor/wikilinks";
@@ -45,6 +46,8 @@ interface NoteEditorProps {
   onOpenUrl?: (url: string) => boolean;
   /** Timecode for the hotkey (SPEC §6.6); null when no video plays next to the note. */
   onTimecode?: () => string | null;
+  /** A pasted or dropped picture: saved to the vault, returns the name for `![[...]]`. */
+  onPasteImage?: (file: File) => Promise<string>;
   ref?: Ref<NoteEditorHandle>;
 }
 
@@ -83,6 +86,7 @@ export function NoteEditor({
   onOpenLink,
   onOpenUrl,
   onTimecode,
+  onPasteImage,
   ref,
 }: NoteEditorProps) {
   const host = useRef<HTMLDivElement>(null);
@@ -90,9 +94,16 @@ export function NoteEditor({
   // Whether the student put the cursor somewhere; until then a timecode goes to "Таймкоды".
   const placed = useRef(false);
   // Callbacks change on every render; the editor reads the latest ones through refs.
-  const callbacks = useRef({ onChange, onOpenLink, onOpenUrl, onTimecode, completion });
+  const callbacks = useRef({
+    onChange,
+    onOpenLink,
+    onOpenUrl,
+    onTimecode,
+    onPasteImage,
+    completion,
+  });
   useEffect(() => {
-    callbacks.current = { onChange, onOpenLink, onOpenUrl, onTimecode, completion };
+    callbacks.current = { onChange, onOpenLink, onOpenUrl, onTimecode, onPasteImage, completion };
   });
 
   useEffect(() => {
@@ -101,6 +112,18 @@ export function NoteEditor({
       notes: () => callbacks.current.completion.notes(),
       tags: () => callbacks.current.completion.tags(),
       headings: (target) => callbacks.current.completion.headings(target),
+    };
+    const pasteImages = (files: FileList | undefined, view: EditorView): boolean => {
+      const images = [...(files ?? [])].filter((file) => file.type.startsWith("image/"));
+      const upload = callbacks.current.onPasteImage;
+      if (images.length === 0 || !upload) return false;
+      void Promise.all(images.map((image) => upload(image))).then(
+        (names) =>
+          insertText(view, names.map((name) => `![[${name}]]`).join(String.fromCharCode(10))),
+        (error: unknown) =>
+          toast.error(error instanceof Error ? error.message : "Картинку не вставить"),
+      );
+      return true;
     };
     const editor = new EditorView({
       parent: host.current,
@@ -157,6 +180,13 @@ export function NoteEditor({
           EditorView.domEventHandlers({
             focus: () => {
               placed.current = true;
+            },
+            // A picture from the clipboard or dragged in goes to attachments/ (SPEC §6.5).
+            paste: (event, view) => pasteImages(event.clipboardData?.files, view),
+            drop: (event, view) => {
+              const at = view.posAtCoords({ x: event.clientX, y: event.clientY });
+              if (at !== null) view.dispatch({ selection: { anchor: at } });
+              return pasteImages(event.dataTransfer?.files, view);
             },
           }),
           EditorView.updateListener.of((update) => {

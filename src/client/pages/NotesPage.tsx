@@ -1,7 +1,7 @@
 import { fillTemplate } from "@shared/note-templates";
 import { frontmatterTags, noteName } from "@shared/notes";
 import { FolderX, NotebookPen } from "lucide-react";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { toast } from "sonner";
 import {
@@ -13,15 +13,16 @@ import {
   useTemplates,
   useTrashNote,
 } from "@/app/notes-queries";
-import { NoteSearch, QuickSwitcher } from "@/components/notes/NoteDialogs";
 import type { NoteEditorHandle } from "@/components/notes/NoteEditor";
 import { NotePanel } from "@/components/notes/NotePanel";
 import { NoteSidebar } from "@/components/notes/NoteSidebar";
+import { NotesOverlays } from "@/components/notes/NotesOverlays";
 import { NoteWorkspace, type NoteMode } from "@/components/notes/NoteWorkspace";
 import { useNoteCompletion } from "@/components/notes/useNoteCompletion";
 import { useNoteDocument } from "@/components/notes/useNoteDocument";
 import { useNoteJump } from "@/components/notes/useNoteJump";
 import { useNoteNavigation } from "@/components/notes/useNoteNavigation";
+import { useNotesOverlays } from "@/components/notes/useNotesOverlays";
 import { useNotesShortcuts } from "@/components/notes/useNotesShortcuts";
 import { QueryError } from "@/components/QueryState";
 import { StateMessage } from "@/components/StateMessage";
@@ -78,9 +79,7 @@ function NotesScreen() {
   const trashNote = useTrashNote();
   const editor = useRef<NoteEditorHandle>(null);
   const [mode, setMode] = useState<NoteMode>(readMode);
-  const [switcher, setSwitcher] = useState(false);
-  const [search, setSearch] = useState(false);
-  const [searchTag, setSearchTag] = useState("");
+  const overlays = useNotesOverlays();
 
   const notes = useMemo(() => list.data ?? [], [list.data]);
   const paths = useMemo(() => notes.map((note) => note.path), [notes]);
@@ -99,19 +98,19 @@ function NotesScreen() {
     editor,
   });
 
-  const showTag = useCallback((tag: string) => {
-    setSearchTag(tag);
-    setSearch(true);
-  }, []);
-  useNotesShortcuts({ onSwitch: () => setSwitcher(true), onSearch: () => showTag("") });
+  const { showTag } = overlays;
+  useNotesShortcuts({
+    onSwitch: () => overlays.show("switcher"),
+    onSearch: () => showTag(""),
+    onPalette: () => overlays.show("palette"),
+  });
 
   // /notes?tag=… (a tag clicked next to the video) opens the tag search right away.
   const tagParam = params.get("tag");
   const [shownTagParam, setShownTagParam] = useState<string | null>(null);
   if (tagParam && tagParam !== shownTagParam) {
     setShownTagParam(tagParam);
-    setSearchTag(tagParam);
-    setSearch(true);
+    showTag(tagParam);
   }
 
   async function insertTemplate(templatePath: string) {
@@ -159,11 +158,9 @@ function NotesScreen() {
           folder={folderOf(path)}
           onOpen={(target) => open(target)}
           onCreateNote={(folder) => create(folder)}
-          onSwitch={() => setSwitcher(true)}
-          onSearch={() => {
-            setSearchTag("");
-            setSearch(true);
-          }}
+          onSwitch={() => overlays.show("switcher")}
+          onSearch={() => showTag("")}
+          onTrash={() => overlays.show("trash")}
           onTag={showTag}
         />
       </aside>
@@ -197,6 +194,8 @@ function NotesScreen() {
             onTakeDisk={document.takeDisk}
             onKeepMine={document.keepMine}
             onTrash={trash}
+            // Unsaved text goes out first: a late save must not follow the old name.
+            onRename={() => void document.saveNow().then(() => overlays.show("rename"))}
             editorRef={editor}
             completion={completion}
             paths={paths}
@@ -235,19 +234,16 @@ function NotesScreen() {
         )}
       </aside>
 
-      <QuickSwitcher
-        open={switcher}
-        onOpenChange={setSwitcher}
+      <NotesOverlays
+        overlays={overlays}
         notes={notes}
+        path={doc.phase === "ready" ? doc.path : null}
+        folder={folderOf(path)}
         onOpen={(target) => open(target)}
-        onCreate={(name) => create(folderOf(path), name)}
-      />
-      <NoteSearch
-        open={search}
-        onOpenChange={setSearch}
-        tag={searchTag}
-        onTagChange={setSearchTag}
-        onOpen={(target) => open(target)}
+        onCreate={create}
+        onMode={changeMode}
+        templates={templates.data ?? []}
+        onInsertTemplate={(template) => void insertTemplate(template)}
       />
     </div>
   );

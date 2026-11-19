@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
       { path: "roadmap", element: <RoadmapPage /> },
       // Editor, Markdown and KaTeX are heavy: loaded only when notes are opened.
       {
+        path: "notes/graph",
+        lazy: async () => ({ Component: (await import("@/pages/NoteGraphPage")).NoteGraphPage }),
+      },
+      {
         path: "notes",
         lazy: async () => ({ Component: (await import("@/pages/NotesPage")).NotesPage }),
       },

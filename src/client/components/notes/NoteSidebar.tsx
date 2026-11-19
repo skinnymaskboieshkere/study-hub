@@ -5,7 +5,10 @@ import {
   Hash,
   Search,
   SquareArrowOutUpRight,
+  Trash2,
+  Waypoints,
 } from "lucide-react";
+import { Link } from "react-router";
 import { todayIso } from "@shared/dates";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
@@ -32,6 +35,7 @@ interface NoteSidebarProps {
   onSwitch: () => void;
   onSearch: () => void;
   onTag: (tag: string) => void;
+  onTrash: () => void;
 }
 
 /** Left column: actions, the file tree and every tag of the vault (SPEC §6.5). */
@@ -74,6 +78,26 @@ export function NoteSidebar(props: NoteSidebarProps) {
           onClick={() => daily.open(todayIso())}
         >
           <CalendarDays />
+        </Button>
+        <Button
+          asChild
+          size="icon-sm"
+          variant="ghost"
+          aria-label="Граф заметок"
+          title="Граф заметок"
+        >
+          <Link to="/notes/graph">
+            <Waypoints />
+          </Link>
+        </Button>
+        <Button
+          size="icon-sm"
+          variant="ghost"
+          aria-label="Корзина хранилища"
+          title="Корзина хранилища"
+          onClick={props.onTrash}
+        >
+          <Trash2 />
         </Button>
         <Button
           size="icon-sm"

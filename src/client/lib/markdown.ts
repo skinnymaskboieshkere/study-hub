@@ -2,7 +2,7 @@ import { splitFrontmatter, TAG, WIKILINK } from "@shared/notes";
 import type { Root as HastRoot } from "hast";
 import matlab from "highlight.js/lib/languages/matlab";
 import { common } from "lowlight";
-import type { PhrasingContent, Root } from "mdast";
+import type { PhrasingContent, Root, RootContent } from "mdast";
 import { findAndReplace } from "mdast-util-find-and-replace";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
@@ -40,6 +40,7 @@ function remarkObsidian() {
                   dataWikilink: cleanTarget,
                   dataHeading: cleanHeading,
                   dataEmbed: bang === "!" ? "true" : undefined,
+                  dataAlias: alias?.trim() || undefined,
                 },
               },
             } satisfies PhrasingContent;
@@ -60,7 +61,31 @@ function remarkObsidian() {
       ],
       { ignore: ["link", "linkReference", "inlineCode", "code", "inlineMath", "math"] },
     );
+    blockEmbeds(tree);
   };
+}
+
+const isEmbed = (node: RootContent) =>
+  node.type === "link" &&
+  (node.data?.hProperties as Record<string, unknown> | undefined)?.dataEmbed === "true";
+
+/**
+ * A paragraph that holds only `![[...]]` embeds becomes a block (`<div>`): an embedded note brings
+ * its own paragraphs and headings, which may not sit inside a `<p>`.
+ */
+function blockEmbeds(node: Root | RootContent) {
+  if (!("children" in node)) return;
+  for (const child of node.children) {
+    if (
+      child.type === "paragraph" &&
+      child.children.some(isEmbed) &&
+      child.children.every((part) => isEmbed(part) || (part.type === "text" && !part.value.trim()))
+    ) {
+      child.data = { ...child.data, hName: "div", hProperties: { className: ["md-embeds"] } };
+    } else {
+      blockEmbeds(child);
+    }
+  }
 }
 
 const processor = unified()

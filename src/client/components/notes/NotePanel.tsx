@@ -1,7 +1,9 @@
 import { parseNote } from "@shared/notes";
-import { Link2, ListTree, Tags } from "lucide-react";
+import { neighborhood } from "@shared/note-links";
+import { Link2, ListTree, Tags, Waypoints } from "lucide-react";
 import { useMemo, type ReactNode } from "react";
-import { useBacklinks } from "@/app/notes-queries";
+import { useBacklinks, useNoteGraph } from "@/app/notes-queries";
+import { GraphView } from "./GraphView";
 
 interface NotePanelProps {
   path: string;
@@ -25,10 +27,15 @@ function Block({ icon, title, children }: { icon: ReactNode; title: string; chil
   );
 }
 
-/** Right panel (SPEC §6.5): backlinks with context, the note's tags and its outline. */
+/** Right panel (SPEC §6.5): backlinks with context, local graph, the note's tags and outline. */
 export function NotePanel(props: NotePanelProps) {
   const { path, text, onOpenNote, onGoToHeading, onTag, propertyTags } = props;
   const backlinks = useBacklinks(path);
+  const graph = useNoteGraph();
+  const local = useMemo(
+    () => (graph.data ? neighborhood(graph.data, path, 1) : null),
+    [graph.data, path],
+  );
   const parsed = useMemo(() => {
     const note = parseNote(text);
     return { ...note, tags: [...new Set([...propertyTags, ...note.tags])] };
@@ -68,6 +75,21 @@ export function NotePanel(props: NotePanelProps) {
           <p className="text-xs text-ink-muted">
             {backlinks.isPending ? "Ищу…" : "Пока ни одна заметка не ссылается сюда."}
           </p>
+        )}
+      </Block>
+
+      <Block icon={<Waypoints aria-hidden />} title="Локальный граф">
+        {local && local.nodes.length > 1 ? (
+          <GraphView
+            graph={local}
+            coloring="track"
+            current={path}
+            labelsFrom={0}
+            className="h-52 overflow-hidden rounded-lg bg-night/40"
+            onOpen={(node) => !node.missing && onOpenNote(node.id, null)}
+          />
+        ) : (
+          <p className="text-xs text-ink-muted">Связей пока нет — поставь [[ссылку]].</p>
         )}
       </Block>
 

@@ -364,3 +364,28 @@ export interface NoteTemplateDto {
   path: string;
   name: string;
 }
+
+// ── Notes: rename, trash, graph (stage 5) ──────────────────────────────────────
+
+export const RenameSchema = z.object({
+  from: z.string().trim().min(1).max(500),
+  to: z.string().trim().min(1).max(500),
+});
+
+export interface RenameResultDto {
+  path: string;
+  /** Links rewritten across the vault, and in how many notes. */
+  links: number;
+  files: number;
+}
+
+export interface TrashItemDto {
+  name: string;
+  size: number;
+  mtimeMs: number;
+}
+
+export const RestoreSchema = z.object({
+  name: z.string().min(1).max(300),
+  folder: z.string().max(500).default(""),
+});

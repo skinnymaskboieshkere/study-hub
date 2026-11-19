@@ -1,38 +1,13 @@
 import { cn } from "cn";
-import {
-  AlertTriangle,
-  Check,
-  CloudOff,
-  Columns2,
-  Eye,
-  LayoutTemplate,
-  LoaderCircle,
-  PenLine,
-  Trash2,
-} from "lucide-react";
 import type { NoteTemplateDto } from "@shared/api";
+import { AlertTriangle, Check, CloudOff, Columns2, Eye, LoaderCircle, PenLine } from "lucide-react";
 import type { ReactNode, Ref } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import type { CompletionData } from "@/lib/editor/completion";
+import { uploadImage } from "@/lib/note-assets";
 import { MarkdownPreview } from "./MarkdownPreview";
+import { NoteActions } from "./NoteActions";
 import { NoteEditor, type NoteEditorHandle } from "./NoteEditor";
 import type { SaveStatus } from "./useNoteDocument";
 
@@ -53,6 +28,8 @@ interface NoteWorkspaceProps {
   onTakeDisk: () => void;
   onKeepMine: () => void;
   onTrash: () => void;
+  /** Rename or move the note; links across the vault follow. */
+  onRename: () => void;
   editorRef: Ref<NoteEditorHandle>;
   completion: CompletionData;
   paths: readonly string[];
@@ -92,6 +69,7 @@ export function NoteWorkspace({ editorRef, ...props }: NoteWorkspaceProps) {
       completion={props.completion}
       onOpenLink={props.onOpenLink}
       onOpenUrl={props.onOpenUrl}
+      onPasteImage={uploadImage}
     />
   );
   const preview = (
@@ -149,62 +127,13 @@ export function NoteWorkspace({ editorRef, ...props }: NoteWorkspaceProps) {
             <span className="hidden sm:inline">Рядом</span>
           </ToggleGroupItem>
         </ToggleGroup>
-        {props.templates.length > 0 && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                aria-label="Вставить шаблон"
-                title="Вставить шаблон"
-              >
-                <LayoutTemplate />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>Вставить шаблон</DropdownMenuLabel>
-              {props.templates.map((template) => (
-                <DropdownMenuItem
-                  key={template.path}
-                  onSelect={() => props.onInsertTemplate(template.path)}
-                >
-                  {template.name}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              aria-label="Удалить в корзину хранилища"
-              title="Удалить (в папку .trash)"
-            >
-              <Trash2 />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Удалить «{props.title}»?</DialogTitle>
-              <DialogDescription>
-                Заметка переедет в папку .trash хранилища — как в Obsidian. Вернуть её можно,
-                перенеся файл обратно. Ссылки на неё станут пустыми.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter>
-              <DialogClose asChild>
-                <Button variant="ghost">Отмена</Button>
-              </DialogClose>
-              <DialogClose asChild>
-                <Button variant="destructive" onClick={props.onTrash}>
-                  Удалить
-                </Button>
-              </DialogClose>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
+        <NoteActions
+          title={props.title}
+          templates={props.templates}
+          onRename={props.onRename}
+          onInsertTemplate={props.onInsertTemplate}
+          onTrash={props.onTrash}
+        />
       </div>
 
       {props.conflict && (

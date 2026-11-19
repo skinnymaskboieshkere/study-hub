@@ -4,6 +4,8 @@ import {
   LectureNoteCreateSchema,
   NoteCreateSchema,
   NoteSaveSchema,
+  RenameSchema,
+  RestoreSchema,
 } from "@shared/api";
 import { normalizeTag } from "@shared/notes";
 import type { FastifyPluginAsync, FastifyReply, FastifyRequest } from "fastify";
@@ -125,6 +127,82 @@ export const notesRoutes: FastifyPluginAsync<{ db: AppDatabase; notes: NotesServ
   app.get("/notes/templates", async (_request, reply) =>
     notes.templates().catch((error) => fail(reply, error)),
   );
+
+  // ── Rename, trash, pictures, graph (SPEC §6.5, stage 5) ──
+  app.post("/notes/rename", async (request, reply) => {
+    const body = RenameSchema.safeParse(request.body);
+    if (!body.success) return reply.code(400).send({ error: "Нужны старое и новое имя" });
+    return notes.rename(body.data.from, body.data.to).catch((error) => fail(reply, error));
+  });
+
+  app.get("/notes/folders", async (_request, reply) =>
+    notes.folders().catch((error) => fail(reply, error)),
+  );
+
+  app.get("/notes/trash", async (_request, reply) =>
+    notes.trashList().catch((error) => fail(reply, error)),
+  );
+
+  app.post("/notes/trash/restore", async (request, reply) => {
+    const body = RestoreSchema.safeParse(request.body);
+    if (!body.success) return reply.code(400).send({ error: "Неверный файл" });
+    return notes
+      .restore(body.data.name, body.data.folder)
+      .then((path) => ({ path }))
+      .catch((error) => fail(reply, error));
+  });
+
+  app.delete<{ Querystring: { name?: string } }>("/notes/trash", async (request, reply) =>
+    notes
+      .purge(request.query.name ?? "")
+      .then(() => reply.code(204).send())
+      .catch((error) => fail(reply, error)),
+  );
+
+  // Pasted pictures come as raw bytes (Content-Type: image/png …), up to 20 MB.
+  app.addContentTypeParser(
+    /^image[/]/,
+    { parseAs: "buffer", bodyLimit: 20 * 1024 * 1024 },
+    (_request, body, done) => done(null, body),
+  );
+
+  app.post("/notes/attachments", async (request, reply) => {
+    const type =
+      String(request.headers["content-type"] ?? "")
+        .split(";")[0]
+        ?.trim() ?? "";
+    if (!Buffer.isBuffer(request.body) || request.body.length === 0) {
+      return reply.code(400).send({ error: "Нужна картинка" });
+    }
+    return notes
+      .attach(request.body, type)
+      .then((saved) => reply.code(201).send(saved))
+      .catch((error) => fail(reply, error));
+  });
+
+  app.get<{ Querystring: { link?: string; from?: string } }>(
+    "/notes/image",
+    async (request, reply) =>
+      notes
+        .image(request.query.link ?? "", request.query.from)
+        .then((image) =>
+          reply
+            .type(image.type)
+            // An SVG opened on its own must not run scripts.
+            .header("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'")
+            .header("Cache-Control", "no-cache")
+            .send(image.data),
+        )
+        .catch((error) => fail(reply, error)),
+  );
+
+  app.get("/notes/graph", async (_request, reply) => {
+    try {
+      return notes.graph();
+    } catch (error) {
+      return fail(reply, error);
+    }
+  });
 
   app.get<PathQuery>("/notes/backlinks", async (request) =>
     backlinks(db, request.query.path ?? ""),

@@ -202,3 +202,23 @@ export function sameHeading(a: string, b: string): boolean {
   const clean = (value: string) => value.normalize("NFC").toLowerCase().replace(/\s+/g, " ").trim();
   return clean(a) === clean(b);
 }
+
+/**
+ * The part of a note under a heading, for `![[Note#Heading]]`: from the heading to the next one
+ * of the same or a higher level. The whole text when the heading is not found.
+ */
+export function sectionOf(text: string, heading: string): string {
+  const lines = text.split(/\r?\n/);
+  const start = lines.findIndex((line) => {
+    const match = /^(#{1,6})[ \t]+(.+?)[ \t#]*$/.exec(line);
+    return match?.[2] !== undefined && sameHeading(match[2], heading);
+  });
+  if (start < 0) return text;
+  const level = /^#+/.exec(lines[start] ?? "")?.[0].length ?? 1;
+  const end = lines.findIndex((line, index) => {
+    if (index <= start) return false;
+    const match = /^(#{1,6})[ \t]+\S/.exec(line);
+    return match?.[1] !== undefined && match[1].length <= level;
+  });
+  return lines.slice(start, end < 0 ? undefined : end).join("\n");
+}

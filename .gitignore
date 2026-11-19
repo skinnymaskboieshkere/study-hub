@@ -3,7 +3,11 @@ dist/
 coverage/
 data/
 backups/
-vault/
+/vault/
 .env
 *.log
 .claude/settings.local.json
+
+# Playwright
+test-results/
+playwright-report/

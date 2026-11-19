@@ -8,7 +8,10 @@ import type {
   NotesStatusDto,
   NoteTemplateDto,
   NoteTreeNodeDto,
+  RenameResultDto,
+  TrashItemDto,
 } from "@shared/api";
+import type { GraphData } from "@shared/note-links";
 import { fromIsoDate, todayIso } from "@shared/dates";
 import {
   applyTemplate,
@@ -25,6 +28,14 @@ import { getCourse } from "../catalog/catalog-repository";
 import { getWatch } from "../catalog/catalog-service";
 import type { AppDatabase } from "../db/client";
 import { itemsBetween } from "../plan/plan-views";
+import {
+  findImage,
+  graphData,
+  IMAGE_TYPES,
+  imageExtension,
+  renameNote,
+  saveAttachment,
+} from "./notes-maintenance";
 import {
   indexedFiles,
   indexNote,
@@ -174,6 +185,10 @@ export class NotesService {
       throw error;
     });
     if (current && baseHash === null) throw new VaultError("Такая заметка уже есть", 409);
+    // A late autosave of a renamed or deleted note must not bring the old file back.
+    if (!current && baseHash !== null) {
+      throw new VaultError("Заметки больше нет: её переименовали или удалили", 409);
+    }
     if (current && hashText(current.content) !== baseHash) {
       throw new NoteConflictError({ content: current.content, hash: hashText(current.content) });
     }
@@ -278,6 +293,52 @@ export class NotesService {
       : defaultDailyNote({ date, title, plan });
     await this.save(notePath, content, null);
     return { path: notePath, created: true };
+  }
+
+  // ── Stage 5: rename, trash, pictures, graph (SPEC §6.5) ──
+
+  async rename(from: string, to: string): Promise<RenameResultDto> {
+    const result = await renameNote(this.db, this.requireVault(), from, to);
+    this.changes += 1;
+    return result;
+  }
+
+  async folders(): Promise<string[]> {
+    return this.requireVault().folders();
+  }
+
+  async trashList(): Promise<TrashItemDto[]> {
+    return this.requireVault().listTrash();
+  }
+
+  async restore(name: string, folder: string): Promise<string> {
+    const vault = this.requireVault();
+    const restored = await vault.restore(name, folder);
+    await this.refresh(restored);
+    this.changes += 1;
+    return restored;
+  }
+
+  async purge(name: string): Promise<void> {
+    await this.requireVault().purge(name);
+  }
+
+  async attach(data: Buffer, contentType: string) {
+    const saved = await saveAttachment(this.requireVault(), data, contentType);
+    this.changes += 1;
+    return saved;
+  }
+
+  /** A picture for `![[...]]`: by its path, or found by name like Obsidian. */
+  async image(link: string, from?: string): Promise<{ data: Buffer; type: string }> {
+    const vault = this.requireVault();
+    const path = await findImage(vault, link, from);
+    return { data: await vault.readBinary(path), type: IMAGE_TYPES[imageExtension(path)]! };
+  }
+
+  graph(): GraphData {
+    this.requireVault();
+    return graphData(this.db);
   }
 }
 

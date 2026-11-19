@@ -1,6 +1,8 @@
 import type {
   BacklinkDto,
   LectureNoteDto,
+  RenameResultDto,
+  TrashItemDto,
   NoteTemplateDto,
   VideoNoteDto,
   NoteFileDto,
@@ -11,6 +13,7 @@ import type {
   NoteTreeNodeDto,
   TagCountDto,
 } from "@shared/api";
+import type { GraphData } from "@shared/note-links";
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useRef } from "react";
 import { api } from "@/lib/api";
@@ -196,5 +199,54 @@ export const useTemplates = (enabled = true) =>
   useQuery({
     queryKey: videoNoteKeys.templates,
     queryFn: () => api.get<NoteTemplateDto[]>("/api/notes/templates"),
+    enabled,
+  });
+
+// ── Rename, trash, graph (stage 5) ─────────────────────────────────────────────
+
+export function useRenameNote() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: (input: { from: string; to: string }) =>
+      api.post<RenameResultDto>("/api/notes/rename", input),
+    onSuccess: () => client.invalidateQueries({ queryKey: noteKeys.all }),
+  });
+}
+
+export const useFolders = (enabled = true) =>
+  useQuery({
+    queryKey: ["notes", "folders"],
+    queryFn: () => api.get<string[]>("/api/notes/folders"),
+    enabled,
+  });
+
+export const useTrash = (enabled = true) =>
+  useQuery({
+    queryKey: ["notes", "trash"],
+    queryFn: () => api.get<TrashItemDto[]>("/api/notes/trash"),
+    enabled,
+  });
+
+export function useRestoreNote() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: (input: { name: string; folder: string }) =>
+      api.post<{ path: string }>("/api/notes/trash/restore", input),
+    onSuccess: () => client.invalidateQueries({ queryKey: noteKeys.all }),
+  });
+}
+
+export function usePurgeNote() {
+  const client = useQueryClient();
+  return useMutation({
+    mutationFn: (name: string) => api.delete(`/api/notes/trash?name=${enc(name)}`),
+    onSuccess: () => client.invalidateQueries({ queryKey: ["notes", "trash"] }),
+  });
+}
+
+export const useNoteGraph = (enabled = true) =>
+  useQuery({
+    queryKey: ["notes", "graph"],
+    queryFn: () => api.get<GraphData>("/api/notes/graph"),
     enabled,
   });

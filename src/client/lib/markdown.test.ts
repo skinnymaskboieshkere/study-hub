@@ -64,3 +64,12 @@ describe("renderMarkdown", () => {
     ).toBe(false);
   });
 });
+
+describe("embeds", () => {
+  it("turns a paragraph of embeds into a block, keeps mixed text a paragraph", () => {
+    const blocks = elements(renderMarkdown("![[Пределы]]\n\nТекст и ![[схема.png]]").tree);
+    expect(blocks[0]?.tagName).toBe("div");
+    expect(blocks[0]?.properties.className).toEqual(["md-embeds"]);
+    expect(blocks.find((node) => node.tagName === "p")).toBeDefined();
+  });
+});

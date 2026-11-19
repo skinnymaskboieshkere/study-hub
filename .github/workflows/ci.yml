@@ -19,3 +19,6 @@ jobs:
       - run: npm run format:check
       - run: npm test
       - run: npm run build
+      # End-to-end tests on the built app (stage 5): a temporary vault and database.
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test

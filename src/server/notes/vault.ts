@@ -202,4 +202,108 @@ export class Vault {
     await rename(file, target);
     return this.toRelative(target);
   }
+
+  /** Renames or moves a note. The target must be free (a change of letter case is fine). */
+  async move(from: string, to: string): Promise<void> {
+    const source = this.notePath(from);
+    const target = this.notePath(to);
+    if (!existsSync(source)) throw new VaultError("Заметка не найдена", 404);
+    if (existsSync(target) && source.toLowerCase() !== target.toLowerCase()) {
+      throw new VaultError("Заметка с таким именем уже есть", 409);
+    }
+    await mkdir(path.dirname(target), { recursive: true });
+    await rename(source, target);
+  }
+
+  /** Every folder of the vault for "move to…", hidden ones skipped. */
+  async folders(): Promise<string[]> {
+    const found: string[] = [];
+    const walk = async (folder: string) => {
+      const entries = await readdir(folder, { withFileTypes: true }).catch(() => []);
+      for (const entry of entries) {
+        if (!entry.isDirectory() || isHidden(entry.name)) continue;
+        const full = path.join(folder, entry.name);
+        found.push(this.toRelative(full));
+        await walk(full);
+      }
+    };
+    await walk(this.root);
+    return found.sort((a, b) => a.localeCompare(b, "ru"));
+  }
+
+  /** Files other than notes (pictures for `![[...]]`), hidden folders skipped. */
+  async files(accept: (name: string) => boolean): Promise<string[]> {
+    const found: string[] = [];
+    const walk = async (folder: string) => {
+      const entries = await readdir(folder, { withFileTypes: true }).catch(() => []);
+      for (const entry of entries) {
+        if (isHidden(entry.name)) continue;
+        const full = path.join(folder, entry.name);
+        if (entry.isDirectory()) await walk(full);
+        else if (entry.isFile() && accept(entry.name)) found.push(this.toRelative(full));
+      }
+    };
+    await walk(this.root);
+    return found;
+  }
+
+  async readBinary(relative: string): Promise<Buffer> {
+    return readFile(this.resolve(relative)).catch(() => {
+      throw new VaultError("Файл не найден", 404);
+    });
+  }
+
+  /** Writes a new file (a pasted picture); the name gets " 1", " 2"… when it is taken. */
+  async writeNew(folder: string, name: string, data: Buffer): Promise<string> {
+    const extension = path.extname(name);
+    const base = name.slice(0, name.length - extension.length);
+    const prefix = folder ? `${folder}/` : "";
+    let relative = `${prefix}${name}`;
+    for (let index = 1; existsSync(this.resolve(relative)); index += 1) {
+      relative = `${prefix}${base} ${index}${extension}`;
+    }
+    const file = this.resolve(relative);
+    await mkdir(path.dirname(file), { recursive: true });
+    await writeFile(file, data, { flag: "wx" });
+    return relative;
+  }
+
+  // ── The vault's trash: `.trash/` like Obsidian (SPEC §6.5) ──
+
+  private trashFile(name: string): string {
+    if (path.basename(name) !== name || isHidden(name) || !/\.md$/i.test(name)) {
+      throw new VaultError("Недопустимое имя файла");
+    }
+    return path.join(this.root, ".trash", name);
+  }
+
+  async listTrash(): Promise<{ name: string; size: number; mtimeMs: number }[]> {
+    const folder = path.join(this.root, ".trash");
+    const entries = await readdir(folder, { withFileTypes: true }).catch(() => []);
+    const items = [];
+    for (const entry of entries) {
+      if (!entry.isFile() || !/\.md$/i.test(entry.name)) continue;
+      const info = await stat(path.join(folder, entry.name));
+      items.push({ name: entry.name.normalize("NFC"), size: info.size, mtimeMs: info.mtimeMs });
+    }
+    return items.sort((a, b) => b.mtimeMs - a.mtimeMs);
+  }
+
+  /** Brings a note back from the trash into a folder; a taken name gets a number. */
+  async restore(name: string, folder: string): Promise<string> {
+    const source = this.trashFile(name);
+    if (!existsSync(source)) throw new VaultError("В корзине нет такого файла", 404);
+    if (folder) this.resolve(folder);
+    const target = this.freeNotePath(folder, name.replace(/\.md$/i, ""));
+    await mkdir(path.dirname(this.resolve(target)), { recursive: true });
+    await rename(source, this.resolve(target));
+    return target;
+  }
+
+  /** Deletes a note from the trash for good. */
+  async purge(name: string): Promise<void> {
+    const file = this.trashFile(name);
+    if (!existsSync(file)) throw new VaultError("В корзине нет такого файла", 404);
+    await rm(file);
+  }
 }

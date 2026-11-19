@@ -18,6 +18,7 @@ import { useNoteCompletion } from "@/components/notes/useNoteCompletion";
 import { useNoteDocument } from "@/components/notes/useNoteDocument";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { uploadImage } from "@/lib/note-assets";
 
 export interface LectureNoteHandle {
   /** The timecode hotkey pressed outside the editor. */
@@ -212,6 +213,7 @@ function LectureNote({ path, ...props }: LectureNotePaneProps & { path: string }
               completion={completion}
               onOpenLink={(target) => openNote(target)}
               onOpenUrl={openUrl}
+              onPasteImage={uploadImage}
               onTimecode={timecode}
             />
           ) : (

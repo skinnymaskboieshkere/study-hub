@@ -323,3 +323,39 @@
     }
   }
 }
+
+/* Embeds and pictures in notes (SPEC §6.5). */
+@layer components {
+  .markdown {
+    & .md-embeds {
+      display: grid;
+      gap: 0.75em;
+    }
+    & .md-embed {
+      border-left: 3px solid rgb(139 92 246 / 0.45);
+      border-radius: 0.5rem;
+      background: rgb(255 255 255 / 0.02);
+      padding: 0.6em 1em;
+    }
+    & .md-embed-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--color-ink-muted);
+      font-size: 0.8em;
+      cursor: pointer;
+      &:hover {
+        color: var(--color-ink);
+      }
+    }
+    & .md-nested {
+      margin-top: 0.4em;
+      font-size: 0.95em;
+    }
+    & .md-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import {
   noteName,
   parseNote,
   resolveLink,
+  sectionOf,
   splitFrontmatter,
 } from "./notes";
 
@@ -124,5 +125,15 @@ describe("resolveLink", () => {
   it("returns null for a missing note", () => {
     expect(resolveLink("Интегралы", paths)).toBeNull();
     expect(resolveLink("  ", paths)).toBeNull();
+  });
+});
+
+describe("sectionOf", () => {
+  const text = "# Тема\nвступление\n## Правила\nправило 1\n### Пример\nпример\n## Задачи\nзадача";
+  it("cuts the part under a heading, sub-headings included", () => {
+    expect(sectionOf(text, "правила")).toBe("## Правила\nправило 1\n### Пример\nпример");
+  });
+  it("returns the whole note for a missing heading", () => {
+    expect(sectionOf(text, "Нет")).toBe(text);
   });
 });
