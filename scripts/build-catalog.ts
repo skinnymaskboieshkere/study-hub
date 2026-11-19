@@ -3,6 +3,7 @@
  *
  *   npm run catalog            all courses and seed/tracks.json
  *   npm run catalog -- cs50x   one course
+ *   npm run catalog -- --tracks  only seed/tracks.json (no YouTube requests)
  *
  * Every file is validated with the shared zod schema before it is written.
  */
@@ -29,10 +30,27 @@ function writeJson(file: string, data: unknown) {
   writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`, "utf8");
 }
 
+function writeTracks() {
+  const tracks = SeedTracksSchema.parse({ tracks: TRACKS, courses: PLACEMENTS });
+  writeJson(path.join(SEED_DIR, "tracks.json"), tracks);
+  console.log(`tracks.json: ${tracks.tracks.length} tracks, ${tracks.courses.length} courses`);
+}
+
 async function main() {
+  const only = process.argv[2];
+
+  const known = new Set([...IMPORTED_COURSES, ...CANDIDATE_COURSES].map((c) => c.meta.slug));
+  for (const placement of PLACEMENTS) {
+    if (!known.has(placement.course)) throw new Error(`tracks: unknown course ${placement.course}`);
+    for (const pre of placement.prerequisites ?? []) {
+      if (!known.has(pre.course))
+        throw new Error(`${placement.course}: unknown prerequisite ${pre.course}`);
+    }
+  }
+  if (only === "--tracks") return writeTracks();
+
   if (!config.youtubeApiKey) throw new Error("YOUTUBE_API_KEY is empty in .env");
   const yt = createYouTubeClient(config.youtubeApiKey);
-  const only = process.argv[2];
   const verifiedAt = localDate();
 
   const cache = new Map<string, Promise<FetchedVideo[]>>();
@@ -44,15 +62,6 @@ async function main() {
     }
     return pending;
   };
-
-  const known = new Set([...IMPORTED_COURSES, ...CANDIDATE_COURSES].map((c) => c.meta.slug));
-  for (const placement of PLACEMENTS) {
-    if (!known.has(placement.course)) throw new Error(`tracks: unknown course ${placement.course}`);
-    for (const pre of placement.prerequisites ?? []) {
-      if (!known.has(pre.course))
-        throw new Error(`${placement.course}: unknown prerequisite ${pre.course}`);
-    }
-  }
 
   for (const recipe of IMPORTED_COURSES) {
     if (only && recipe.meta.slug !== only) continue;
@@ -98,11 +107,7 @@ async function main() {
     console.log(`${course.slug.padEnd(28)} candidate  ≈ ${estimatedHours} h`);
   }
 
-  if (!only) {
-    const tracks = SeedTracksSchema.parse({ tracks: TRACKS, courses: PLACEMENTS });
-    writeJson(path.join(SEED_DIR, "tracks.json"), tracks);
-    console.log(`tracks.json: ${tracks.tracks.length} tracks, ${tracks.courses.length} courses`);
-  }
+  if (!only) writeTracks();
 }
 
 main().catch((error: unknown) => {

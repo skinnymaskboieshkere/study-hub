@@ -5,7 +5,7 @@ import { CatalogPage } from "@/pages/CatalogPage";
 import { CoursePage } from "@/pages/CoursePage";
 import { HomePage } from "@/pages/HomePage";
 import { PlanPage } from "@/pages/PlanPage";
-import { NotFoundPage, RoadmapPage, SettingsPage, StatsPage } from "@/pages/SectionPages";
+import { NotFoundPage, SettingsPage, StatsPage } from "@/pages/SectionPages";
 import { WatchPage } from "@/pages/WatchPage";
 
 export const router = createBrowserRouter([
@@ -19,7 +19,10 @@ export const router = createBrowserRouter([
       { path: "courses", element: <CatalogPage /> },
       { path: "courses/:slug", element: <CoursePage /> },
       { path: "watch/:youtubeId", element: <WatchPage /> },
-      { path: "roadmap", element: <RoadmapPage /> },
+      {
+        path: "roadmap",
+        lazy: async () => ({ Component: (await import("@/pages/RoadmapPage")).RoadmapPage }),
+      },
       // Editor, Markdown and KaTeX are heavy: loaded only when notes are opened.
       {
         path: "notes/graph",

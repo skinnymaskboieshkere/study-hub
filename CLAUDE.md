@@ -27,7 +27,7 @@ Local single-user study platform: course catalog with an embedded YouTube player
 TypeScript (strict) · React 19 + Vite 8 + React Router 8 · Tailwind CSS 4 + shadcn/ui · Fastify 5 ·
 SQLite (better-sqlite3) + Drizzle ORM · zod · TanStack Query · Vitest ·
 notes: CodeMirror 6, unified/remark/rehype (+ KaTeX, highlight.js via lowlight), chokidar, yaml, react-force-graph-2d ·
-Playwright (e2e). Planned for later stages: Zustand, React Flow.
+roadmap: React Flow (`@xyflow/react` 12; 13.0 was too fresh at stage 6) · Playwright (e2e). Planned for later: Zustand.
 
 TypeScript is pinned to 6.0.x on purpose: typescript-eslint does not support TypeScript 7 yet.
 
@@ -42,6 +42,7 @@ TypeScript is pinned to 6.0.x on purpose: typescript-eslint does not support Typ
 | `npm run test:e2e`                                                | build + Playwright (e2e/) on a temp copy of `e2e/fixtures/vault`, port 5200          |
 | `npm run db:generate`                                             | SQL migration from `src/server/db/schema.ts` into `drizzle/`                         |
 | `npm run catalog [-- <slug>]`                                     | rebuild `seed/` from official YouTube playlists (needs `YOUTUBE_API_KEY`)            |
+| `npm run catalog -- --tracks`                                     | rewrite only `seed/tracks.json` from the recipes (no YouTube requests)               |
 | `npm run yt -- <channel/playlists/playlist/video/info/search>`    | research helper for finding official playlists (search costs 100 quota units)        |
 
 Migrations run automatically on server start. `seed/` is loaded into the database on start whenever its files
@@ -50,6 +51,8 @@ root (paths use `process.cwd()`).
 
 ## Catalog rules (BRIEF)
 
+- Prerequisites are soft (SPEC §4). `want(...)` in `scripts/catalog/tracks.ts` marks a "желательно" one: shown in
+  hints, never makes a course wait, still counted in the hours to CV.
 - Course recipes live in `scripts/catalog/` (imported track-1 courses, candidates of tracks 2–4, track placement and
   prerequisites). Never hand-edit `seed/courses/*.json`: change the recipe and run `npm run catalog`.
 - Official university channels only; a Russian translation may replace official videos only when it is complete
@@ -60,24 +63,24 @@ root (paths use `process.cwd()`).
 
 ```
 src/client/   React app (alias @/): app/ (router, nav, tracks, labels incl. subject colors), components/ (layout,
-              ui = shadcn, course, roadmap, today = Today screen blocks, plan = plan wizard parts, calendar,
+              ui = shadcn, course, roadmap = map nodes + RoadmapGraph (React Flow, lazy), today = Today screen blocks, plan = plan wizard parts, calendar,
               notes = tree, editor, preview, panel, dialogs, useNoteDocument (autosave + conflicts), shared pieces
               like CardRow, FilterChips, StateMessage, Timecode), components/player (IFrame player,
               progress + played-time saving, plan segments, hotkeys, bookmarks, StudyLayout = video | note split,
               LectureNotePane = lazy lecture note, VideoNotesList), lib/ (api, format, youtube, player,
               catalog-filter, plan, segment, calendar, markdown, notes-filter, editor/ = CodeMirror completion,
-              theme, wikilinks, note-assets, graph-style), pages/ (Home = "Сегодня", Plan, Calendar, Catalog, Course, Watch,
-              Notes and NoteGraph = lazy),
+              theme, wikilinks, note-assets, graph-style, roadmap = map layout + hints), pages/ (Home = "Сегодня", Plan, Calendar, Catalog, Course, Watch,
+              Notes, NoteGraph and Roadmap = lazy),
               app/queries.ts + app/notes-queries.ts (TanStack Query hooks), styles/
               dev/ = design showcase /dev/ui and sample home /dev/home (lazy routes, sample data only)
               class names are merged with `cn` from the `cn` package (shadcn's replacement for clsx + tailwind-merge)
 src/server/   Fastify: app.ts builds the app (testable), index.ts starts it, config.ts, db/, routes/ (catalog, progress,
-              plan, tasks, notes), catalog/ (seed loading, repository, services, playlist import), plan/ (plan service
+              plan, tasks, notes, roadmap), catalog/ (seed loading, repository, services, playlist import), plan/ (plan service
               with daily re-planning, Today/calendar views, tasks), notes/ (vault = safe file access, note-index =
               SQLite index + FTS5, notes-service = sync, watcher, saves, notes-maintenance = rename, pictures,
-              graph), youtube/ (Data API client)
+              graph), roadmap/ (roadmap view), youtube/ (Data API client)
 src/shared/   code shared by client and server (alias @shared/): catalog (seed zod), api (DTOs), progress rules,
-              scheduler (plan layout), dates, roadmap (hours to CV), streak, notes (wikilinks, tags, headings,
+              scheduler (plan layout), dates, roadmap (node states, hours to CV), streak, notes (wikilinks, tags, headings,
               frontmatter, Obsidian link resolution), note-templates (YouTube links, timecodes, lecture/daily notes),
               note-links (rename rewriting, graph)
 drizzle/      SQL migrations (committed)

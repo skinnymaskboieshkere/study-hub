@@ -7,8 +7,37 @@ export interface RoadmapCourse {
   hours: number;
   /** 0..1 */
   progress: number;
-  prerequisites: { course: string; minProgress: number }[];
+  /** The user put the course into "Пройдено" by hand. */
+  completed?: boolean;
+  prerequisites: RoadmapPrerequisite[];
 }
+
+export interface RoadmapPrerequisite {
+  course: string;
+  minProgress: number;
+  /** "Желательно": advice only, never makes a course wait. */
+  optional?: boolean;
+}
+
+/** Node states of the roadmap (SPEC §6.3). */
+export type RoadmapState = "available" | "wait" | "in-progress" | "done";
+
+/** A prerequisite still below its share: what the node's hint names. */
+export interface MissingPrerequisite {
+  course: string;
+  minProgress: number;
+  progress: number;
+  optional: boolean;
+}
+
+export interface RoadmapNodeState {
+  state: RoadmapState;
+  /** Required ones first, then the "желательно" ones. */
+  missing: MissingPrerequisite[];
+}
+
+/** A course counts as finished from 99%: the last seconds of credits do not matter. */
+export const COURSE_DONE_SHARE = 0.99;
 
 /**
  * How far each course has to go before the Computer Vision track opens (SPEC §6.3):
@@ -71,4 +100,38 @@ export function trackShares(courses: RoadmapCourse[]): Record<TrackSlug, number>
     robotics: share("robotics"),
     cv: share("cv"),
   };
+}
+
+/**
+ * State of every course on the roadmap (SPEC §6.3): done → in progress → wait (a required
+ * prerequisite is below its share) → available. A started course stays "in progress" even
+ * with gaps: prerequisites are soft, the hint still names them.
+ */
+export function computeRoadmapState(courses: RoadmapCourse[]): {
+  nodes: Map<string, RoadmapNodeState>;
+  hoursLeft: number;
+} {
+  const bySlug = new Map(courses.map((course) => [course.slug, course]));
+  const nodes = new Map<string, RoadmapNodeState>();
+  for (const course of courses) {
+    const missing = course.prerequisites
+      .map((prerequisite) => ({
+        course: prerequisite.course,
+        minProgress: prerequisite.minProgress,
+        progress: bySlug.get(prerequisite.course)?.progress ?? 0,
+        optional: prerequisite.optional ?? false,
+      }))
+      .filter((item) => item.progress < item.minProgress)
+      .sort((a, b) => Number(a.optional) - Number(b.optional));
+    const state: RoadmapState =
+      course.completed || course.progress >= COURSE_DONE_SHARE
+        ? "done"
+        : course.progress > 0
+          ? "in-progress"
+          : missing.some((item) => !item.optional)
+            ? "wait"
+            : "available";
+    nodes.set(course.slug, { state, missing });
+  }
+  return { nodes, hoursLeft: hoursToComputerVision(courses) };
 }

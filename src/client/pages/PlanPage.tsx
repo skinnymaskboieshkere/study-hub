@@ -2,7 +2,7 @@ import type { CourseCardDto, PlanDto, PlanInput } from "@shared/api";
 import { todayIso } from "@shared/dates";
 import { CalendarCheck } from "lucide-react";
 import { useState, type FormEvent, type ReactNode } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 import { toast } from "sonner";
 import { useCatalog, usePlan, useSavePlan } from "@/app/queries";
 import { DaysOffEditor } from "@/components/plan/DaysOffEditor";
@@ -23,6 +23,9 @@ const DEFAULT_DEADLINES: Record<string, string> = { cs50p: "2027-02-01" };
 export function PlanPage() {
   const catalog = useCatalog();
   const plan = usePlan();
+  // "Добавить в план" on the roadmap opens the wizard with the course already ticked.
+  const [params] = useSearchParams();
+  const added = params.get("add");
 
   if (catalog.isPending || plan.isPending)
     return <Skeleton className="mt-8 h-96 rounded-3xl bg-surface" />;
@@ -31,18 +34,24 @@ export function PlanPage() {
   if (plan.isError) return <QueryError error={plan.error} onRetry={() => void plan.refetch()} />;
 
   const courses = catalog.data.courses.filter((course) => course.status === "imported");
-  return <PlanForm courses={courses} existing={plan.data} />;
+  return <PlanForm courses={courses} existing={plan.data} added={added} />;
 }
 
-function initialChoices(courses: CourseCardDto[], existing: PlanDto | null): CourseChoice[] {
+function initialChoices(
+  courses: CourseCardDto[],
+  existing: PlanDto | null,
+  added: string | null,
+): CourseChoice[] {
   return courses.map((course) => {
     const inPlan = existing?.courses.find((item) => item.slug === course.slug);
     return {
       slug: course.slug,
-      selected: existing
-        ? Boolean(inPlan)
-        : course.track === "foundation" &&
-          (course.collection === "active" || course.collection === "wishlist"),
+      selected:
+        course.slug === added ||
+        (existing
+          ? Boolean(inPlan)
+          : course.track === "foundation" &&
+            (course.collection === "active" || course.collection === "wishlist")),
       weight: inPlan?.weight ?? 1,
       deadline: inPlan ? (inPlan.deadline ?? "") : (DEFAULT_DEADLINES[course.slug] ?? ""),
     };
@@ -59,10 +68,18 @@ function Section({ title, hint, children }: { title: string; hint?: string; chil
   );
 }
 
-function PlanForm({ courses, existing }: { courses: CourseCardDto[]; existing: PlanDto | null }) {
+interface PlanFormProps {
+  courses: CourseCardDto[];
+  existing: PlanDto | null;
+  /** Slug of a course added from the roadmap. */
+  added: string | null;
+}
+
+function PlanForm({ courses, existing, added }: PlanFormProps) {
   const navigate = useNavigate();
   const save = useSavePlan();
-  const [choices, setChoices] = useState(() => initialChoices(courses, existing));
+  const [choices, setChoices] = useState(() => initialChoices(courses, existing, added));
+  const addedCourse = courses.find((course) => course.slug === added);
   const [startDate, setStartDate] = useState(existing?.startDate ?? todayIso());
   const [weekdays, setWeekdays] = useState(
     (existing?.studyWeekdays ?? [1, 2, 3, 4, 5]).map(String),
@@ -134,6 +151,16 @@ function PlanForm({ courses, existing }: { courses: CourseCardDto[]; existing: P
           части не короче 10 минут; пропущенное само переезжает на следующие дни.
         </p>
       </div>
+
+      {addedCourse && (
+        <p
+          role="status"
+          className="rounded-2xl border border-lilac/40 bg-brand/10 px-5 py-4 text-sm text-ink"
+        >
+          Курс «{addedCourse.shortTitle}» отмечен. Проверь приоритет и нажми «Составить план» внизу
+          страницы.
+        </p>
+      )}
 
       <Section
         title="Курсы"

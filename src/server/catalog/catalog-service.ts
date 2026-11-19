@@ -153,6 +153,7 @@ export function getCourseDetail(db: AppDatabase, slug: string): CourseDetailDto 
         shortTitle: required.shortTitle,
         title: required.title,
         minProgress: row.minProgress,
+        optional: row.optional,
         progress: share,
         met: share >= row.minProgress,
       },

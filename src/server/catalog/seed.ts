@@ -168,6 +168,7 @@ export function applySeed(db: AppDatabase, seed: LoadedSeed) {
             courseSlug: placement.course,
             requiresSlug: prerequisite.course,
             minProgress: prerequisite.minProgress,
+            optional: prerequisite.optional ?? false,
           })
           .run();
       }

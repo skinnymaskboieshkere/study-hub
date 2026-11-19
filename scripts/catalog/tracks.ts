@@ -36,6 +36,8 @@ export const TRACKS: SeedTracks["tracks"] = [
 ];
 
 const p = (course: string, minProgress: number) => ({ course, minProgress });
+/** A "желательно" prerequisite (SPEC §4): advice only. */
+const want = (course: string, minProgress: number) => ({ course, minProgress, optional: true });
 
 /** Recommended path and soft prerequisites (SPEC §4, BRIEF). */
 export const PLACEMENTS: CoursePlacement[] = [
@@ -127,7 +129,7 @@ export const PLACEMENTS: CoursePlacement[] = [
       p("cs50p", 0.8),
       p("mit-18-01", 0.8),
       p("mit-18-06", 0.6),
-      p("harvard-stat-110", 0.3),
+      want("harvard-stat-110", 0.3),
     ],
   },
   {
@@ -138,7 +140,7 @@ export const PLACEMENTS: CoursePlacement[] = [
       p("cs50p", 0.8),
       p("mit-18-01", 0.8),
       p("mit-18-06", 0.6),
-      p("harvard-stat-110", 0.3),
+      want("harvard-stat-110", 0.3),
     ],
   },
   {

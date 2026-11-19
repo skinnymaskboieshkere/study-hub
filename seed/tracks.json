@@ -286,7 +286,8 @@
         },
         {
           "course": "harvard-stat-110",
-          "minProgress": 0.3
+          "minProgress": 0.3,
+          "optional": true
         }
       ]
     },
@@ -309,7 +310,8 @@
         },
         {
           "course": "harvard-stat-110",
-          "minProgress": 0.3
+          "minProgress": 0.3,
+          "optional": true
         }
       ]
     },

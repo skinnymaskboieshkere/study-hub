@@ -2,6 +2,7 @@ import { z } from "zod";
 import type { Collection, Subject, TrackSlug, VideoKind } from "./catalog";
 import { CollectionSchema, YoutubeIdSchema } from "./catalog";
 import type { LessonStatus } from "./progress";
+import type { RoadmapState } from "./roadmap";
 
 /** Response of GET /api/health. */
 export const HealthResponseSchema = z.object({
@@ -68,6 +69,8 @@ export interface PrerequisiteDto {
   shortTitle: string;
   title: string;
   minProgress: number;
+  /** "Желательно": advice only. */
+  optional: boolean;
   progress: number;
   met: boolean;
 }
@@ -207,6 +210,40 @@ export interface PlanItemDto {
   videoDurationSec: number;
   embeddable: boolean;
   language: "en" | "ru";
+}
+
+export interface RoadmapNodeDto {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  university: string;
+  track: TrackSlug;
+  order: number;
+  status: "candidate" | "imported";
+  /** 0..1 */
+  progress: number;
+  /** Length of the course: real video time, or the estimate of a candidate. */
+  hours: number;
+  state: RoadmapState;
+  /** The course is in the active plan. */
+  inPlan: boolean;
+  /** Arrows of the graph. */
+  prerequisites: { slug: string; minProgress: number; optional: boolean }[];
+  /** Prerequisites still below their share: the node's hint. */
+  missing: {
+    slug: string;
+    shortTitle: string;
+    minProgress: number;
+    progress: number;
+    optional: boolean;
+  }[];
+}
+
+export interface RoadmapDto {
+  tracks: TrackDto[];
+  nodes: RoadmapNodeDto[];
+  /** "До трека Computer Vision осталось ~N часов". */
+  hoursLeft: number;
 }
 
 export interface TrackProgressDto {

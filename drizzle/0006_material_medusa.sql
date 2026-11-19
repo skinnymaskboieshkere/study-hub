@@ -1,0 +1,1 @@
+ALTER TABLE `course_prerequisites` ADD `optional` integer DEFAULT false NOT NULL;

@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { hoursToComputerVision, requiredShares, trackShares, type RoadmapCourse } from "./roadmap";
+import {
+  computeRoadmapState,
+  hoursToComputerVision,
+  requiredShares,
+  trackShares,
+  type RoadmapCourse,
+} from "./roadmap";
 
 const course = (
   slug: string,
@@ -68,5 +74,64 @@ describe("trackShares", () => {
       course("c", "cv", 20, [], 0.5),
     ]);
     expect(shares).toEqual({ foundation: 0.75, engineering: 0, robotics: 0, cv: 0.5 });
+  });
+});
+
+describe("computeRoadmapState", () => {
+  const withProgress = (progress: Record<string, number>) =>
+    catalog.map((item) => ({ ...item, progress: progress[item.slug] ?? 0 }));
+
+  it("gives courses without prerequisites as available and the rest as wait", () => {
+    const { nodes } = computeRoadmapState(catalog);
+    expect(nodes.get("cs50x")?.state).toBe("available");
+    expect(nodes.get("cs50p")?.state).toBe("wait");
+    expect(nodes.get("cs50p")?.missing).toEqual([
+      { course: "cs50x", minProgress: 0.5, progress: 0, optional: false },
+    ]);
+  });
+
+  it("opens a course once every required prerequisite reaches its share (SPEC §6.3 acceptance)", () => {
+    const before = computeRoadmapState(withProgress({ cs50p: 0.8, calc: 0.8, linalg: 0.4 }));
+    expect(before.nodes.get("dl-cv")?.state).toBe("wait");
+    expect(before.nodes.get("dl-cv")?.missing.map((item) => item.course)).toEqual(["linalg"]);
+
+    const after = computeRoadmapState(withProgress({ cs50p: 0.8, calc: 0.8, linalg: 0.6 }));
+    expect(after.nodes.get("dl-cv")?.state).toBe("available");
+    expect(after.hoursLeft).toBeLessThan(before.hoursLeft);
+  });
+
+  it("does not hold a course back for a desirable prerequisite, but names it", () => {
+    const courses = [
+      course("stat", "engineering", 27),
+      course("dl", "cv", 26, [{ course: "stat", minProgress: 0.3, optional: true }]),
+    ];
+    const node = computeRoadmapState(courses).nodes.get("dl");
+    expect(node?.state).toBe("available");
+    expect(node?.missing).toEqual([
+      { course: "stat", minProgress: 0.3, progress: 0, optional: true },
+    ]);
+  });
+
+  it("puts required gaps before desirable ones", () => {
+    const courses = [
+      course("a", "foundation", 1),
+      course("b", "foundation", 1),
+      course("c", "cv", 1, [
+        { course: "a", minProgress: 0.3, optional: true },
+        { course: "b", minProgress: 0.5 },
+      ]),
+    ];
+    const missing = computeRoadmapState(courses).nodes.get("c")?.missing ?? [];
+    expect(missing.map((item) => item.course)).toEqual(["b", "a"]);
+  });
+
+  it("marks started courses in progress and finished ones done", () => {
+    const { nodes } = computeRoadmapState([
+      ...withProgress({ cs50p: 0.2, cs50x: 0.995 }),
+      { ...course("calc2", "engineering", 28), completed: true },
+    ]);
+    expect(nodes.get("cs50p")?.state).toBe("in-progress");
+    expect(nodes.get("cs50x")?.state).toBe("done");
+    expect(nodes.get("calc2")?.state).toBe("done");
   });
 });

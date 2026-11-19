@@ -1,19 +1,13 @@
 import type { CalendarDto, PlanItemDto, TodayDto, TrackProgressDto } from "@shared/api";
 import type { Subject, TrackSlug } from "@shared/catalog";
 import { addDays, startOfWeek } from "@shared/dates";
-import { hoursToComputerVision, trackShares, type RoadmapCourse } from "@shared/roadmap";
+import { hoursToComputerVision, trackShares } from "@shared/roadmap";
 import { studyStreak } from "@shared/streak";
 import { and, asc, eq, gte, lte, sql } from "drizzle-orm";
 import { getCatalog } from "../catalog/catalog-service";
 import type { AppDatabase } from "../db/client";
-import {
-  coursePrerequisites,
-  courses,
-  courseVideos,
-  planItems,
-  studySessions,
-  videos,
-} from "../db/schema";
+import { roadmapCourses } from "../roadmap/roadmap-service";
+import { courses, courseVideos, planItems, studySessions, videos } from "../db/schema";
 import { activeDates, ensureFresh, getPlanDto } from "./plan-service";
 
 /** Plan parts between two dates with everything a card needs. */
@@ -58,16 +52,7 @@ const length = (item: PlanItemDto) => item.endSec - item.startSec;
 /** The "прогресс к CV" widget: hours to the CV track and each track's share (SPEC §6.4). */
 function cvProgress(db: AppDatabase): TodayDto["cv"] {
   const catalogDto = getCatalog(db);
-  const prerequisites = db.select().from(coursePrerequisites).all();
-  const roadmap: RoadmapCourse[] = catalogDto.courses.map((course) => ({
-    slug: course.slug,
-    track: course.track,
-    hours: course.status === "imported" ? course.totalSeconds / 3600 : (course.estimatedHours ?? 0),
-    progress: course.progress,
-    prerequisites: prerequisites
-      .filter((row) => row.courseSlug === course.slug)
-      .map((row) => ({ course: row.requiresSlug, minProgress: row.minProgress })),
-  }));
+  const roadmap = roadmapCourses(db, catalogDto);
   const shares = trackShares(roadmap);
   const tracks: TrackProgressDto[] = catalogDto.tracks.map((track) => ({
     slug: track.slug,

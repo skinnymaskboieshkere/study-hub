@@ -8,6 +8,7 @@ import { healthRoutes } from "./routes/health";
 import { notesRoutes } from "./routes/notes";
 import { planRoutes } from "./routes/plan";
 import { progressRoutes } from "./routes/progress";
+import { roadmapRoutes } from "./routes/roadmap";
 import { taskRoutes } from "./routes/tasks";
 import type { YouTubeClient } from "./youtube/client";
 
@@ -35,6 +36,7 @@ export async function buildApp({ db, youtube, clientDir, notes, logger = false }
   await app.register(progressRoutes, { prefix: "/api", db });
   await app.register(planRoutes, { prefix: "/api", db });
   await app.register(taskRoutes, { prefix: "/api", db });
+  await app.register(roadmapRoutes, { prefix: "/api", db });
   await app.register(notesRoutes, {
     prefix: "/api",
     db,

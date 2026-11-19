@@ -8,6 +8,7 @@ import type {
   PlanInput,
   PlanItemDto,
   ProgressDto,
+  RoadmapDto,
   TaskDto,
   TodayDto,
   WatchDto,
@@ -28,6 +29,7 @@ export const keys = {
   watch: (youtubeId: string, course?: string) => ["watch", youtubeId, course ?? ""] as const,
   continue: ["continue"] as const,
   bookmarks: (youtubeId: string) => ["bookmarks", youtubeId] as const,
+  roadmap: ["roadmap"] as const,
 };
 
 export const useCatalog = () =>
@@ -57,6 +59,9 @@ export const useContinue = () =>
     staleTime: 0,
   });
 
+export const useRoadmap = () =>
+  useQuery({ queryKey: keys.roadmap, queryFn: () => api.get<RoadmapDto>("/api/roadmap") });
+
 export const useBookmarks = (youtubeId: string) =>
   useQuery({
     queryKey: keys.bookmarks(youtubeId),
@@ -68,6 +73,7 @@ export const PROGRESS_QUERY_KEYS = [
   keys.catalog,
   ["course"],
   keys.continue,
+  keys.roadmap,
   ["today"],
   ["calendar"],
 ];
@@ -87,6 +93,7 @@ export function useSetCollection(slug: string) {
     onSuccess: (course) => {
       client.setQueryData(keys.course(slug), course);
       void client.invalidateQueries({ queryKey: keys.catalog });
+      void client.invalidateQueries({ queryKey: keys.roadmap });
     },
   });
 }
@@ -98,6 +105,7 @@ export function useImportCourse(slug: string) {
     onSuccess: (course) => {
       client.setQueryData(keys.course(slug), course);
       void client.invalidateQueries({ queryKey: keys.catalog });
+      void client.invalidateQueries({ queryKey: keys.roadmap });
     },
   });
 }
@@ -164,7 +172,9 @@ function useInvalidatePlan() {
   const client = useQueryClient();
   return () =>
     Promise.all(
-      [["plan"], ["today"], ["calendar"]].map((queryKey) => client.invalidateQueries({ queryKey })),
+      [["plan"], ["today"], ["calendar"], keys.roadmap].map((queryKey) =>
+        client.invalidateQueries({ queryKey }),
+      ),
     );
 }
 

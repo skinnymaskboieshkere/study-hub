@@ -5,6 +5,7 @@ import { FeedbackSection } from "./sections/FeedbackSection";
 import { FoundationsSection } from "./sections/FoundationsSection";
 import { NotesSection } from "./sections/NotesSection";
 import { PlanSection } from "./sections/PlanSection";
+import { RoadmapSection } from "./sections/RoadmapSection";
 
 const CONTENTS = [
   { href: "#foundations", label: "Цвета и шрифты" },
@@ -12,7 +13,8 @@ const CONTENTS = [
   { href: "#courses", label: "Курсы" },
   { href: "#plan", label: "План и календарь" },
   { href: "#notes", label: "Заметки" },
-  { href: "#feedback", label: "Сообщения и дорожная карта" },
+  { href: "#roadmap", label: "Дорожная карта" },
+  { href: "#feedback", label: "Сообщения" },
 ];
 
 /** Showcase of every UI element in the theme (SPEC §7). Approved on 18.11.2026. */
@@ -52,6 +54,7 @@ export function DevUiPage() {
       <CourseSection />
       <PlanSection />
       <NotesSection />
+      <RoadmapSection />
       <FeedbackSection />
     </>
   );

@@ -103,7 +103,14 @@ export const SeedTracksSchema = z.object({
       track: TrackSlugSchema,
       order: z.number().int(),
       prerequisites: z
-        .array(z.object({ course: SlugSchema, minProgress: z.number().min(0).max(1) }))
+        .array(
+          z.object({
+            course: SlugSchema,
+            minProgress: z.number().min(0).max(1),
+            /** "Желательно" (SPEC §4): shown as advice, never makes the course wait. */
+            optional: z.boolean().optional(),
+          }),
+        )
         .default([]),
       /** Collection the course starts in; later the user's choice wins. */
       initialCollection: CollectionSchema.optional(),

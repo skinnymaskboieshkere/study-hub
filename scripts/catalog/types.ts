@@ -29,6 +29,6 @@ export interface CoursePlacement {
   course: string;
   track: TrackSlug;
   order: number;
-  prerequisites?: { course: string; minProgress: number }[];
+  prerequisites?: { course: string; minProgress: number; optional?: boolean }[];
   initialCollection?: Collection;
 }

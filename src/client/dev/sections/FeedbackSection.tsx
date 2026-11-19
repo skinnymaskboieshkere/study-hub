@@ -1,7 +1,6 @@
 import { BookmarkPlus, CalendarPlus, ChevronDown, ExternalLink, VideoOff } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { RoadmapNode } from "@/components/roadmap/RoadmapNode";
 import { StateMessage } from "@/components/StateMessage";
 import { Timecode } from "@/components/Timecode";
 import { Button } from "@/components/ui/button";
@@ -46,7 +45,7 @@ export function FeedbackSection() {
   return (
     <ShowcaseSection
       id="feedback"
-      title="Сообщения, окна и дорожная карта"
+      title="Сообщения и окна"
       description="Пустой раздел подсказывает, что сделать дальше. Ошибка объясняет, что случилось и как это обойти."
     >
       <ShowcaseGroup title="Пусто и ошибка">
@@ -167,43 +166,6 @@ export function FeedbackSection() {
         <p className="mt-3 font-mono text-xs break-all text-ink-muted">
           В конспекте: [▶ 12:34]({youtubeWatchUrl(SAMPLE_VIDEO.cs50xLecture0, 754)})
         </p>
-      </ShowcaseGroup>
-
-      <ShowcaseGroup title="Узлы дорожной карты">
-        <div className="flex flex-wrap gap-4">
-          <RoadmapNode
-            title="18.06 Linear Algebra"
-            university="MIT"
-            track="foundation"
-            state="in-progress"
-            progress={0.4}
-          />
-          <RoadmapNode
-            title="First Principles of Computer Vision"
-            university="Columbia"
-            track="cv"
-            state="available"
-          />
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div tabIndex={0} className="rounded-2xl">
-                <RoadmapNode
-                  title="EECS 498: Deep Learning for CV"
-                  university="Michigan"
-                  track="cv"
-                  state="wait"
-                />
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>Рекомендуется сначала пройти 18.06 — сейчас 40% из 60%</TooltipContent>
-          </Tooltip>
-          <RoadmapNode
-            title="CS50x: Introduction to CS"
-            university="Harvard"
-            track="foundation"
-            state="done"
-          />
-        </div>
       </ShowcaseGroup>
     </ShowcaseSection>
   );

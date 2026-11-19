@@ -1,16 +1,6 @@
 import { Link } from "react-router";
 import { PagePlaceholder } from "@/components/PagePlaceholder";
 
-export function RoadmapPage() {
-  return (
-    <PagePlaceholder
-      title="Траектории"
-      description="Дорожная карта из четырёх треков с пререквизитами: что уже доступно, что лучше отложить и сколько часов осталось до Computer Vision."
-      stage="6"
-    />
-  );
-}
-
 export function StatsPage() {
   return (
     <PagePlaceholder

@@ -53,6 +53,7 @@ export const coursePrerequisites = sqliteTable(
       .notNull()
       .references(() => courses.slug, { onDelete: "cascade" }),
     minProgress: real("min_progress").notNull(),
+    optional: integer("optional", { mode: "boolean" }).notNull().default(false),
   },
   (table) => [primaryKey({ columns: [table.courseSlug, table.requiresSlug] })],
 );

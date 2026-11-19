@@ -34,7 +34,8 @@ export function CourseFacts({ course }: { course: CourseDetailDto }) {
                     {item.shortTitle} · {item.title}
                   </Link>
                   <p className="text-xs text-ink-muted">
-                    нужно {formatPercent(item.minProgress)}, сейчас {formatPercent(item.progress)}
+                    {item.optional ? "желательно" : "нужно"} {formatPercent(item.minProgress)},
+                    сейчас {formatPercent(item.progress)}
                   </p>
                 </div>
                 {item.met ? (
