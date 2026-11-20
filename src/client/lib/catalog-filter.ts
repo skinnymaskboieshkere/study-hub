@@ -7,7 +7,8 @@ export interface CatalogFilter {
   collection: CollectionFilter;
   /** Empty: all tracks. */
   tracks: string[];
-  subject: string;
+  /** Empty: all subjects. */
+  subjects: string[];
   university: string;
   level: string;
 }
@@ -15,7 +16,7 @@ export interface CatalogFilter {
 export const EMPTY_FILTER: CatalogFilter = {
   collection: "all",
   tracks: [],
-  subject: "all",
+  subjects: [],
   university: "all",
   level: "all",
 };
@@ -25,7 +26,7 @@ export function filterFromParams(params: URLSearchParams): CatalogFilter {
   return {
     collection: (params.get("collection") as CollectionFilter | null) ?? "all",
     tracks: params.getAll("track"),
-    subject: params.get("subject") ?? "all",
+    subjects: params.getAll("subject"),
     university: params.get("university") ?? "all",
     level: params.get("level") ?? "all",
   };
@@ -36,7 +37,7 @@ export function filterCourses(courses: CourseCardDto[], filter: CatalogFilter): 
     (course) =>
       (filter.collection === "all" || course.collection === filter.collection) &&
       (filter.tracks.length === 0 || filter.tracks.includes(course.track)) &&
-      (filter.subject === "all" || course.subject === filter.subject) &&
+      (filter.subjects.length === 0 || filter.subjects.includes(course.subject)) &&
       (filter.university === "all" || course.university === filter.university) &&
       (filter.level === "all" || String(course.level) === filter.level),
   );
@@ -58,7 +59,7 @@ export function countByCollection(courses: CourseCardDto[]): Record<CollectionFi
 export function hasActiveFilters(filter: CatalogFilter): boolean {
   return (
     filter.tracks.length > 0 ||
-    filter.subject !== "all" ||
+    filter.subjects.length > 0 ||
     filter.university !== "all" ||
     filter.level !== "all"
   );

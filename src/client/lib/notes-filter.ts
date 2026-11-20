@@ -1,4 +1,5 @@
-import type { NoteListItemDto } from "@shared/api";
+import type { NoteListItemDto, NoteTreeNodeDto } from "@shared/api";
+import { SUBJECTS, type Subject } from "@shared/catalog";
 
 const clean = (value: string) => value.normalize("NFC").toLowerCase();
 
@@ -55,4 +56,40 @@ export function snippetParts(snippet: string): { text: string; hit: boolean }[] 
     if (rest) parts.push({ text: rest, hit: false });
   }
   return parts;
+}
+
+/** The file tree with only the notes of these subjects and the folders that lead to them. */
+export function filterTreeBySubject(
+  nodes: NoteTreeNodeDto[],
+  subjects: readonly string[],
+): NoteTreeNodeDto[] {
+  if (subjects.length === 0) return nodes;
+  const keep = (items: NoteTreeNodeDto[]): NoteTreeNodeDto[] =>
+    items.flatMap((node) => {
+      if (node.type === "note")
+        return node.subject && subjects.includes(node.subject) ? [node] : [];
+      const children = keep(node.children ?? []);
+      return children.length > 0 ? [{ ...node, children }] : [];
+    });
+  return keep(nodes);
+}
+
+/** Subjects that some note in the tree has, in the catalog order: the filter offers only them. */
+export function treeSubjects(nodes: NoteTreeNodeDto[]): Subject[] {
+  const found = new Set<Subject>();
+  const walk = (items: NoteTreeNodeDto[]) => {
+    for (const node of items) {
+      if (node.subject) found.add(node.subject);
+      if (node.children) walk(node.children);
+    }
+  };
+  walk(nodes);
+  return SUBJECTS.filter((subject) => found.has(subject));
+}
+
+/** Every folder path in the tree: a filtered tree opens them all. */
+export function folderPaths(nodes: NoteTreeNodeDto[]): string[] {
+  return nodes.flatMap((node) =>
+    node.type === "folder" ? [node.path, ...folderPaths(node.children ?? [])] : [],
+  );
 }

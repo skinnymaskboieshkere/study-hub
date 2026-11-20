@@ -116,6 +116,8 @@ docs/         BRIEF, ASSESSMENT, design references
   then by chokidar). Every path goes through `Vault.resolve` (stays inside the vault, no hidden folders). Saves
   write a temp file and rename; a save carries `baseHash` and gets 409 when the file changed outside — the UI then
   asks, it never overwrites silently. Delete = move to `.trash/`. Links resolve like Obsidian (`resolveLink`).
+- Subjects (catalog chips, notes filter): a note's subject is computed, never stored — frontmatter `subject:` →
+  `course:` → course of `video:` → a subject tag (`noteSubject` in `src/shared/note-subject.ts`). Colors: `SUBJECT_COLOR`.
 - Never write into the user's real vault (OneDrive) or database during checks: use the `study-hub-sandbox` launch
   config — `VAULT_PATH=vault` (gitignored sample vault), `DATA_DIR=data/sandbox` (its own database), port 5190 — so
   it also runs next to the user's own `npm run dev` on 5180.

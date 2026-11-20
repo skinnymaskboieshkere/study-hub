@@ -4,7 +4,9 @@ import { CourseCard, CourseTile } from "@/components/course/CourseCard";
 import { CourseHero, HeroBadge } from "@/components/course/CourseHero";
 import { LessonRow } from "@/components/course/LessonRow";
 import { ProgressRing } from "@/components/course/ProgressRing";
+import { SubjectLabel } from "@/components/course/SubjectLabel";
 import { Badge } from "@/components/ui/badge";
+import { SUBJECTS } from "@shared/catalog";
 import { Progress } from "@/components/ui/progress";
 import { SAMPLE_COURSES, SAMPLE_LESSONS, SAMPLE_VIDEO } from "../sample";
 import { ShowcaseGroup, ShowcaseSection } from "../ShowcaseSection";
@@ -35,6 +37,16 @@ export function CourseSection() {
             </>
           }
         />
+      </ShowcaseGroup>
+
+      <ShowcaseGroup title="Предметы">
+        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink">
+          {SUBJECTS.map((subject) => (
+            <li key={subject}>
+              <SubjectLabel subject={subject} />
+            </li>
+          ))}
+        </ul>
       </ShowcaseGroup>
 
       <ShowcaseGroup title="Карточки каталога">

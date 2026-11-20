@@ -4,7 +4,7 @@ import { cn } from "cn";
 import { BookmarkPlus, SearchX } from "lucide-react";
 import { useMemo } from "react";
 import { useSearchParams } from "react-router";
-import { COLLECTION_LABEL, SUBJECT_LABEL } from "@/app/labels";
+import { COLLECTION_LABEL, subjectChipOptions } from "@/app/labels";
 import { useCatalog } from "@/app/queries";
 import { TRACKS } from "@/app/tracks";
 import { CourseCard } from "@/components/course/CourseCard";
@@ -33,6 +33,7 @@ const TRACK_OPTIONS = TRACKS.map((track) => ({
   label: track.title,
   dotClass: track.dotClass,
 }));
+const SUBJECT_OPTIONS = subjectChipOptions(SUBJECTS);
 
 export function CatalogPage() {
   const catalog = useCatalog();
@@ -90,19 +91,23 @@ export function CatalogPage() {
       </div>
 
       <div className="mt-5 space-y-4">
-        <FilterChips
-          label="Трек"
-          options={TRACK_OPTIONS}
-          value={filter.tracks}
-          onValueChange={(value) => update("track", value)}
-        />
-        <div className="flex flex-wrap items-center gap-3">
-          <FilterSelect
-            label="Предмет"
-            value={filter.subject}
-            onChange={(value) => update("subject", value)}
-            options={SUBJECTS.map((subject) => ({ value: subject, label: SUBJECT_LABEL[subject] }))}
+        <ChipRow title="Трек">
+          <FilterChips
+            label="Трек"
+            options={TRACK_OPTIONS}
+            value={filter.tracks}
+            onValueChange={(value) => update("track", value)}
           />
+        </ChipRow>
+        <ChipRow title="Предмет">
+          <FilterChips
+            label="Предмет"
+            options={SUBJECT_OPTIONS}
+            value={filter.subjects}
+            onValueChange={(value) => update("subject", value)}
+          />
+        </ChipRow>
+        <div className="flex flex-wrap items-center gap-3">
           <FilterSelect
             label="Университет"
             value={filter.university}
@@ -142,6 +147,18 @@ export function CatalogPage() {
         )}
       </div>
     </section>
+  );
+}
+
+/** A row of chips with its name in front: tracks and subjects share some names. */
+function ChipRow({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+      <span aria-hidden className="w-16 shrink-0 text-sm text-ink-muted">
+        {title}
+      </span>
+      {children}
+    </div>
   );
 }
 

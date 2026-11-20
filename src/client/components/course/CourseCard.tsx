@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { formatDuration, formatPercent, pluralRu } from "@/lib/format";
 import { CourseCover } from "./CourseCover";
 import { ProgressRing } from "./ProgressRing";
+import { SubjectLabel } from "./SubjectLabel";
 import { TrackBadge } from "./TrackBadge";
 import type { CourseSummary } from "./types";
 
@@ -77,6 +78,7 @@ export function CourseCard({ course, to }: CourseCardProps) {
         {course.status !== "candidate" && <ProgressRing value={course.progress} />}
       </div>
       <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 px-1 pb-1 text-xs text-ink-muted">
+        {course.subject && <SubjectLabel subject={course.subject} className="text-ink" />}
         <span>{course.level} курс</span>
         {course.status === "candidate" ? (
           <>

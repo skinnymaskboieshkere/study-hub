@@ -1,7 +1,7 @@
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import type { LectureNoteDto, VideoNoteDto } from "@shared/api";
+import type { LectureNoteDto, NoteListItemDto, NoteTreeNodeDto, VideoNoteDto } from "@shared/api";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { buildApp } from "../app";
 import { applySeed } from "../catalog/seed";
@@ -67,6 +67,7 @@ describe("video ↔ notes API", () => {
   let root: string;
   let database: ReturnType<typeof openDatabase>;
   let app: Awaited<ReturnType<typeof buildApp>>;
+  let notes: NotesService;
 
   const write = (relative: string, content: string) => {
     mkdirSync(path.dirname(path.join(root, relative)), { recursive: true });
@@ -86,7 +87,7 @@ describe("video ↔ notes API", () => {
     root = mkdtempSync(path.join(tmpdir(), "vault-"));
     database = openDatabase({ file: ":memory:", migrationsDir: path.resolve("drizzle") });
     applySeed(database.db, seed);
-    const notes = new NotesService(database.db, root);
+    notes = new NotesService(database.db, root);
     await notes.sync();
     app = await buildApp({ db: database.db, notes });
   });
@@ -107,6 +108,29 @@ describe("video ↔ notes API", () => {
     expect(await lecture(FIRST)).toEqual({ path: first.path, created: false });
     const found = await app.inject({ method: "GET", url: `/api/notes/lecture?video=${FIRST}` });
     expect(found.json()).toEqual({ path: first.path, created: false });
+  });
+
+  it("tells the subject of each note in the list and the tree", async () => {
+    const own = await lecture(SECOND);
+    write("Физика/Волны.md", "# Волны\n\n#физика");
+    write("Идеи.md", "---\nsubject: Математика\n---\n# Идеи");
+    write("Разное.md", "# Разное");
+    await notes.sync();
+
+    const list = (await app.inject({ method: "GET", url: "/api/notes/list" })).json<
+      NoteListItemDto[]
+    >();
+    expect(Object.fromEntries(list.map((note) => [note.path, note.subject]))).toEqual({
+      [own.path!]: "programming",
+      "Физика/Волны.md": "physics",
+      "Идеи.md": "math",
+      "Разное.md": null,
+    });
+    const tree = (await app.inject({ method: "GET", url: "/api/notes/tree" })).json<
+      NoteTreeNodeDto[]
+    >();
+    const physics = tree.find((node) => node.name === "Физика")?.children?.[0];
+    expect(physics).toMatchObject({ name: "Волны", subject: "physics" });
   });
 
   it("uses Templates/Лекция.md and adds the video when the template has none", async () => {
@@ -185,7 +209,7 @@ describe("video ↔ notes API", () => {
   it("lists templates", async () => {
     write("Templates/Лекция.md", "# {{title}}");
     write("Templates/Дневная заметка.md", "# {{title}}");
-    const notes = new NotesService(database.db, root);
+    notes = new NotesService(database.db, root);
     await notes.sync();
     const list = (await app.inject({ method: "GET", url: "/api/notes/templates" })).json();
     expect(list).toEqual([

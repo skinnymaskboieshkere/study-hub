@@ -1,10 +1,18 @@
 import { describe, expect, it } from "vitest";
-import { filterNotes, snippetParts } from "./notes-filter";
+import type { NoteTreeNodeDto } from "@shared/api";
+import {
+  filterNotes,
+  filterTreeBySubject,
+  folderPaths,
+  snippetParts,
+  treeSubjects,
+} from "./notes-filter";
 
 const note = (path: string, mtimeMs = 0) => ({
   path,
   title: path.split("/").pop()!.replace(/\.md$/, ""),
   mtimeMs,
+  subject: null,
 });
 
 const notes = [
@@ -47,5 +55,44 @@ describe("snippetParts", () => {
       { text: "предел", hit: true },
       { text: " функции", hit: false },
     ]);
+  });
+});
+
+describe("filterTreeBySubject", () => {
+  const tree: NoteTreeNodeDto[] = [
+    {
+      name: "Курсы",
+      path: "Курсы",
+      type: "folder",
+      children: [
+        { name: "Пределы", path: "Курсы/Пределы.md", type: "note", subject: "math" },
+        { name: "Волны", path: "Курсы/Волны.md", type: "note", subject: "physics" },
+        { name: "Пусто", path: "Курсы/Пусто", type: "folder", children: [] },
+      ],
+    },
+    { name: "C", path: "C.md", type: "note", subject: "programming" },
+    { name: "Разное", path: "Разное.md", type: "note", subject: null },
+  ];
+
+  it("keeps everything without a filter", () => {
+    expect(filterTreeBySubject(tree, [])).toBe(tree);
+  });
+
+  it("keeps matching notes and the folders on their way", () => {
+    expect(filterTreeBySubject(tree, ["math", "programming"])).toEqual([
+      {
+        name: "Курсы",
+        path: "Курсы",
+        type: "folder",
+        children: [{ name: "Пределы", path: "Курсы/Пределы.md", type: "note", subject: "math" }],
+      },
+      { name: "C", path: "C.md", type: "note", subject: "programming" },
+    ]);
+    expect(filterTreeBySubject(tree, ["cv"])).toEqual([]);
+  });
+
+  it("lists the subjects the notes have, in the catalog order", () => {
+    expect(treeSubjects(tree)).toEqual(["programming", "math", "physics"]);
+    expect(folderPaths(tree)).toEqual(["Курсы", "Курсы/Пусто"]);
   });
 });

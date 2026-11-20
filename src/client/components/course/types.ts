@@ -1,3 +1,4 @@
+import type { Subject } from "@shared/catalog";
 import type { TrackSlug } from "@/app/tracks";
 
 /** What a course card needs: a subset of CourseCardDto from the API. */
@@ -9,6 +10,8 @@ export interface CourseSummary {
   university: string;
   instructors: string[];
   track: TrackSlug;
+  /** Shown as a colored label on the catalog card. */
+  subject?: Subject;
   /** Study year the course fits (1 = first year). */
   level: number;
   /** Video whose thumbnail is the cover; without it a track-colored cover is drawn. */

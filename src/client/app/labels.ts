@@ -19,6 +19,15 @@ export const SUBJECT_COLOR: Record<Subject, { color: string; dotClass: string }>
   cv: { color: "var(--color-subject-cv)", dotClass: "bg-subject-cv" },
 };
 
+/** Options for subject filter chips (catalog, notes), in the given order. */
+export function subjectChipOptions(subjects: readonly Subject[]) {
+  return subjects.map((subject) => ({
+    value: subject,
+    label: SUBJECT_LABEL[subject],
+    dotClass: SUBJECT_COLOR[subject].dotClass,
+  }));
+}
+
 export const COLLECTION_LABEL: Record<Collection, string> = {
   wishlist: "Хочу пройти",
   active: "В процессе",

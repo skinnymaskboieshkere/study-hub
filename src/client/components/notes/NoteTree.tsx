@@ -2,12 +2,15 @@ import type { NoteTreeNodeDto } from "@shared/api";
 import { cn } from "cn";
 import { ChevronRight, FileText, Folder, FolderOpen, Plus } from "lucide-react";
 import { useState } from "react";
+import { SUBJECT_COLOR, SUBJECT_LABEL } from "@/app/labels";
 
 interface NoteTreeProps {
   nodes: NoteTreeNodeDto[];
   activePath: string | null;
   onOpen: (path: string) => void;
   onCreateIn: (folder: string) => void;
+  /** Folders open from the start besides the open note's ones (all of them while filtering). */
+  defaultOpen?: string[];
 }
 
 /** "Матанализ/Пределы.md" → ["Матанализ"]: folders to open so the note is visible. */
@@ -18,8 +21,10 @@ function ancestors(path: string | null): string[] {
 }
 
 /** Vault folders and notes (SPEC §6.5). The open note's folders unfold by themselves. */
-export function NoteTree({ nodes, activePath, onOpen, onCreateIn }: NoteTreeProps) {
-  const [open, setOpen] = useState(() => new Set(ancestors(activePath)));
+export function NoteTree({ nodes, activePath, onOpen, onCreateIn, defaultOpen }: NoteTreeProps) {
+  const [open, setOpen] = useState(
+    () => new Set([...ancestors(activePath), ...(defaultOpen ?? [])]),
+  );
   const [shownFor, setShownFor] = useState(activePath);
   if (activePath !== shownFor) {
     setShownFor(activePath);
@@ -91,6 +96,16 @@ export function NoteTree({ nodes, activePath, onOpen, onCreateIn }: NoteTreeProp
           >
             <FileText aria-hidden className="size-4 shrink-0 opacity-70" />
             <span className="truncate">{node.name}</span>
+            {node.subject && (
+              <span
+                aria-hidden
+                title={SUBJECT_LABEL[node.subject]}
+                className={cn(
+                  "ml-auto size-2 shrink-0 rounded-full",
+                  SUBJECT_COLOR[node.subject].dotClass,
+                )}
+              />
+            )}
           </button>
         </li>
       );

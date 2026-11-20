@@ -46,7 +46,8 @@ describe("filterCourses", () => {
 
     expect(slugs({ collection: "active" })).toEqual(["linear-algebra"]);
     expect(slugs({ tracks: ["cv"] })).toEqual(["cs231n"]);
-    expect(slugs({ subject: "programming" })).toEqual(["cs50x"]);
+    expect(slugs({ subjects: ["programming"] })).toEqual(["cs50x"]);
+    expect(slugs({ subjects: ["programming", "cv"] })).toEqual(["cs50x", "cs231n"]);
     expect(slugs({ university: "MIT", level: "1" })).toEqual(["linear-algebra"]);
     expect(slugs({ tracks: ["foundation", "cv"], level: "3" })).toEqual(["cs231n"]);
   });
@@ -54,8 +55,15 @@ describe("filterCourses", () => {
 
 describe("filterFromParams", () => {
   it("reads repeated track params and defaults the rest", () => {
-    const filter = filterFromParams(new URLSearchParams("track=cv&track=robotics&level=2"));
-    expect(filter).toEqual({ ...EMPTY_FILTER, tracks: ["cv", "robotics"], level: "2" });
+    const filter = filterFromParams(
+      new URLSearchParams("track=cv&track=robotics&subject=math&level=2"),
+    );
+    expect(filter).toEqual({
+      ...EMPTY_FILTER,
+      tracks: ["cv", "robotics"],
+      subjects: ["math"],
+      level: "2",
+    });
     expect(hasActiveFilters(filter)).toBe(true);
     expect(hasActiveFilters(EMPTY_FILTER)).toBe(false);
   });

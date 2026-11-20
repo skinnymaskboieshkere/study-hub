@@ -1,9 +1,17 @@
-import type { BacklinkDto, NoteSearchResultDto, TagCountDto, VideoNoteDto } from "@shared/api";
+import type {
+  BacklinkDto,
+  NoteListItemDto,
+  NoteSearchResultDto,
+  TagCountDto,
+  VideoNoteDto,
+} from "@shared/api";
+import { SUBJECTS, type Subject } from "@shared/catalog";
+import { noteSubject } from "@shared/note-subject";
 import { frontmatterTags, linkKey, noteName, parseNote, resolveLink } from "@shared/notes";
 import { and, eq, inArray, sql } from "drizzle-orm";
 import { parse as parseYaml } from "yaml";
 import type { AppDatabase } from "../db/client";
-import { noteLinks, notes, noteTags } from "../db/schema";
+import { courses, courseVideos, noteLinks, notes, noteTags } from "../db/schema";
 import { hashText } from "./vault";
 
 /** Frontmatter as a plain object; broken YAML is kept out of the index, not fixed. */
@@ -116,12 +124,49 @@ export function notePaths(db: AppDatabase): string[] {
     .map((row) => row.path);
 }
 
-export function listNotes(db: AppDatabase) {
+export function listNotes(db: AppDatabase): NoteListItemDto[] {
+  const subjects = noteSubjects(db);
   return db
     .select({ path: notes.path, title: notes.title, mtimeMs: notes.mtimeMs })
     .from(notes)
     .orderBy(notes.title)
-    .all();
+    .all()
+    .map((note) => ({ ...note, subject: subjects.get(note.path) ?? null }));
+}
+
+/** Subject of every note that has one (shared/note-subject): from the catalog and tags. */
+export function noteSubjects(db: AppDatabase): Map<string, Subject> {
+  const known = new Set<string>(SUBJECTS);
+  const courseSubject = new Map<string, Subject>();
+  for (const row of db
+    .select({ slug: courses.slug, subject: courses.subject })
+    .from(courses)
+    .all()) {
+    if (known.has(row.subject)) courseSubject.set(row.slug, row.subject as Subject);
+  }
+  const videoCourse = new Map<string, string>();
+  for (const row of db
+    .select({ id: courseVideos.youtubeId, course: courseVideos.courseSlug })
+    .from(courseVideos)
+    .all()) {
+    if (!videoCourse.has(row.id)) videoCourse.set(row.id, row.course);
+  }
+  const tags = new Map<string, string[]>();
+  for (const row of db.select({ path: noteTags.path, tag: noteTags.tag }).from(noteTags).all()) {
+    tags.set(row.path, [...(tags.get(row.path) ?? []), row.tag]);
+  }
+  const result = new Map<string, Subject>();
+  for (const note of db
+    .select({ path: notes.path, frontmatter: notes.frontmatter })
+    .from(notes)
+    .all()) {
+    const subject = noteSubject(note.frontmatter ?? null, tags.get(note.path) ?? [], {
+      courseSubject,
+      videoCourse,
+    });
+    if (subject) result.set(note.path, subject);
+  }
+  return result;
 }
 
 /** Notes that link here, each with the lines that mention it (SPEC §6.5). */

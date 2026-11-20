@@ -12,7 +12,9 @@ import { Link } from "react-router";
 import { todayIso } from "@shared/dates";
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
+import { subjectChipOptions } from "@/app/labels";
 import { useCreateFolder, useNoteTree, useTags } from "@/app/notes-queries";
+import { FilterChips } from "@/components/FilterChips";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -23,6 +25,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { filterTreeBySubject, folderPaths, treeSubjects } from "@/lib/notes-filter";
 import { NoteTree } from "./NoteTree";
 import { useOpenDailyNote } from "./useOpenDailyNote";
 
@@ -46,6 +49,11 @@ export function NoteSidebar(props: NoteSidebarProps) {
   const daily = useOpenDailyNote();
   const [folderDialog, setFolderDialog] = useState(false);
   const [folderName, setFolderName] = useState("");
+  const [subjects, setSubjects] = useState<string[]>([]);
+  const present = tree.data ? treeSubjects(tree.data) : [];
+  // A subject whose last note is gone stops filtering.
+  const active = subjects.filter((subject) => present.some((item) => item === subject));
+  const shown = tree.data ? filterTreeBySubject(tree.data, active) : null;
 
   function submitFolder(event: FormEvent) {
     event.preventDefault();
@@ -128,10 +136,22 @@ export function NoteSidebar(props: NoteSidebarProps) {
         </Button>
       </div>
 
+      {present.length > 0 && (
+        <FilterChips
+          label="Предмет"
+          size="sm"
+          options={subjectChipOptions(present)}
+          value={active}
+          onValueChange={setSubjects}
+        />
+      )}
+
       <nav aria-label="Файлы хранилища" className="min-h-0 flex-1 overflow-y-auto pr-1">
-        {tree.data ? (
+        {shown ? (
           <NoteTree
-            nodes={tree.data}
+            key={active.join()}
+            nodes={shown}
+            defaultOpen={active.length > 0 ? folderPaths(shown) : undefined}
             activePath={props.activePath}
             onOpen={props.onOpen}
             onCreateIn={props.onCreateNote}

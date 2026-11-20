@@ -42,6 +42,7 @@ import {
   indexNote,
   lectureNoteFor,
   listNotes,
+  noteSubjects,
   readFrontmatter,
   removeNote,
 } from "./note-index";
@@ -177,7 +178,15 @@ export class NotesService {
   }
 
   async tree(): Promise<NoteTreeNodeDto[]> {
-    return this.requireVault().tree();
+    const nodes = await this.requireVault().tree();
+    const subjects = noteSubjects(this.db);
+    const mark = (items: NoteTreeNodeDto[]): NoteTreeNodeDto[] =>
+      items.map((node) =>
+        node.type === "folder"
+          ? { ...node, children: mark(node.children ?? []) }
+          : { ...node, subject: subjects.get(node.path) ?? null },
+      );
+    return mark(nodes);
   }
 
   list(): NoteListItemDto[] {

@@ -342,12 +342,15 @@ export interface NoteTreeNodeDto {
   path: string;
   type: "folder" | "note";
   children?: NoteTreeNodeDto[];
+  /** Notes only: the subject the note belongs to, when it can be told (shared/note-subject). */
+  subject?: Subject | null;
 }
 
 export interface NoteListItemDto {
   path: string;
   title: string;
   mtimeMs: number;
+  subject: Subject | null;
 }
 
 export interface NoteFileDto {
